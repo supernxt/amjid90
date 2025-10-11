@@ -30,12 +30,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <img 
-                src="/attached_assets/icononly_nobuffer_1760195158050.png" 
-                alt="Super Next Technologies" 
-                className="h-10 w-auto"
-                data-testid="img-footer-logo"
-              />
+              <div className="h-10 w-10 bg-white rounded-md p-1">
+                <img 
+                  src="/attached_assets/icononly_nobuffer_1760195158050.png" 
+                  alt="Super Next Technologies" 
+                  className="h-full w-full object-contain"
+                  data-testid="img-footer-logo"
+                />
+              </div>
               <span className="text-lg font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
                 Super Next Technologies
               </span>
@@ -83,14 +85,20 @@ export default function Footer() {
             © 2025 Super Next Technologies. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <a href="mailto:info@supernext.tech" className="hover:text-foreground flex items-center gap-2">
+            <a href="mailto:hello@supernxt.com" className="hover:text-foreground flex items-center gap-2 transition-colors" data-testid="link-footer-email">
               <Mail className="h-4 w-4" />
-              info@supernext.tech
+              hello@supernxt.com
             </a>
-            <span className="flex items-center gap-2">
+            <a 
+              href="https://maps.app.goo.gl/4xaEugRG8vxcBmWc9" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-foreground flex items-center gap-2 transition-colors"
+              data-testid="link-footer-location"
+            >
               <MapPin className="h-4 w-4" />
-              UAE/GCC
-            </span>
+              Production City Dubai UAE
+            </a>
           </div>
         </div>
       </div>

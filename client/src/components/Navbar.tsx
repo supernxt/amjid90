@@ -26,12 +26,14 @@ export default function Navbar() {
       <div className="max-w-[1920px] mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-3 group">
-            <img 
-              src="/attached_assets/icononly_nobuffer_1760195158050.png" 
-              alt="Super Next Technologies" 
-              className="h-12 w-auto transition-all duration-300 group-hover:scale-105"
-              data-testid="img-logo"
-            />
+            <div className="relative h-12 w-12 bg-white rounded-md p-1 transition-all duration-300 group-hover:scale-105">
+              <img 
+                src="/attached_assets/icononly_nobuffer_1760195158050.png" 
+                alt="Super Next Technologies" 
+                className="h-full w-full object-contain"
+                data-testid="img-logo"
+              />
+            </div>
             <span className="text-xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent hidden md:block">
               Super Next Technologies
             </span>

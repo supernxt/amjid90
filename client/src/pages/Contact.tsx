@@ -43,14 +43,23 @@ export default function Contact() {
                   <Mail className="h-6 w-6 text-primary mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-foreground/70">info@supernexttech.com</p>
+                    <a href="mailto:hello@supernxt.com" className="text-foreground/70 hover:text-primary transition-colors">
+                      hello@supernxt.com
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <MapPin className="h-6 w-6 text-primary mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Location</h3>
-                    <p className="text-foreground/70">Global Offices</p>
+                    <a 
+                      href="https://maps.app.goo.gl/4xaEugRG8vxcBmWc9" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-foreground/70 hover:text-primary transition-colors"
+                    >
+                      Production City Dubai UAE
+                    </a>
                   </div>
                 </div>
               </div>
