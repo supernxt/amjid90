@@ -91,6 +91,28 @@ export default function Contact() {
             </motion.div>
           </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="mt-16"
+        >
+          <h2 className="text-2xl font-bold mb-6 text-center">Find Us</h2>
+          <div className="relative w-full h-[400px] rounded-lg overflow-hidden border border-primary/20">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.2347827815724!2d55.16928!3d25.0470!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6d4f9d3e3e3d%3A0x4f4f4f4f4f4f4f4f!2sProduction%20City%2C%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sae!4v1234567890123!5m2!1sen!2sae"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Super Next Technologies Location"
+              data-testid="iframe-map"
+            />
+          </div>
+        </motion.div>
       </div>
     </Background3D>
   );
