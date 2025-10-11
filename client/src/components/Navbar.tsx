@@ -27,11 +27,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-3 group">
             <img 
-              src="/attached_assets/fulllogo_transparent_1760191386496.png" 
+              src="/attached_assets/icononly_nobuffer_1760202128142.png" 
               alt="Super Next Technologies" 
-              className="h-16 md:h-20 w-auto transition-all duration-300 group-hover:scale-105 filter drop-shadow-[0_0_15px_rgba(96,165,250,0.8)]"
+              className="h-14 md:h-16 w-auto transition-all duration-300 group-hover:scale-105 drop-shadow-[0_0_15px_rgba(96,165,250,0.3)]"
               data-testid="img-logo"
-              style={{ filter: 'brightness(0) invert(1) drop-shadow(0 0 15px rgba(96, 165, 250, 0.8))' }}
             />
           </Link>
 

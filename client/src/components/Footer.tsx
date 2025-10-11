@@ -30,10 +30,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           <div className="lg:col-span-2">
             <img 
-              src="/attached_assets/fulllogo_transparent_1760191386496.png" 
+              src="/attached_assets/icononly_nobuffer_1760202128142.png" 
               alt="Super Next Technologies" 
-              className="h-10 w-auto mb-4"
-              style={{ filter: 'brightness(0) invert(1)' }}
+              className="h-12 w-auto mb-4"
               data-testid="img-footer-logo"
             />
             <p className="text-muted-foreground mb-6 max-w-sm">
