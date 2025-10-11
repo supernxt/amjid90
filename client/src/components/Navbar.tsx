@@ -11,7 +11,6 @@ const navItems = [
   { label: "Infrastructure", path: "/infrastructure" },
   { label: "Website Development", path: "/website-development" },
   { label: "Templates & Use Cases", path: "/templates" },
-  { label: "Pricing", path: "/pricing" },
   { label: "Case Studies", path: "/case-studies" },
   { label: "Support", path: "/support" },
   { label: "About", path: "/about" },

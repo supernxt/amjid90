@@ -3,13 +3,22 @@ import Background3D from "@/components/Background3D";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { openAIChat } from "@/lib/ai-assistant";
 import { 
   ShoppingCart, Building2, Stethoscope, GraduationCap, 
   Plane, Utensils, DollarSign, Home, Car, Briefcase,
   Code, Palette, Rocket, Smartphone, ArrowRight,
   MessageSquare, Mail, Phone, Globe
 } from "lucide-react";
+
+// Helper function to contact via email
+const contactViaEmail = () => {
+  window.location.href = "mailto:hello@supernxt.com?subject=Template%20Inquiry&body=Hello,%20I'm%20interested%20in%20using%20a%20template%20for%20my%20project.";
+};
+
+// Helper function to call
+const contactViaCall = () => {
+  window.location.href = "tel:048864215";
+};
 
 const categories = ["All", "E-Commerce", "Enterprise", "Healthcare", "Education", "Other"];
 
@@ -171,7 +180,7 @@ export default function Templates() {
               ))}
             </div>
             <div className="text-center mt-8">
-              <Button size="lg" className="gap-2" onClick={openAIChat} data-testid="button-start-project">
+              <Button size="lg" className="gap-2" onClick={contactViaEmail} data-testid="button-start-project">
                 Start Your Project <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
@@ -244,7 +253,7 @@ export default function Templates() {
                     <Button 
                       variant="outline" 
                       className="w-full gap-2"
-                      onClick={openAIChat}
+                      onClick={contactViaEmail}
                       data-testid={`button-use-template-${index}`}
                     >
                       Use Template <ArrowRight className="h-4 w-4" />
@@ -270,13 +279,13 @@ export default function Templates() {
                 Can't find the perfect template? Let's build something custom for your unique requirements.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" onClick={openAIChat} data-testid="button-talk-expert">
-                  <MessageSquare className="mr-2 h-5 w-5" />
-                  Talk to AI Assistant
+                <Button size="lg" onClick={contactViaCall} data-testid="button-talk-expert">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Call Us Now
                 </Button>
-                <Button size="lg" variant="outline" onClick={openAIChat} data-testid="button-request-quote">
+                <Button size="lg" variant="outline" onClick={contactViaEmail} data-testid="button-request-quote">
                   <Mail className="mr-2 h-5 w-5" />
-                  Request a Quote
+                  Email Us
                 </Button>
               </div>
             </div>

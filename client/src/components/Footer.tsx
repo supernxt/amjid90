@@ -13,7 +13,6 @@ const footerLinks = {
   Resources: [
     { label: "Templates & Use Cases", path: "/templates" },
     { label: "Case Studies", path: "/case-studies" },
-    { label: "Pricing", path: "/pricing" },
     { label: "Support", path: "/support" },
   ],
   Company: [
@@ -74,26 +73,26 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            © 2025 Super Next Technologies. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <a href="mailto:hello@supernxt.com" className="hover:text-foreground flex items-center gap-2 transition-colors" data-testid="link-footer-email">
-              <Mail className="h-4 w-4" />
-              hello@supernxt.com
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          <div className="flex flex-col gap-3 text-sm">
+            <a href="mailto:hello@supernxt.com" className="hover:text-primary flex items-center gap-2 transition-colors font-medium text-foreground" data-testid="link-footer-email">
+              <Mail className="h-5 w-5 text-primary" />
+              <span className="text-base">hello@supernxt.com</span>
             </a>
             <a 
               href="https://maps.app.goo.gl/4xaEugRG8vxcBmWc9" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="hover:text-foreground flex items-center gap-2 transition-colors"
+              className="hover:text-primary flex items-center gap-2 transition-colors font-medium text-foreground"
               data-testid="link-footer-location"
             >
-              <MapPin className="h-4 w-4" />
-              Production City Dubai UAE
+              <MapPin className="h-5 w-5 text-primary" />
+              <span className="text-base">Production City Dubai UAE</span>
             </a>
           </div>
+          <p className="text-sm text-muted-foreground">
+            © 2025 Super Next Technologies. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
