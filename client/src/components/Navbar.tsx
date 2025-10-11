@@ -46,11 +46,11 @@ export default function Navbar() {
           </div>
 
           <div className="lg:flex items-center justify-end">
-            <div className="bg-white rounded-lg p-3 shadow-lg transition-all duration-300 hover:shadow-xl">
+            <div className="bg-white rounded-lg p-2 shadow-lg transition-all duration-300 hover:shadow-xl">
               <img 
                 src={smallLogo} 
                 alt="Super Next Technologies" 
-                className="h-16 w-16 object-contain transition-all duration-300 hover:scale-105"
+                className="h-10 w-10 object-contain transition-all duration-300 hover:scale-105"
                 data-testid="img-logo"
               />
             </div>
