@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
+import Background3D from "@/components/Background3D";
 import PricingCard from "@/components/PricingCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Pricing() {
   return (
-    <div className="pt-24 pb-20 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
+    <Background3D variant="pricing">
+      <div className="pt-24 pb-20 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -175,7 +177,8 @@ export default function Pricing() {
             </div>
           </TabsContent>
         </Tabs>
+        </div>
       </div>
-    </div>
+    </Background3D>
   );
 }

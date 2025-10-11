@@ -1,7 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin } from "lucide-react";
-import { SiWhatsapp } from "react-icons/si";
+import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
 
 const footerLinks = {
   Solutions: [
@@ -39,19 +38,20 @@ export default function Footer() {
             <p className="text-muted-foreground mb-6 max-w-sm">
               AI-Powered Infrastructure & 3D Web Experiences for the future of enterprise technology.
             </p>
-            <div className="flex gap-3">
+            <div className="flex flex-col gap-3">
               <a href="tel:048864215">
-                <Button size="sm" variant="outline" data-testid="button-footer-call">
+                <Button size="sm" variant="outline" className="w-full justify-start" data-testid="button-footer-call">
                   <Phone className="h-4 w-4 mr-2" />
-                  Call
+                  Call: 048864215
                 </Button>
               </a>
-              <a href="https://wa.me/048864215" target="_blank" rel="noopener noreferrer">
-                <Button size="sm" variant="default" data-testid="button-footer-whatsapp">
-                  <SiWhatsapp className="h-4 w-4 mr-2" />
-                  WhatsApp
-                </Button>
-              </a>
+              <div className="flex items-center gap-2 p-3 bg-primary/10 border border-primary/20 rounded-md">
+                <MessageSquare className="h-5 w-5 text-primary" />
+                <div className="flex-1">
+                  <p className="text-sm font-medium">AI Assistant Available</p>
+                  <p className="text-xs text-muted-foreground">Click the widget to chat</p>
+                </div>
+              </div>
             </div>
           </div>
 

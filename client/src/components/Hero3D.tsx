@@ -4,21 +4,7 @@ import { Sparkles, ArrowRight } from "lucide-react";
 
 export default function Hero3D() {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-primary/5 to-background">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        
-        <svg className="absolute inset-0 w-full h-full opacity-30">
-          <defs>
-            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-primary/30" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
-
+    <div className="relative min-h-screen flex items-center justify-center">
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
