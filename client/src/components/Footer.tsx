@@ -32,7 +32,8 @@ export default function Footer() {
             <img 
               src="/attached_assets/fulllogo_transparent_1760191386496.png" 
               alt="Super Next Technologies" 
-              className="h-10 w-auto mb-4 brightness-0 invert"
+              className="h-10 w-auto mb-4"
+              style={{ filter: 'brightness(0) invert(1)' }}
               data-testid="img-footer-logo"
             />
             <p className="text-muted-foreground mb-6 max-w-sm">

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -29,8 +29,9 @@ export default function Navbar() {
             <img 
               src="/attached_assets/fulllogo_transparent_1760191386496.png" 
               alt="Super Next Technologies" 
-              className="h-16 md:h-20 w-auto transition-all duration-300 group-hover:scale-105 brightness-0 invert drop-shadow-[0_0_10px_rgba(96,165,250,0.5)]"
+              className="h-16 md:h-20 w-auto transition-all duration-300 group-hover:scale-105 filter drop-shadow-[0_0_15px_rgba(96,165,250,0.8)]"
               data-testid="img-logo"
+              style={{ filter: 'brightness(0) invert(1) drop-shadow(0 0 15px rgba(96, 165, 250, 0.8))' }}
             />
           </Link>
 
@@ -53,14 +54,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden lg:flex items-center gap-2">
-            <a href="tel:048864215">
-              <Button variant="outline" size="sm" className="border-primary/40 hover:border-primary" data-testid="button-call">
-                <Phone className="h-4 w-4 mr-2 text-primary" />
-                048864215
-              </Button>
-            </a>
-          </div>
+          <div className="hidden lg:block w-32"></div>
 
           <Button
             variant="ghost"
@@ -93,14 +87,6 @@ export default function Navbar() {
                 </Button>
               </Link>
             ))}
-            <div className="pt-4">
-              <a href="tel:048864215" className="block">
-                <Button variant="outline" className="w-full border-primary/40 hover:border-primary" data-testid="button-mobile-call">
-                  <Phone className="h-4 w-4 mr-2 text-primary" />
-                  048864215
-                </Button>
-              </a>
-            </div>
           </div>
         </div>
       )}
