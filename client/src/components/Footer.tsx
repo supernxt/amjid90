@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
+import logoIcon from "@assets/icononly_nobuffer_1760202128142.png";
 
 const footerLinks = {
   Solutions: [
@@ -30,9 +31,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           <div className="lg:col-span-2">
             <img 
-              src="/attached_assets/icononly_nobuffer_1760202128142.png" 
+              src={logoIcon} 
               alt="Super Next Technologies" 
-              className="h-12 w-auto mb-4"
+              className="h-16 w-auto mb-4 drop-shadow-[0_0_25px_rgba(96,165,250,0.6)] brightness-125"
               data-testid="img-footer-logo"
             />
             <p className="text-muted-foreground mb-6 max-w-sm">

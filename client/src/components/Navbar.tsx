@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import smallLogo from "@assets/icononly_transparent_1760207244877.png";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -25,16 +26,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-primary/20 shadow-lg shadow-primary/5">
       <div className="max-w-[1920px] mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-3 group">
-            <img 
-              src="/attached_assets/icononly_nobuffer_1760202128142.png" 
-              alt="Super Next Technologies" 
-              className="h-14 md:h-16 w-auto transition-all duration-300 group-hover:scale-105 drop-shadow-[0_0_15px_rgba(96,165,250,0.3)]"
-              data-testid="img-logo"
-            />
-          </Link>
-
-          <div className="hidden lg:flex items-center gap-1 flex-1 justify-center max-w-5xl mx-8">
+          <div className="hidden lg:flex items-center gap-1 flex-1 justify-start max-w-5xl">
             {navItems.map((item) => (
               <Link key={item.path} href={item.path}>
                 <Button
@@ -53,7 +45,14 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden lg:block w-32"></div>
+          <div className="lg:flex items-center justify-end">
+            <img 
+              src={smallLogo} 
+              alt="Super Next Technologies" 
+              className="h-16 w-16 object-contain drop-shadow-[0_0_35px_rgba(239,68,68,1)] brightness-125 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_45px_rgba(239,68,68,1)]"
+              data-testid="img-logo"
+            />
+          </div>
 
           <Button
             variant="ghost"

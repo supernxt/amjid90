@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Play, Bot, DollarSign, MessageSquare, Users, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -42,8 +42,31 @@ const slides = [
 ];
 
 function AnimatedBackground({ gradient }: { gradient: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch((error) => {
+        console.log("Video autoplay was prevented:", error);
+      });
+    }
+  }, []);
+
   return (
     <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`}>
+      {/* Video Background */}
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
+        data-testid="video-background"
+      >
+        <source src="/attached_assets/Black White Abstract Color and Style Video Background_1760206690617.mp4" type="video/mp4" />
+      </video>
+
       {/* Animated particles */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(20)].map((_, i) => (
