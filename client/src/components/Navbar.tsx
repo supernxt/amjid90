@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import smallLogo from "@assets/icononly_transparent_1760207244877.png";
+import smallLogo from "@assets/icononly_transparent_nobuffer_1760207932143.png";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -46,11 +46,11 @@ export default function Navbar() {
           </div>
 
           <div className="lg:flex items-center justify-end">
-            <div className="bg-white rounded-lg p-2 shadow-lg transition-all duration-300 hover:shadow-xl">
+            <div className="bg-white rounded-lg p-3 shadow-lg transition-all duration-300 hover:shadow-xl">
               <img 
                 src={smallLogo} 
                 alt="Super Next Technologies" 
-                className="h-12 w-12 object-contain transition-all duration-300 hover:scale-110"
+                className="h-16 w-16 object-contain transition-all duration-300 hover:scale-105"
                 data-testid="img-logo"
               />
             </div>
