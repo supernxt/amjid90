@@ -29,7 +29,7 @@ export default function Navbar() {
             <img 
               src="/attached_assets/fulllogo_transparent_1760191386496.png" 
               alt="Super Next Technologies" 
-              className="h-14 w-auto transition-all duration-300 group-hover:scale-105 brightness-0 invert"
+              className="h-16 md:h-20 w-auto transition-all duration-300 group-hover:scale-105 brightness-0 invert drop-shadow-[0_0_10px_rgba(96,165,250,0.5)]"
               data-testid="img-logo"
             />
           </Link>
