@@ -23,28 +23,28 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-primary/20 shadow-lg shadow-primary/5">
       <div className="max-w-[1920px] mx-auto px-4 md:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-3">
+        <div className="flex items-center justify-between h-20">
+          <Link href="/" className="flex items-center gap-3 group">
             <img 
               src="/attached_assets/fulllogo_transparent_1760191386496.png" 
               alt="Super Next Technologies" 
-              className="h-10 w-auto"
+              className="h-16 w-auto transition-all duration-300 group-hover:scale-105"
               data-testid="img-logo"
             />
           </Link>
 
-          <div className="hidden lg:flex items-center gap-1 flex-1 justify-center max-w-4xl mx-8">
+          <div className="hidden lg:flex items-center gap-1 flex-1 justify-center max-w-5xl mx-8">
             {navItems.map((item) => (
               <Link key={item.path} href={item.path}>
                 <Button
                   variant="ghost"
                   size="sm"
-                  className={`text-sm ${
+                  className={`text-sm font-medium transition-all duration-300 ${
                     location === item.path
-                      ? "bg-primary/10 text-primary"
-                      : "text-muted-foreground"
+                      ? "bg-primary/20 text-primary border border-primary/40 shadow-md shadow-primary/20"
+                      : "text-foreground/70 hover:text-primary hover:bg-primary/10 hover:border-primary/30 border border-transparent"
                   }`}
                   data-testid={`link-nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                 >
@@ -82,16 +82,16 @@ export default function Navbar() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl">
+        <div className="lg:hidden border-t border-primary/20 bg-background/95 backdrop-blur-xl">
           <div className="px-4 py-4 space-y-1">
             {navItems.map((item) => (
               <Link key={item.path} href={item.path}>
                 <Button
                   variant="ghost"
-                  className={`w-full justify-start ${
+                  className={`w-full justify-start font-medium transition-all duration-300 ${
                     location === item.path
-                      ? "bg-primary/10 text-primary"
-                      : "text-muted-foreground"
+                      ? "bg-primary/20 text-primary border border-primary/40"
+                      : "text-foreground/70 hover:text-primary hover:bg-primary/10 border border-transparent"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                   data-testid={`link-mobile-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
@@ -105,12 +105,6 @@ export default function Navbar() {
                 <Button variant="outline" className="w-full" data-testid="button-mobile-call">
                   <Phone className="h-4 w-4 mr-2" />
                   048864215
-                </Button>
-              </a>
-              <a href="https://wa.me/048864215" target="_blank" rel="noopener noreferrer" className="block">
-                <Button variant="default" className="w-full" data-testid="button-mobile-whatsapp">
-                  <SiWhatsapp className="h-4 w-4 mr-2" />
-                  WhatsApp
                 </Button>
               </a>
             </div>
