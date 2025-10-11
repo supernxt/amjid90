@@ -16,8 +16,12 @@ export default function Background3D({ variant = "default", children }: Backgrou
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const updateCanvasSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = Math.max(window.innerHeight, document.documentElement.scrollHeight);
+    };
+
+    updateCanvasSize();
 
     const particles: Array<{
       x: number;
@@ -87,15 +91,20 @@ export default function Background3D({ variant = "default", children }: Backgrou
     animate();
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      updateCanvasSize();
     };
 
+    const resizeObserver = new ResizeObserver(() => {
+      updateCanvasSize();
+    });
+
+    resizeObserver.observe(document.body);
     window.addEventListener("resize", handleResize);
 
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener("resize", handleResize);
+      resizeObserver.disconnect();
     };
   }, [variant]);
 

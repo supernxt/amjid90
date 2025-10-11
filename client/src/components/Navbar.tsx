@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
-import { SiWhatsapp } from "react-icons/si";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -56,15 +55,9 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-2">
             <a href="tel:048864215">
-              <Button variant="outline" size="sm" data-testid="button-call">
-                <Phone className="h-4 w-4 mr-2" />
+              <Button variant="outline" size="sm" className="border-primary/40 hover:border-primary" data-testid="button-call">
+                <Phone className="h-4 w-4 mr-2 text-primary" />
                 048864215
-              </Button>
-            </a>
-            <a href="https://wa.me/048864215" target="_blank" rel="noopener noreferrer">
-              <Button variant="default" size="sm" data-testid="button-whatsapp">
-                <SiWhatsapp className="h-4 w-4 mr-2" />
-                WhatsApp
               </Button>
             </a>
           </div>
@@ -100,10 +93,10 @@ export default function Navbar() {
                 </Button>
               </Link>
             ))}
-            <div className="pt-4 space-y-2">
+            <div className="pt-4">
               <a href="tel:048864215" className="block">
-                <Button variant="outline" className="w-full" data-testid="button-mobile-call">
-                  <Phone className="h-4 w-4 mr-2" />
+                <Button variant="outline" className="w-full border-primary/40 hover:border-primary" data-testid="button-mobile-call">
+                  <Phone className="h-4 w-4 mr-2 text-primary" />
                   048864215
                 </Button>
               </a>

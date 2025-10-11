@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Phone } from "lucide-react";
-import { SiWhatsapp } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 
 declare global {
@@ -13,42 +12,54 @@ declare global {
 
 export default function AIVoiceWidget() {
   useEffect(() => {
-    const widgetElement = document.createElement('elevenlabs-convai');
-    widgetElement.setAttribute('agent-id', 'agent_9801k71wapq9ehvrghfwzstqjbdn');
-    document.body.appendChild(widgetElement);
+    let widget: HTMLElement | null = null;
+    let mounted = true;
+
+    const initializeWidget = async () => {
+      try {
+        const existingWidget = document.querySelector('elevenlabs-convai');
+        if (existingWidget) {
+          return;
+        }
+
+        await Promise.race([
+          customElements.whenDefined('elevenlabs-convai'),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('Widget definition timeout')), 15000))
+        ]);
+
+        if (!mounted) return;
+
+        widget = document.createElement('elevenlabs-convai');
+        widget.setAttribute('agent-id', 'agent_9801k71wapq9ehvrghfwzstqjbdn');
+        document.body.appendChild(widget);
+      } catch (error) {
+        console.warn('ElevenLabs widget not available - assistant may load later');
+      }
+    };
+
+    initializeWidget();
 
     return () => {
-      const widget = document.querySelector('elevenlabs-convai');
-      if (widget) {
+      mounted = false;
+      if (widget && widget.parentNode) {
         widget.remove();
+        widget = null;
       }
     };
   }, []);
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3" data-testid="widget-ai-voice">
-      <div className="flex flex-col gap-2">
-        <a href="tel:048864215">
-          <Button
-            size="icon"
-            variant="outline"
-            className="h-12 w-12 rounded-full bg-background/95 backdrop-blur-sm border-2"
-            data-testid="button-float-call"
-          >
-            <Phone className="h-5 w-5" />
-          </Button>
-        </a>
-        <a href="https://wa.me/048864215" target="_blank" rel="noopener noreferrer">
-          <Button
-            size="icon"
-            variant="default"
-            className="h-12 w-12 rounded-full"
-            data-testid="button-float-whatsapp"
-          >
-            <SiWhatsapp className="h-5 w-5" />
-          </Button>
-        </a>
-      </div>
+      <a href="tel:048864215">
+        <Button
+          size="icon"
+          variant="outline"
+          className="h-14 w-14 rounded-full bg-background/95 backdrop-blur-sm border-2 border-primary/40 hover:border-primary shadow-lg shadow-primary/20"
+          data-testid="button-float-call"
+        >
+          <Phone className="h-6 w-6 text-primary" />
+        </Button>
+      </a>
     </div>
   );
 }
