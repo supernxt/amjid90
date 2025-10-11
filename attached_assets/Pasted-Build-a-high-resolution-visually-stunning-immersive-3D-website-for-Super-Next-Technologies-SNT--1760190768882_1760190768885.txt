@@ -1,0 +1,181 @@
+Build a high-resolution, visually stunning, immersive 3D website for Super Next Technologies (SNT). The site must spotlight our AI division (AI Agents, AI Automations, Voice/Chat Assistants) while also presenting dedicated, tab-wise sections for Wireless Hotspot, Infrastructure, and Website Development (3D/Dynamic/Static) — including offers for Free 1-Year Domain Hosting, Free Domain, and Free Email Hosting. Implement an AI voice assistant footer using ElevenLabs (code provided below). The aesthetic should be futuristic, clean, and performant.
+
+TECH STACK & FOUNDATIONS
+
+Frontend: React + Vite or Next.js; 3D via React Three Fiber (Three.js); UI via TailwindCSS + shadcn/ui.
+
+Animations: Framer Motion (page transitions, scroll reveals), GLSL-friendly materials where helpful.
+
+Performance: Lazy-load heavy 3D scenes, use <Canvas> with optimized shadows/SSR, texture compression, route-based code splitting.
+
+SEO: Meta tags per page, Open Graph/Twitter cards, sitemap.xml, robots.txt, semantic headings, fast LCP.
+
+Accessibility: Keyboard focus, aria labels, reduced-motion fallback.
+
+Global Elements: Sticky top nav, floating contact/WhatsApp button (048864215), consistent CTA buttons (“Book a Demo”, “Talk to AI Assistant”, “Request Proposal”).
+
+Footer Voice Assistant (fixed, bottom-right): see “Footer Integration” section.
+
+NAVIGATION (TABS) — TOP BAR (IN ORDER)
+
+Home
+
+AI Solutions
+
+Wireless Hotspot
+
+Infrastructure
+
+Website Development (3D / Dynamic / Static)
+
+Templates & Use Cases
+
+Pricing
+
+Case Studies
+
+Support
+
+About
+
+Contact
+
+TAB STRUCTURE & CONTENT (REQUIRED)
+
+HOME
+
+Hero: Fullscreen 3D scene (floating neural network / data streams into a city mesh). Headline: “AI-Powered Infrastructure & 3D Web Experiences.” Subtext: “Agents • Automations • Enterprise Hotspots • Cloud & Networks.” CTAs: “Talk to AI Assistant”, “Explore AI Solutions”.
+
+Value Tiles (3D hover cards): AI Agents & Automations / Wireless Enterprise Hotspots / Cloud & Networks / 3D Websites.
+
+Trust Bar: Client logos, SLAs, uptime, ISO wording.
+
+Quick Offer Strip: “Free 1-Year Domain Hosting • Free Domain • Free Email Hosting with new website plans”.
+
+AI SOLUTIONS
+
+Intro: Our flagship division (multichannel agents across Web, WhatsApp, Voice, Email; 24/7 autonomy; CRM/ERP integration).
+
+Sections (3D flip cards, filterable):
+• Marketing: Brand Monitor, Newsletter Writer, Competition Tracker, SEO Audit Agent, Content Repurposing, SEO Blog Writer, Web Monitoring, Influencer Outreach, LinkedIn/Instagram/TikTok Outreach, Press Release Drafter.
+• Operations: Vendor Invoice & Payment Tracker, Weekly Reports Compiler, Time-Sensitive Email Alerts, Project Status Updater (Notion), Daily Ops Digest, Refund Assistant.
+• Product/Engineering: Product Docs Creator, Bug Reports & Resolution Agent, Incoming Contract Summary, Daily Engineering Digest.
+• Sales: Meeting Notetaker/Recorder, Recruiting Agent, Lead Generator/Outreacher, Outbound Phone Agent, LinkedIn Web Scraper, Researcher, AI SDR, Meeting Prep Assistant, Sales Coach, New Lead Qualifier, AI Customer Calls Rep, Case Study Drafter, Sales Insights, Scope of Work Generator, Onboarding Doc Generator.
+• Support: Customer Support Email Responder, WhatsApp Support Agent, SMS Support Bot, Knowledge Base Assistant, Phone Support Agent, Website Customer Support, Support Slackbot, Support Inbox Content Creator.
+
+Integrations: WhatsApp Cloud API/Twilio, email, calendars, CRMs (Zoho/HubSpot), GitHub, Notion, QuickBooks/Zoho Books, Airtable.
+
+CTA: “Book an AI Demo” + “Talk to AI Assistant”.
+
+WIRELESS HOTSPOT (ENTERPRISE-GRADE)
+
+Overview: Multi-WAN, VLAN segmentation, captive portal, QoS, bandwidth shaping, OTA config management, CGNAT considerations, per-site analytics dashboards.
+
+Features (tabs within the page):
+• Captive Portal & Vouchers (social login, SMS/Email OTP, TikTok/Instagram follow-gates).
+• Security: WPA2/3, client isolation, firewall address lists, DPI policies, MAC posture checks (block randomized MACs; guided fix).
+• Performance: Peak concurrency targets, roaming optimization, AP density planning, 500+ Mbps multi-WAN failover.
+• Monetization: Paid tiers, ad placements, sponsor splash, vouchers by time/GB.
+• Analytics: Heatmaps, session metrics, per-VLAN reports, failure alerts to WhatsApp/email.
+
+CTA: “Request Site Survey” / “Get a Hotspot Proposal”.
+
+INFRASTRUCTURE (CLOUD + NETWORK)
+
+Cloud: VPS/K8s microservices, Traefik/TLS, HAProxy, backups, monitoring (Prometheus/Grafana).
+
+Network: L3/L2 design, VLANs, IPSec/IKEv2, site-to-site VPN, SD-WAN, NAT policies, UPnP/NAT-PMP exceptions for gaming devices.
+
+VoIP/SIP: Twilio/Asterisk, verified caller ID, call routing IVRs, recordings, compliance.
+
+Security: Zero-trust, MFA, SSO, WAF, IDS/IPS, secrets management, audit.
+
+CTA: “Design My Stack”.
+
+WEBSITE DEVELOPMENT (3D / DYNAMIC / STATIC) — WITH FREEBIES
+
+Overview: We deliver 3D immersive sites, high-performance dynamic apps, and ultra-fast static sites.
+
+Sub-tabs:
+• 3D Websites: React Three Fiber hero scenes, product fly-throughs, shader effects, AR-ready components, reduced-motion fallbacks.
+• Dynamic Websites: CMS integrations (Headless/Notion/Strapi), user auth (OAuth/Social), dashboards, payments (Stripe/Crypto).
+• Static Websites: Blazing-fast, SEO-first landing pages, pre-rendered pages, minimal JS routes.
+• Included Offers:
+– Free 1-Year Domain Hosting
+– Free Domain (common TLDs; specify options)
+– Free Email Hosting (company mailboxes, SPF/DKIM/DMARC setup)
+• Delivery: Sitemaps, analytics, pixel integrations, performance budgets, lighthouse ≥ 90 targets, QA and handover docs.
+
+CTA: “Get My Website Plan” / “See Live 3D Demo”.
+
+TEMPLATES & USE CASES (POPULAR)
+
+Grid of 3D flip cards linking to prebuilt agent/site templates: Meeting Notetaker, Brand Monitor, Recruiting Agent, Customer Support Responder, Voice of the Customer, Proposal Creator, Copywriting Assistant, Inbound Doc Verification, AI Receptionist, Email Negotiator, SEO Assistant, Chat with PDF, Candidate Screening, Employee Onboarding, ICP Insights Miner, Telegram/WhatsApp bots, etc.
+
+PRICING
+
+Cards:
+• AI Starter / Pro / Enterprise (seats, channels, integrations, response caps, SLAs).
+• Wireless Hotspot Packages (AP counts, VLANs, analytics, managed support).
+• Website Plans: Static / Dynamic / 3D (include the Free 1-Year Domain Hosting + Free Domain + Free Email Hosting badge).
+
+“Compare Plans” table, FAQs, “Request a Custom Quote”.
+
+CASE STUDIES
+
+Carousel of industry projects (before/after KPIs, uptime, conversion lifts, support deflection %). Each case: Problem → Solution → Results → Stack.
+
+SUPPORT
+
+Multi-channel: WhatsApp bot, email, voice line, knowledge base, status page.
+
+SLA tiers, escalation policy (auto-alerts to technicians via WhatsApp/email for complex issues).
+
+Self-service: Voucher reset, MAC fix guides (Android/iOS), captive portal tips.
+
+ABOUT
+
+Mission, leadership cards, certifications, service coverage (UAE/GCC), careers CTA.
+
+CONTACT
+
+Smart form (department routing), WhatsApp quick links, schedule a call, map embed.
+
+Prominent click-to-call/WhatsApp 048864215.
+
+COMPONENTS & MICROINTERACTIONS
+
+3D Navbar hover states, magnetic buttons, parallax scroll, counters, progress bars.
+
+Section-enter animations with Framer Motion; prefers 60fps targets.
+
+Dark theme with subtle neon (blue/cyan/white glow); respects prefers-color-scheme.
+
+FOOTER INTEGRATION (AI VOICE ASSISTANT — REQUIRED ON EVERY PAGE)
+
+Fixed floating widget (bottom-right), z-index above content, non-blocking:
+<elevenlabs-convai agent-id="agent_9801k71wapq9ehvrghfwzstqjbdn"></elevenlabs-convai>
+
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+Beside the widget: compact contact cluster (Call/WhatsApp 048864215, Support, Status, Privacy, Terms).
+
+DELIVERABLES
+
+Production-ready codebase with env-based configs, README, and deploy steps (Replit/Vercel).
+
+All pages/tabs routed and populated with placeholder copy + icons; 3D scene assets organized under /public/models & /public/textures.
+
+Performance pass (Core Web Vitals), accessibility pass, SEO pass.
+
+Admin-editable content (JSON/Headless CMS optional) for services, pricing, FAQs.
+
+SUCCESS CRITERIA
+
+Immersive but fast: 3D enhances value without harming UX.
+
+The three focal areas (AI Solutions, Wireless Hotspot, Website Development) feel first-class and revenue-focused.
+
+The free offers (Domain Hosting, Domain, Email Hosting) are visible in the Website Development tab and Pricing.
+
+Voice assistant works reliably across routes; phone/WhatsApp 048864215 always easy to reach.
