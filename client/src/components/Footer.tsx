@@ -29,12 +29,17 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           <div className="lg:col-span-2">
-            <img 
-              src="/attached_assets/fulllogo_transparent_1760191386496.png" 
-              alt="Super Next Technologies" 
-              className="h-12 w-auto mb-4"
-              data-testid="img-footer-logo"
-            />
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src="/attached_assets/icononly_nobuffer_1760195158050.png" 
+                alt="Super Next Technologies" 
+                className="h-10 w-auto"
+                data-testid="img-footer-logo"
+              />
+              <span className="text-lg font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
+                Super Next Technologies
+              </span>
+            </div>
             <p className="text-muted-foreground mb-6 max-w-sm">
               AI-Powered Infrastructure & 3D Web Experiences for the future of enterprise technology.
             </p>

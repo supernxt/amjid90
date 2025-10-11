@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Bot, Radio, Cloud, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const slides = [
@@ -9,34 +9,35 @@ const slides = [
     title: "AI-Powered Solutions",
     description: "Transform your business with cutting-edge AI agents and automation",
     gradient: "from-primary/20 via-cyan-500/20 to-blue-600/20",
-    icon: "🤖",
+    Icon: Bot,
   },
   {
     id: 2,
     title: "Enterprise Wireless Hotspots",
     description: "Seamless connectivity for modern businesses with advanced security",
     gradient: "from-blue-500/20 via-primary/20 to-purple-600/20",
-    icon: "📡",
+    Icon: Radio,
   },
   {
     id: 3,
     title: "Cloud Infrastructure",
     description: "Scalable, secure infrastructure solutions for growing enterprises",
     gradient: "from-purple-500/20 via-primary/20 to-pink-600/20",
-    icon: "☁️",
+    Icon: Cloud,
   },
   {
     id: 4,
     title: "3D Web Development",
     description: "Immersive web experiences with stunning 3D visuals and animations",
     gradient: "from-green-500/20 via-primary/20 to-teal-600/20",
-    icon: "🌐",
+    Icon: Globe,
   },
 ];
 
 export default function VideoSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [autoPlayKey, setAutoPlayKey] = useState(0);
 
   useEffect(() => {
     if (!isPlaying) return;
@@ -46,14 +47,21 @@ export default function VideoSlider() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isPlaying]);
+  }, [isPlaying, autoPlayKey]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setAutoPlayKey((prev) => prev + 1);
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setAutoPlayKey((prev) => prev + 1);
+  };
+
+  const jumpToSlide = (index: number) => {
+    setCurrentSlide(index);
+    setAutoPlayKey((prev) => prev + 1);
   };
 
   return (
@@ -72,9 +80,12 @@ export default function VideoSlider() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              className="text-8xl mb-6 filter drop-shadow-2xl"
+              className="mb-6"
             >
-              {slides[currentSlide].icon}
+              {(() => {
+                const IconComponent = slides[currentSlide].Icon;
+                return <IconComponent className="w-24 h-24 text-primary drop-shadow-2xl" />;
+              })()}
             </motion.div>
             
             <motion.h2
@@ -134,7 +145,7 @@ export default function VideoSlider() {
           {slides.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentSlide(index)}
+              onClick={() => jumpToSlide(index)}
               className={`h-2 rounded-full transition-all ${
                 index === currentSlide
                   ? "w-8 bg-primary"
@@ -158,7 +169,10 @@ export default function VideoSlider() {
         <Button
           size="icon"
           variant="outline"
-          onClick={() => setIsPlaying(!isPlaying)}
+          onClick={() => {
+            setIsPlaying(!isPlaying);
+            setAutoPlayKey((prev) => prev + 1);
+          }}
           className="bg-background/20 backdrop-blur-sm border-primary/40 hover:border-primary ml-2"
           data-testid="button-slide-play"
         >
