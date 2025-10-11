@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { openAIChat } from "@/lib/ai-assistant";
+import { useLocation } from "wouter";
 import { Sparkles, ArrowRight } from "lucide-react";
 
 export default function Hero3D() {
+  const [, setLocation] = useLocation();
+
   return (
     <div className="relative min-h-screen flex items-center justify-center">
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 text-center">
@@ -34,11 +38,11 @@ export default function Hero3D() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button size="lg" variant="default" className="text-lg px-8" data-testid="button-talk-ai">
+            <Button size="lg" variant="default" className="text-lg px-8" onClick={openAIChat} data-testid="button-talk-ai">
               Talk to AI Assistant
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8" data-testid="button-explore-ai">
+            <Button size="lg" variant="outline" className="text-lg px-8" onClick={() => setLocation('/ai-solutions')} data-testid="button-explore-ai">
               Explore AI Solutions
             </Button>
           </div>

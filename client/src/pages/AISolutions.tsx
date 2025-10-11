@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Background3D from "@/components/Background3D";
 import FlipCard from "@/components/FlipCard";
 import { Button } from "@/components/ui/button";
+import { openAIChat } from "@/lib/ai-assistant";
 import { 
   Mail, Edit, TrendingUp, Search, RefreshCw, FileText, 
   Globe, Users, MessageSquare, DollarSign, Clock, Bell,
@@ -90,8 +91,8 @@ export default function AISolutions() {
             <span className="text-sm">WhatsApp • Twilio • Zoho • HubSpot • GitHub • Notion • QuickBooks • Airtable</span>
           </div>
           <div className="flex gap-4 justify-center">
-            <Button size="lg" data-testid="button-book-demo">Book an AI Demo</Button>
-            <Button size="lg" variant="outline" data-testid="button-talk-ai-assistant">Talk to AI Assistant</Button>
+            <Button size="lg" onClick={openAIChat} data-testid="button-book-demo">Book an AI Demo</Button>
+            <Button size="lg" variant="outline" onClick={openAIChat} data-testid="button-talk-ai-assistant">Talk to AI Assistant</Button>
           </div>
         </div>
         </div>

@@ -1,6 +1,7 @@
 import Background3D from "@/components/Background3D";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { openAIChat } from "@/lib/ai-assistant";
 import { Server, Database, Cloud, Lock, ArrowRight } from "lucide-react";
 
 export default function Infrastructure() {
@@ -50,7 +51,7 @@ export default function Infrastructure() {
             transition={{ delay: 0.6 }}
             className="text-center"
           >
-            <Button size="lg" className="gap-2" data-testid="button-get-started">
+            <Button size="lg" className="gap-2" onClick={openAIChat} data-testid="button-get-started">
               Get Started <ArrowRight className="h-5 w-5" />
             </Button>
           </motion.div>

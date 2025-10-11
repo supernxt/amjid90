@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { openAIChat } from "@/lib/ai-assistant";
 import { Check, Star } from "lucide-react";
 
 interface PricingCardProps {
@@ -70,6 +71,7 @@ export default function PricingCard({
         <Button
           variant={isPopular ? "default" : "outline"}
           className="w-full"
+          onClick={openAIChat}
           data-testid="button-select-plan"
         >
           Get Started
