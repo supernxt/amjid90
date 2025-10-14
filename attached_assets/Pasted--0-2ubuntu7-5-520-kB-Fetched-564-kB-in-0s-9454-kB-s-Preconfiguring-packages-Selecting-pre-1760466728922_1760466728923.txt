@@ -1,0 +1,89 @@
+.0-2ubuntu7.5 [520 kB]
+Fetched 564 kB in 0s (9454 kB/s)
+Preconfiguring packages ...
+Selecting previously unselected package nginx-common.
+(Reading database ... 113838 files and directories currently installed.)
+Preparing to unpack .../nginx-common_1.24.0-2ubuntu7.5_all.deb ...
+Unpacking nginx-common (1.24.0-2ubuntu7.5) ...
+Selecting previously unselected package nginx.
+Preparing to unpack .../nginx_1.24.0-2ubuntu7.5_amd64.deb ...
+Unpacking nginx (1.24.0-2ubuntu7.5) ...
+Setting up nginx-common (1.24.0-2ubuntu7.5) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /usr/lib/systemd/system/nginx.service.
+Could not execute systemctl:  at /usr/bin/deb-systemd-invoke line 148.
+Setting up nginx (1.24.0-2ubuntu7.5) ...
+Not attempting to start NGINX, port 80 is already in use.
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for ufw (0.36.2-6) ...
+Disabling Ubuntu mode, explicit restart mode configuredScanning processes... [  Scanning processes...
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+Job for nginx.service failed because the control process exited with error code.
+See "systemctl status nginx.service" and "journalctl -xeu nginx.service" for details.
+Synchronizing state of nginx.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable nginx
+Skipping adding existing rule
+Skipping adding existing rule (v6)
+Skipping adding existing rule
+Skipping adding existing rule (v6)
+root@srv1064472:/usr/local/lsws/supernxt.com/html# # Stop the default example app
+pm2 list
+pm2 delete all
+
+# Find OpenLiteSpeed vhost config
+ls -la /usr/local/lsws/conf/vhosts/
+
+# Edit the main config to point to your site
+cat > /usr/local/lsws/conf/vhosts/supernxt.com/vhconf.conf << 'EOF'
+docRoot                   $VH_ROOT/html
+enableGzip                1
+
+errorlog $VH_ROOT/logs/error.log {
+  useServer               0
+  logLevel                ERROR
+  rollingSize             10M
+}
+
+accesslog $VH_ROOT/logs/access.log {
+  useServer               0
+  rollingSize             10M
+  keepDays                30
+pm2 statusnpm --name "supernxt" -- run dev:5000
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
+│ 0  │ supernxt           │ fork     │ 1    │ online    │ 0%       │ 66.0mb   │
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+[PM2] Applying action deleteProcessId on app [all](ids: [ 0 ])
+[PM2] [supernxt](0) ✓
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+total 16
+drwxr-x--- 4 lsadm nogroup 4096 Oct 14 18:21 .
+drwxr-x--- 5 lsadm nogroup 4096 Oct 14 17:48 ..
+drwxr-x--- 2 lsadm nogroup 4096 Sep  8 08:08 Example
+drwxr-xr-x 2 root  root    4096 Oct 14 18:21 supernxt.com
+[PM2] Starting /usr/bin/npm in fork_mode (1 instance)
+[PM2] Done.
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
+│ 0  │ supernxt           │ fork     │ 0    │ online    │ 0%       │ 20.4mb   │
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+[PM2] Saving current process list...
+[PM2] Successfully saved in /root/.pm2/dump.pm2
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
+│ 0  │ supernxt           │ fork     │ 0    │ online    │ 0%       │ 67.1mb   │
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+root@srv1064472:/usr/local/lsws/supernxt.com/html#
