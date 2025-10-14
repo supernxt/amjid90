@@ -14,6 +14,7 @@ export default function AIVoiceWidget() {
   useEffect(() => {
     let widget: HTMLElement | null = null;
     let mounted = true;
+    let retryTimeout: NodeJS.Timeout;
 
     const initializeWidget = async () => {
       try {
@@ -22,18 +23,29 @@ export default function AIVoiceWidget() {
           return;
         }
 
-        await Promise.race([
-          customElements.whenDefined('elevenlabs-convai'),
-          new Promise((_, reject) => setTimeout(() => reject(new Error('Widget definition timeout')), 15000))
-        ]);
-
+        // Wait for script to load
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
         if (!mounted) return;
+
+        // Check if custom element is defined
+        if (!customElements.get('elevenlabs-convai')) {
+          console.log('ElevenLabs widget not ready, will retry...');
+          retryTimeout = setTimeout(initializeWidget, 3000);
+          return;
+        }
 
         widget = document.createElement('elevenlabs-convai');
         widget.setAttribute('agent-id', 'agent_9801k71wapq9ehvrghfwzstqjbdn');
+        
+        // Add error handler
+        widget.addEventListener('error', (e) => {
+          console.log('Widget error handled gracefully:', e);
+        });
+        
         document.body.appendChild(widget);
       } catch (error) {
-        console.warn('ElevenLabs widget not available - assistant may load later');
+        console.log('AI assistant will be available shortly');
       }
     };
 
@@ -41,6 +53,7 @@ export default function AIVoiceWidget() {
 
     return () => {
       mounted = false;
+      if (retryTimeout) clearTimeout(retryTimeout);
       if (widget && widget.parentNode) {
         widget.remove();
         widget = null;
