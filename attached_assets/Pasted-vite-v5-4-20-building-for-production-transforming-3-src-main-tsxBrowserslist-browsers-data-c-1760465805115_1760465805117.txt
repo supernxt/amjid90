@@ -1,0 +1,71 @@
+vite v5.4.20 building for production...
+transforming (3) src/main.tsxBrowserslist: browsers data (caniuse-lite) is 12 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+transforming (4) src/App.tsx
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 2029 modules transformed.
+../dist/public/index.html                                                         1.43 kB │ gzip:   0.69 kB
+../dist/public/assets/icononly_transparent_nobuffer_1760207932143-DuY2fWzj.png   80.75 kB
+../dist/public/assets/icononly_nobuffer_1760202128142-ClxSnXFr.png               90.15 kB
+../dist/public/assets/index-D70IreJQ.css                                         88.59 kB │ gzip:  13.64 kB
+../dist/public/assets/index-CBg42Jwb.js                                         477.92 kB │ gzip: 147.15 kB
+✓ built in 6.81s
+
+  dist/index.js  4.6kb
+
+⚡ Done in 4ms
+[PM2] Starting /usr/bin/npm in fork_mode (1 instance)
+[PM2] Done.
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ N/A     │ fork    │ 3391     │ 0s     │ 0    │ online    │ 0%       │ 20.9mb   │ root     │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Saving current process list...
+[PM2] Successfully saved in /root/.pm2/dump.pm2
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ N/A     │ fork    │ 3391     │ 0s     │ 0    │ online    │ 0%       │ 67.1mb   │ root     │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[TAILING] Tailing last 30 lines for [supernxt] process (change the value with --lines option)
+/root/.pm2/logs/supernxt-error.log last 30 lines:
+0|supernxt | npm error path /root/package.json
+0|supernxt | npm error errno -2
+0|supernxt | npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/root/package.json'
+0|supernxt | npm error enoent This is related to npm not being able to find a file.
+0|supernxt | npm error enoent
+0|supernxt | npm error A complete log of this run can be found in: /root/.npm/_logs/2025-10-14T17_55_20_830Z-debug-0.log
+0|supernxt | npm error code ENOENT
+0|supernxt | npm error syscall open
+0|supernxt | npm error path /root/package.json
+0|supernxt | npm error errno -2
+0|supernxt | npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/root/package.json'
+0|supernxt | npm error enoent This is related to npm not being able to find a file.
+0|supernxt | npm error enoent
+0|supernxt | npm error A complete log of this run can be found in: /root/.npm/_logs/2025-10-14T17_55_21_020Z-debug-0.log
+0|supernxt | npm error code ENOENT
+0|supernxt | npm error syscall open
+0|supernxt | npm error path /root/package.json
+0|supernxt | npm error errno -2
+0|supernxt | npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/root/package.json'
+0|supernxt | npm error enoent This is related to npm not being able to find a file.
+0|supernxt | npm error enoent
+0|supernxt | npm error A complete log of this run can be found in: /root/.npm/_logs/2025-10-14T17_55_21_228Z-debug-0.log
+0|supernxt | npm error code ENOENT
+0|supernxt | npm error syscall open
+0|supernxt | npm error path /root/package.json
+0|supernxt | npm error errno -2
+0|supernxt | npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/root/package.json'
+0|supernxt | npm error enoent This is related to npm not being able to find a file.
+0|supernxt | npm error enoent
+0|supernxt | npm error A complete log of this run can be found in: /root/.npm/_logs/2025-10-14T17_55_21_409Z-debug-0.log
+
+/root/.pm2/logs/supernxt-out.log last 30 lines:
+0|supernxt |
+0|supernxt | > rest-express@1.0.0 dev
+0|supernxt | > NODE_ENV=development tsx server/index.ts
+0|supernxt |
+
+0|supernxt  | 6:13:40 PM [express] serving on port 5000
