@@ -1,0 +1,190 @@
+/usr/local/lsws/docs/:
+total 1228
+drwxr-xr-x  6 root root  4096 Sep  8 08:06 .
+drwxr-xr-x 25 root root  4096 Sep  8 08:07 ..
+-rw-r--r--  1 root root 18575 Aug 21 10:32 AdminGeneral_Help.html
+-rw-r--r--  1 root root  8093 Aug 21 10:32 AdminListeners_General_Help.html
+-rw-r--r--  1 root root 20114 Aug 21 10:32 AdminListeners_SSL_Help.html
+-rw-r--r--  1 root root  9854 Aug 21 10:32 AdminSecurity_Help.html
+-rw-r--r--  1 root root 29473 Aug 21 10:32 App_Server_Context.html
+-rw-r--r--  1 root root 22519 Aug 21 10:32 App_Server_Help.html
+-rw-r--r--  1 root root 21492 Aug 21 10:32 CGI_Context.html
+-rw-r--r--  1 root root  8686 Aug 21 10:32 CompilePHP_Help.html
+-rw-r--r--  1 root root  7690 Aug 21 10:32 Context_Help.html
+-rw-r--r--  1 root root 12029 Aug 21 10:32 ExtApp_Help.html
+-rw-r--r--  1 root root 24429 Aug 21 10:32 External_FCGI.html
+-rw-r--r--  1 root root 24509 Aug 21 10:32 External_FCGI_Auth.html
+-rw-r--r--  1 root root  6333 Aug 21 10:32 External_LB.html
+-rw-r--r--  1 root root 24511 Aug 21 10:32 External_LSAPI.html
+-rw-r--r--  1 root root 13058 Aug 21 10:32 External_PL.html
+-rw-r--r--  1 root root 11154 Aug 21 10:32 External_Servlet.html
+-rw-r--r--  1 root root 11224 Aug 21 10:32 External_WS.html
+-rw-r--r--  1 root root 16026 Aug 21 10:32 FCGI_Context.html
+-rw-r--r--  1 root root 22679 Aug 21 10:32 Java_Web_App_Context.html
+-rw-r--r--  1 root root 16104 Aug 21 10:32 LB_Context.html
+-rw-r--r--  1 root root 16328 Aug 21 10:32 LSAPI_Context.html
+-rw-r--r--  1 root root 11911 Aug 21 10:32 Listeners_General_Help.html
+-rw-r--r--  1 root root 24084 Aug 21 10:32 Listeners_SSL_Help.html
+-rw-r--r--  1 root root 15957 Aug 21 10:32 Module_Context.html
+-rw-r--r--  1 root root 32067 Aug 21 10:32 Module_Help.html
+-rw-r--r--  1 root root 16183 Aug 21 10:32 Proxy_Context.html
+-rw-r--r--  1 root root  6811 Aug 21 10:32 Real_Time_Stats_Help.html
+-rw-r--r--  1 root root 15076 Aug 21 10:32 Redirect_Context.html
+-rw-r--r--  1 root root 13802 Aug 21 10:32 Rewrite_Help.html
+-rw-r--r--  1 root root  9025 Aug 21 10:32 ScriptHandler_Help.html
+-rw-r--r--  1 root root 36702 Aug 21 10:32 ServGeneral_Help.html
+-rw-r--r--  1 root root 17853 Aug 21 10:32 ServLog_Help.html
+-rw-r--r--  1 root root 55313 Aug 21 10:32 ServSecurity_Help.html
+-rw-r--r--  1 root root 51964 Aug 21 10:32 ServTuning_Help.html
+-rw-r--r--  1 root root 20051 Aug 21 10:32 ServerStat_Help.html
+-rw-r--r--  1 root root 16305 Aug 21 10:32 Servlet_Context.html
+-rw-r--r--  1 root root 29722 Aug 21 10:32 Static_Context.html
+-rw-r--r--  1 root root 14949 Aug 21 10:32 Templates_Help.html
+-rw-r--r--  1 root root 36828 Aug 21 10:32 VHGeneral_Help.html
+-rw-r--r--  1 root root 23732 Aug 21 10:32 VHSSL_Help.html
+-rw-r--r--  1 root root 25073 Aug 21 10:32 VHSecurity_Help.html
+-rw-r--r--  1 root root  8429 Aug 21 10:32 VHWebSocket_Help.html
+-rw-r--r--  1 root root 18971 Aug 21 10:32 VirtualHosts_Help.html
+-rw-r--r--  1 root root  7717 Aug 21 10:32 admin.html
+-rw-r--r--  1 root root 10211 Aug 21 10:32 config.html
+drwxr-xr-x  2 root root  4096 Sep  8 08:06 css
+drwxr-xr-x  2 root root  4096 Sep  8 08:06 img
+-rw-r--r--  1 root root  5755 Aug 21 10:32 index.html
+-rw-r--r--  1 root root 10830 Aug 21 10:32 install.html
+-rw-r--r--  1 root root  9107 Aug 21 10:32 intro.html
+drwxr-xr-x  2 root root  4096 Sep  8 08:06 ja-JP
+-rw-r--r--  1 root root 41125 Aug 21 10:32 license.html
+-rw-r--r--  1 root root  9626 Aug 21 10:32 security.html
+-rw-r--r--  1 root root  5531 Aug 21 10:32 webconsole.html
+drwxr-xr-x  2 root root  4096 Sep  8 08:06 zh-CN
+
+/usr/local/lsws/fcgi-bin/:
+total 4876
+drwxr-xr-x  2 root root    4096 Sep  8 08:07 .
+drwxr-xr-x 25 root root    4096 Sep  8 08:07 ..
+-rwxr-xr-x  1 root root    4459 Aug 21 10:32 RackRunner.rb
+-rw-r--r--  1 root root    3022 Aug 21 10:32 lsnode.js
+-rwxr-xr-x  1 root root    3342 Aug 21 10:32 lsperld.fpl
+lrwxrwxrwx  1 root root       6 Aug 21 10:32 lsphp -> lsphp5
+-rwxr-xr-x  1 root root 4949824 Aug 21 10:32 lsphp5
+lrwxrwxrwx  1 root root      33 Sep  8 08:07 lsphpnew -> /usr/local/lsws/lsphp84/bin/lsphp
+
+/usr/local/lsws/gdata/:
+total 8
+drwxr-xr-x  2 root root 4096 Aug 21 10:32 .
+drwxr-xr-x 25 root root 4096 Sep  8 08:07 ..
+
+/usr/local/lsws/lib/:
+total 8
+drwxr-xr-x  2 root root 4096 Aug 21 10:32 .
+drwxr-xr-x 25 root root 4096 Sep  8 08:07 ..
+
+/usr/local/lsws/logs/:
+total 68
+drwxr-x---  2 root   nogroup  4096 Oct 14 15:27 .
+drwxr-xr-x 25 root   root     4096 Sep  8 08:07 ..
+-rw-r--r--  1 nobody nogroup     0 Sep  8 08:10 access.log
+-rw-r--r--  1 nobody nogroup 40186 Oct 14 17:48 error.log
+-rw-r--r--  1 root   root      207 Oct 14 17:48 lsrestart.log
+-rw-r-----  1 nobody nogroup   471 Oct 14 17:38 stderr.log
+
+/usr/local/lsws/lsns/:
+total 20
+drwxr-xr-x  5 root root 4096 Sep  8 08:06 .
+drwxr-xr-x 25 root root 4096 Sep  8 08:07 ..
+drwxr-xr-x  2 root root 4096 Sep  8 08:06 bin
+drwxr-xr-x  2 root root 4096 Aug 21 10:32 conf
+drwxr-xr-x  2 root root 4096 Aug 21 10:32 logs
+
+/usr/local/lsws/lsphp83/:
+total 28
+drwxr-xr-x  7 root root 4096 Sep  8 08:06 .
+drwxr-xr-x 25 root root 4096 Sep  8 08:07 ..
+drwxr-xr-x  2 root root 4096 Sep  8 08:06 bin
+drwxr-xr-x  3 root root 4096 Sep  8 08:06 etc
+drwxr-xr-x  3 root root 4096 Sep  8 08:06 lib
+drwxr-xr-x  6 root root 4096 Sep  8 08:06 share
+drwxr-xr-x  3 root root 4096 Sep  8 08:06 var
+
+/usr/local/lsws/lsphp84/:
+total 28
+drwxr-xr-x  7 root root 4096 Sep  8 08:07 .
+drwxr-xr-x 25 root root 4096 Sep  8 08:07 ..
+drwxr-xr-x  2 root root 4096 Sep  8 08:07 bin
+drwxr-xr-x  3 root root 4096 Sep  8 08:07 etc
+drwxr-xr-x  3 root root 4096 Sep  8 08:07 lib
+drwxr-xr-x  7 root root 4096 Sep  8 08:07 share
+drwxr-xr-x  3 root root 4096 Sep  8 08:07 var
+
+/usr/local/lsws/lsrecaptcha/:
+total 7888
+drwxr-xr-x  2 root root    4096 Sep  8 08:06 .
+drwxr-xr-x 25 root root    4096 Sep  8 08:07 ..
+-rwxr-xr-x  1 root root 8055408 Aug 21 10:32 _recaptcha
+-rwxr-xr-x  1 root root    1804 Aug 21 10:32 _recaptcha.shtml
+
+/usr/local/lsws/modules/:
+total 32
+drwxr-xr-x  2 root root 4096 Sep  8 08:07 .
+drwxr-xr-x 25 root root 4096 Sep  8 08:07 ..
+-rw-r--r--  1 root root  735 Oct 14 17:48 cache.def
+-rw-r--r--  1 root root  149 Oct 14 17:48 modcompress.def
+-rw-r--r--  1 root root  152 Oct 14 17:48 moddecompress.def
+
+/usr/local/lsws/php/:
+total 8
+drwxr-xr-x  2 root root 4096 Aug 21 10:32 .
+drwxr-xr-x 25 root root 4096 Sep  8 08:07 ..
+
+/usr/local/lsws/phpbuild/:
+total 8
+drwxr-xr-x  2 lsadm lsadm 4096 Aug 21 10:32 .
+drwxr-xr-x 25 root  root  4096 Sep  8 08:07 ..
+
+/usr/local/lsws/share/:
+total 16
+drwxr-xr-x  4 root root 4096 Sep  8 08:06 .
+drwxr-xr-x 25 root root 4096 Sep  8 08:07 ..
+drwxr-xr-x  4 root root 4096 Sep  8 08:06 autoindex
+drwxr-xr-x  3 root root 4096 Sep  8 08:06 doc
+
+/usr/local/lsws/tmp/:
+total 20
+drwxr-xr-x  3 nobody nogroup 4096 Oct 14 15:27 .
+drwxr-xr-x 25 root   root    4096 Sep  8 08:07 ..
+-rw-------  1 root   root    2091 Oct 14 15:27 download-quic-cloud-ips
+drwx------  2 nobody nogroup 4096 Aug 21 10:32 ocspcache
+root@srv1064472:~# # Create the web directory if needed
+mkdir -p /usr/local/lsws/supernxt.com/html
+
+# Move your files from upload location
+mv /root/supernxt/SuperNext3D/* /usr/local/lsws/supernxt.com/html/
+
+# Or copy them
+cp -r /root/supernxt/SuperNext3D/* /usr/local/lsws/supernxt.com/html/
+
+# Go to the directory
+cd /usr/local/lsws/supernxt.com/html
+
+# Check files are there
+ls -la
+cp: cannot stat '/root/supernxt/SuperNext3D/*': No such file or directory
+total 600
+drwxr-xr-x 6 root root   4096 Oct 14 18:10 .
+drwxr-xr-x 3 root root   4096 Oct 14 18:10 ..
+drwxr-xr-x 2 root root   4096 Oct 14 17:44 attached_assets
+drwxr-xr-x 3 root root   4096 Oct 14 17:44 client
+-rw-r--r-- 1 root root    459 Oct 14 17:44 components.json
+-rw-r--r-- 1 root root   6719 Oct 14 17:44 design_guidelines.md
+-rw-r--r-- 1 root root    325 Oct 14 17:44 drizzle.config.ts
+-rw-r--r-- 1 root root 294544 Oct 14 17:44 package-lock.json
+-rw-r--r-- 1 root root   3583 Oct 14 17:44 package.json
+-rw-r--r-- 1 root root     80 Oct 14 17:44 postcss.config.js
+-rw-r--r-- 1 root root   5122 Oct 14 17:44 replit.md
+drwxr-xr-x 2 root root   4096 Oct 14 17:44 server
+drwxr-xr-x 2 root root   4096 Oct 14 17:44 shared
+-rw-r--r-- 1 root root 201866 Oct 14 17:44 step18-evidence.png
+-rw-r--r-- 1 root root   4092 Oct 14 17:44 tailwind.config.ts
+-rw-r--r-- 1 root root    657 Oct 14 17:44 tsconfig.json
+-rw-r--r-- 1 root root   1080 Oct 14 17:44 vite.config.ts
+root@srv1064472:/usr/local/lsws/supernxt.com/html#
