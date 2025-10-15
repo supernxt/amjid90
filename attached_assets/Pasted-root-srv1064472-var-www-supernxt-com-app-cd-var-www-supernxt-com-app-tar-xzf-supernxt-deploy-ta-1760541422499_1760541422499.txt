@@ -1,0 +1,82 @@
+root@srv1064472:/var/www/supernxt.com/app# cd /var/www/supernxt.com/app
+tar -xzf supernxt-deploy.tar.gz
+npm install
+npm run build
+
+# Create PM2 config
+cat > ecosystem.config.cjs << 'EOF'
+module.exports = {
+  apps: [{
+    name: 'supernxt',
+    script: './dist/index.js',
+    env: {
+      NODE_ENV: 'production',
+      PORT: 5000
+    }
+  }]
+}
+EOF
+
+pm2 delete supernxt 2>/dev/null || true
+pm2 start ecosystem.config.cjs
+pm2 save
+pm2 logs supernxt --lines 5 --nostream
+curl -I http://localhost:5000
+npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+
+added 478 packages, and audited 479 packages in 10s
+
+64 packages are looking for funding
+  run `npm fund` for details
+
+8 vulnerabilities (3 low, 5 moderate)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+> rest-express@1.0.0 build
+> vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+
+vite v5.4.20 building for production...
+transforming (1) index.htmlBrowserslist: browsers data (caniuse-lite) is 12 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+transforming (4) src/App.tsx
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 2029 modules transformed.
+../dist/public/index.html                                                         1.43 kB │ gzip:   0.69 kB
+../dist/public/assets/icononly_transparent_nobuffer_1760207932143-DuY2fWzj.png   80.75 kB
+../dist/public/assets/icononly_nobuffer_1760202128142-ClxSnXFr.png               90.15 kB
+../dist/public/assets/index-D70IreJQ.css                                         88.59 kB │ gzip:  13.64 kB
+../dist/public/assets/index-pkoZMnRj.js                                         478.28 kB │ gzip: 147.31 kB
+✓ built in 5.19s
+
+  dist/index.js  6.5kb
+
+⚡ Done in 4ms
+[PM2][WARN] Applications supernxt not running, starting...
+[PM2] App [supernxt] launched (1 instances)
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ 1.0.0   │ fork    │ 18918    │ 0s     │ 0    │ online    │ 0%       │ 21.3mb   │ root     │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Saving current process list...
+[PM2] Successfully saved in /root/.pm2/dump.pm2
+[TAILING] Tailing last 5 lines for [supernxt] process (change the value with --lines option)
+/root/.pm2/logs/supernxt-out.log last 5 lines:
+/root/.pm2/logs/supernxt-error.log last 5 lines:
+0|supernxt |     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+0|supernxt |     at ModuleJob._link (node:internal/modules/esm/module_job:183:49)
+0|supernxt |     at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+0|supernxt |   code: 'ERR_MODULE_NOT_FOUND'
+0|supernxt | }
+
+curl: (7) Failed to connect to localhost port 5000 after 0 ms: Couldn't connect to server
+root@srv1064472:/var/www/supernxt.com/app#
