@@ -1,0 +1,88 @@
+oot@srv1064472:/usr/local/lsws/supernxt.com/html# # App directly (bypassing Nginx)
+curl -sS -D- http://127.0.0.1:5000/ -o /dev/null
+
+# Through Nginx on port 80 (by IP)
+curl -sS -D- http://127.0.0.1/ -o /dev/null
+curl -sS -D- http://168.231.84.200/ -o /dev/null
+HTTP/1.1 404 Not Found
+X-Powered-By: Express
+Content-Security-Policy: default-src 'none'
+X-Content-Type-Options: nosniff
+Content-Type: text/html; charset=utf-8
+Content-Length: 136
+Date: Wed, 15 Oct 2025 02:35:03 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+HTTP/1.1 404 Not Found
+Server: nginx/1.24.0 (Ubuntu)
+Date: Wed, 15 Oct 2025 02:35:03 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 136
+Connection: keep-alive
+X-Powered-By: Express
+Content-Security-Policy: default-src 'none'
+X-Content-Type-Options: nosniff
+
+HTTP/1.1 404 Not Found
+Server: nginx/1.24.0 (Ubuntu)
+Date: Wed, 15 Oct 2025 02:35:03 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 136
+Connection: keep-alive
+X-Powered-By: Express
+Content-Security-Policy: default-src 'none'
+X-Content-Type-Options: nosniff
+
+root@srv1064472:/usr/local/lsws/supernxt.com/html# # Check PM2 logs to see what's wrong
+pm2 logs supernxt --lines 20 --nostream
+
+# Check if the dist/public folder exists
+ls -la /usr/local/lsws/supernxt.com/html/dist/public/
+
+# Test if PM2 app is actually running
+pm2 status
+node:internal/bootstrap/switches/does_own_process_state:142
+    cachedCwd = rawMethods.cwd();
+                           ^
+
+Error: ENOENT: no such file or directory, uv_cwd
+    at process.wrappedCwd [as cwd] (node:internal/bootstrap/switches/does_own_process_state:142:28)
+    at new API (/usr/lib/node_modules/pm2/lib/API.js:69:24)
+    at Object.<anonymous> (/usr/lib/node_modules/pm2/lib/binaries/CLI.js:27:11)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'uv_cwd'
+}
+
+Node.js v22.19.0
+ls: cannot access '/usr/local/lsws/supernxt.com/html/dist/public/': No such file or directory
+node:internal/bootstrap/switches/does_own_process_state:142
+    cachedCwd = rawMethods.cwd();
+                           ^
+
+Error: ENOENT: no such file or directory, uv_cwd
+    at process.wrappedCwd [as cwd] (node:internal/bootstrap/switches/does_own_process_state:142:28)
+    at new API (/usr/lib/node_modules/pm2/lib/API.js:69:24)
+    at Object.<anonymous> (/usr/lib/node_modules/pm2/lib/binaries/CLI.js:27:11)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'uv_cwd'
+}
+
+Node.js v22.19.0
+root@srv1064472:/usr/local/lsws/supernxt.com/html#
