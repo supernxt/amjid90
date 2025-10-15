@@ -1,0 +1,48 @@
+ systemctl restart serial-getty@ttyS0.service
+ systemctl restart systemd-logind.service
+
+No containers need to be restarted.
+
+User sessions running outdated binaries:
+ root @ session #2: sshd[1998]
+ root @ session #5: sshd[2260]
+ root @ user manager service: systemd[2004]
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Job for nginx.service failed because the control process exited with error code.
+See "systemctl status nginx.service" and "journalctl -xeu nginx.service" for details.
+Synchronizing state of nginx.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable nginx
+× nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: en>
+     Active: failed (Result: exit-code) since Wed 2025-10-15 14:12:27 UTC; 877m>
+       Docs: man:nginx(8)
+        CPU: 14ms
+
+Oct 15 14:12:24 srv1064472 systemd[1]: Starting nginx.service - A high performa>
+Oct 15 14:12:24 srv1064472 nginx[17434]: nginx: [emerg] bind() to 0.0.0.0:80 fa>
+Oct 15 14:12:25 srv1064472 nginx[17434]: nginx: [emerg] bind() to 0.0.0.0:80 fa>
+Oct 15 14:12:25 srv1064472 nginx[17434]: nginx: [emerg] bind() to 0.0.0.0:80 fa>
+Oct 15 14:12:26 srv1064472 nginx[17434]: nginx: [emerg] bind() to 0.0.0.0:80 fa>
+Oct 15 14:12:26 srv1064472 nginx[17434]: nginx: [emerg] bind() to 0.0.0.0:80 fa>
+Oct 15 14:12:27 srv1064472 nginx[17434]: nginx: [emerg] still could not bind()
+Oct 15 14:12:27 srv1064472 systemd[1]: nginx.service: Control process exited, c>
+Oct 15 14:12:27 srv1064472 systemd[1]: nginx.service: Failed with result 'exit->
+Oct 15 14:12:27 srv1064472 systemd[1]: Failed to start nginx.service - A high p>
+lines 1-16/16 (END)...skipping...
+× nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Wed 2025-10-15 14:12:27 UTC; 877ms ago
+       Docs: man:nginx(8)
+        CPU: 14ms
+
+Oct 15 14:12:24 srv1064472 systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...
+Oct 15 14:12:24 srv1064472 nginx[17434]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Oct 15 14:12:25 srv1064472 nginx[17434]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Oct 15 14:12:25 srv1064472 nginx[17434]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Oct 15 14:12:26 srv1064472 nginx[17434]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Oct 15 14:12:26 srv1064472 nginx[17434]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Oct 15 14:12:27 srv1064472 nginx[17434]: nginx: [emerg] still could not bind()
+Oct 15 14:12:27 srv1064472 systemd[1]: nginx.service: Control process exited, code=exited, status=1/FAILURE
+Oct 15 14:12:27 srv1064472 systemd[1]: nginx.service: Failed with result 'exit-code'.
+Oct 15 14:12:27 srv1064472 systemd[1]: Failed to start nginx.service - A high performance web server and a reverse proxy server.
