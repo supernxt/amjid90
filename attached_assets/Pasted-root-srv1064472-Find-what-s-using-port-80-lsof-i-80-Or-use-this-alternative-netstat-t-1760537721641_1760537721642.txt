@@ -1,0 +1,56 @@
+root@srv1064472:~# # Find what's using port 80
+lsof -i :80
+
+# Or use this alternative
+netstat -tulpn | grep :80
+
+# Once you see what's using it, stop it. Common culprits:
+# If it's apache2:
+systemctl stop apache2
+systemctl disable apache2
+
+# If it's OpenLiteSpeed:
+systemctl stop lsws
+systemctl disable lsws
+
+# Or if something else is there, kill the process:
+# (Replace PID with the actual process ID from the lsof/netstat command)
+# kill -9 PID
+
+# Then try starting nginx again:
+systemctl start nginx
+systemctl status nginx
+COMMAND    PID   USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+litespeed 7785   root   22u  IPv4  30104      0t0  TCP *:http (LISTEN)
+litespeed 7785   root   23u  IPv4  30105      0t0  TCP *:http (LISTEN)
+litespeed 7790 nobody   22u  IPv4  30104      0t0  TCP *:http (LISTEN)
+litespeed 7791 nobody   23u  IPv4  30105      0t0  TCP *:http (LISTEN)
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      7785/openlitespeed
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      7785/openlitespeed
+Failed to stop apache2.service: Unit apache2.service not loaded.
+Failed to disable unit: Unit file apache2.service does not exist.
+Removed "/etc/systemd/system/multi-user.target.wants/lshttpd.service".
+Removed "/etc/systemd/system/openlitespeed.service".
+Removed "/etc/systemd/system/lsws.service".
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2025-10-15 14:14:40 UTC; 9ms ago
+       Docs: man:nginx(8)
+    Process: 17636 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 17638 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+   Main PID: 17639 (nginx)
+      Tasks: 3 (limit: 9486)
+     Memory: 2.4M (peak: 2.6M)
+        CPU: 17ms
+     CGroup: /system.slice/nginx.service
+             ├─17639 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             ├─17640 "nginx: worker process"
+             └─17641 "nginx: worker process"
+
+Oct 15 14:14:38 srv1064472 systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...
+Oct 15 14:14:38 srv1064472 nginx[17638]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Oct 15 14:14:39 srv1064472 nginx[17638]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Oct 15 14:14:39 srv1064472 nginx[17638]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Oct 15 14:14:40 srv1064472 nginx[17638]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Oct 15 14:14:40 srv1064472 systemd[1]: Started nginx.service - A high performance web server and a reverse proxy server.
+root@srv1064472:~#
