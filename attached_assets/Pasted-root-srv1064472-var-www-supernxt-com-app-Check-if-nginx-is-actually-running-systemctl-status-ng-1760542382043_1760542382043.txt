@@ -1,0 +1,63 @@
+root@srv1064472:/var/www/supernxt.com/app# # Check if nginx is actually running
+systemctl status nginx | head -15
+
+# Check what's listening on port 80
+netstat -tulpn | grep :80
+
+# Check PM2 is still running
+pm2 status
+
+# Check if there's a firewall blocking port 80
+ufw status
+iptables -L -n | grep 80
+
+# Test localhost directly (bypass nginx)
+curl -I http://localhost:5000
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2025-10-15 14:14:40 UTC; 1h 18min ago
+       Docs: man:nginx(8)
+    Process: 19198 ExecReload=/usr/sbin/nginx -g daemon on; master_process on; -s reload (code=exited, status=0/SUCCESS)
+   Main PID: 17639 (nginx)
+      Tasks: 3 (limit: 9486)
+     Memory: 2.5M (peak: 4.4M)
+        CPU: 31ms
+     CGroup: /system.slice/nginx.service
+             ├─17639 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             ├─19200 "nginx: worker process"
+             └─19201 "nginx: worker process"
+
+Oct 15 14:14:38 srv1064472 systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      17639/nginx: master
+tcp6       0      0 :::80                   :::*                    LISTEN      17639/nginx: master
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ 1.0.0   │ fork    │ 19161    │ 6m     │ 0    │ online    │ 0%       │ 76.9mb   │ root     │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+Status: active
+
+To                         Action      From
+--                         ------      ----
+22                         ALLOW       Anywhere
+80                         ALLOW       Anywhere
+443                        ALLOW       Anywhere
+22 (v6)                    ALLOW       Anywhere (v6)
+80 (v6)                    ALLOW       Anywhere (v6)
+443 (v6)                   ALLOW       Anywhere (v6)
+
+ACCEPT     6    --  0.0.0.0/0            0.0.0.0/0            tcp dpt:80
+ACCEPT     17   --  0.0.0.0/0            0.0.0.0/0            udp dpt:80
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Wed, 15 Oct 2025 15:26:45 GMT
+ETag: W/"593-199e87b1944"
+Content-Type: text/html; charset=UTF-8
+Content-Length: 1427
+Date: Wed, 15 Oct 2025 15:32:49 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+root@srv1064472:/var/www/supernxt.com/app#
