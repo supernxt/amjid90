@@ -1,0 +1,97 @@
+root@srv1064472:/var/www/supernxt.com/app# # Try resolvectl instead (systemd-res
+resolvectl flush-caches
+
+# Or use systemd-resolved
+systemctl restart systemd-resolved
+
+# Now test the domain
+curl -I http://supernxt.com --max-time 10
+
+# If that works, retry SSL with forced IPv4
+certbot --nginx -d supernxt.com -d www.supernxt.com --non-interactive --agree-to
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Wed, 15 Oct 2025 16:07:59 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 1427
+Connection: keep-alive
+X-Powered-By: Express
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Wed, 15 Oct 2025 15:26:45 GMT
+ETag: W/"593-199e87b1944"
+
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Requesting a certificate for supernxt.com and www.supernxt.com
+
+Certbot failed to authenticate some domains (authenticator: nginx). The Certific
+  Domain: supernxt.com
+  Type:   connection
+  Detail: 168.235.80.200: Fetching http://supernxt.com/.well-known/acme-challeng
+
+  Domain: www.supernxt.com
+  Type:   connection
+  Detail: 168.235.80.200: Fetching http://www.supernxt.com/.well-known/acme-chal
+
+Hint: The Certificate Authority failed to verify the temporary nginx configurati
+
+Some challenges have failed.
+Ask for help or search for solutions at https://community.letsencrypt.org. See t
+root@srv1064472:/var/www/supernxt.com/app# # Use DNS challenge instead (doesn't need domain to be accessible)
+certbot certonly --manual --preferred-challenges dns -d supernxt.com -d www.supernxt.com --email hello@supernxt.com --agree-tos
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Requesting a certificate for supernxt.com and www.supernxt.com
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Please deploy a DNS TXT record under the name:
+
+_acme-challenge.supernxt.com.
+
+with the following value:
+
+GzFfOUj1B8r4G9miM_ApraQ4DUV7qejul4Ecu58rKS0
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Press Enter to Continue
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Please deploy a DNS TXT record under the name:
+
+_acme-challenge.www.supernxt.com.
+
+with the following value:
+
+3oU10qQDiICSTxOY4taDrkpBrXayQROE6zyK49Kww2o
+
+(This must be set up in addition to the previous challenges; do not remove,
+replace, or undo the previous challenge tasks yet. Note that you might be
+asked to create multiple distinct TXT records with the same name. This is
+permitted by DNS standards.)
+
+Before continuing, verify the TXT record has been deployed. Depending on the DNS
+provider, this may take some time, from a few seconds to multiple minutes. You can
+check if it has finished deploying with aid of online tools, such as the Google
+Admin Toolbox: https://toolbox.googleapps.com/apps/dig/#TXT/_acme-challenge.www.supernxt.com.
+Look for one or more bolded line(s) below the line ';ANSWER'. It should show the
+value(s) you've just added.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Press Enter to Continue
+
+Certbot failed to authenticate some domains (authenticator: manual). The Certificate Authority reported these problems:
+  Domain: supernxt.com
+  Type:   dns
+  Detail: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.supernxt.com - check that a DNS record exists for this domain
+
+  Domain: www.supernxt.com
+  Type:   dns
+  Detail: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.www.supernxt.com - check that a DNS record exists for this domain
+
+Hint: The Certificate Authority failed to verify the manually created DNS TXT records. Ensure that you created these in the correct location, or try waiting longer for DNS propagation on the next attempt.
+
+Some challenges have failed.
+Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
+root@srv1064472:/var/www/supernxt.com/app# # Wait a few minutes for DNS to propagate globally, then retry SSL
+sleep 180 && certbot --nginx -d supernxt.com -d www.supernxt.com --non-interactive --agree-tos --email hello@supernxt.com --redirect
+^C
+root@srv1064472:/var/www/supernxt.com/app#
