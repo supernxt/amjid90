@@ -1,0 +1,97 @@
+apt update
+apt install -y certbot python3-certbot-nginx
+
+# Check if DNS is ready (wait until this works)
+nslookup supernxt.com
+nslookup www.supernxt.com
+Hit:1 http://mirror.ubuntu.ikoula.com noble-backports InRelease
+Hit:2 http://mirror.ubuntu.ikoula.com noble InRelease
+Hit:3 http://mirror.ubuntu.ikoula.com noble-security InRelease
+Hit:4 http://mirror.ubuntu.ikoula.com noble-updates InRelease
+Hit:5 http://archive.ubuntu.com/ubuntu noble InRelease
+Get:6 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:7 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:8 http://archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Hit:9 https://deb.nodesource.com/node_20.x nodistro InRelease
+Ign:10 http://rpms.litespeedtech.com/debian noble InRelease
+Hit:11 http://rpms.litespeedtech.com/debian noble Release
+Get:12 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [175 kB]
+Get:13 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [378 kB]
+Get:14 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+Get:15 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+Get:16 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7156 B]
+Get:17 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [11.0 kB]
+Get:18 http://archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [216 B]
+Get:19 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+Get:20 http://archive.ubuntu.com/ubuntu noble-security/main amd64 Components [21.5 kB]
+Get:21 http://archive.ubuntu.com/ubuntu noble-security/universe amd64 Components [52.3 kB]
+Get:22 http://archive.ubuntu.com/ubuntu noble-security/restricted amd64 Components [208 B]
+Get:23 http://archive.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [212 B]
+Fetched 1025 kB in 1s (994 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+1 package can be upgraded. Run 'apt list --upgradable' to see it.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+certbot is already the newest version (2.9.0-1).
+The following packages were automatically installed and are no longer required:
+  linux-headers-6.8.0-71 linux-headers-6.8.0-71-generic
+  linux-image-6.8.0-71-generic linux-modules-6.8.0-71-generic
+  linux-tools-6.8.0-71 linux-tools-6.8.0-71-generic
+Use 'apt autoremove' to remove them.
+Suggested packages:
+  python-certbot-nginx-doc
+The following NEW packages will be installed:
+  python3-certbot-nginx
+0 upgraded, 1 newly installed, 0 to remove and 1 not upgraded.
+Need to get 66.0 kB of archives.
+After this operation, 376 kB of additional disk space will be used.
+Get:1 http://mirror.ubuntu.ikoula.com noble/universe amd64 python3-certbot-nginx all 2.9.0-1 [66.0 kB]
+Fetched 66.0 kB in 0s (1890 kB/s)
+Selecting previously unselected package python3-certbot-nginx.
+(Reading database ... 145879 files and directories currently installed.)
+Preparing to unpack .../python3-certbot-nginx_2.9.0-1_all.deb ...
+Unpacking python3-certbot-nginx (2.9.0-1) ...
+Setting up python3-certbot-nginx (2.9.0-1) ...
+Disabling Ubuntu mode, explicit restart mode configuredScanning processes... [  Scanning processes...
+Scanning candidates...
+
+Services to be restarted:
+ systemctl restart cron.service
+ systemctl restart lshttpd.service
+ systemctl restart multipathd.service
+ systemctl restart polkit.service
+ systemctl restart rsyslog.service
+ systemctl restart udisks2.service
+
+Service restarts being deferred:
+ systemctl restart ModemManager.service
+ /etc/needrestart/restart.d/dbus.service
+ systemctl restart getty@tty1.service
+ systemctl restart serial-getty@ttyS0.service
+ systemctl restart systemd-logind.service
+
+No containers need to be restarted.
+
+User sessions running outdated binaries:
+ root @ session #2: sshd[1998]
+ root @ user manager service: systemd[2004]
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+Name:   supernxt.com
+Address: 168.235.80.200
+
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+Name:   www.supernxt.com
+Address: 168.235.80.200
+
+root@srv1064472:/var/www/supernxt.com/app#
