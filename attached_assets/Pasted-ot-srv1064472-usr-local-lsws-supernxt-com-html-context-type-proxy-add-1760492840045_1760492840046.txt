@@ -1,0 +1,67 @@
+ot@srv1064472:/usr/local/lsws/supernxt.com/html# context / {
+  type                    proxy
+  address                 127.0.0.1:5000
+  allowSetCookie          1
+}
+Command 'context' not found, but can be installed with:
+apt install context
+-bash: type: proxy: not found
+address: command not found
+allowSetCookie: command not found
+-bash: syntax error near unexpected token `}'
+root@srv1064472:/usr/local/lsws/supernxt.com/html# cd /usr/local/lsws/supernxt.com/html
+grep -n "from 'vite'" dist/index.js || true
+grep -n '"vite"' dist/index.js || true
+12:import { defineConfig } from "vite";
+65:import { createServer as createViteServer, createLogger } from "vite";
+root@srv1064472:/usr/local/lsws/supernxt.com/html# # Test if the server is responding
+curl -I http://localhost:80
+
+# If that works, test the actual HTML
+curl http://localhost:80 | head -20
+
+# Check PM2 status
+pm2 status
+curl: (7) Failed to connect to localhost port 80 after 0 ms: Couldn't connect to server
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (7) Failed to connect to localhost port 80 after 0 ms: Couldn't connect to server
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ 1.0.0   │ fork    │ 26378    │ 109s   │ 2    │ online    │ 0%       │ 87.1mb   │ root     │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+root@srv1064472:/usr/local/lsws/supernxt.com/html# sudo tee -a /usr/local/lsws/conf/vhosts/supernxt.com/vhost.conf >/dev/null <<'EOF'
+
+context / {
+  type                    proxy
+  address                 127.0.0.1:5000
+  allowSetCookie          1
+  addDefaultCharset       off
+}
+EOF
+root@srv1064472:/usr/local/lsws/supernxt.com/html# sudo tee -a /usr/local/lsws/conf/httpd_config.conf >/dev/null <<'EOF'
+
+listener Default {
+  address                 *:80
+  secure                  0
+  map                     supernxt.com supernxt.com
+}
+EOF
+root@srv1064472:/usr/local/lsws/supernxt.com/html# sudo /usr/local/lsws/bin/lswsctrl restart
+[OK] litespeed: pid=26467.
+root@srv1064472:/usr/local/lsws/supernxt.com/html# curl -I http://168.231.84.200
+HTTP/1.1 200 OK
+content-type: text/plain
+date: Wed, 15 Oct 2025 01:46:19 GMT
+server: LiteSpeed
+connection: Keep-Alive
+
+root@srv1064472:/usr/local/lsws/supernxt.com/html# curl -I http://127.0.0.1
+HTTP/1.1 200 OK
+content-type: text/plain
+date: Wed, 15 Oct 2025 01:46:39 GMT
+server: LiteSpeed
+connection: Keep-Alive
+
