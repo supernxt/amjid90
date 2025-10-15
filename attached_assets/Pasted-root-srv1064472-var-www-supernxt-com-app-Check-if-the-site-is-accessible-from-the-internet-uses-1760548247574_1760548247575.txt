@@ -1,0 +1,57 @@
+root@srv1064472:/var/www/supernxt.com/app# # Check if the site is accessible from the internet (uses external checker)
+curl -I https://check-host.net/check-http?host=http://supernxt.com
+
+# Also check Hostinger firewall rules
+ufw status verbose
+
+# Check if there are any iptables rules blocking
+iptables -L -n -v | head -20
+HTTP/2 200
+date: Wed, 15 Oct 2025 17:10:20 GMT
+content-type: text/html; charset=utf-8
+server: cloudflare
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+cf-cache-status: DYNAMIC
+strict-transport-security: max-age=2592000; preload
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=pCKz%2FwvzGIdRemhk4pKUOf9HmwTlAiU4rCfrX6En4i1x%2FkuJQy2WE1gZKsQKy4EXRM9MKTfR0XL8PcdjdpoyQMpm2UAK%2FRPY5fbfJDWC"}]}
+set-cookie: csrf_token=31a4bcb3398a39fd3b5dbd5d8ddf8b0f8c495e1e; Max-Age=86400
+set-cookie: csrf_token=31a4bcb3398a39fd3b5dbd5d8ddf8b0f8c495e1e; Max-Age=86400
+cf-ray: 98f0ede83bb39edf-CDG
+alt-svc: h3=":443"; ma=86400
+
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22                         ALLOW IN    Anywhere
+80                         ALLOW IN    Anywhere
+443                        ALLOW IN    Anywhere
+22 (v6)                    ALLOW IN    Anywhere (v6)
+80 (v6)                    ALLOW IN    Anywhere (v6)
+443 (v6)                   ALLOW IN    Anywhere (v6)
+
+Chain INPUT (policy DROP 1096 packets, 45614 bytes)
+ pkts bytes target     prot opt in     out     source               destination 
+23188   32M ufw-before-logging-input  0    --  *      *       0.0.0.0/0            0.0.0.0/0
+23188   32M ufw-before-input  0    --  *      *       0.0.0.0/0            0.0.0.0/0
+ 1101 45884 ufw-after-input  0    --  *      *       0.0.0.0/0            0.0.0.0/0
+ 1096 45614 ufw-after-logging-input  0    --  *      *       0.0.0.0/0            0.0.0.0/0
+ 1096 45614 ufw-reject-input  0    --  *      *       0.0.0.0/0            0.0.0.0/0
+ 1096 45614 ufw-track-input  0    --  *      *       0.0.0.0/0            0.0.0.0/0
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination 
+    0     0 ufw-before-logging-forward  0    --  *      *       0.0.0.0/0            0.0.0.0/0
+    0     0 ufw-before-forward  0    --  *      *       0.0.0.0/0            0.0.0.0/0
+    0     0 ufw-after-forward  0    --  *      *       0.0.0.0/0            0.0.0.0/0
+    0     0 ufw-after-logging-forward  0    --  *      *       0.0.0.0/0            0.0.0.0/0
+    0     0 ufw-reject-forward  0    --  *      *       0.0.0.0/0            0.0.0.0/0
+    0     0 ufw-track-forward  0    --  *      *       0.0.0.0/0            0.0.0.0/0
+
+Chain OUTPUT (policy ACCEPT 2 packets, 136 bytes)
+ pkts bytes target     prot opt in     out     source               destination 
+root@srv1064472:/var/www/supernxt.com/app#
