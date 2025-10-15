@@ -1,0 +1,72 @@
+root@srv1064472:/usr/local/lsws/supernxt.com/html# # Test if Node.js is actually listening on port 80
+netstat -tlnp | grep :80
+
+# Test with curl
+curl -v http://localhost:80
+
+# Check PM2 status
+pm2 status
+
+# Show me recent logs
+pm2 logs supernxt --lines 20 --nostream
+* Host localhost:80 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:80...
+* connect to ::1 port 80 from ::1 port 50302 failed: Connection refused
+*   Trying 127.0.0.1:80...
+* connect to 127.0.0.1 port 80 from 127.0.0.1 port 40388 failed: Connection refused
+* Failed to connect to localhost port 80 after 0 ms: Couldn't connect to server
+* Closing connection
+curl: (7) Failed to connect to localhost port 80 after 0 ms: Couldn't connect to server
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ 1.0.0   │ fork    │ 25144    │ 101s   │ 0    │ online    │ 0%       │ 89.9mb   │ root     │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[TAILING] Tailing last 20 lines for [supernxt] process (change the value with --lines option)
+/root/.pm2/logs/supernxt-error.log last 20 lines:
+0|supernxt |     at async Object.readFile (node:internal/fs/promises:1245:14)
+0|supernxt |     at async <anonymous> (/usr/local/lsws/supernxt.com/html/server/vite.ts:56:22)
+0|supernxt | Error: ENOENT: no such file or directory, open '/usr/local/lsws/supernxt.com/html/client/index.html'
+0|supernxt |     at async open (node:internal/fs/promises:641:25)
+0|supernxt |     at async Object.readFile (node:internal/fs/promises:1245:14)
+0|supernxt |     at async <anonymous> (/usr/local/lsws/supernxt.com/html/server/vite.ts:56:22)
+0|supernxt | Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/usr/local/lsws/supernxt.com/html/dist/index.js' imported from /usr/lib/node_modules/pm2/lib/ProcessContainerFork.js
+0|supernxt |     at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+0|supernxt |     at moduleResolve (node:internal/modules/esm/resolve:859:10)
+0|supernxt |     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+0|supernxt |     at #cachedDefaultResolve (node:internal/modules/esm/loader:717:20)
+0|supernxt |     at ModuleLoader.resolve (node:internal/modules/esm/loader:694:38)
+0|supernxt |     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:308:38)
+0|supernxt |     at onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:650:36)
+0|supernxt |     at TracingChannel.tracePromise (node:diagnostics_channel:344:14)
+0|supernxt |     at ModuleLoader.import (node:internal/modules/esm/loader:649:21)
+0|supernxt |     at defaultImportModuleDynamicallyForScript (node:internal/modules/esm/utils:235:31) {
+0|supernxt |   code: 'ERR_MODULE_NOT_FOUND',
+0|supernxt |   url: 'file:///usr/local/lsws/supernxt.com/html/dist/index.js'
+0|supernxt | }
+
+/root/.pm2/logs/supernxt-out.log last 20 lines:
+0|supernxt | 6:48:28 PM [vite] hmr update /src/pages/CaseStudies.tsx
+0|supernxt | 6:48:28 PM [vite] hmr update /src/pages/Contact.tsx
+0|supernxt | 6:48:29 PM [vite] hmr update /src/pages/Infrastructure.tsx
+0|supernxt | 6:48:29 PM [vite] hmr update /src/pages/Home.tsx
+0|supernxt | 6:48:30 PM [vite] page reload src/pages/not-found.tsx
+0|supernxt | 6:48:30 PM [vite] hmr update /src/pages/About.tsx
+0|supernxt | 6:48:32 PM [vite] page reload src/hooks/use-mobile.tsx
+0|supernxt | 6:48:32 PM [vite] page reload src/hooks/use-toast.ts
+0|supernxt | 12:01:47 AM [express] serving on port 5000
+0|supernxt | 12:15:56 AM [express] serving on port 5000
+0|supernxt | 12:19:46 AM [express] serving on port 5000
+0|supernxt | 12:32:56 AM [express] serving on port 5000
+0|supernxt | 12:37:23 AM [express] serving on port 5000
+0|supernxt | 12:44:32 AM [express] serving on port 80
+0|supernxt | 12:46:31 AM [express] serving on port 5000
+0|supernxt | 12:54:19 AM [express] serving on port 80
+0|supernxt | 12:59:50 AM [express] serving on port 80
+0|supernxt | 1:06:14 AM [express] serving on port 80
+0|supernxt | 1:06:58 AM [express] serving on port 80
+0|supernxt | 2025-10-15T01:13:20: 1:13:20 AM [express] serving on port 5000
+
+root@srv1064472:/usr/local/lsws/supernxt.com/html#
