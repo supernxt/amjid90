@@ -1,0 +1,39 @@
+root@srv1064472:/usr/local/lsws/supernxt.com/html# # Stop and disable nginx
+systemctl stop nginx
+systemctl disable nginx
+
+# Restart OpenLiteSpeed
+systemctl restart lsws
+
+# Verify
+curl http://localhost:80
+Synchronizing state of nginx.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install disable nginx
+Removed "/etc/systemd/system/multi-user.target.wants/nginx.service".
+Failed to restart lsws.service: Unit lsws.service not found.
+curl: (7) Failed to connect to localhost port 80 after 0 ms: Couldn't connect to server
+root@srv1064472:/usr/local/lsws/supernxt.com/html# # Check OpenLiteSpeed status
+systemctl status lsws
+
+# Check nginx status
+systemctl status nginx
+
+# See which is using port 80
+netstat -tlnp | grep :80
+Unit lsws.service could not be found.
+○ nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; preset: enabled)
+     Active: inactive (dead)
+       Docs: man:nginx(8)
+
+Oct 14 18:26:45 srv1064472 systemd[1]: Failed to start nginx.service - A high performance web server and a reverse proxy server.
+Oct 14 18:33:33 srv1064472 systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...
+Oct 14 18:33:33 srv1064472 nginx[5195]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Oct 14 18:33:33 srv1064472 nginx[5195]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Oct 14 18:33:34 srv1064472 nginx[5195]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Oct 14 18:33:34 srv1064472 nginx[5195]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Oct 14 18:33:35 srv1064472 systemd[1]: Started nginx.service - A high performance web server and a reverse proxy server.
+Oct 15 00:09:25 srv1064472 systemd[1]: Stopping nginx.service - A high performance web server and a reverse proxy server...
+Oct 15 00:09:25 srv1064472 systemd[1]: nginx.service: Deactivated successfully.
+Oct 15 00:09:25 srv1064472 systemd[1]: Stopped nginx.service - A high performance web server and a reverse proxy server.
+root@srv1064472:/usr/local/lsws/supernxt.com/html#
