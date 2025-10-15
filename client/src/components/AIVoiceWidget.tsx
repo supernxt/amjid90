@@ -24,6 +24,7 @@ export default function AIVoiceWidget() {
     let mounted = true;
     let retryCount = 0;
     const maxRetries = 3;
+    let originalErrorHandler: OnErrorEventHandler = null;
 
     const initializeWidget = async () => {
       try {
@@ -49,20 +50,23 @@ export default function AIVoiceWidget() {
         widget = document.createElement('elevenlabs-convai');
         widget.setAttribute('agent-id', 'agent_9801k71wapq9ehvrghfwzstqjbdn');
         
-        // Suppress all widget errors
+        // Suppress widget-specific errors
         widget.addEventListener('error', (e) => {
           e.preventDefault();
           e.stopPropagation();
         });
         
-        // Catch any unhandled errors
-        const originalError = window.onerror;
+        // Capture original error handler
+        originalErrorHandler = window.onerror;
+        
+        // Suppress specific ElevenLabs errors only
         window.onerror = function(msg, url, line, col, error) {
-          if (msg && typeof msg === 'string' && msg.includes('getUint8Mode')) {
-            return true; // Suppress this specific error
+          if (msg && typeof msg === 'string' && (msg.includes('getUint8Mode') || msg.includes('mediaDevices'))) {
+            return true; // Suppress these specific errors
           }
-          if (originalError) {
-            return originalError(msg, url, line, col, error);
+          // Pass all other errors to original handler
+          if (originalErrorHandler) {
+            return originalErrorHandler(msg, url, line, col, error);
           }
           return false;
         };
@@ -77,6 +81,12 @@ export default function AIVoiceWidget() {
 
     return () => {
       mounted = false;
+      
+      // Restore original error handler
+      if (originalErrorHandler !== null) {
+        window.onerror = originalErrorHandler;
+      }
+      
       if (widget && widget.parentNode) {
         widget.remove();
         widget = null;
