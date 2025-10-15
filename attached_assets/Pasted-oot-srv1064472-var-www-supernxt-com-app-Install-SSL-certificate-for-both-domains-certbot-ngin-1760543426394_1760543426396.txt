@@ -1,0 +1,45 @@
+oot@srv1064472:/var/www/supernxt.com/app# # Install SSL certificate for both domains
+certbot --nginx -d supernxt.com -d www.supernxt.com --non-interactive --agree-tos --email hello@supernxt.com --redirect
+
+# Check the certificate status
+certbot certificates
+
+# Test auto-renewal
+certbot renew --dry-run
+
+# Verify HTTPS is working
+curl -I https://supernxt.com
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Account registered.
+Requesting a certificate for supernxt.com and www.supernxt.com
+
+Certbot failed to authenticate some domains (authenticator: nginx). The Certificate Authority reported these problems:
+  Domain: supernxt.com
+  Type:   connection
+  Detail: 168.235.80.200: Fetching http://supernxt.com/.well-known/acme-challenge/dm5RSCjXo4rD2aKF15NhHSY46IZXBYIRrhcp1seDwlM: Timeout during connect (likely firewall problem)
+
+  Domain: www.supernxt.com
+  Type:   connection
+  Detail: 168.235.80.200: Fetching http://www.supernxt.com/.well-known/acme-challenge/JGCQ_SpKS2Gn3CyHIjHIDskYsmpxB9AiRBG6s3DnQ9M: Timeout during connect (likely firewall problem)
+
+Hint: The Certificate Authority failed to verify the temporary nginx configuration changes made by Certbot. Ensure the listed domains point to this nginx server and that it is accessible from the internet.
+
+Some challenges have failed.
+Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+No certificates found.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+No simulated renewals were attempted.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+
+
+^C
+root@srv1064472:/var/www/supernxt.com/app#
