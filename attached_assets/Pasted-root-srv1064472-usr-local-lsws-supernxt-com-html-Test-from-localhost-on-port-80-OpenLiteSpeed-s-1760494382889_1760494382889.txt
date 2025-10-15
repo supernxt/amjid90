@@ -1,0 +1,88 @@
+root@srv1064472:/usr/local/lsws/supernxt.com/html# # Test from localhost on port 80 (OpenLiteSpeed should proxy to 5000)
+curl -I http://localhost:80
+
+# Test from the public IP
+curl -I http://168.235.80.200
+
+# If those work, test from your browser
+echo "Try opening: http://168.235.80.200"
+echo "Or if DNS is updated: http://supernxt.com"
+HTTP/1.1 200 OK
+etag: "35a5-68a6f5d9-47de1;;;"
+last-modified: Thu, 21 Aug 2025 10:32:57 GMT
+content-type: text/html
+content-length: 13733
+accept-ranges: bytes
+date: Wed, 15 Oct 2025 02:05:09 GMT
+server: LiteSpeed
+connection: Keep-Alive
+
+curl: (28) Failed to connect to 168.235.80.200 port 80 after 135326 ms: Couldn't connect to server
+Try opening: http://168.235.80.200
+Or if DNS is updated: http://supernxt.com
+root@srv1064472:/usr/local/lsws/supernxt.com/html# # Check the virtual host config
+cat /usr/local/lsws/conf/vhosts/supernxt.com/vhost.conf
+
+# Check if OpenLiteSpeed is even listening properly
+netstat -tulpn | grep lshttpd
+
+# Check OpenLiteSpeed error logs
+tail -50 /usr/local/lsws/logs/error.log
+
+context / {
+  type                    proxy
+  address                 127.0.0.1:5000
+  allowSetCookie          1
+  addDefaultCharset       off
+}
+2025-10-15 02:02:54.678875 [NOTICE] [26817] [AutoRestarter] new child process with pid=26828 is forked!
+2025-10-15 02:02:54.679244 [INFO] [26827] Close SO_REUSEPORT #2 fd: 9.
+2025-10-15 02:02:54.679269 [NOTICE] [26827] [*:80] Worker #1 activates SO_REUSEPORT #1 socket, fd: 8
+2025-10-15 02:02:54.679296 [INFO] [26827] Close SO_REUSEPORT #2 fd: 11.
+2025-10-15 02:02:54.679303 [NOTICE] [26827] [*:443] Worker #1 activates SO_REUSEPORT #1 socket, fd: 10
+2025-10-15 02:02:54.679310 [INFO] [26827] Close SO_REUSEPORT #2 fd: 13.
+2025-10-15 02:02:54.679314 [NOTICE] [26827] [UDP *:443] Worker #1 activates SO_REUSEPORT #1 socket, fd: 12
+2025-10-15 02:02:54.679356 [INFO] [26827] [UDP:0.0.0.0:443] initPacketsIn: allocated 100 packets
+2025-10-15 02:02:54.679366 [INFO] [26827] [UDP:0.0.0.0:7080] initPacketsIn: allocated 100 packets
+2025-10-15 02:02:54.679417 [INFO] [26828] Close SO_REUSEPORT #1 fd: 8.
+2025-10-15 02:02:54.679434 [NOTICE] [26828] [*:80] Worker #2 activates SO_REUSEPORT #2 socket, fd: 9
+2025-10-15 02:02:54.679449 [INFO] [26828] Close SO_REUSEPORT #1 fd: 10.
+2025-10-15 02:02:54.679452 [NOTICE] [26828] [*:443] Worker #2 activates SO_REUSEPORT #2 socket, fd: 11
+2025-10-15 02:02:54.679458 [INFO] [26828] Close SO_REUSEPORT #1 fd: 12.
+2025-10-15 02:02:54.679462 [NOTICE] [26828] [UDP *:443] Worker #2 activates SO_REUSEPORT #2 socket, fd: 13
+2025-10-15 02:02:54.679502 [INFO] [26828] [UDP:0.0.0.0:443] initPacketsIn: allocated 100 packets
+2025-10-15 02:02:54.679513 [NOTICE] [26828] Stop listener *:7080, fd 14.
+2025-10-15 02:02:54.679634 [NOTICE] [26827] Successfully change current user to nobody
+2025-10-15 02:02:54.679646 [NOTICE] [26827] Core dump is enabled.
+2025-10-15 02:02:54.679707 [INFO] [26827] [lsphp]: locked pid file [/tmp/lshttpd/lsphp.sock.pid].
+2025-10-15 02:02:54.679715 [INFO] [26827] [lsphp] remove unix socket for detached process: /tmp/lshttpd/lsphp.sock
+2025-10-15 02:02:54.679755 [NOTICE] [26828] Successfully change current user to nobody
+2025-10-15 02:02:54.679762 [NOTICE] [26828] Core dump is enabled.
+2025-10-15 02:02:54.679782 [NOTICE] [26828] Setup swapping space...
+2025-10-15 02:02:54.679815 [NOTICE] [26827] [LocalWorker::workerExec] Config[lsphp]: suExec uid 65534 gid 65534 cmd /usr/local/lsws/lsphp84/bin/lsphp, final uid 65534 gid 65534, flags: 0.
+2025-10-15 02:02:54.679836 [NOTICE] [26828] LiteSpeed/1.8.4 Open starts successfully!
+2025-10-15 02:02:54.680232 [NOTICE] [26827] [lsphp] add child process pid: 26829
+2025-10-15 02:02:54.680291 [INFO] [26827] [lsphp]: unlocked pid file [/tmp/lshttpd/lsphp.sock.pid].
+2025-10-15 02:02:54.680319 [NOTICE] [26827] Setup swapping space...
+2025-10-15 02:02:54.680381 [NOTICE] [26827] LiteSpeed/1.8.4 Open starts successfully!
+2025-10-15 02:02:54.745940 [NOTICE] [26768] New litespeed process is ready, stops listeners
+2025-10-15 02:02:54.745970 [INFO] [26768] Stop all listeners.
+2025-10-15 02:02:54.745974 [NOTICE] [26768] Stop listener *:80, fd 9.
+2025-10-15 02:02:54.745969 [NOTICE] [26767] New litespeed process is ready, stops listeners
+2025-10-15 02:02:54.746001 [NOTICE] [26768] Stop listener *:443, fd 11.
+2025-10-15 02:02:54.746004 [INFO] [26767] Stop all listeners.
+2025-10-15 02:02:54.746009 [NOTICE] [26767] Stop listener *:80, fd 8.
+2025-10-15 02:02:54.746019 [NOTICE] [26767] Stop listener *:443, fd 10.
+2025-10-15 02:02:54.746023 [NOTICE] [26767] Stop listener *:7080, fd 14.
+2025-10-15 02:02:54.746035 [NOTICE] [26768] Event-loop lingering done.
+2025-10-15 02:02:54.746042 [NOTICE] [26768] Shut down successfully!
+2025-10-15 02:02:54.746048 [NOTICE] [26767] Event-loop lingering done.
+2025-10-15 02:02:54.746051 [NOTICE] [26767] Shut down successfully!
+2025-10-15 02:02:54.746061 [NOTICE] [26768] HttpServerImpl::releaseAll called.
+2025-10-15 02:02:54.746073 [NOTICE] [26767] HttpServerImpl::releaseAll called.
+2025-10-15 02:02:54.747668 [NOTICE] [26765] [AutoRestarter] cleanup children processes and unix sockets belong to process 26767 !
+2025-10-15 02:02:54.847838 [NOTICE] [26765] [AutoRestarter] child process with pid=26767 exited with status=0!
+2025-10-15 02:02:54.848014 [NOTICE] [26765] [AutoRestarter] cleanup children processes and unix sockets belong to process 26768 !
+2025-10-15 02:02:54.948182 [NOTICE] [26765] [AutoRestarter] child process with pid=26768 exited with status=0!
+2025-10-15 02:02:54.948326 [NOTICE] [26765] Server Stopped!
+root@srv1064472:/usr/local/lsws/supernxt.com/html#
