@@ -1,0 +1,77 @@
+root@srv1064472:/usr/local/lsws/supernxt.com/html# # Change to a valid directory first
+cd /root
+
+# Now check PM2 status
+pm2 status
+
+# See where the app is running from
+pm2 info supernxt
+
+# Check if dist/public exists anywhere
+find /usr/local -name "public" -type d 2>/dev/null
+
+# Most likely the files are still there, let's check
+ls -la /usr/local/lsws/supernxt.com/html/dist/
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ 1.0.0   │ fork    │ 26848    │ 32m    │ 2    │ online    │ 0%       │ 94.4mb   │ root     │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ Describing process with id 0 - name supernxt
+┌───────────────────┬─────────────────────────────────────────────────┐
+│ status            │ online                                          │
+│ name              │ supernxt                                        │
+│ namespace         │ default                                         │
+│ version           │ 1.0.0                                           │
+│ restarts          │ 2                                               │
+│ uptime            │ 32m                                             │
+│ script path       │ /usr/local/lsws/supernxt.com/html/dist/index.js │
+│ script args       │ N/A                                             │
+│ error log path    │ /root/.pm2/logs/supernxt-error.log              │
+│ out log path      │ /root/.pm2/logs/supernxt-out.log                │
+│ pid path          │ /root/.pm2/pids/supernxt-0.pid                  │
+│ interpreter       │ node                                            │
+│ interpreter args  │ N/A                                             │
+│ script id         │ 0                                               │
+│ exec cwd          │ /usr/local/lsws/supernxt.com/html               │
+│ exec mode         │ fork_mode                                       │
+│ node.js version   │ 22.19.0                                         │
+│ node env          │ production                                      │
+│ watch & reload    │ ✘                                               │
+│ unstable restarts │ 0                                               │
+│ created at        │ 2025-10-15T02:04:03.400Z                        │
+└───────────────────┴─────────────────────────────────────────────────┘
+ Actions available
+┌────────────────────────┐
+│ km:heapdump            │
+│ km:cpu:profiling:start │
+│ km:cpu:profiling:stop  │
+│ km:heap:sampling:start │
+│ km:heap:sampling:stop  │
+└────────────────────────┘
+ Trigger via: pm2 trigger supernxt <action_name>
+
+ Code metrics value
+┌────────────────────────┬──────────────┐
+│ Used Heap Size         │ 19.54 MiB    │
+│ Heap Usage             │ 95.35 %      │
+│ Heap Size              │ 20.50 MiB    │
+│ Event Loop Latency p95 │ 1.46 ms      │
+│ Event Loop Latency     │ 0.51 ms      │
+│ Active handles         │ 4            │
+│ Active requests        │ 0            │
+│ HTTP                   │ 0.01 req/min │
+│ HTTP P95 Latency       │ 5 ms         │
+│ HTTP Mean Latency      │ 2 ms         │
+└────────────────────────┴──────────────┘
+ Divergent env variables from local env
+┌─────┬───────────────────────────────────┐
+│ PWD │ /usr/local/lsws/supernxt.com/html │
+└─────┴───────────────────────────────────┘
+
+ Add your own code metrics: http://bit.ly/code-metrics
+ Use `pm2 logs supernxt [--lines 1000]` to display logs
+ Use `pm2 env 0` to display environment variables
+ Use `pm2 monit` to monitor CPU and Memory usage supernxt
+ls: cannot access '/usr/local/lsws/supernxt.com/html/dist/': No such file or directory
+root@srv1064472:~#
