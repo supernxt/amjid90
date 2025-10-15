@@ -1,0 +1,218 @@
+root@srv1064472:/usr/local/lsws/supernxt.com/html# sudo ss -tulpn | grep ':80' || echo "Port 80 is free"
+tcp   LISTEN 0      511          0.0.0.0:80         0.0.0.0:*    users:(("nginx",pid=28125,fd=5),("nginx",pid=28124,fd=5),("nginx",pid=28123,fd=5))
+root@srv1064472:/usr/local/lsws/supernxt.com/html# # Replace supernxt.com with your domain (or keep _ default_ for IP)
+sudo tee /etc/nginx/sites-available/supernxt.com >/dev/null <<'EOF'
+server {
+    listen 80;
+    server_name supernxt.com www.supernxt.com 168.231.84.200;
+
+    # If you serve any static files directly, set root here; otherwise proxy everything:
+    location / {
+        proxy_pass         http://127.0.0.1:5000;
+        proxy_http_version 1.1;
+
+        # WebSocket & headers
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_set_header   Connection "upgrade";
+        proxy_set_header   Host $host;
+        proxy_set_header   X-Real-IP $remote_addr;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
+
+        # Timeouts (optional, useful for SSE/WS)
+        proxy_read_timeout  300;
+        proxy_send_timeout  300;
+    }
+
+    # Optional: increase upload limit
+    client_max_body_size 50m;
+}
+EOF
+
+# Enable and reload
+sudo ln -sf /etc/nginx/sites-available/supernxt.com /etc/nginx/sites-enabled/supernxt.com
+sudo nginx -t && sudo systemctl reload nginx
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+root@srv1064472:/usr/local/lsws/supernxt.com/html# # Check if the site config exists
+ls -la /etc/nginx/sites-enabled/
+ls -la /etc/nginx/sites-available/
+
+# If it doesn't exist, let's create it properly
+cat > /etc/nginx/sites-available/supernxt.com << 'EOF'
+server {
+    listen 80;
+    server_name supernxt.com www.supernxt.com 168.235.80.200;
+
+    location / {
+        proxy_pass http://127.0.0.1:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+EOF
+
+# Enable it
+ln -sf /etc/nginx/sites-available/supernxt.com /etc/nginx/sites-enabled/
+
+# Test and reload
+nginx -t && systemctl reload nginx
+
+# Now test
+curl -I http://localhost
+curl -I http://168.235.80.200
+total 8
+drwxr-xr-x 2 root root 4096 Oct 15 02:28 .
+drwxr-xr-x 8 root root 4096 Oct 15 02:15 ..
+lrwxrwxrwx 1 root root   39 Oct 15 02:28 supernxt.com -> /etc/nginx/sites-available/supernxt.com
+total 24
+drwxr-xr-x 2 root root 4096 Oct 15 02:15 .
+drwxr-xr-x 8 root root 4096 Oct 15 02:15 ..
+-rw-r--r-- 1 root root 2412 Nov 30  2023 default
+-rw-r--r-- 1 root root  813 Oct 15 02:28 supernxt.com
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+HTTP/1.1 404 Not Found
+Server: nginx/1.24.0 (Ubuntu)
+Date: Wed, 15 Oct 2025 02:29:02 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 136
+Connection: keep-alive
+X-Powered-By: Express
+Content-Security-Policy: default-src 'none'
+X-Content-Type-Options: nosniff
+
+^C
+root@srv1064472:/usr/local/lsws/supernxt.com/html# curl -I http://127.0.0.1
+curl -I http://168.231.84.200
+HTTP/1.1 404 Not Found
+Server: nginx/1.24.0 (Ubuntu)
+Date: Wed, 15 Oct 2025 02:29:34 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 136
+Connection: keep-alive
+X-Powered-By: Express
+Content-Security-Policy: default-src 'none'
+X-Content-Type-Options: nosniff
+
+HTTP/1.1 404 Not Found
+Server: nginx/1.24.0 (Ubuntu)
+Date: Wed, 15 Oct 2025 02:29:34 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 136
+Connection: keep-alive
+X-Powered-By: Express
+Content-Security-Policy: default-src 'none'
+X-Content-Type-Options: nosniff
+
+root@srv1064472:/usr/local/lsws/supernxt.com/html# sudo apt remove --purge -y openlitespeed
+sudo rm -rf /usr/local/lsws
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Package 'openlitespeed' is not installed, so not removed
+The following packages were automatically installed and are no longer required:
+  lsphp83 lsphp83-common lsphp83-mysql lsphp83-opcache rcs
+Use 'sudo apt autoremove' to remove them.
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+0 upgraded, 0 newly installed, 0 to remove and 62 not upgraded.
+sh: 0: getcwd() failed: No such file or directory
+sh: 0: getcwd() failed: No such file or directory
+root@srv1064472:/usr/local/lsws/supernxt.com/html# dpkg -l | grep -i litespeed
+root@srv1064472:/usr/local/lsws/supernxt.com/html# sudo ss -tulpn | grep ':80' -n
+sudo systemctl status lsws litespeed openlitespeed nginx --no-pager
+5:tcp   LISTEN 0      511          0.0.0.0:80         0.0.0.0:*    users:(("nginx",pid=28711,fd=5),("nginx",pid=28710,fd=5),("nginx",pid=28123,fd=5))
+○ lsws.service
+     Loaded: masked (Reason: Unit lsws.service is masked.)
+     Active: inactive (dead)
+
+○ litespeed.service
+     Loaded: masked (Reason: Unit litespeed.service is masked.)
+     Active: inactive (dead)
+
+○ openlitespeed.service
+     Loaded: masked (Reason: Unit openlitespeed.service is masked.)
+     Active: inactive (dead)
+
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2025-10-15 02:18:14 UTC; 12min ago
+       Docs: man:nginx(8)
+    Process: 28708 ExecReload=/usr/sbin/nginx -g daemon on; master_process on; -s reload (code=exited, status=0/SUCCESS)
+   Main PID: 28123 (nginx)
+      Tasks: 3 (limit: 9486)
+     Memory: 2.5M (peak: 4.4M)
+        CPU: 43ms
+     CGroup: /system.slice/nginx.service
+             ├─28123 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             ├─28710 "nginx: worker process"
+             └─28711 "nginx: worker process"
+
+Oct 15 02:18:14 srv1064472 systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...
+Oct 15 02:18:14 srv1064472 systemd[1]: Started nginx.service - A high performance web server and a reverse proxy server.
+Oct 15 02:28:07 srv1064472 systemd[1]: Reloading nginx.service - A high performance web server and a reverse proxy server...
+Oct 15 02:28:07 srv1064472 nginx[28697]: 2025/10/15 02:28:07 [notice] 28697#28697: signal process started
+Oct 15 02:28:07 srv1064472 systemd[1]: Reloaded nginx.service - A high performance web server and a reverse proxy server.
+Oct 15 02:29:02 srv1064472 systemd[1]: Reloading nginx.service - A high performance web server and a reverse proxy server...
+Oct 15 02:29:02 srv1064472 nginx[28708]: 2025/10/15 02:29:02 [notice] 28708#28708: signal process started
+Oct 15 02:29:02 srv1064472 systemd[1]: Reloaded nginx.service - A high performance web server and a reverse proxy server.
+root@srv1064472:/usr/local/lsws/supernxt.com/html# # Check if the site config exists
+ls -la /etc/nginx/sites-enabled/
+ls -la /etc/nginx/sites-available/
+
+# If it doesn't exist, let's create it properly
+cat > /etc/nginx/sites-available/supernxt.com << 'EOF'
+server {
+    listen 80;
+    server_name supernxt.com www.supernxt.com 168.235.80.200;
+
+    location / {
+        proxy_pass http://127.0.0.1:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+EOF
+
+# Enable it
+ln -sf /etc/nginx/sites-available/supernxt.com /etc/nginx/sites-enabled/
+
+# Test and reload
+nginx -t && systemctl reload nginx
+
+# Now test
+curl -I http://localhost
+curl -I http://168.235.80.200
+total 8
+drwxr-xr-x 2 root root 4096 Oct 15 02:29 .
+drwxr-xr-x 8 root root 4096 Oct 15 02:15 ..
+lrwxrwxrwx 1 root root   39 Oct 15 02:29 supernxt.com -> /etc/nginx/sites-available/supernxt.com
+total 24
+drwxr-xr-x 2 root root 4096 Oct 15 02:15 .
+drwxr-xr-x 8 root root 4096 Oct 15 02:15 ..
+-rw-r--r-- 1 root root 2412 Nov 30  2023 default
+-rw-r--r-- 1 root root  530 Oct 15 02:29 supernxt.com
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+HTTP/1.1 404 Not Found
+Server: nginx/1.24.0 (Ubuntu)
+Date: Wed, 15 Oct 2025 02:30:56 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 136
+Connection: keep-alive
+X-Powered-By: Express
+Content-Security-Policy: default-src 'none'
+X-Content-Type-Options: nosniff
