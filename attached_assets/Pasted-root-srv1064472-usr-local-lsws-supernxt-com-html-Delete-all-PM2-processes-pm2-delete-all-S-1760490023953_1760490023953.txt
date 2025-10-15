@@ -1,0 +1,78 @@
+root@srv1064472:/usr/local/lsws/supernxt.com/html# # Delete all PM2 processes
+pm2 delete all
+
+# Start fresh
+cd /usr/local/lsws/supernxt.com/html
+NODE_ENV=production PORT=80 pm2 start dist/index.js --name supernxt
+
+# Check status
+pm2 status
+
+# Check logs
+pm2 logs supernxt --lines 10 --nostream
+
+# Test
+curl http://localhost:80
+[PM2] Applying action deleteProcessId on app [all](ids: [ 0 ])
+[PM2] [supernxt](0) ✓
+┌────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+└────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Starting /usr/local/lsws/supernxt.com/html/dist/index.js in fork_mode (1 instance)
+[PM2] Done.
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ 1.0.0   │ fork    │ 9882     │ 0s     │ 0    │ online    │ 0%       │ 19.9mb   │ root     │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ 1.0.0   │ fork    │ 9882     │ 0s     │ 0    │ online    │ 0%       │ 72.6mb   │ root     │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[TAILING] Tailing last 10 lines for [supernxt] process (change the value with --lines option)
+/root/.pm2/logs/supernxt-error.log last 10 lines:
+0|supernxt |     at async Object.readFile (node:internal/fs/promises:1245:14)
+0|supernxt |     at async <anonymous> (/usr/local/lsws/supernxt.com/html/server/vite.ts:56:22)
+0|supernxt | Error: ENOENT: no such file or directory, open '/usr/local/lsws/supernxt.com/html/client/index.html'
+0|supernxt |     at async open (node:internal/fs/promises:641:25)
+0|supernxt |     at async Object.readFile (node:internal/fs/promises:1245:14)
+0|supernxt |     at async <anonymous> (/usr/local/lsws/supernxt.com/html/server/vite.ts:56:22)
+0|supernxt | Error: ENOENT: no such file or directory, open '/usr/local/lsws/supernxt.com/html/client/index.html'
+0|supernxt |     at async open (node:internal/fs/promises:641:25)
+0|supernxt |     at async Object.readFile (node:internal/fs/promises:1245:14)
+0|supernxt |     at async <anonymous> (/usr/local/lsws/supernxt.com/html/server/vite.ts:56:22)
+
+/root/.pm2/logs/supernxt-out.log last 10 lines:
+0|supernxt | 6:48:32 PM [vite] page reload src/hooks/use-mobile.tsx
+0|supernxt | 6:48:32 PM [vite] page reload src/hooks/use-toast.ts
+0|supernxt | 12:01:47 AM [express] serving on port 5000
+0|supernxt | 12:15:56 AM [express] serving on port 5000
+0|supernxt | 12:19:46 AM [express] serving on port 5000
+0|supernxt | 12:32:56 AM [express] serving on port 5000
+0|supernxt | 12:37:23 AM [express] serving on port 5000
+0|supernxt | 12:44:32 AM [express] serving on port 80
+0|supernxt | 12:46:31 AM [express] serving on port 5000
+0|supernxt | 12:54:19 AM [express] serving on port 80
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Super Next Technologies - AI-Powered Infrastructure & 3D Web Experiences</title>
+    <meta name="description" content="Super Next Technologies delivers AI Agents, AI Automations, Enterprise Wireless Hotspots, Cloud Infrastructure, and immersive 3D websites with free domain hosting offers." />
+    <meta property="og:title" content="Super Next Technologies - AI-Powered Infrastructure" />
+    <meta property="og:description" content="Leading provider of AI Solutions, Enterprise Hotspots, and 3D Web Development in UAE/GCC" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <script type="module" crossorigin src="/assets/index-pkoZMnRj.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-D70IreJQ.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>root@srv1064472:/usr/local/lsws/supernxt.com/html#
