@@ -1,0 +1,66 @@
+
+> rest-express@1.0.0 build
+> vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+
+vite v5.4.20 building for production...
+transforming (1) index.htmlBrowserslist: browsers data (caniuse-lite) is 12 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+transforming (4) src/App.tsx
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 2029 modules transformed.
+../dist/public/index.html                                                         1.43 kB │ gzip:   0.69 kB
+../dist/public/assets/icononly_transparent_nobuffer_1760207932143-DuY2fWzj.png   80.75 kB
+../dist/public/assets/icononly_nobuffer_1760202128142-ClxSnXFr.png               90.15 kB
+../dist/public/assets/index-D70IreJQ.css                                         88.59 kB │ gzip:  13.64 kB
+../dist/public/assets/index-UPmeQ3Mm.js                                         478.03 kB │ gzip: 147.19 kB
+✓ built in 5.01s
+
+  dist/index.js  4.6kb
+
+⚡ Done in 4ms
+[PM2] Starting /usr/local/lsws/supernxt.com/html/dist/index.js in fork_mode (1 instance)
+[PM2] Done.
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ 1.0.0   │ fork    │ 6921     │ 0s     │ 0    │ online    │ 0%       │ 27.1mb   │ root     │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Saving current process list...
+[PM2] Successfully saved in /root/.pm2/dump.pm2
+[TAILING] Tailing last 15 lines for [supernxt] process (change the value with --lines option)
+/root/.pm2/logs/supernxt-out.log last 15 lines:
+0|supernxt | 6:48:25 PM [vite] hmr update /src/pages/Templates.tsx
+0|supernxt | 6:48:25 PM [vite] hmr update /src/pages/Pricing.tsx
+0|supernxt | 6:48:26 PM [vite] hmr update /src/pages/WebsiteDevelopment.tsx
+0|supernxt | 6:48:26 PM [vite] hmr update /src/pages/AISolutions.tsx
+0|supernxt | 6:48:27 PM [vite] hmr update /src/pages/Support.tsx
+0|supernxt | 6:48:27 PM [vite] hmr update /src/pages/NotFoundPage.tsx
+0|supernxt | 6:48:28 PM [vite] hmr update /src/pages/WirelessHotspot.tsx
+0|supernxt | 6:48:28 PM [vite] hmr update /src/pages/CaseStudies.tsx
+0|supernxt | 6:48:28 PM [vite] hmr update /src/pages/Contact.tsx
+0|supernxt | 6:48:29 PM [vite] hmr update /src/pages/Infrastructure.tsx
+0|supernxt | 6:48:29 PM [vite] hmr update /src/pages/Home.tsx
+0|supernxt | 6:48:30 PM [vite] page reload src/pages/not-found.tsx
+0|supernxt | 6:48:30 PM [vite] hmr update /src/pages/About.tsx
+0|supernxt | 6:48:32 PM [vite] page reload src/hooks/use-mobile.tsx
+0|supernxt | 6:48:32 PM [vite] page reload src/hooks/use-toast.ts
+
+/root/.pm2/logs/supernxt-error.log last 15 lines:
+0|supernxt |     at async open (node:internal/fs/promises:641:25)
+0|supernxt |     at async Object.readFile (node:internal/fs/promises:1245:14)
+0|supernxt |     at async <anonymous> (/usr/local/lsws/supernxt.com/html/server/vite.ts:56:22)
+0|supernxt | Error: ENOENT: no such file or directory, open '/usr/local/lsws/supernxt.com/html/client/index.html'
+0|supernxt |     at async open (node:internal/fs/promises:641:25)
+0|supernxt |     at async Object.readFile (node:internal/fs/promises:1245:14)
+0|supernxt |     at async <anonymous> (/usr/local/lsws/supernxt.com/html/server/vite.ts:56:22)
+0|supernxt | Error: ENOENT: no such file or directory, open '/usr/local/lsws/supernxt.com/html/client/index.html'
+0|supernxt |     at async open (node:internal/fs/promises:641:25)
+0|supernxt |     at async Object.readFile (node:internal/fs/promises:1245:14)
+0|supernxt |     at async <anonymous> (/usr/local/lsws/supernxt.com/html/server/vite.ts:56:22)
+0|supernxt | Error: ENOENT: no such file or directory, open '/usr/local/lsws/supernxt.com/html/client/index.html'
+0|supernxt |     at async open (node:internal/fs/promises:641:25)
+0|supernxt |     at async Object.readFile (node:internal/fs/promises:1245:14)
+0|supernxt |     at async <anonymous> (/usr/local/lsws/supernxt.com/html/server/vite.ts:56:22)
+
+0|supernxt  | 12:01:47 AM [express] serving on port 5000

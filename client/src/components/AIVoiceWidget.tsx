@@ -12,9 +12,18 @@ declare global {
 
 export default function AIVoiceWidget() {
   useEffect(() => {
+    // Only load AI assistant on HTTPS (required for microphone access)
+    const isSecure = window.location.protocol === 'https:' || window.location.hostname === 'localhost';
+    
+    if (!isSecure) {
+      console.info('AI voice assistant requires HTTPS. Will be available after SSL setup.');
+      return;
+    }
+
     let widget: HTMLElement | null = null;
     let mounted = true;
-    let retryTimeout: NodeJS.Timeout;
+    let retryCount = 0;
+    const maxRetries = 3;
 
     const initializeWidget = async () => {
       try {
@@ -30,22 +39,37 @@ export default function AIVoiceWidget() {
 
         // Check if custom element is defined
         if (!customElements.get('elevenlabs-convai')) {
-          console.log('ElevenLabs widget not ready, will retry...');
-          retryTimeout = setTimeout(initializeWidget, 3000);
+          retryCount++;
+          if (retryCount < maxRetries) {
+            setTimeout(initializeWidget, 3000);
+          }
           return;
         }
 
         widget = document.createElement('elevenlabs-convai');
         widget.setAttribute('agent-id', 'agent_9801k71wapq9ehvrghfwzstqjbdn');
         
-        // Add error handler
+        // Suppress all widget errors
         widget.addEventListener('error', (e) => {
-          console.log('Widget error handled gracefully:', e);
+          e.preventDefault();
+          e.stopPropagation();
         });
+        
+        // Catch any unhandled errors
+        const originalError = window.onerror;
+        window.onerror = function(msg, url, line, col, error) {
+          if (msg && typeof msg === 'string' && msg.includes('getUint8Mode')) {
+            return true; // Suppress this specific error
+          }
+          if (originalError) {
+            return originalError(msg, url, line, col, error);
+          }
+          return false;
+        };
         
         document.body.appendChild(widget);
       } catch (error) {
-        console.log('AI assistant will be available shortly');
+        // Silently fail
       }
     };
 
@@ -53,7 +77,6 @@ export default function AIVoiceWidget() {
 
     return () => {
       mounted = false;
-      if (retryTimeout) clearTimeout(retryTimeout);
       if (widget && widget.parentNode) {
         widget.remove();
         widget = null;
