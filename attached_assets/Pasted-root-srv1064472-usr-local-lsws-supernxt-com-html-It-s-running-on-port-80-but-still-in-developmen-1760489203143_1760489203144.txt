@@ -1,0 +1,42 @@
+root@srv1064472:/usr/local/lsws/supernxt.com/html# # It's running on port 80 but still in development mode
+# Check if it works
+curl -I http://localhost:80
+
+# If it shows HTML, the site IS working, just with dev mode errors
+# Let's fix it properly - restart with environment variables
+pm2 delete supernxt
+
+pm2 start dist/index.js --name supernxt --env production -e NODE_ENV=production -e PORT=80
+
+pm2 save
+
+# Test
+curl http://localhost:80
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Wed, 15 Oct 2025 00:29:14 GMT
+ETag: W/"593-199e545663e"
+Content-Type: text/html; charset=UTF-8
+Content-Length: 1427
+Date: Wed, 15 Oct 2025 00:46:30 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+[PM2] Applying action deleteProcessId on app [supernxt](ids: [ 0 ])
+[PM2] [supernxt](0) ✓
+┌────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+└────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Starting /usr/local/lsws/supernxt.com/html/dist/index.js in fork_mode (1 instance)
+[PM2] Done.
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ 1.0.0   │ fork    │ 9474     │ 0s     │ 0    │ online    │ 0%       │ 16.8mb   │ root     │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Saving current process list...
+[PM2] Successfully saved in /root/.pm2/dump.pm2
+curl: (7) Failed to connect to localhost port 80 after 0 ms: Couldn't connect to server
+root@srv1064472:/usr/local/lsws/supernxt.com/html#
