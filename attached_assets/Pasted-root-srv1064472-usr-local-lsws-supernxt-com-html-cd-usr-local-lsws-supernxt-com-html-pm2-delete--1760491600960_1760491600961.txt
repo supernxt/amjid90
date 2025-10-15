@@ -1,0 +1,45 @@
+root@srv1064472:/usr/local/lsws/supernxt.com/html# cd /usr/local/lsws/supernxt.com/html
+pm2 delete all
+PORT=80 NODE_ENV=production pm2 start dist/index.js --name supernxt
+pm2 save
+pm2 logs supernxt --lines 10 --nostream
+[PM2] Applying action deleteProcessId on app [all](ids: [ 0 ])
+[PM2] [supernxt](0) ✓
+┌────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+└────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Starting /usr/local/lsws/supernxt.com/html/dist/index.js in fork_mode (1 instance)
+[PM2] Done.
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ 1.0.0   │ fork    │ 25845    │ 0s     │ 0    │ online    │ 0%       │ 27.0mb   │ root     │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Saving current process list...
+[PM2] Successfully saved in /root/.pm2/dump.pm2
+[TAILING] Tailing last 10 lines for [supernxt] process (change the value with --lines option)
+/root/.pm2/logs/supernxt-out.log last 10 lines:
+0|supernxt | 12:19:46 AM [express] serving on port 5000
+0|supernxt | 12:32:56 AM [express] serving on port 5000
+0|supernxt | 12:37:23 AM [express] serving on port 5000
+0|supernxt | 12:44:32 AM [express] serving on port 80
+0|supernxt | 12:46:31 AM [express] serving on port 5000
+0|supernxt | 12:54:19 AM [express] serving on port 80
+0|supernxt | 12:59:50 AM [express] serving on port 80
+0|supernxt | 1:06:14 AM [express] serving on port 80
+0|supernxt | 1:06:58 AM [express] serving on port 80
+0|supernxt | 2025-10-15T01:13:20: 1:13:20 AM [express] serving on port 5000
+
+/root/.pm2/logs/supernxt-error.log last 10 lines:
+0|supernxt |     at packageResolve (node:internal/modules/esm/resolve:767:81)
+0|supernxt |     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+0|supernxt |     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+0|supernxt |     at #cachedDefaultResolve (node:internal/modules/esm/loader:717:20)
+0|supernxt |     at ModuleLoader.resolve (node:internal/modules/esm/loader:694:38)
+0|supernxt |     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:308:38)
+0|supernxt |     at ModuleJob._link (node:internal/modules/esm/module_job:183:49)
+0|supernxt |     at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+0|supernxt |   code: 'ERR_MODULE_NOT_FOUND'
+0|supernxt | }
+
+root@srv1064472:/usr/local/lsws/supernxt.com/html#
