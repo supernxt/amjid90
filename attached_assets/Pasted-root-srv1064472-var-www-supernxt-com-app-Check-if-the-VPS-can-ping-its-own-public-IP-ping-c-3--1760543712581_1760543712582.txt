@@ -1,0 +1,35 @@
+root@srv1064472:/var/www/supernxt.com/app# # Check if the VPS can ping its own public IP
+ping -c 3 168.235.80.200
+
+# Try accessing via /etc/hosts workaround
+echo "127.0.0.1 supernxt.com www.supernxt.com" >> /etc/hosts
+
+# Now retry SSL
+certbot --nginx -d supernxt.com -d www.supernxt.com --non-interactive --agree-tos --email hello@supernxt.com --redirect
+PING 168.235.80.200 (168.235.80.200) 56(84) bytes of data.
+64 bytes from 168.235.80.200: icmp_seq=1 ttl=51 time=76.4 ms
+64 bytes from 168.235.80.200: icmp_seq=1 ttl=115 time=76.4 ms (DUP!)
+64 bytes from 168.235.80.200: icmp_seq=2 ttl=51 time=76.3 ms
+64 bytes from 168.235.80.200: icmp_seq=2 ttl=115 time=76.3 ms (DUP!)
+64 bytes from 168.235.80.200: icmp_seq=3 ttl=51 time=75.5 ms
+
+--- 168.235.80.200 ping statistics ---
+3 packets transmitted, 3 received, +2 duplicates, 0% packet loss, time 2003ms
+rtt min/avg/max/mdev = 75.469/76.147/76.366/0.342 ms
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Requesting a certificate for supernxt.com and www.supernxt.com
+
+Certbot failed to authenticate some domains (authenticator: nginx). The Certificate Authority reported these problems:
+  Domain: supernxt.com
+  Type:   connection
+  Detail: 168.235.80.200: Fetching http://supernxt.com/.well-known/acme-challenge/goKYTwuAB99mAUX9meQx5GYzObMAWgDYIs-LySbCtt0: Timeout during connect (likely firewall problem)
+
+  Domain: www.supernxt.com
+  Type:   connection
+  Detail: 168.235.80.200: Fetching http://www.supernxt.com/.well-known/acme-challenge/CSsy_cJPhtyf80pn5trvaqi1Ago9XjTaCZAG-Rmg8hg: Timeout during connect (likely firewall problem)
+
+Hint: The Certificate Authority failed to verify the temporary nginx configuration changes made by Certbot. Ensure the listed domains point to this nginx server and that it is accessible from the internet.
+
+Some challenges have failed.
+Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
+root@srv1064472:/var/www/supernxt.com/app#
