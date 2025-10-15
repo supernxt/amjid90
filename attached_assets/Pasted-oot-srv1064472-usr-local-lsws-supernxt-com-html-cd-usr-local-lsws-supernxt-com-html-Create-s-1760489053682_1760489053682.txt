@@ -1,0 +1,51 @@
+oot@srv1064472:/usr/local/lsws/supernxt.com/html# cd /usr/local/lsws/supernxt.com/html
+
+# Create simple PM2 config
+cat > ecosystem.config.js << 'EOF'
+module.exports = {
+  apps: [{
+    name: 'supernxt',
+    script: './dist/index.js',
+    env: {
+      NODE_ENV: 'production',
+      PORT: 80
+    }
+  }]
+}
+EOF
+
+# Delete old process
+pm2 delete all
+
+# Start on port 80
+pm2 start ecosystem.config.js
+
+# Save
+pm2 save
+
+# Check
+pm2 logs supernxt --lines 20
+[PM2] Applying action deleteProcessId on app [all](ids: [ 0 ])
+[PM2] [supernxt](0) ✓
+┌────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+└────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2][ERROR] File ecosystem.config.js malformated
+ReferenceError: module is not defined in ES module scope
+This file is being treated as an ES module because it has a '.js' file extension and '/usr/local/lsws/supernxt.com/html/package.json' contains "type": "module". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.
+    at file:///usr/local/lsws/supernxt.com/html/ecosystem.config.js:1:1
+    at ModuleJobSync.runSync (node:internal/modules/esm/module_job:458:37)
+    at ModuleLoader.importSyncForRequire (node:internal/modules/esm/loader:433:47)
+    at loadESMFromCJS (node:internal/modules/cjs/loader:1537:24)
+    at Module._compile (node:internal/modules/cjs/loader:1688:5)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+[PM2] Saving current process list...
+[PM2][WARN] PM2 is not managing any process, skipping save...
+[PM2][WARN] To force saving use: pm2 save --force
+[TAILING] Tailing last 20 lines for [supernxt] process (change the value with --lines option)
+^C
+root@srv1064472:/usr/local/lsws/supernxt.com/html#
