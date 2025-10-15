@@ -1,0 +1,28 @@
+root@srv1064472:/var/www/supernxt.com/app# # Check nginx error logs
+tail -20 /var/log/nginx/error.log
+
+# Check nginx access logs
+tail -20 /var/log/nginx/access.log
+
+# Try accessing from outside
+# Open your web browser and visit: http://168.235.80.200
+2025/10/15 14:12:19 [emerg] 17321#17321: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2025/10/15 14:12:19 [emerg] 17321#17321: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2025/10/15 14:12:19 [emerg] 17321#17321: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2025/10/15 14:12:19 [emerg] 17321#17321: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2025/10/15 14:12:19 [emerg] 17321#17321: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2025/10/15 14:12:19 [emerg] 17321#17321: still could not bind()
+2025/10/15 14:12:24 [emerg] 17434#17434: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2025/10/15 14:12:24 [emerg] 17434#17434: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2025/10/15 14:12:24 [emerg] 17434#17434: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2025/10/15 14:12:24 [emerg] 17434#17434: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2025/10/15 14:12:24 [emerg] 17434#17434: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2025/10/15 14:12:24 [emerg] 17434#17434: still could not bind()
+2025/10/15 14:14:38 [emerg] 17638#17638: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2025/10/15 14:14:38 [emerg] 17638#17638: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2025/10/15 14:14:38 [emerg] 17638#17638: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2025/10/15 14:14:38 [emerg] 17638#17638: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2025/10/15 15:29:30 [error] 19200#19200: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 138.36.155.73, server: supernxt.com, request: "GET /robots.txt HTTP/1.0", upstream: "http://[::1]:5000/robots.txt", host: "168.231.84.200"
+::1 - - [15/Oct/2025:14:15:52 +0000] "HEAD / HTTP/1.1" 200 0 "-" "curl/8.5.0"
+138.36.155.73 - - [15/Oct/2025:15:29:30 +0000] "GET /robots.txt HTTP/1.0" 200 1427 "-" "xfa1"
+root@srv1064472:/var/www/supernxt.com/app#
