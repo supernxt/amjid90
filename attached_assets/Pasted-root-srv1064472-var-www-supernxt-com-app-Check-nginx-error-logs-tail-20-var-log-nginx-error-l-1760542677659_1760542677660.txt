@@ -1,0 +1,54 @@
+root@srv1064472:/var/www/supernxt.com/app# # Check nginx error logs
+tail -20 /var/log/nginx/error.log
+
+# Check nginx access logs
+tail -20 /var/log/nginx/access.log
+
+# Try accessing from outside
+# Open your web browser and visit: http://168.235.80.200
+2025/10/15 14:12:19 [emerg] 17321#17321: bind() to 0.0.0.0:80 failed (98: Addres
+2025/10/15 14:12:19 [emerg] 17321#17321: bind() to 0.0.0.0:80 failed (98: Addres
+2025/10/15 14:12:19 [emerg] 17321#17321: bind() to 0.0.0.0:80 failed (98: Addres
+2025/10/15 14:12:19 [emerg] 17321#17321: bind() to 0.0.0.0:80 failed (98: Addres
+2025/10/15 14:12:19 [emerg] 17321#17321: bind() to 0.0.0.0:80 failed (98: Addres
+2025/10/15 14:12:19 [emerg] 17321#17321: still could not bind()
+2025/10/15 14:12:24 [emerg] 17434#17434: bind() to 0.0.0.0:80 failed (98: Addres
+2025/10/15 14:12:24 [emerg] 17434#17434: bind() to 0.0.0.0:80 failed (98: Addres
+2025/10/15 14:12:24 [emerg] 17434#17434: bind() to 0.0.0.0:80 failed (98: Addres
+2025/10/15 14:12:24 [emerg] 17434#17434: bind() to 0.0.0.0:80 failed (98: Addres
+2025/10/15 14:12:24 [emerg] 17434#17434: bind() to 0.0.0.0:80 failed (98: Addres
+2025/10/15 14:12:24 [emerg] 17434#17434: still could not bind()
+2025/10/15 14:14:38 [emerg] 17638#17638: bind() to 0.0.0.0:80 failed (98: Addres
+2025/10/15 14:14:38 [emerg] 17638#17638: bind() to 0.0.0.0:80 failed (98: Addres
+2025/10/15 14:14:38 [emerg] 17638#17638: bind() to 0.0.0.0:80 failed (98: Addres
+2025/10/15 14:14:38 [emerg] 17638#17638: bind() to 0.0.0.0:80 failed (98: Addres
+2025/10/15 15:29:30 [error] 19200#19200: *2 connect() failed (111: Connection re
+::1 - - [15/Oct/2025:14:15:52 +0000] "HEAD / HTTP/1.1" 200 0 "-" "curl/8.5.0"
+138.36.155.73 - - [15/Oct/2025:15:29:30 +0000] "GET /robots.txt HTTP/1.0" 200 14
+root@srv1064472:/var/www/supernxt.com/app# # Update nginx config to use IPv4 explicitly
+cat > /etc/nginx/sites-available/supernxt.com << 'EOF'
+server {
+    listen 80;
+    listen [::]:80;
+    server_name supernxt.com www.supernxt.com 168.235.80.200;
+
+    location / {
+        proxy_pass http://127.0.0.1:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+EOF
+
+# Reload nginx
+echo "✅ Visit http://168.235.80.200 in your browser!"
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+✅ Visit http://168.235.80.200 in your browser!
+root@srv1064472:/var/www/supernxt.com/app#
