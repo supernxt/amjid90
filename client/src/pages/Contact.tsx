@@ -4,8 +4,23 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { useState } from "react";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Send email using mailto
+    const mailtoLink = `mailto:hello@supernxt.com?subject=${encodeURIComponent(formData.subject || 'Contact Form Submission')}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <Background3D variant="default">
       <div className="pt-36 pb-20 px-4 md:px-8">
@@ -94,20 +109,45 @@ export default function Contact() {
               className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg p-6 lg:p-8"
             >
               <h3 className="text-xl font-bold mb-6">Send us a Message</h3>
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
-                  <Input placeholder="Your Name" data-testid="input-name" />
+                  <Input 
+                    placeholder="Your Name" 
+                    data-testid="input-name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    required
+                  />
                 </div>
                 <div>
-                  <Input type="email" placeholder="Your Email" data-testid="input-email" />
+                  <Input 
+                    type="email" 
+                    placeholder="Your Email" 
+                    data-testid="input-email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    required
+                  />
                 </div>
                 <div>
-                  <Input placeholder="Subject" data-testid="input-subject" />
+                  <Input 
+                    placeholder="Subject" 
+                    data-testid="input-subject"
+                    value={formData.subject}
+                    onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                  />
                 </div>
                 <div>
-                  <Textarea placeholder="Your Message" rows={8} data-testid="input-message" />
+                  <Textarea 
+                    placeholder="Your Message" 
+                    rows={8} 
+                    data-testid="input-message"
+                    value={formData.message}
+                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    required
+                  />
                 </div>
-                <Button size="lg" className="w-full gap-2" data-testid="button-send">
+                <Button type="submit" size="lg" className="w-full gap-2" data-testid="button-send">
                   Send Message <Send className="h-4 w-4" />
                 </Button>
               </form>

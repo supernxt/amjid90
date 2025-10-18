@@ -2,6 +2,7 @@ import Background3D from "@/components/Background3D";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { openAIChat } from "@/lib/ai-assistant";
 import { 
   Building2, ShoppingBag, Stethoscope, GraduationCap, 
   Hotel, TrendingUp, Users, DollarSign, ArrowRight,
@@ -228,7 +229,7 @@ export default function CaseStudies() {
                 <Button size="lg" onClick={() => window.location.href = "tel:048864215"} data-testid="button-call-us">
                   Call Us: 048864215
                 </Button>
-                <Button size="lg" variant="outline" onClick={() => window.location.href = "/contact"} data-testid="button-get-started">
+                <Button size="lg" variant="outline" onClick={openAIChat} data-testid="button-get-started">
                   Get Started <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>

@@ -286,7 +286,7 @@ export default function About() {
                 <Button size="lg" onClick={openAIChat} data-testid="button-get-started">
                   Get Started <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button size="lg" variant="outline" onClick={() => window.location.href = "/contact"} data-testid="button-contact-us">
+                <Button size="lg" variant="outline" onClick={() => window.location.href = "mailto:hello@supernxt.com?subject=Contact%20Request&body=Hello,%20I%20would%20like%20to%20get%20in%20touch%20with%20you."} data-testid="button-contact-us">
                   Contact Us
                 </Button>
               </div>
