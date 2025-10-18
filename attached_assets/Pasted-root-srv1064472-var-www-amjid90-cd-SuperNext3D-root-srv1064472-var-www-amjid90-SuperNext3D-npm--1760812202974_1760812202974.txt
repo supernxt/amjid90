@@ -1,0 +1,44 @@
+root@srv1064472:/var/www/amjid90# cd SuperNext3D
+root@srv1064472:/var/www/amjid90/SuperNext3D# npm install
+npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+
+added 478 packages, and audited 479 packages in 11s
+
+64 packages are looking for funding
+  run `npm fund` for details
+
+8 vulnerabilities (3 low, 5 moderate)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+root@srv1064472:/var/www/amjid90/SuperNext3D# npm run build
+
+> rest-express@1.0.0 build
+> vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+
+vite v5.4.20 building for production...
+transforming (3) src/main.tsxBrowserslist: browsers data (caniuse-lite) is 12 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+transforming (4) src/App.tsx
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 2029 modules transformed.
+../dist/public/index.html                                                         1.43 kB │ gzip:   0.69 kB
+../dist/public/assets/icononly_transparent_nobuffer_1760207932143-DuY2fWzj.png   80.75 kB
+../dist/public/assets/icononly_nobuffer_1760202128142-ClxSnXFr.png               90.15 kB
+../dist/public/assets/index-D70IreJQ.css                                         88.59 kB │ gzip:  13.64 kB
+../dist/public/assets/index-pkoZMnRj.js                                         478.28 kB │ gzip: 147.31 kB
+✓ built in 4.85s
+
+  dist/index.js  6.5kb
+
+⚡ Done in 4ms
+root@srv1064472:/var/www/amjid90/SuperNext3D# ls -la ecosystem.config.cjs
+ls: cannot access 'ecosystem.config.cjs': No such file or directory
+root@srv1064472:/var/www/amjid90/SuperNext3D#
