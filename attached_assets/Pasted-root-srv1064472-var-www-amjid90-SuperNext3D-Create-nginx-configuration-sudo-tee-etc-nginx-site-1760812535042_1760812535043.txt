@@ -1,0 +1,74 @@
+root@srv1064472:/var/www/amjid90/SuperNext3D# # Create nginx configuration
+sudo tee /etc/nginx/sites-available/supernxt.com > /dev/null << 'EOF'
+server {
+    listen 80;
+    server_name supernxt.com www.supernxt.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+EOF
+
+# Enable the site
+sudo ln -s /etc/nginx/sites-available/supernxt.com /etc/nginx/sites-enabled/
+
+# Remove default site (if exists)
+curl -I http://127.0.0.1:5000gxt.com -d www.supernxt.com --non-interactive --agree-tos --email hello
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+Job for nginx.service failed because the control process exited with error code.
+See "systemctl status nginx.service" and "journalctl -xeu nginx.service" for details.
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Certificate not yet due for renewal
+Deploying certificate
+Successfully deployed certificate for supernxt.com to /etc/nginx/sites-enabled/supernxt.com
+Successfully deployed certificate for www.supernxt.com to /etc/nginx/sites-enabled/supernxt.com
+An error occurred and we failed to restore your config and restart your server. Please post to https://community.letsencrypt.org/c/help with details about your configuration and this error you received.
+Encountered exception during recovery: certbot.errors.MisconfigurationError: nginx restart failed:
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] still could not bind()
+
+NEXT STEPS:
+- The certificate was saved, but could not be installed (installer: nginx). After fixing the error shown below, try installing it again by running:
+  certbot install --cert-name supernxt.com
+
+nginx restart failed:
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:443 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:443 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:443 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:443 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:443 failed (98: Address already in use)
+nginx: [emerg] still could not bind()
+
+Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Sat, 18 Oct 2025 18:29:19 GMT
+ETag: W/"593-199f895534f"
+Content-Type: text/html; charset=UTF-8
+Content-Length: 1427
+Date: Sat, 18 Oct 2025 18:34:50 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+root@srv1064472:/var/www/amjid90/SuperNext3D#
