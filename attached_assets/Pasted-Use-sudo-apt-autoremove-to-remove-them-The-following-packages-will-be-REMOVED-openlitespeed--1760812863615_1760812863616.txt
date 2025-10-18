@@ -1,0 +1,117 @@
+Use 'sudo apt autoremove' to remove them.
+The following packages will be REMOVED:
+  openlitespeed*
+0 upgraded, 0 newly installed, 1 to remove and 1 not upgraded.
+After this operation, 30.0 MB disk space will be freed.
+(Reading database ... 145903 files and directories currently installed.)
+Removing openlitespeed (1.8.4-7+noble) ...
+(Reading database ... 145305 files and directories currently installed.)
+Purging configuration files for openlitespeed (1.8.4-7+noble) ...
+dpkg: warning: while removing openlitespeed, directory '/usr/local/lsws/tmp' not empty so not removed
+dpkg: warning: while removing openlitespeed, directory '/usr/local/lsws/modules' not empty so not removed
+dpkg: warning: while removing openlitespeed, directory '/usr/local/lsws/logs' not empty so not removed
+dpkg: warning: while removing openlitespeed, directory '/usr/local/lsws/conf/vhosts/Example' not empty so not removed
+dpkg: warning: while removing openlitespeed, directory '/usr/local/lsws/conf/templates' not empty so not removed
+dpkg: warning: while removing openlitespeed, directory '/usr/local/lsws/cachedata' not empty so not removed
+dpkg: warning: while removing openlitespeed, directory '/usr/local/lsws/autoupdate' not empty so not removed
+dpkg: warning: while removing openlitespeed, directory '/usr/local/lsws/admin/tmp' not empty so not removed
+dpkg: warning: while removing openlitespeed, directory '/usr/local/lsws/admin/logs' not empty so not removed
+dpkg: warning: while removing openlitespeed, directory '/usr/local/lsws/admin/conf' not empty so not removed
+dpkg: warning: while removing openlitespeed, directory '/usr/local/lsws/Example/logs' not empty so not removed
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages will be REMOVED:
+  aspell aspell-en dictionaries-common emacsen-common enchant-2 hunspell-en-us libaspell15
+  libenchant-2-2 libhunspell-1.7-0 libzip4t64 linux-headers-6.8.0-71
+  linux-headers-6.8.0-71-generic linux-image-6.8.0-71-generic linux-modules-6.8.0-71-generic
+  linux-tools-6.8.0-71 linux-tools-6.8.0-71-generic lsphp83 lsphp83-common lsphp83-mysql
+  lsphp83-opcache php-common php-readline php8.3-common php8.3-readline rcs
+0 upgraded, 0 newly installed, 25 to remove and 1 not upgraded.
+After this operation, 261 MB disk space will be freed.
+(Reading database ... 145290 files and directories currently installed.)
+Removing enchant-2 (2.3.3-2build2) ...
+Removing aspell-en (2020.12.07-0-1) ...
+update-default-aspell: Removing remove file "/var/lib/aspell/en.remove".
+Removing aspell (0.60.8.1-1build1) ...
+Removing linux-headers-6.8.0-71-generic (6.8.0-71.71) ...
+Removing linux-headers-6.8.0-71 (6.8.0-71.71) ...
+Removing linux-image-6.8.0-71-generic (6.8.0-71.71) ...
+/etc/kernel/postrm.d/initramfs-tools:
+update-initramfs: Deleting /boot/initrd.img-6.8.0-71-generic
+/etc/kernel/postrm.d/zz-update-grub:
+Sourcing file `/etc/default/grub'
+Sourcing file `/etc/default/grub.d/50-cloudimg-settings.cfg'
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-6.8.0-85-generic
+Found initrd image: /boot/initrd.img-6.8.0-85-generic
+Found linux image: /boot/vmlinuz-6.8.0-79-generic
+Found initrd image: /boot/initrd.img-6.8.0-79-generic
+Warning: os-prober will not be executed to detect other bootable partitions.
+Systems on them will not be added to the GRUB boot configuration.
+Check GRUB_DISABLE_OS_PROBER documentation entry.
+Adding boot menu entry for UEFI Firmware Settings ...
+done
+Removing linux-modules-6.8.0-71-generic (6.8.0-71.71) ...
+Removing linux-tools-6.8.0-71-generic (6.8.0-71.71) ...
+Removing linux-tools-6.8.0-71 (6.8.0-71.71) ...
+Removing lsphp83-mysql (8.3.26-1+noble) ...
+Removing php-readline (2:8.3+93ubuntu2) ...
+Removing php8.3-readline (8.3.6-0ubuntu0.24.04.5) ...
+Removing php8.3-common (8.3.6-0ubuntu0.24.04.5) ...
+Removing php-common (2:93ubuntu2) ...
+Stopping 'phpsessionclean.service', but its triggering units are still active:
+phpsessionclean.timer
+Removing rcs (5.10.1-1) ...
+Removing lsphp83 (8.3.26-1+noble) ...
+Removing libenchant-2-2:amd64 (2.3.3-2build2) ...
+Removing hunspell-en-us (1:2020.12.07-2) ...
+Removing dictionaries-common (1.29.7) ...
+Removing 'diversion of /usr/share/dict/words to /usr/share/dict/words.pre-dictionaries-common by dictionaries-common'
+Removing emacsen-common (3.0.5) ...
+Removing libaspell15:amd64 (0.60.8.1-1build1) ...
+Removing libhunspell-1.7-0:amd64 (1.7.2+really1.7.2-10build3) ...
+Removing libzip4t64:amd64 (1.7.3-1.1ubuntu2) ...
+Removing lsphp83-opcache (8.3.26-1+noble) ...
+Removing lsphp83-common (8.3.26-1+noble) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for install-info (7.1-3build2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.6) ...
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Deploying certificate
+Successfully deployed certificate for supernxt.com to /etc/nginx/sites-enabled/supernxt.com
+Successfully deployed certificate for www.supernxt.com to /etc/nginx/sites-enabled/supernxt.com
+Job for nginx.service failed because the control process exited with error code.
+See "systemctl status nginx.service" and "journalctl -xeu nginx.service" for details.
+× nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Sat 2025-10-18 18:38:40 UTC; 24ms ago
+       Docs: man:nginx(8)
+    Process: 216086 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exite>
+    Process: 216087 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status>
+        CPU: 21ms
+
+Oct 18 18:38:39 srv1064472 nginx[216087]: nginx: [emerg] bind() to 0.0.0.0:443 failed (98: Address >
+Oct 18 18:38:39 srv1064472 nginx[216087]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address a>
+Oct 18 18:38:39 srv1064472 nginx[216087]: nginx: [emerg] bind() to 0.0.0.0:443 failed (98: Address >
+Oct 18 18:38:39 srv1064472 nginx[216087]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address a>
+Oct 18 18:38:40 srv1064472 nginx[216087]: nginx: [emerg] bind() to 0.0.0.0:443 failed (98: Address >
+Oct 18 18:38:40 srv1064472 nginx[216087]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address a>
+Oct 18 18:38:40 srv1064472 nginx[216087]: nginx: [emerg] still could not bind()
+Oct 18 18:38:40 srv1064472 systemd[1]: nginx.service: Control process exited, code=exited, status=1>
+Oct 18 18:38:40 srv1064472 systemd[1]: nginx.service: Failed with result 'exit-code'.
+Oct 18 18:38:40 srv1064472 systemd[1]: Failed to start nginx.service - A high performance web serve>
+
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sat, 18 Oct 2025 18:38:53 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 1427
+Connection: keep-alive
+X-Powered-By: Express
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Sat, 18 Oct 2025 18:29:19 GMT
+ETag: W/"593-199f895534f"
+
+root@srv1064472:/var/www/amjid90/SuperNext3D#
