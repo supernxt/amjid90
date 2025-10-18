@@ -1,0 +1,40 @@
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+root@srv1064472:/var/www/amjid90/SuperNext3D# # Configure git to use merge strategy
+git config pull.rebase false
+
+# Discard local changes in dist/index.js (it's auto-generated anyway)
+git checkout -- dist/index.js
+
+# Now pull with force to accept the GitHub version
+git reset --hard origin/main
+
+# Rebuild with the new code
+npm run build
+
+# Restart PM2
+pm2 restart ecosystem.config.cjs
+
+# Check it's running
+pm2 status
+HEAD is now at 3d66b92 Enable interactive buttons to launch AI assistant and chatbot
+npm error code ENOENT
+npm error syscall open
+npm error path /var/www/amjid90/SuperNext3D/package.json
+npm error errno -2
+npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/var/www/amjid90/SuperNext3D/package.json'
+npm error enoent This is related to npm not being able to find a file.
+npm error enoent
+npm error A complete log of this run can be found in: /root/.npm/_logs/2025-10-18T21_11_42_993Z-debug-0.log
+[PM2] Applying action restartProcessId on app [supernxt](ids: [ 0 ])
+[PM2] [supernxt](0) ✓
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
+│ 0  │ supernxt           │ fork     │ 2    │ online    │ 0%       │ 26.0mb   │
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
+│ 0  │ supernxt           │ fork     │ 2    │ online    │ 0%       │ 60.1mb   │
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+root@srv1064472:/var/www/amjid90/SuperNext3D#
