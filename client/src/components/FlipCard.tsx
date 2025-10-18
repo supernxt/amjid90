@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { LucideIcon } from "lucide-react";
+import { openAIChat } from "@/lib/ai-assistant";
 
 interface FlipCardProps {
   icon: LucideIcon;
@@ -59,7 +60,7 @@ export default function FlipCard({ icon: Icon, title, description, features, cat
                 </li>
               ))}
             </ul>
-            <Button size="sm" variant="default" className="mt-4" data-testid="button-learn-more">
+            <Button size="sm" variant="default" className="mt-4" onClick={openAIChat} data-testid="button-learn-more">
               Learn More
             </Button>
           </div>

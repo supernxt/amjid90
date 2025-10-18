@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import { Phone } from "lucide-react";
+import { Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { openAIChat } from "@/lib/ai-assistant";
 
 declare global {
   namespace JSX {
@@ -96,6 +97,15 @@ export default function AIVoiceWidget() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3" data-testid="widget-ai-voice">
+      <Button
+        size="icon"
+        variant="default"
+        onClick={openAIChat}
+        className="h-14 w-14 rounded-full shadow-lg shadow-primary/30 animate-pulse"
+        data-testid="button-float-ai-chat"
+      >
+        <MessageCircle className="h-6 w-6" />
+      </Button>
       <a href="tel:048864215">
         <Button
           size="icon"

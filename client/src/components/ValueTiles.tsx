@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Bot, Wifi, Cloud, Palette } from "lucide-react";
+import { openAIChat } from "@/lib/ai-assistant";
 
 const tiles = [
   {
@@ -45,6 +46,7 @@ export default function ValueTiles() {
               <Card 
                 className={`p-6 hover-elevate active-elevate-2 cursor-pointer transition-all bg-gradient-to-br ${tile.gradient}`}
                 data-testid={`card-value-${tile.title.toLowerCase().replace(/\s+/g, '-')}`}
+                onClick={openAIChat}
               >
                 <tile.icon className="h-12 w-12 mb-4 text-primary" />
                 <h3 className="text-xl font-semibold mb-2" data-testid={`text-tile-title-${index}`}>
