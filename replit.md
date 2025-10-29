@@ -104,3 +104,14 @@ Preferred communication style: Simple, everyday language.
 - Voice AI assistant embedded globally via custom web component
 - Contact mechanisms: phone (048864215), email, WhatsApp, and AI assistant
 - SEO optimization with meta tags, Open Graph, and semantic HTML structure
+
+## Recent Changes
+
+### October 29, 2025 - Legal Pages Added
+- Created `/legal/eula` page (End-User License Agreement) with formatted content from provided PDF
+- Created `/legal/privacy` page (Privacy Policy) with formatted content from provided PDF
+- Both pages use Background3D wrapper, Card components, and match existing design system
+- Added routes in App.tsx for legal pages
+- Updated Footer.tsx to link to legal pages under "Company" section
+- Pages include cross-navigation buttons and "Back to Home" functionality
+- All pages tested and verified with automated browser tests
