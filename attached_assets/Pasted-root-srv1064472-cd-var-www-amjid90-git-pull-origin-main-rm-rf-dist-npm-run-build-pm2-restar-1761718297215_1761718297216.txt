@@ -1,0 +1,43 @@
+root@srv1064472:~# cd /var/www/amjid90
+git pull origin main
+rm -rf dist
+npm run build
+pm2 restart supernxt
+From https://github.com/supernxt/amjid90
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+
+> rest-express@1.0.0 build
+> vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+
+vite v5.4.20 building for production...
+transforming (2) ../vite/modulepreload-polyfill.jsBrowserslist: browsers data (caniuse-lite) is 12 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+transforming (4) src/App.tsx
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 2029 modules transformed.
+../dist/public/index.html                                                         1.49 kB │ gzip:   0.71 kB
+../dist/public/assets/icononly_transparent_nobuffer_1760207932143-DuY2fWzj.png   80.75 kB
+../dist/public/assets/icononly_nobuffer_1760202128142-ClxSnXFr.png               90.15 kB
+../dist/public/assets/index-ef5l6xHa.css                                         88.69 kB │ gzip:  13.65 kB
+../dist/public/assets/index-CDVL6_6f.js                                         479.19 kB │ gzip: 147.55 kB
+✓ built in 7.49s
+
+  dist/index.js  6.5kb
+
+⚡ Done in 58ms
+npm notice
+npm notice New major version of npm available! 10.9.3 -> 11.6.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.2
+npm notice To update run: npm install -g npm@11.6.2
+npm notice
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [supernxt](ids: [ 0 ])
+[PM2] [supernxt](0) ✓
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
+│ 0  │ supernxt           │ cluster  │ 1    │ online    │ 0%       │ 45.1mb   │
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+root@srv1064472:/var/www/amjid90#
