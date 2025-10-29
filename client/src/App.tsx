@@ -17,6 +17,8 @@ import Support from "@/pages/Support";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import Pricing from "@/pages/Pricing";
+import EULA from "@/pages/EULA";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import NotFoundPage from "@/pages/NotFoundPage";
 
 function Router() {
@@ -33,6 +35,8 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route path="/pricing" component={Pricing} />
+      <Route path="/legal/eula" component={EULA} />
+      <Route path="/legal/privacy" component={PrivacyPolicy} />
       <Route component={NotFoundPage} />
     </Switch>
   );

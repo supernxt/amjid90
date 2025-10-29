@@ -18,8 +18,8 @@ const footerLinks = {
   Company: [
     { label: "About", path: "/about" },
     { label: "Contact", path: "/contact" },
-    { label: "Privacy Policy", path: "/privacy" },
-    { label: "Terms of Service", path: "/terms" },
+    { label: "Privacy Policy", path: "/legal/privacy" },
+    { label: "EULA", path: "/legal/eula" },
   ],
 };
 
