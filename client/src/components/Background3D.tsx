@@ -48,7 +48,7 @@ export default function Background3D({ variant = "default", children }: Backgrou
     let animationId: number;
 
     const animate = () => {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillStyle = "rgba(255, 255, 255, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle) => {
@@ -71,10 +71,10 @@ export default function Background3D({ variant = "default", children }: Backgrou
 
         ctx.beginPath();
         ctx.arc(x2d, y2d, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 230, 255, ${opacity * 0.8})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${opacity * 0.6})`;
         ctx.fill();
 
-        ctx.strokeStyle = `rgba(0, 230, 255, ${opacity * 0.3})`;
+        ctx.strokeStyle = `rgba(240, 240, 245, ${opacity * 0.4})`;
         ctx.lineWidth = scale;
         ctx.beginPath();
         ctx.moveTo(x2d, y2d);
@@ -111,17 +111,17 @@ export default function Background3D({ variant = "default", children }: Backgrou
   const getGradientColors = () => {
     switch (variant) {
       case "ai":
-        return "from-primary/10 via-cyan-500/10 to-background";
+        return "from-white/20 via-gray-50/30 to-background";
       case "wireless":
-        return "from-blue-500/10 via-primary/10 to-background";
+        return "from-slate-50/20 via-white/30 to-background";
       case "infrastructure":
-        return "from-purple-500/10 via-primary/10 to-background";
+        return "from-gray-50/20 via-white/30 to-background";
       case "web":
-        return "from-green-500/10 via-primary/10 to-background";
+        return "from-zinc-50/20 via-white/30 to-background";
       case "pricing":
-        return "from-yellow-500/10 via-primary/10 to-background";
+        return "from-neutral-50/20 via-white/30 to-background";
       default:
-        return "from-background via-primary/5 to-background";
+        return "from-background via-white/5 to-background";
     }
   };
 
@@ -152,9 +152,9 @@ export default function Background3D({ variant = "default", children }: Backgrou
         </svg>
       </div>
 
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/30 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gray-100/40 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-slate-50/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
 
       <motion.div
         initial={{ opacity: 0 }}
