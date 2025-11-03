@@ -1,4 +1,4 @@
-import Background3D from "@/components/Background3D";
+import VideoBackground from "@/components/VideoBackground";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,7 @@ import { Link } from "wouter";
 
 export default function PrivacyPolicy() {
   return (
-    <Background3D variant="default">
+    <VideoBackground variant="default">
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -149,6 +149,6 @@ export default function PrivacyPolicy() {
           </motion.div>
         </div>
       </div>
-    </Background3D>
+    </VideoBackground>
   );
 }

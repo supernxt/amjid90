@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import Background3D from "@/components/Background3D";
+import VideoBackground from "@/components/VideoBackground";
 import PricingCard from "@/components/PricingCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Pricing() {
   return (
-    <Background3D variant="pricing">
+    <VideoBackground variant="pricing">
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
         <motion.div
@@ -179,6 +179,6 @@ export default function Pricing() {
         </Tabs>
         </div>
       </div>
-    </Background3D>
+    </VideoBackground>
   );
 }

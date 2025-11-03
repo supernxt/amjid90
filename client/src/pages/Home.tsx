@@ -1,4 +1,4 @@
-import Background3D from "@/components/Background3D";
+import VideoBackground from "@/components/VideoBackground";
 import Hero3D from "@/components/Hero3D";
 import ValueTiles from "@/components/ValueTiles";
 import OfferStrip from "@/components/OfferStrip";
@@ -7,7 +7,7 @@ import VideoSlider from "@/components/VideoSlider";
 
 export default function Home() {
   return (
-    <Background3D variant="default">
+    <VideoBackground variant="default">
       <Hero3D />
       <TrustBar />
       <div className="px-4 md:px-8 py-20">
@@ -25,6 +25,6 @@ export default function Home() {
       </div>
       <ValueTiles />
       <OfferStrip />
-    </Background3D>
+    </VideoBackground>
   );
 }

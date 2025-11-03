@@ -1,4 +1,4 @@
-import Background3D from "@/components/Background3D";
+import VideoBackground from "@/components/VideoBackground";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
@@ -6,7 +6,7 @@ import { Code, Palette, Rocket, Smartphone, ArrowRight } from "lucide-react";
 
 export default function WebsiteDevelopment() {
   return (
-    <Background3D variant="web">
+    <VideoBackground variant="web">
       <div className="pt-32 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -57,6 +57,6 @@ export default function WebsiteDevelopment() {
           </motion.div>
         </div>
       </div>
-    </Background3D>
+    </VideoBackground>
   );
 }

@@ -1,4 +1,4 @@
-import Background3D from "@/components/Background3D";
+import VideoBackground from "@/components/VideoBackground";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,7 +22,7 @@ export default function Contact() {
   };
 
   return (
-    <Background3D variant="default">
+    <VideoBackground variant="default">
       <div className="pt-36 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -155,6 +155,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-    </Background3D>
+    </VideoBackground>
   );
 }

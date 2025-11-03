@@ -25,10 +25,15 @@ Preferred communication style: Simple, everyday language.
 - Class Variance Authority (CVA) for component variant management
 - Custom theme system supporting light/dark modes with CSS variables
 
-**3D & Animation Layer**
-- Custom 3D background components using HTML5 Canvas for particle effects and visual elements
+**Video & Animation Layer**
+- VideoBackground component with HD video backgrounds from Pexels for immersive visual experience
+- Variant-specific video sources for different sections (AI, wireless, infrastructure, web, pricing, legal)
+- Dark gradient overlays tuned per variant to ensure text readability over video
+- Automatic fallback to poster images when video fails or user prefers reduced motion
+- Prefers-reduced-motion support for accessibility
+- Auto-pause on hidden tabs for performance optimization
 - Framer Motion for page transitions, scroll-based reveals, and micro-interactions
-- Design inspired by Linear (typography) and Stripe (color restraint) with custom immersive 3D elements
+- Design inspired by Linear (typography) and Stripe (color restraint) with custom immersive video elements
 
 **State Management**
 - TanStack Query (React Query) for server state management, caching, and API interactions
@@ -36,8 +41,9 @@ Preferred communication style: Simple, everyday language.
 - Local component state with React hooks for UI-specific state
 
 **Design System**
-- Dark-first theme with deep space black backgrounds and neon cyan/blue accents
+- Dark-first theme with video backgrounds and vibrant red (#FF3333) accent matching company logo
 - Typography using Inter/DM Sans for body, Space Grotesk/Orbitron for display text
+- Dark gradient overlays (70-75% opacity) ensure text readability over all video backgrounds
 - Consistent spacing primitives (4, 8, 12, 16, 20, 24, 32) using Tailwind units
 - Responsive breakpoints: mobile-first with md, lg, xl viewports
 
@@ -107,10 +113,19 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+### November 3, 2025 - HD Video Backgrounds & Red Theme
+- Replaced 3D canvas particle animations with HD video backgrounds from Pexels
+- Created VideoBackground component with variant-specific video sources and poster fallbacks
+- Implemented dark gradient overlays (65-75% opacity) for optimal text readability
+- Added prefers-reduced-motion support for accessibility compliance
+- Auto-pause videos on hidden tabs for performance optimization
+- Updated all 13 pages to use VideoBackground component (Home, AISolutions, WirelessHotspot, Infrastructure, WebsiteDevelopment, Pricing, Contact, CaseStudies, Support, Templates, About, EULA, PrivacyPolicy)
+- Changed entire color scheme from blue to vibrant red (#FF3333) matching company logo
+- Updated CSS theme variables for primary (0 100% 60%) and accent (10 100% 70%) colors
+
 ### October 29, 2025 - Legal Pages Added
 - Created `/legal/eula` page (End-User License Agreement) with formatted content from provided PDF
 - Created `/legal/privacy` page (Privacy Policy) with formatted content from provided PDF
-- Both pages use Background3D wrapper, Card components, and match existing design system
 - Added routes in App.tsx for legal pages
 - Updated Footer.tsx to link to legal pages under "Company" section
 - Pages include cross-navigation buttons and "Back to Home" functionality

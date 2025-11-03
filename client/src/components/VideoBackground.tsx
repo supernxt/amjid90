@@ -9,28 +9,41 @@ interface VideoBackgroundProps {
 export default function VideoBackground({ variant = "default", children }: VideoBackgroundProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoError, setVideoError] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (!video || prefersReducedMotion) return;
 
     const playVideo = async () => {
       try {
+        video.muted = true;
         await video.play();
       } catch (error) {
-        console.log("Video autoplay was prevented:", error);
         setVideoError(true);
       }
     };
 
-    if (video.paused) {
+    if (video.paused && !videoError) {
       playVideo();
     }
 
     const handleVisibilityChange = () => {
       if (document.hidden) {
         video.pause();
-      } else {
+      } else if (!prefersReducedMotion && !videoError) {
         playVideo();
       }
     };
@@ -40,34 +53,56 @@ export default function VideoBackground({ variant = "default", children }: Video
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, [variant]);
+  }, [variant, prefersReducedMotion, videoError]);
 
-  const getVideoSource = () => {
-    switch (variant) {
-      case "ai":
-        return "https://videos.pexels.com/video-files/7579955/7579955-hd_1920_1080_30fps.mp4";
-      case "wireless":
-        return "https://videos.pexels.com/video-files/3130284/3130284-hd_1920_1080_30fps.mp4";
-      case "infrastructure":
-        return "https://videos.pexels.com/video-files/3141211/3141211-hd_1920_1080_30fps.mp4";
-      case "web":
-        return "https://videos.pexels.com/video-files/2278095/2278095-hd_1920_1080_30fps.mp4";
-      case "pricing":
-        return "https://videos.pexels.com/video-files/7579955/7579955-hd_1920_1080_30fps.mp4";
-      case "legal":
-        return "https://videos.pexels.com/video-files/3141211/3141211-hd_1920_1080_30fps.mp4";
-      default:
-        return "https://videos.pexels.com/video-files/7579955/7579955-hd_1920_1080_30fps.mp4";
-    }
+  const getVideoConfig = () => {
+    const configs = {
+      ai: {
+        src: "https://videos.pexels.com/video-files/7579955/7579955-hd_1920_1080_30fps.mp4",
+        poster: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1920",
+        overlay: "from-black/75 via-black/60 to-black/75"
+      },
+      wireless: {
+        src: "https://videos.pexels.com/video-files/3130284/3130284-hd_1920_1080_30fps.mp4",
+        poster: "https://images.pexels.com/photos/1739842/pexels-photo-1739842.jpeg?auto=compress&cs=tinysrgb&w=1920",
+        overlay: "from-black/72 via-black/58 to-black/72"
+      },
+      infrastructure: {
+        src: "https://videos.pexels.com/video-files/3141211/3141211-hd_1920_1080_30fps.mp4",
+        poster: "https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=1920",
+        overlay: "from-black/70 via-black/55 to-black/70"
+      },
+      web: {
+        src: "https://videos.pexels.com/video-files/2278095/2278095-hd_1920_1080_30fps.mp4",
+        poster: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1920",
+        overlay: "from-black/68 via-black/53 to-black/68"
+      },
+      pricing: {
+        src: "https://videos.pexels.com/video-files/3130182/3130182-hd_1920_1080_30fps.mp4",
+        poster: "https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=1920",
+        overlay: "from-black/73 via-black/57 to-black/73"
+      },
+      legal: {
+        src: "https://videos.pexels.com/video-files/4439425/4439425-hd_1920_1080_25fps.mp4",
+        poster: "https://images.pexels.com/photos/236047/pexels-photo-236047.jpeg?auto=compress&cs=tinysrgb&w=1920",
+        overlay: "from-black/65 via-black/50 to-black/65"
+      },
+      default: {
+        src: "https://videos.pexels.com/video-files/6774281/6774281-hd_1920_1080_30fps.mp4",
+        poster: "https://images.pexels.com/photos/3862132/pexels-photo-3862132.jpeg?auto=compress&cs=tinysrgb&w=1920",
+        overlay: "from-black/71 via-black/56 to-black/71"
+      }
+    };
+
+    return configs[variant] || configs.default;
   };
 
-  const getOverlayGradient = () => {
-    return "from-black/70 via-black/50 to-black/70";
-  };
+  const config = getVideoConfig();
+  const showVideo = !videoError && !prefersReducedMotion;
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden">
-      {!videoError ? (
+    <div className="relative min-h-screen w-full overflow-hidden bg-background">
+      {showVideo ? (
         <>
           <video
             ref={videoRef}
@@ -76,21 +111,33 @@ export default function VideoBackground({ variant = "default", children }: Video
             loop
             playsInline
             preload="auto"
+            poster={config.poster}
             className="absolute inset-0 w-full h-full object-cover"
             onError={() => setVideoError(true)}
             data-testid="background-video"
+            aria-label={`${variant} background video`}
           >
-            <source src={getVideoSource()} type="video/mp4" />
+            <source src={config.src} type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
 
-          <div className={`absolute inset-0 bg-gradient-to-br ${getOverlayGradient()}`} />
+          <div 
+            className={`absolute inset-0 bg-gradient-to-br ${config.overlay}`} 
+            aria-hidden="true"
+          />
 
-          <div className="absolute inset-0 bg-black/10 backdrop-blur-[1px]" />
+          <div className="absolute inset-0 bg-black/5 backdrop-blur-[0.5px]" aria-hidden="true" />
         </>
       ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/30 to-background">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${config.poster})` }}
+          role="img"
+          aria-label={`${variant} background image`}
+        >
+          <div className={`absolute inset-0 bg-gradient-to-br ${config.overlay}`} aria-hidden="true" />
           <div className="absolute inset-0">
-            <svg className="w-full h-full opacity-10">
+            <svg className="w-full h-full opacity-5" aria-hidden="true">
               <defs>
                 <pattern id="grid-pattern" width="50" height="50" patternUnits="userSpaceOnUse">
                   <path
@@ -108,9 +155,9 @@ export default function VideoBackground({ variant = "default", children }: Video
         </div>
       )}
 
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl animate-pulse" aria-hidden="true" />
+      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-accent/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} aria-hidden="true" />
+      <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-primary/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} aria-hidden="true" />
 
       <motion.div
         initial={{ opacity: 0 }}

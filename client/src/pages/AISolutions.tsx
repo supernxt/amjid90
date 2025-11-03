@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Background3D from "@/components/Background3D";
+import VideoBackground from "@/components/VideoBackground";
 import FlipCard from "@/components/FlipCard";
 import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
@@ -42,7 +42,7 @@ export default function AISolutions() {
     : agents.filter(agent => agent.category === selectedCategory);
 
   return (
-    <Background3D variant="ai">
+    <VideoBackground variant="ai">
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
         <motion.div
@@ -97,6 +97,6 @@ export default function AISolutions() {
         </div>
         </div>
       </div>
-    </Background3D>
+    </VideoBackground>
   );
 }

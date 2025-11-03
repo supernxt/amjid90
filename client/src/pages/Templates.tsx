@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Background3D from "@/components/Background3D";
+import VideoBackground from "@/components/VideoBackground";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -136,7 +136,7 @@ export default function Templates() {
     : templates.filter(template => template.category === selectedCategory);
 
   return (
-    <Background3D variant="default">
+    <VideoBackground variant="default">
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header Section */}
@@ -292,6 +292,6 @@ export default function Templates() {
           </motion.div>
         </div>
       </div>
-    </Background3D>
+    </VideoBackground>
   );
 }
