@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Play, Bot, DollarSign, MessageSquare, Users, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,71 +8,48 @@ const slides = [
     id: 1,
     title: "AI Assistant",
     description: "Intelligent virtual assistant powered by advanced AI to streamline your workflow and boost productivity",
-    gradient: "from-primary/20 via-cyan-500/20 to-blue-600/20",
+    gradient: "from-slate-950 via-red-950/30 to-slate-950",
     Icon: Bot,
   },
   {
     id: 2,
     title: "Accounts AI Agents",
     description: "Automated accounting solutions for Zoho Books and QuickBooks with intelligent data processing",
-    gradient: "from-blue-500/20 via-primary/20 to-purple-600/20",
+    gradient: "from-slate-950 via-red-900/25 to-slate-900",
     Icon: DollarSign,
   },
   {
     id: 3,
     title: "WhatsApp Chatbot & Integration",
     description: "Seamless WhatsApp integration with AI-powered chatbots for instant customer engagement",
-    gradient: "from-purple-500/20 via-primary/20 to-pink-600/20",
+    gradient: "from-slate-900 via-red-950/35 to-slate-950",
     Icon: MessageSquare,
   },
   {
     id: 4,
     title: "Sales Team AI Agents",
     description: "Empower your sales team with AI-driven insights, automation, and intelligent lead management",
-    gradient: "from-green-500/20 via-primary/20 to-teal-600/20",
+    gradient: "from-slate-950 via-slate-900 to-red-950/30",
     Icon: Users,
   },
   {
     id: 5,
     title: "Real Estate Marketing AI",
     description: "Revolutionary AI solutions for real estate marketing, property showcasing, and customer engagement",
-    gradient: "from-orange-500/20 via-red-500/20 to-pink-600/20",
+    gradient: "from-red-950/25 via-slate-950 to-slate-900",
     Icon: Home,
   },
 ];
 
 function AnimatedBackground({ gradient }: { gradient: string }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch((error) => {
-        console.log("Video autoplay was prevented:", error);
-      });
-    }
-  }, []);
-
   return (
     <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`}>
-      {/* Video Background */}
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-30"
-        data-testid="video-background"
-      >
-        <source src="/attached_assets/Black White Abstract Color and Style Video Background_1760206690617.mp4" type="video/mp4" />
-      </video>
-
       {/* Animated particles */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-primary/30 rounded-full"
+            className="absolute w-2 h-2 bg-red-500/30 rounded-full"
             initial={{
               x: Math.random() * 100 + "%",
               y: Math.random() * 100 + "%",
@@ -105,10 +82,10 @@ function AnimatedBackground({ gradient }: { gradient: string }) {
         className="absolute inset-0"
         animate={{
           background: [
-            `radial-gradient(circle at 20% 50%, rgba(96, 165, 250, 0.3) 0%, transparent 50%)`,
-            `radial-gradient(circle at 80% 50%, rgba(96, 165, 250, 0.3) 0%, transparent 50%)`,
-            `radial-gradient(circle at 50% 80%, rgba(96, 165, 250, 0.3) 0%, transparent 50%)`,
-            `radial-gradient(circle at 20% 50%, rgba(96, 165, 250, 0.3) 0%, transparent 50%)`,
+            `radial-gradient(circle at 20% 50%, rgba(239, 68, 68, 0.15) 0%, transparent 50%)`,
+            `radial-gradient(circle at 80% 50%, rgba(239, 68, 68, 0.15) 0%, transparent 50%)`,
+            `radial-gradient(circle at 50% 80%, rgba(239, 68, 68, 0.15) 0%, transparent 50%)`,
+            `radial-gradient(circle at 20% 50%, rgba(239, 68, 68, 0.15) 0%, transparent 50%)`,
           ],
         }}
         transition={{
@@ -120,7 +97,7 @@ function AnimatedBackground({ gradient }: { gradient: string }) {
 
       {/* Grid pattern overlay */}
       <div className="absolute inset-0">
-        <svg className="w-full h-full opacity-10">
+        <svg className="w-full h-full opacity-5">
           <defs>
             <pattern id="video-grid" width="40" height="40" patternUnits="userSpaceOnUse">
               <path
@@ -128,7 +105,7 @@ function AnimatedBackground({ gradient }: { gradient: string }) {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1"
-                className="text-primary"
+                className="text-red-500"
               />
             </pattern>
           </defs>
@@ -204,7 +181,7 @@ export default function VideoSlider() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-primary to-cyan-400 bg-clip-text text-transparent"
+              className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-primary to-red-400 bg-clip-text text-transparent"
               data-testid={`text-slide-title-${currentSlide}`}
             >
               {slides[currentSlide].title}
