@@ -32,10 +32,10 @@ export default function Navbar() {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? "bg-slate-950/95 backdrop-blur-xl border-b border-white/10 shadow-xl shadow-black/20" 
-          : "bg-transparent"
+          ? "bg-white/95 backdrop-blur-xl shadow-lg shadow-gray-200/50 border-b border-gray-100" 
+          : "bg-white/80 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-[1920px] mx-auto px-4 md:px-6">
@@ -44,8 +44,7 @@ export default function Navbar() {
           <Link href="/">
             <div className="flex items-center gap-3 group cursor-pointer" data-testid="link-logo">
               <div className="relative">
-                <div className="absolute inset-0 bg-primary/20 rounded-xl blur-xl group-hover:bg-primary/30 transition-all duration-300" />
-                <div className="relative bg-white rounded-xl p-1.5 shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
+                <div className="bg-white rounded-xl p-1.5 shadow-md group-hover:shadow-lg transition-all duration-300 border border-gray-100">
                   <img 
                     src={smallLogo} 
                     alt="Super Next Technologies" 
@@ -55,7 +54,7 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="hidden sm:block">
-                <span className="font-bold text-white text-lg">Super</span>
+                <span className="font-bold text-gray-900 text-lg">Super</span>
                 <span className="font-bold text-primary text-lg">NXT</span>
               </div>
             </div>
@@ -68,8 +67,8 @@ export default function Navbar() {
                 <button
                   className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                     location === item.path
-                      ? "bg-primary/20 text-primary"
-                      : "text-white/70 hover:text-white hover:bg-white/5"
+                      ? "bg-primary/10 text-primary border border-primary/20"
+                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                   }`}
                   data-testid={`link-nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                 >
@@ -83,7 +82,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <Button 
               size="sm" 
-              className="bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-lg shadow-primary/25"
+              className="bg-gradient-to-r from-primary to-rose-500 hover:opacity-90 shadow-md shadow-primary/20"
               data-testid="button-get-started"
             >
               <Sparkles className="w-4 h-4 mr-2" />
@@ -95,7 +94,7 @@ export default function Navbar() {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-white hover:bg-white/10"
+            className="lg:hidden text-gray-700 hover:bg-gray-100"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             data-testid="button-menu-toggle"
           >
@@ -106,15 +105,15 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-slate-950/98 backdrop-blur-xl border-t border-white/10">
+        <div className="lg:hidden bg-white border-t border-gray-100 shadow-xl">
           <div className="px-4 py-4 space-y-1 max-h-[70vh] overflow-y-auto">
             {navItems.map((item) => (
               <Link key={item.path} href={item.path}>
                 <button
                   className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
                     location === item.path
-                      ? "bg-primary/20 text-primary"
-                      : "text-white/70 hover:text-white hover:bg-white/5"
+                      ? "bg-primary/10 text-primary"
+                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                   data-testid={`link-mobile-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
@@ -123,9 +122,9 @@ export default function Navbar() {
                 </button>
               </Link>
             ))}
-            <div className="pt-4 border-t border-white/10">
+            <div className="pt-4 border-t border-gray-100">
               <Button 
-                className="w-full bg-gradient-to-r from-primary to-accent"
+                className="w-full bg-gradient-to-r from-primary to-rose-500"
                 data-testid="button-mobile-get-started"
               >
                 <Sparkles className="w-4 h-4 mr-2" />

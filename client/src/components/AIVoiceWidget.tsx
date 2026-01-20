@@ -72,18 +72,17 @@ export default function AIVoiceWidget() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3" data-testid="widget-ai-voice">
       <Button
         size="icon"
-        variant="default"
         onClick={openAIChat}
-        className="h-14 w-14 rounded-full shadow-lg shadow-primary/30 animate-pulse"
+        className="h-14 w-14 rounded-full bg-gradient-to-r from-primary to-rose-500 shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 transition-all"
         data-testid="button-float-ai-chat"
       >
-        <MessageCircle className="h-6 w-6" />
+        <MessageCircle className="h-6 w-6 text-white" />
       </Button>
       <a href="tel:048864215">
         <Button
           size="icon"
           variant="outline"
-          className="h-14 w-14 rounded-full bg-background/95 backdrop-blur-sm border-2 border-primary/40 hover:border-primary shadow-lg shadow-primary/20"
+          className="h-14 w-14 rounded-full bg-white border-2 border-gray-200 hover:border-primary shadow-xl hover:shadow-2xl transition-all"
           data-testid="button-float-call"
         >
           <Phone className="h-6 w-6 text-primary" />

@@ -10,13 +10,14 @@ export default function Home() {
     <VideoBackground variant="default">
       <Hero3D />
       <TrustBar />
-      <div className="px-4 md:px-8 py-20">
+      <div className="px-4 md:px-8 py-20 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-cyan-400 to-white bg-clip-text text-transparent">
+            <span className="text-primary text-sm font-semibold tracking-wider uppercase">AI Solutions</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-4 text-gray-900">
               Our AI Agent Solutions
             </h2>
-            <p className="text-xl text-foreground/70">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Discover our powerful AI-driven automation and intelligent agents
             </p>
           </div>

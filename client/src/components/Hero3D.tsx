@@ -2,31 +2,31 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
 import { useLocation } from "wouter";
-import { Sparkles, ArrowRight, Zap, Globe, Shield, Cpu } from "lucide-react";
+import { Sparkles, ArrowRight, Zap, Globe, Shield, Cpu, Play } from "lucide-react";
 
 const floatingIcons = [
-  { Icon: Zap, delay: 0, x: "10%", y: "20%" },
-  { Icon: Globe, delay: 0.5, x: "85%", y: "25%" },
-  { Icon: Shield, delay: 1, x: "15%", y: "70%" },
-  { Icon: Cpu, delay: 1.5, x: "80%", y: "65%" },
+  { Icon: Zap, delay: 0, x: "8%", y: "25%", color: "text-amber-500" },
+  { Icon: Globe, delay: 0.5, x: "88%", y: "20%", color: "text-blue-500" },
+  { Icon: Shield, delay: 1, x: "12%", y: "70%", color: "text-emerald-500" },
+  { Icon: Cpu, delay: 1.5, x: "85%", y: "65%", color: "text-violet-500" },
 ];
 
 export default function Hero3D() {
   const [, setLocation] = useLocation();
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Floating Icons */}
-      {floatingIcons.map(({ Icon, delay, x, y }, index) => (
+      {floatingIcons.map(({ Icon, delay, x, y, color }, index) => (
         <motion.div
           key={index}
           className="absolute hidden md:block"
           style={{ left: x, top: y }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ 
-            opacity: [0.3, 0.6, 0.3],
-            scale: [1, 1.2, 1],
-            y: [0, -20, 0]
+            opacity: [0.4, 0.8, 0.4],
+            scale: [1, 1.1, 1],
+            y: [0, -15, 0]
           }}
           transition={{ 
             delay,
@@ -35,146 +35,182 @@ export default function Hero3D() {
             ease: "easeInOut"
           }}
         >
-          <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/20">
-            <Icon className="w-8 h-8 text-primary" />
+          <div className="p-4 rounded-2xl bg-white shadow-xl shadow-gray-200/50 border border-gray-100">
+            <Icon className={`w-8 h-8 ${color}`} />
           </div>
         </motion.div>
       ))}
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="space-y-8"
-        >
-          {/* Badge */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/30 backdrop-blur-md"
-            data-testid="badge-hero-tag"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left"
           >
+            {/* Badge */}
             <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-blue-500/10 border border-primary/20 mb-8"
+              data-testid="badge-hero-tag"
             >
               <Sparkles className="h-4 w-4 text-primary" />
+              <span className="text-sm font-semibold text-gray-700">
+                AI-Powered Enterprise Solutions
+              </span>
             </motion.div>
-            <span className="text-sm font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              AI-Powered Infrastructure & 3D Web Experiences
-            </span>
-          </motion.div>
 
-          {/* Main Headline */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-          >
+            {/* Main Headline */}
             <h1 
-              className="text-5xl md:text-7xl lg:text-8xl font-bold font-display leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
               data-testid="text-hero-headline"
             >
-              <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
-                Transform Your
-              </span>
+              <span className="text-gray-900">Transform Your</span>
               <br />
-              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-pulse">
+              <span className="bg-gradient-to-r from-primary via-rose-500 to-orange-500 bg-clip-text text-transparent">
                 Business
               </span>
               <br />
-              <span className="bg-gradient-to-r from-white/80 via-white to-white bg-clip-text text-transparent">
-                with AI & Technology
-              </span>
+              <span className="text-gray-900">with AI & Technology</span>
             </h1>
+
+            {/* Subtext */}
+            <p 
+              className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl"
+              data-testid="text-hero-subtext"
+            >
+              <span className="text-primary font-semibold">AI Agents</span> • 
+              <span className="text-gray-600"> Automations</span> • 
+              <span className="text-blue-600 font-semibold"> Enterprise Hotspots</span> • 
+              <span className="text-gray-600"> Cloud & Networks</span>
+            </p>
+
+            {/* Stats Row */}
+            <div className="flex flex-wrap gap-8 mb-10">
+              {[
+                { value: "500+", label: "Projects", color: "text-primary" },
+                { value: "99.9%", label: "Uptime", color: "text-emerald-600" },
+                { value: "24/7", label: "AI Support", color: "text-blue-600" },
+              ].map((stat, index) => (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 + index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className={`text-3xl font-bold ${stat.color}`}>{stat.value}</div>
+                  <div className="text-sm text-gray-500">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <motion.div 
+              className="flex flex-wrap gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              <Button 
+                size="lg" 
+                className="text-base px-8 bg-gradient-to-r from-primary to-rose-500 hover:opacity-90 shadow-lg shadow-primary/25"
+                onClick={openAIChat} 
+                data-testid="button-talk-ai"
+              >
+                <Sparkles className="mr-2 h-5 w-5" />
+                Talk to AI Assistant
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="text-base px-8 border-gray-300 text-gray-700 hover:bg-gray-50"
+                onClick={() => setLocation('/ai-solutions')} 
+                data-testid="button-explore-ai"
+              >
+                Explore AI Solutions
+              </Button>
+            </motion.div>
           </motion.div>
 
-          {/* Subtext */}
-          <motion.p 
-            className="text-xl md:text-2xl text-foreground/70 max-w-3xl mx-auto font-light"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            data-testid="text-hero-subtext"
-          >
-            <span className="text-primary font-medium">Agents</span> • 
-            <span className="text-foreground/70"> Automations</span> • 
-            <span className="text-accent font-medium"> Enterprise Hotspots</span> • 
-            <span className="text-foreground/70"> Cloud & Networks</span>
-          </motion.p>
-
-          {/* Stats Row */}
+          {/* Right Content - AI/Tech Image */}
           <motion.div
-            className="flex flex-wrap justify-center gap-8 md:gap-16 py-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative hidden lg:block"
           >
-            {[
-              { value: "500+", label: "Projects Delivered" },
-              { value: "99.9%", label: "Uptime Guarantee" },
-              { value: "24/7", label: "AI Support" },
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  {stat.value}
+            <div className="relative">
+              {/* Main Image Container */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-gray-300/50 border border-gray-100">
+                <img 
+                  src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop"
+                  alt="AI Technology"
+                  className="w-full h-[500px] object-cover"
+                />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                
+                {/* Play button overlay */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    className="w-20 h-20 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center cursor-pointer shadow-xl"
+                  >
+                    <Play className="w-8 h-8 text-primary ml-1" />
+                  </motion.div>
                 </div>
-                <div className="text-sm text-foreground/60 mt-1">{stat.label}</div>
+
+                {/* Caption */}
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+                    <p className="text-sm font-semibold text-gray-900">Next-Gen AI Solutions</p>
+                    <p className="text-xs text-gray-600">Powering enterprise innovation across UAE & GCC</p>
+                  </div>
+                </div>
               </div>
-            ))}
-          </motion.div>
 
-          {/* CTA Buttons */}
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.8 }}
-          >
-            <Button 
-              size="lg" 
-              className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 shadow-lg shadow-primary/25 group"
-              onClick={openAIChat} 
-              data-testid="button-talk-ai"
-            >
-              <Sparkles className="mr-2 h-5 w-5 group-hover:animate-pulse" />
-              Talk to AI Assistant
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="text-lg px-8 py-6 border-primary/30 backdrop-blur-sm hover:bg-primary/10 hover:border-primary/50"
-              onClick={() => setLocation('/ai-solutions')} 
-              data-testid="button-explore-ai"
-            >
-              Explore AI Solutions
-            </Button>
-          </motion.div>
-
-          {/* Scroll Indicator */}
-          <motion.div
-            className="absolute bottom-8 left-1/2 -translate-x-1/2"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <div className="w-6 h-10 rounded-full border-2 border-primary/30 flex justify-center pt-2">
-              <motion.div 
-                className="w-1.5 h-1.5 rounded-full bg-primary"
-                animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
+              {/* Floating stats card */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+                className="absolute -top-6 -right-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-rose-500 flex items-center justify-center">
+                    <Cpu className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-gray-900">AI</p>
+                    <p className="text-xs text-gray-500">Powered</p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Gradient Orbs */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-[128px] animate-pulse" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-pulse" style={{ animationDelay: '1s' }} />
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <div className="w-6 h-10 rounded-full border-2 border-gray-300 flex justify-center pt-2">
+          <motion.div 
+            className="w-1.5 h-1.5 rounded-full bg-primary"
+            animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        </div>
+      </motion.div>
     </div>
   );
 }

@@ -45,56 +45,83 @@ export default function AISolutions() {
     <VideoBackground variant="ai">
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">
-            AI Solutions
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Multichannel AI agents across Web, WhatsApp, Voice, and Email with 24/7 autonomy and seamless CRM/ERP integration
-          </p>
-        </motion.div>
-
-        <div className="flex flex-wrap gap-2 mb-12 justify-center">
-          {categories.map((category) => (
-            <Button
-              key={category}
-              variant={selectedCategory === category ? "default" : "outline"}
-              size="sm"
-              onClick={() => setSelectedCategory(category)}
-              data-testid={`button-filter-${category.toLowerCase()}`}
+          {/* Header with AI Image */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
             >
-              {category}
-            </Button>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {filteredAgents.map((agent, index) => (
-            <FlipCard
-              key={agent.title}
-              icon={agent.icon}
-              title={agent.title}
-              description={agent.description}
-              features={agent.features}
-              category={agent.category}
-            />
-          ))}
-        </div>
-
-        <div className="text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 text-primary">
-            <span className="font-semibold">Integrations:</span>
-            <span className="text-sm">WhatsApp • Twilio • Zoho • HubSpot • GitHub • Notion • QuickBooks • Airtable</span>
+              <span className="text-primary text-sm font-semibold tracking-wider uppercase">AI Solutions</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display mt-4 mb-6 text-gray-900">
+                Intelligent AI Agents
+              </h1>
+              <p className="text-xl text-gray-600 max-w-xl">
+                Multichannel AI agents across Web, WhatsApp, Voice, and Email with 24/7 autonomy and seamless CRM/ERP integration
+              </p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="hidden lg:block"
+            >
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-gray-300/50">
+                <img 
+                  src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop"
+                  alt="AI Technology"
+                  className="w-full h-[350px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+              </div>
+            </motion.div>
           </div>
-          <div className="flex gap-4 justify-center">
-            <Button size="lg" onClick={openAIChat} data-testid="button-book-demo">Book an AI Demo</Button>
-            <Button size="lg" variant="outline" onClick={openAIChat} data-testid="button-talk-ai-assistant">Talk to AI Assistant</Button>
+
+          {/* Category Filters */}
+          <div className="flex flex-wrap gap-2 mb-12 justify-center">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? "default" : "outline"}
+                size="sm"
+                onClick={() => setSelectedCategory(category)}
+                className={selectedCategory === category 
+                  ? "bg-gradient-to-r from-primary to-rose-500" 
+                  : "border-gray-300 text-gray-700 hover:bg-gray-50"
+                }
+                data-testid={`button-filter-${category.toLowerCase()}`}
+              >
+                {category}
+              </Button>
+            ))}
           </div>
-        </div>
+
+          {/* Agent Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {filteredAgents.map((agent, index) => (
+              <FlipCard
+                key={agent.title}
+                icon={agent.icon}
+                title={agent.title}
+                description={agent.description}
+                features={agent.features}
+                category={agent.category}
+              />
+            ))}
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center space-y-6 bg-gray-50 rounded-3xl p-12">
+            <h3 className="text-2xl font-bold text-gray-900">Ready to automate?</h3>
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 text-primary">
+              <span className="font-semibold">Integrations:</span>
+              <span className="text-sm">WhatsApp • Twilio • Zoho • HubSpot • GitHub • Notion • QuickBooks • Airtable</span>
+            </div>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <Button size="lg" className="bg-gradient-to-r from-primary to-rose-500" onClick={openAIChat} data-testid="button-book-demo">Book an AI Demo</Button>
+              <Button size="lg" variant="outline" className="border-gray-300 text-gray-700" onClick={openAIChat} data-testid="button-talk-ai-assistant">Talk to AI Assistant</Button>
+            </div>
+          </div>
         </div>
       </div>
     </VideoBackground>
