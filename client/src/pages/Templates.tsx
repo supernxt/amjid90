@@ -145,10 +145,11 @@ export default function Templates() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 bg-gradient-to-r from-primary via-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="text-primary text-sm font-semibold tracking-wider uppercase">Ready to Deploy</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display mt-4 mb-6 text-gray-900">
               Templates & Use Cases
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Ready-to-deploy solutions for every industry. Choose a template and customize it to your needs.
             </p>
           </motion.div>
@@ -160,7 +161,7 @@ export default function Templates() {
             transition={{ delay: 0.2 }}
             className="mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-primary bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
               Website Development
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -170,17 +171,19 @@ export default function Templates() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 + 0.3 }}
-                  className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg p-6 hover-elevate"
+                  className="bg-white border border-gray-200 rounded-2xl p-6 shadow-lg shadow-gray-200/50 hover:shadow-xl transition-all"
                   data-testid={`card-web-feature-${index}`}
                 >
-                  <feature.icon className="h-12 w-12 text-primary mb-4" />
-                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                  <p className="text-foreground/70">{feature.desc}</p>
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-rose-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                    <feature.icon className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.desc}</p>
                 </motion.div>
               ))}
             </div>
             <div className="text-center mt-8">
-              <Button size="lg" className="gap-2" onClick={contactViaEmail} data-testid="button-start-project">
+              <Button size="lg" className="gap-2 bg-gradient-to-r from-primary to-rose-500" onClick={contactViaEmail} data-testid="button-start-project">
                 Start Your Project <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
@@ -195,10 +198,10 @@ export default function Templates() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900">
               Industry Templates
             </h2>
-            <p className="text-lg text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            <p className="text-lg text-center text-gray-600 mb-12 max-w-2xl mx-auto">
               Browse our collection of pre-built templates designed for specific industries and use cases
             </p>
 
@@ -271,19 +274,19 @@ export default function Templates() {
             viewport={{ once: true }}
             className="mt-20 text-center"
           >
-            <div className="bg-card/30 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 md:p-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-3xl p-8 md:p-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
                 Need a Custom Solution?
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
                 Can't find the perfect template? Let's build something custom for your unique requirements.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" onClick={contactViaCall} data-testid="button-talk-expert">
+                <Button size="lg" className="bg-gradient-to-r from-primary to-rose-500" onClick={contactViaCall} data-testid="button-talk-expert">
                   <Phone className="mr-2 h-5 w-5" />
                   Call Us Now
                 </Button>
-                <Button size="lg" variant="outline" onClick={contactViaEmail} data-testid="button-request-quote">
+                <Button size="lg" variant="outline" className="border-gray-300 text-gray-700" onClick={contactViaEmail} data-testid="button-request-quote">
                   <Mail className="mr-2 h-5 w-5" />
                   Email Us
                 </Button>

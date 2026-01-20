@@ -126,10 +126,11 @@ export default function CaseStudies() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 bg-gradient-to-r from-primary via-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="text-primary text-sm font-semibold tracking-wider uppercase">Success Stories</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display mt-4 mb-6 text-gray-900">
               UAE Success Stories
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Transforming businesses across the Emirates with cutting-edge technology solutions
             </p>
           </motion.div>
@@ -142,14 +143,14 @@ export default function CaseStudies() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg p-6 text-center hover-elevate"
+                className="bg-white border border-gray-200 rounded-2xl p-6 text-center shadow-lg shadow-gray-200/50"
                 data-testid={`card-stat-${index}`}
               >
                 <stat.icon className="h-8 w-8 text-primary mx-auto mb-3" />
-                <div className="text-3xl font-bold mb-1 bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
+                <div className="text-3xl font-bold mb-1 text-primary">
                   {stat.value}
                 </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-sm text-gray-500">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -218,18 +219,18 @@ export default function CaseStudies() {
             viewport={{ once: true }}
             className="mt-16 text-center"
           >
-            <div className="bg-card/30 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 md:p-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-3xl p-8 md:p-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
                 Ready to Transform Your Business?
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
                 Join hundreds of successful UAE businesses that have revolutionized their operations with our solutions
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" onClick={() => window.location.href = "tel:048864215"} data-testid="button-call-us">
+                <Button size="lg" className="bg-gradient-to-r from-primary to-rose-500" onClick={() => window.location.href = "tel:048864215"} data-testid="button-call-us">
                   Call Us: 048864215
                 </Button>
-                <Button size="lg" variant="outline" onClick={openAIChat} data-testid="button-get-started">
+                <Button size="lg" variant="outline" className="border-gray-300 text-gray-700" onClick={openAIChat} data-testid="button-get-started">
                   Get Started <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>

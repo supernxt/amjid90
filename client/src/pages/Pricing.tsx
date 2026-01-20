@@ -13,10 +13,11 @@ export default function Pricing() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">
+          <span className="text-primary text-sm font-semibold tracking-wider uppercase">Pricing</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display mt-4 mb-6 text-gray-900">
             Pricing Plans
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Choose the perfect plan for your business needs
           </p>
         </motion.div>

@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
-import { Check, Star } from "lucide-react";
+import { Check, Star, Gift } from "lucide-react";
 
 interface PricingCardProps {
   title: string;
@@ -32,29 +31,30 @@ export default function PricingCard({
     >
       {isPopular && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-          <div className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
+          <div className="bg-gradient-to-r from-primary to-rose-500 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1 shadow-lg">
             <Star className="h-4 w-4" />
             Most Popular
           </div>
         </div>
       )}
       
-      <Card
-        className={`p-8 h-full hover-elevate active-elevate-2 ${
-          isPopular ? "border-primary border-2" : ""
+      <div
+        className={`bg-white border-2 rounded-2xl p-8 h-full shadow-lg shadow-gray-200/50 hover:shadow-xl transition-all ${
+          isPopular ? "border-primary" : "border-gray-200"
         }`}
         data-testid={`card-pricing-${title.toLowerCase().replace(/\s+/g, '-')}`}
       >
         <div className="mb-6">
-          <h3 className="text-2xl font-bold mb-2" data-testid="text-plan-title">{title}</h3>
-          <p className="text-muted-foreground mb-4" data-testid="text-plan-description">{description}</p>
+          <h3 className="text-2xl font-bold text-gray-900 mb-2" data-testid="text-plan-title">{title}</h3>
+          <p className="text-gray-600 mb-4" data-testid="text-plan-description">{description}</p>
           <div className="flex items-baseline gap-2">
-            <span className="text-4xl font-bold" data-testid="text-plan-price">{price}</span>
-            <span className="text-muted-foreground" data-testid="text-plan-period">/ {period}</span>
+            <span className="text-4xl font-bold text-gray-900" data-testid="text-plan-price">{price}</span>
+            <span className="text-gray-500" data-testid="text-plan-period">/ {period}</span>
           </div>
           {hasOffer && (
             <div className="mt-3 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
-              🎁 Free Domain + Hosting
+              <Gift className="h-4 w-4" />
+              Free Domain + Hosting
             </div>
           )}
         </div>
@@ -63,20 +63,20 @@ export default function PricingCard({
           {features.map((feature, index) => (
             <li key={index} className="flex items-start gap-2" data-testid={`text-feature-${index}`}>
               <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-              <span>{feature}</span>
+              <span className="text-gray-700">{feature}</span>
             </li>
           ))}
         </ul>
 
         <Button
           variant={isPopular ? "default" : "outline"}
-          className="w-full"
+          className={`w-full ${isPopular ? "bg-gradient-to-r from-primary to-rose-500" : "border-gray-300 text-gray-700"}`}
           onClick={openAIChat}
           data-testid="button-select-plan"
         >
           Get Started
         </Button>
-      </Card>
+      </div>
     </motion.div>
   );
 }
