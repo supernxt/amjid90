@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Play, Bot, DollarSign, MessageSquare, Users, Home } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Pause, Bot, DollarSign, MessageSquare, Users, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const slides = [
@@ -8,121 +8,52 @@ const slides = [
     id: 1,
     title: "AI Assistant",
     description: "Intelligent virtual assistant powered by advanced AI to streamline your workflow and boost productivity",
-    gradient: "from-slate-950 via-red-950/30 to-slate-950",
+    gradient: "from-primary/30 via-rose-500/20 to-orange-500/30",
+    bgColor: "bg-gradient-to-br from-primary/5 to-rose-500/5",
     Icon: Bot,
+    iconColor: "text-primary",
   },
   {
     id: 2,
     title: "Accounts AI Agents",
     description: "Automated accounting solutions for Zoho Books and QuickBooks with intelligent data processing",
-    gradient: "from-slate-950 via-red-900/25 to-slate-900",
+    gradient: "from-emerald-500/30 via-primary/20 to-teal-500/30",
+    bgColor: "bg-gradient-to-br from-emerald-500/5 to-teal-500/5",
     Icon: DollarSign,
+    iconColor: "text-emerald-400",
   },
   {
     id: 3,
-    title: "WhatsApp Chatbot & Integration",
+    title: "WhatsApp Integration",
     description: "Seamless WhatsApp integration with AI-powered chatbots for instant customer engagement",
-    gradient: "from-slate-900 via-red-950/35 to-slate-950",
+    gradient: "from-green-500/30 via-primary/20 to-emerald-500/30",
+    bgColor: "bg-gradient-to-br from-green-500/5 to-emerald-500/5",
     Icon: MessageSquare,
+    iconColor: "text-green-400",
   },
   {
     id: 4,
     title: "Sales Team AI Agents",
     description: "Empower your sales team with AI-driven insights, automation, and intelligent lead management",
-    gradient: "from-slate-950 via-slate-900 to-red-950/30",
+    gradient: "from-blue-500/30 via-primary/20 to-cyan-500/30",
+    bgColor: "bg-gradient-to-br from-blue-500/5 to-cyan-500/5",
     Icon: Users,
+    iconColor: "text-blue-400",
   },
   {
     id: 5,
     title: "Real Estate Marketing AI",
     description: "Revolutionary AI solutions for real estate marketing, property showcasing, and customer engagement",
-    gradient: "from-red-950/25 via-slate-950 to-slate-900",
+    gradient: "from-amber-500/30 via-primary/20 to-orange-500/30",
+    bgColor: "bg-gradient-to-br from-amber-500/5 to-orange-500/5",
     Icon: Home,
+    iconColor: "text-amber-400",
   },
 ];
-
-function AnimatedBackground({ gradient }: { gradient: string }) {
-  return (
-    <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`}>
-      {/* Animated particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-red-500/30 rounded-full"
-            initial={{
-              x: Math.random() * 100 + "%",
-              y: Math.random() * 100 + "%",
-            }}
-            animate={{
-              x: [
-                Math.random() * 100 + "%",
-                Math.random() * 100 + "%",
-                Math.random() * 100 + "%",
-              ],
-              y: [
-                Math.random() * 100 + "%",
-                Math.random() * 100 + "%",
-                Math.random() * 100 + "%",
-              ],
-              scale: [1, 1.5, 1],
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{
-              duration: 10 + Math.random() * 10,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
-        ))}
-      </div>
-      
-      {/* Animated gradient overlay */}
-      <motion.div
-        className="absolute inset-0"
-        animate={{
-          background: [
-            `radial-gradient(circle at 20% 50%, rgba(239, 68, 68, 0.15) 0%, transparent 50%)`,
-            `radial-gradient(circle at 80% 50%, rgba(239, 68, 68, 0.15) 0%, transparent 50%)`,
-            `radial-gradient(circle at 50% 80%, rgba(239, 68, 68, 0.15) 0%, transparent 50%)`,
-            `radial-gradient(circle at 20% 50%, rgba(239, 68, 68, 0.15) 0%, transparent 50%)`,
-          ],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0">
-        <svg className="w-full h-full opacity-5">
-          <defs>
-            <pattern id="video-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path
-                d="M 40 0 L 0 0 0 40"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-                className="text-red-500"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#video-grid)" />
-        </svg>
-      </div>
-
-      {/* Vignette effect */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
-    </div>
-  );
-}
 
 export default function VideoSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [autoPlayKey, setAutoPlayKey] = useState(0);
 
   useEffect(() => {
     if (!isPlaying) return;
@@ -132,66 +63,107 @@ export default function VideoSlider() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isPlaying, autoPlayKey]);
+  }, [isPlaying]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
-    setAutoPlayKey((prev) => prev + 1);
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    setAutoPlayKey((prev) => prev + 1);
   };
 
   const jumpToSlide = (index: number) => {
     setCurrentSlide(index);
-    setAutoPlayKey((prev) => prev + 1);
   };
 
   return (
-    <div className="relative w-full h-[600px] overflow-hidden rounded-lg border border-primary/20 bg-card/30 backdrop-blur-sm" data-testid="container-video-slider">
+    <div 
+      className="relative w-full h-[500px] md:h-[550px] overflow-hidden rounded-2xl border border-white/10 bg-slate-900/50 backdrop-blur-xl shadow-2xl shadow-primary/5" 
+      data-testid="container-video-slider"
+    >
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 1.02 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="absolute inset-0"
         >
-          {/* Dynamic animated background */}
-          <AnimatedBackground gradient={slides[currentSlide].gradient} />
+          {/* Background gradient */}
+          <div className={`absolute inset-0 ${slides[currentSlide].bgColor}`} />
           
+          {/* Animated gradient overlay */}
+          <motion.div
+            className={`absolute inset-0 bg-gradient-to-br ${slides[currentSlide].gradient} opacity-50`}
+            animate={{
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+
+          {/* Floating particles */}
+          <div className="absolute inset-0 overflow-hidden">
+            {[...Array(12)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 bg-white/20 rounded-full"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                }}
+                animate={{
+                  y: [0, -30, 0],
+                  opacity: [0.2, 0.5, 0.2],
+                }}
+                transition={{
+                  duration: 3 + Math.random() * 2,
+                  repeat: Infinity,
+                  delay: Math.random() * 2,
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-10">
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              className="mb-6"
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ delay: 0.1, type: "spring", stiffness: 200, damping: 15 }}
+              className="mb-8"
               data-testid={`icon-slide-${currentSlide}`}
             >
-              {(() => {
-                const IconComponent = slides[currentSlide].Icon;
-                return <IconComponent className="w-24 h-24 text-primary drop-shadow-2xl" />;
-              })()}
+              <div className={`p-6 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl`}>
+                {(() => {
+                  const IconComponent = slides[currentSlide].Icon;
+                  return <IconComponent className={`w-16 h-16 md:w-20 md:h-20 ${slides[currentSlide].iconColor}`} />;
+                })()}
+              </div>
             </motion.div>
             
             <motion.h2
-              initial={{ y: 20, opacity: 0 }}
+              initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-primary to-red-400 bg-clip-text text-transparent"
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4"
               data-testid={`text-slide-title-${currentSlide}`}
             >
-              {slides[currentSlide].title}
+              <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+                {slides[currentSlide].title}
+              </span>
             </motion.h2>
             
             <motion.p
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="text-xl md:text-2xl text-foreground/80 max-w-2xl"
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed"
               data-testid={`text-slide-desc-${currentSlide}`}
             >
               {slides[currentSlide].description}
@@ -200,26 +172,27 @@ export default function VideoSlider() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4 z-20">
+      {/* Controls */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 z-20">
         <Button
           size="icon"
-          variant="outline"
+          variant="ghost"
           onClick={prevSlide}
-          className="bg-background/20 backdrop-blur-sm border-primary/40 hover:border-primary"
+          className="h-10 w-10 rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 hover:border-white/20"
           data-testid="button-slide-prev"
         >
-          <ChevronLeft className="h-5 w-5" />
+          <ChevronLeft className="h-5 w-5 text-white/80" />
         </Button>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 px-3">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => jumpToSlide(index)}
-              className={`h-2 rounded-full transition-all ${
+              className={`h-2 rounded-full transition-all duration-300 ${
                 index === currentSlide
                   ? "w-8 bg-primary"
-                  : "w-2 bg-primary/30 hover:bg-primary/50"
+                  : "w-2 bg-white/20 hover:bg-white/40"
               }`}
               data-testid={`button-slide-indicator-${index}`}
             />
@@ -228,33 +201,44 @@ export default function VideoSlider() {
 
         <Button
           size="icon"
-          variant="outline"
+          variant="ghost"
           onClick={nextSlide}
-          className="bg-background/20 backdrop-blur-sm border-primary/40 hover:border-primary"
+          className="h-10 w-10 rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 hover:border-white/20"
           data-testid="button-slide-next"
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-5 w-5 text-white/80" />
         </Button>
 
         <Button
           size="icon"
-          variant="outline"
-          onClick={() => {
-            setIsPlaying(!isPlaying);
-            setAutoPlayKey((prev) => prev + 1);
-          }}
-          className="bg-background/20 backdrop-blur-sm border-primary/40 hover:border-primary ml-2"
+          variant="ghost"
+          onClick={() => setIsPlaying(!isPlaying)}
+          className="h-10 w-10 rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 hover:border-white/20 ml-2"
           data-testid="button-slide-play"
         >
-          <Play className={`h-5 w-5 ${isPlaying ? "text-primary" : ""}`} />
+          {isPlaying ? (
+            <Pause className="h-4 w-4 text-primary" />
+          ) : (
+            <Play className="h-4 w-4 text-white/80" />
+          )}
         </Button>
       </div>
 
+      {/* Status indicator */}
       <div className="absolute top-4 right-4 z-20">
-        <div className="flex items-center gap-2 bg-background/20 backdrop-blur-sm border border-primary/40 rounded-full px-4 py-2">
-          <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-sm font-medium text-foreground/80">
-            {isPlaying ? "Auto-play ON" : "Paused"}
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10">
+          <div className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-primary animate-pulse' : 'bg-white/40'}`} />
+          <span className="text-xs font-medium text-white/60">
+            {isPlaying ? "Auto-play" : "Paused"}
+          </span>
+        </div>
+      </div>
+
+      {/* Slide counter */}
+      <div className="absolute top-4 left-4 z-20">
+        <div className="px-3 py-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10">
+          <span className="text-xs font-medium text-white/60">
+            {currentSlide + 1} / {slides.length}
           </span>
         </div>
       </div>

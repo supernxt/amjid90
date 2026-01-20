@@ -1,6 +1,6 @@
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
+import { Mail, Phone, MapPin, MessageSquare, ArrowUpRight } from "lucide-react";
+import { SiWhatsapp, SiLinkedin, SiInstagram } from "react-icons/si";
 import logoIcon from "@assets/icononly_nobuffer_1760202128142.png";
 
 const footerLinks = {
@@ -23,48 +23,101 @@ const footerLinks = {
   ],
 };
 
+const socialLinks = [
+  { icon: SiWhatsapp, href: "https://wa.me/971048864215", label: "WhatsApp" },
+  { icon: SiLinkedin, href: "#", label: "LinkedIn" },
+  { icon: SiInstagram, href: "#", label: "Instagram" },
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-card border-t border-border">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+    <footer className="relative bg-slate-950 border-t border-white/10">
+      {/* Gradient accent */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+          {/* Brand Column */}
           <div className="lg:col-span-2">
-            <img 
-              src={logoIcon} 
-              alt="Super Next Technologies" 
-              className="h-16 w-auto mb-4 drop-shadow-[0_0_25px_rgba(96,165,250,0.6)] brightness-125"
-              data-testid="img-footer-logo"
-            />
-            <p className="text-muted-foreground mb-6 max-w-sm">
-              AI-Powered Infrastructure & 3D Web Experiences for the future of enterprise technology.
+            <div className="flex items-center gap-3 mb-6">
+              <div className="relative">
+                <div className="absolute inset-0 bg-primary/30 rounded-xl blur-xl" />
+                <img 
+                  src={logoIcon} 
+                  alt="Super Next Technologies" 
+                  className="relative h-12 w-auto"
+                  data-testid="img-footer-logo"
+                />
+              </div>
+              <div>
+                <span className="font-bold text-white text-xl">Super</span>
+                <span className="font-bold text-primary text-xl">NXT</span>
+              </div>
+            </div>
+            
+            <p className="text-white/60 mb-8 max-w-sm leading-relaxed">
+              AI-Powered Infrastructure & 3D Web Experiences for the future of enterprise technology in the UAE & GCC region.
             </p>
-            <div className="flex flex-col gap-3">
-              <a href="tel:048864215">
-                <Button size="sm" variant="outline" className="w-full justify-start" data-testid="button-footer-call">
-                  <Phone className="h-4 w-4 mr-2" />
-                  Call: 048864215
-                </Button>
+            
+            {/* Contact Cards */}
+            <div className="space-y-3">
+              <a 
+                href="tel:048864215"
+                className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group"
+                data-testid="button-footer-call"
+              >
+                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                  <Phone className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-white/50">Call us</p>
+                  <p className="font-semibold text-white">048864215</p>
+                </div>
               </a>
-              <div className="flex items-center gap-2 p-3 bg-primary/10 border border-primary/20 rounded-md">
-                <MessageSquare className="h-5 w-5 text-primary" />
+              
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20">
+                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                  <MessageSquare className="h-5 w-5 text-primary" />
+                </div>
                 <div className="flex-1">
-                  <p className="text-sm font-medium">AI Assistant Available</p>
-                  <p className="text-xs text-muted-foreground">Click the widget to chat</p>
+                  <p className="text-sm font-medium text-white">AI Assistant Available</p>
+                  <p className="text-xs text-white/50">Click the widget to chat 24/7</p>
                 </div>
               </div>
             </div>
+
+            {/* Social Links */}
+            <div className="flex gap-3 mt-6">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/30 hover:text-primary transition-all"
+                  data-testid={`link-social-${social.label.toLowerCase()}`}
+                >
+                  <social.icon className="h-5 w-5" />
+                </a>
+              ))}
+            </div>
           </div>
 
+          {/* Link Columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="font-semibold mb-4">{category}</h3>
-              <ul className="space-y-2">
+              <h3 className="font-semibold text-white mb-5">{category}</h3>
+              <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.path}>
                     <Link href={link.path}>
-                      <Button variant="ghost" size="sm" className="h-auto p-0 text-muted-foreground hover:text-foreground" data-testid={`link-footer-${link.label.toLowerCase().replace(/\s+/g, '-')}`}>
+                      <span 
+                        className="text-white/60 hover:text-primary transition-colors cursor-pointer flex items-center gap-1 group"
+                        data-testid={`link-footer-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                      >
                         {link.label}
-                      </Button>
+                        <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </span>
                     </Link>
                   </li>
                 ))}
@@ -73,24 +126,29 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-          <div className="flex flex-col gap-3 text-sm">
-            <a href="mailto:hello@supernxt.com" className="hover:text-primary flex items-center gap-2 transition-colors font-medium text-foreground" data-testid="link-footer-email">
-              <Mail className="h-5 w-5 text-primary" />
-              <span className="text-base">hello@supernxt.com</span>
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          <div className="flex flex-wrap gap-x-6 gap-y-3">
+            <a 
+              href="mailto:hello@supernxt.com" 
+              className="text-white/60 hover:text-primary flex items-center gap-2 transition-colors"
+              data-testid="link-footer-email"
+            >
+              <Mail className="h-4 w-4" />
+              hello@supernxt.com
             </a>
             <a 
               href="https://maps.app.goo.gl/4xaEugRG8vxcBmWc9" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="hover:text-primary flex items-center gap-2 transition-colors font-medium text-foreground"
+              className="text-white/60 hover:text-primary flex items-center gap-2 transition-colors"
               data-testid="link-footer-location"
             >
-              <MapPin className="h-5 w-5 text-primary" />
-              <span className="text-base">Production City Dubai UAE</span>
+              <MapPin className="h-4 w-4" />
+              Production City Dubai UAE
             </a>
           </div>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-white/40">
             © 2025 Super Next Technologies. All rights reserved.
           </p>
         </div>
