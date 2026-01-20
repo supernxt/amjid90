@@ -40,36 +40,32 @@ export default function Navbar() {
     >
       <div className="max-w-[1920px] mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
+          {/* Logo Only - No Text */}
           <Link href="/">
-            <div className="flex items-center gap-3 group cursor-pointer shrink-0" data-testid="link-logo">
+            <div className="flex items-center group cursor-pointer shrink-0" data-testid="link-logo">
               <div className="relative">
-                <div className="bg-white rounded-xl p-1.5 shadow-md group-hover:shadow-lg transition-all duration-300 border border-gray-200">
+                <div className="bg-white rounded-xl p-2 shadow-md group-hover:shadow-lg transition-all duration-300 border border-gray-200">
                   <img 
                     src={smallLogo} 
                     alt="Super Next Technologies" 
-                    className="h-9 w-9 lg:h-10 lg:w-10 object-contain"
+                    className="h-10 w-10 lg:h-12 lg:w-12 object-contain"
                     data-testid="img-logo"
                   />
                 </div>
               </div>
-              <div className="hidden sm:flex items-center">
-                <span className="font-bold text-gray-900 text-lg lg:text-xl">Super</span>
-                <span className="font-bold text-primary text-lg lg:text-xl">NXT</span>
-              </div>
             </div>
           </Link>
 
-          {/* Desktop Navigation - Centered with pill background */}
-          <div className="hidden xl:flex items-center justify-center flex-1 mx-8">
-            <div className="flex items-center bg-gray-100/80 rounded-full p-1 border border-gray-200">
-              {navItems.map((item, index) => (
+          {/* Desktop Navigation - Open layout without grouping */}
+          <div className="hidden xl:flex items-center justify-center flex-1 mx-6">
+            <div className="flex items-center gap-1">
+              {navItems.map((item) => (
                 <Link key={item.path} href={item.path}>
                   <button
-                    className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${
+                    className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap ${
                       location === item.path
-                        ? "bg-white text-primary shadow-md"
-                        : "text-gray-600 hover:text-gray-900 hover:bg-white/50"
+                        ? "text-primary bg-primary/10"
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                     }`}
                     data-testid={`link-nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                   >
