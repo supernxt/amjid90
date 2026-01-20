@@ -113,6 +113,19 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+### January 20, 2026 - Modern Design Overhaul
+- Redesigned Hero3D with floating animated icons, gradient text effects, and stats row (500+ Projects, 99.9% Uptime, 24/7 AI Support)
+- Added scroll indicator animation and improved CTA button styling with gradients
+- Updated Navbar with scroll-based transparency, glassmorphism effects, and improved mobile menu
+- Modernized VideoSlider with glassmorphism cards, floating particles (pre-computed positions), and unique color schemes per slide
+- Enhanced ValueTiles with hover effects, gradient backgrounds, "Learn more" CTAs, and links to service pages
+- Expanded TrustBar to 6 stats (ISO 27001, 99.9% Uptime, Enterprise Grade, 500+ Clients, 24/7 AI Support, GCC Coverage)
+- Redesigned OfferStrip with animated gradient background and sparkle effects
+- Updated Footer with social links (WhatsApp, LinkedIn, Instagram), contact cards, and improved layout
+- Improved VideoBackground with mesh gradients, animated orbs, and subtle noise texture
+- Simplified AIVoiceWidget error handling for cleaner code
+- All components follow modern AI/tech design trends: glassmorphism, gradient meshes, smooth animations
+
 ### November 3, 2025 - Solid Color Backgrounds & Red Theme
 - Replaced video backgrounds with solid CSS gradient backgrounds matching logo color scheme
 - Updated VideoBackground component to use variant-specific CSS gradients (dark slate with red accents)
