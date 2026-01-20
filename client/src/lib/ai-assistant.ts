@@ -17,7 +17,7 @@ export function openAIChat() {
     return;
   }
 
-  console.log('✅ Widget found:', widget);
+  console.log('✅ Widget found');
 
   // Try to access the Shadow DOM and click the button
   try {

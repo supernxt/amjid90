@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Play, Pause, Bot, DollarSign, MessageSquare, Users, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -51,6 +51,14 @@ const slides = [
   },
 ];
 
+// Pre-compute particle positions to avoid render-time randomness
+const particlePositions = Array.from({ length: 12 }, (_, i) => ({
+  left: (i * 8.3 + 5) % 100,
+  top: (i * 7.7 + 10) % 100,
+  duration: 3 + (i % 3) * 0.5,
+  delay: (i % 5) * 0.4,
+}));
+
 export default function VideoSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -77,6 +85,9 @@ export default function VideoSlider() {
     setCurrentSlide(index);
   };
 
+  const currentSlideData = slides[currentSlide];
+  const IconComponent = currentSlideData.Icon;
+
   return (
     <div 
       className="relative w-full h-[500px] md:h-[550px] overflow-hidden rounded-2xl border border-white/10 bg-slate-900/50 backdrop-blur-xl shadow-2xl shadow-primary/5" 
@@ -92,11 +103,11 @@ export default function VideoSlider() {
           className="absolute inset-0"
         >
           {/* Background gradient */}
-          <div className={`absolute inset-0 ${slides[currentSlide].bgColor}`} />
+          <div className={`absolute inset-0 ${currentSlideData.bgColor}`} />
           
           {/* Animated gradient overlay */}
           <motion.div
-            className={`absolute inset-0 bg-gradient-to-br ${slides[currentSlide].gradient} opacity-50`}
+            className={`absolute inset-0 bg-gradient-to-br ${currentSlideData.gradient} opacity-50`}
             animate={{
               opacity: [0.3, 0.5, 0.3],
             }}
@@ -107,24 +118,24 @@ export default function VideoSlider() {
             }}
           />
 
-          {/* Floating particles */}
+          {/* Floating particles - using pre-computed positions */}
           <div className="absolute inset-0 overflow-hidden">
-            {[...Array(12)].map((_, i) => (
+            {particlePositions.map((particle, i) => (
               <motion.div
                 key={i}
                 className="absolute w-1 h-1 bg-white/20 rounded-full"
                 style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
+                  left: `${particle.left}%`,
+                  top: `${particle.top}%`,
                 }}
                 animate={{
                   y: [0, -30, 0],
                   opacity: [0.2, 0.5, 0.2],
                 }}
                 transition={{
-                  duration: 3 + Math.random() * 2,
+                  duration: particle.duration,
                   repeat: Infinity,
-                  delay: Math.random() * 2,
+                  delay: particle.delay,
                 }}
               />
             ))}
@@ -139,11 +150,8 @@ export default function VideoSlider() {
               className="mb-8"
               data-testid={`icon-slide-${currentSlide}`}
             >
-              <div className={`p-6 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl`}>
-                {(() => {
-                  const IconComponent = slides[currentSlide].Icon;
-                  return <IconComponent className={`w-16 h-16 md:w-20 md:h-20 ${slides[currentSlide].iconColor}`} />;
-                })()}
+              <div className="p-6 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl">
+                <IconComponent className={`w-16 h-16 md:w-20 md:h-20 ${currentSlideData.iconColor}`} />
               </div>
             </motion.div>
             
@@ -155,7 +163,7 @@ export default function VideoSlider() {
               data-testid={`text-slide-title-${currentSlide}`}
             >
               <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
-                {slides[currentSlide].title}
+                {currentSlideData.title}
               </span>
             </motion.h2>
             
@@ -166,7 +174,7 @@ export default function VideoSlider() {
               className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed"
               data-testid={`text-slide-desc-${currentSlide}`}
             >
-              {slides[currentSlide].description}
+              {currentSlideData.description}
             </motion.p>
           </div>
         </motion.div>
