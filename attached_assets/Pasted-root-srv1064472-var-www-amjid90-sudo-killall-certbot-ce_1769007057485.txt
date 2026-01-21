@@ -1,0 +1,49 @@
+root@srv1064472:/var/www/amjid90# sudo killall certbot
+certbot: no process found
+root@srv1064472:/var/www/amjid90# sudo pkill -9 certbot
+root@srv1064472:/var/www/amjid90# sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+root@srv1064472:/var/www/amjid90# sudo systemctl status nginx
+× nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: en>
+     Active: failed (Result: exit-code) since Wed 2026-01-21 14:47:39 UTC; 2min>
+       Docs: man:nginx(8)
+    Process: 507373 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_pro>
+    Process: 507375 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; >
+        CPU: 33ms
+
+Jan 21 14:47:37 srv1064472 nginx[507375]: nginx: [emerg] bind() to 0.0.0.0:443 >
+Jan 21 14:47:37 srv1064472 nginx[507375]: nginx: [emerg] bind() to 0.0.0.0:80 f>
+Jan 21 14:47:38 srv1064472 nginx[507375]: nginx: [emerg] bind() to 0.0.0.0:443 >
+Jan 21 14:47:38 srv1064472 nginx[507375]: nginx: [emerg] bind() to 0.0.0.0:80 f>
+Jan 21 14:47:38 srv1064472 nginx[507375]: nginx: [emerg] bind() to 0.0.0.0:443 >
+Jan 21 14:47:38 srv1064472 nginx[507375]: nginx: [emerg] bind() to 0.0.0.0:80 f>
+Jan 21 14:47:39 srv1064472 nginx[507375]: nginx: [emerg] still could not bind()
+Jan 21 14:47:39 srv1064472 systemd[1]: nginx.service: Control process exited, c>
+Jan 21 14:47:39 srv1064472 systemd[1]: nginx.service: Failed with result 'exit->
+Jan 21 14:47:39 srv1064472 systemd[1]: Failed to start nginx.service - A high p>
+
+root@srv1064472:/var/www/amjid90# # Check if certificate files exist
+ls -la /etc/letsencrypt/live/supernxt.com/
+total 12
+drwxr-xr-x 2 root root 4096 Oct 15 21:32 .
+drwx------ 3 root root 4096 Oct 15 21:32 ..
+-rw-r--r-- 1 root root  692 Oct 15 21:32 README
+lrwxrwxrwx 1 root root   36 Oct 15 21:32 cert.pem -> ../../archive/supernxt.com/cert1.pem
+lrwxrwxrwx 1 root root   37 Oct 15 21:32 chain.pem -> ../../archive/supernxt.com/chain1.pem
+lrwxrwxrwx 1 root root   41 Oct 15 21:32 fullchain.pem -> ../../archive/supernxt.com/fullchain1.pem
+lrwxrwxrwx 1 root root   39 Oct 15 21:32 privkey.pem -> ../../archive/supernxt.com/privkey1.pem
+root@srv1064472:/var/www/amjid90# # Stop nginx first
+sudo systemctl stop nginx
+
+# Get new certificate
+sudo certbot certonly --standalone -d supernxt.com -d www.supernxt.com
+
+# Start nginx again
+sudo systemctl start nginx
+Another instance of Certbot is already running.
+Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /tmp/certbot-log-z054gg5r/log or re-run Certbot with -v for more details.
+Job for nginx.service failed because the control process exited with error code.
+See "systemctl status nginx.service" and "journalctl -xeu nginx.service" for details.
+root@srv1064472:/var/www/amjid90#
