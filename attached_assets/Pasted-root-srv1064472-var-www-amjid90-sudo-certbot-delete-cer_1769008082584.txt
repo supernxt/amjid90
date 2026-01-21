@@ -1,0 +1,28 @@
+root@srv1064472:/var/www/amjid90# sudo certbot delete --cert-name supernxt.com
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+The following certificate(s) are selected for deletion:
+
+  * supernxt.com
+
+WARNING: Before continuing, ensure that the listed certificates are not being
+used by any installed server software (e.g. Apache, nginx, mail servers).
+Deleting a certificate that is still being used will cause the server software
+to stop working. See https://certbot.org/deleting-certs for information on
+deleting certificates safely.
+
+Are you sure you want to delete the above certificate(s)?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(Y)es/(N)o: yes
+Deleted all files relating to certificate supernxt.com.
+root@srv1064472:/var/www/amjid90# sudo certbot --nginx -d supernxt.com -d www.supernxt.com
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Error while running nginx -c /etc/nginx/nginx.conf -t.
+
+2026/01/21 15:07:36 [emerg] 507726#507726: cannot load certificate "/etc/letsencrypt/live/supernxt.com/fullchain.pem": BIO_new_file() failed (SSL: error:80000002:system library::No such file or directory:calling fopen(/etc/letsencrypt/live/supernxt.com/fullchain.pem, r) error:10000080:BIO routines::no such file)
+nginx: configuration file /etc/nginx/nginx.conf test failed
+
+The nginx plugin is not working; there may be problems with your existing configuration.
+The error was: MisconfigurationError('Error while running nginx -c /etc/nginx/nginx.conf -t.\n\n2026/01/21 15:07:36 [emerg] 507726#507726: cannot load certificate "/etc/letsencrypt/live/supernxt.com/fullchain.pem": BIO_new_file() failed (SSL: error:80000002:system library::No such file or directory:calling fopen(/etc/letsencrypt/live/supernxt.com/fullchain.pem, r) error:10000080:BIO routines::no such file)\nnginx: configuration file /etc/nginx/nginx.conf test failed\n')
+root@srv1064472:/var/www/amjid90#
