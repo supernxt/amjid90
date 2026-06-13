@@ -5,21 +5,23 @@ set -e
 
 echo "=== Super Next Technologies — Deploy ==="
 
+# 0. Force public npm registry (bypasses any Replit internal proxy)
+echo "[0/5] Setting npm registry to public..."
+npm config set registry https://registry.npmjs.org
+
 # 1. Pull latest code
 echo "[1/5] Pulling latest code..."
 git pull origin main
 
-# 2. Install runtime dependencies from the public npm registry
-#    (bypasses any Replit internal registry that VPS can't reach)
-echo "[2/5] Installing runtime dependencies..."
-npm install nodemailer --registry https://registry.npmjs.org
+# 2. Install runtime dependency nodemailer from public registry
+echo "[2/5] Installing nodemailer..."
+npm install nodemailer --save
 
 # 3. Build frontend (Vite)
 echo "[3/5] Building frontend..."
 npx vite build
 
-# 4. Build backend — bundle everything except vite (dev-only) and nodemailer
-#    nodemailer is loaded from node_modules installed in step 2
+# 4. Build backend — nodemailer stays external (loaded from node_modules)
 echo "[4/5] Building backend..."
 npx esbuild server/index.ts \
   --platform=node \
