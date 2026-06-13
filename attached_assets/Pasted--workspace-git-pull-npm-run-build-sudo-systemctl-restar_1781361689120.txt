@@ -1,0 +1,34 @@
+~/workspace$ git pull && npm run build && sudo systemctl restart nginx
+Already up to date.
+
+> rest-express@1.0.0 build
+> vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+
+vite v5.4.20 building for production...
+transforming (1) index.htmlBrowserslist: browsers data (caniuse-lite) is 20 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+transforming (4) src/App.tsx
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 2042 modules transformed.
+../dist/public/index.html                                                        25.58 kB │ gzip:   5.72 kB
+../dist/public/assets/icononly_transparent_nobuffer_1760207932143-DuY2fWzj.png   80.75 kB
+../dist/public/assets/icononly_nobuffer_1760202128142-ClxSnXFr.png               90.15 kB
+../dist/public/assets/index-C9yr8Fe_.css                                        103.44 kB │ gzip:  15.56 kB
+../dist/public/assets/index-DGbj5Edx.js                                         575.13 kB │ gzip: 165.32 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 6.86s
+
+  dist/index.js  8.2kb
+
+⚡ Done in 5ms
+    You don't need sudo in Replit, all files that
+    can be modified already have the correct permissions
+    and you can install new software using Nix.
+
+/nix/store/0rprx5rl00z3a3snhxyn9qqlkhzfsxl4-replit-runtime-path/bin/sudo: line 41: exec: systemctl: not found
+~/workspace$ 
