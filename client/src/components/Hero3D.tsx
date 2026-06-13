@@ -2,12 +2,13 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Sparkles, ArrowRight, MapPin, PhoneCall, MessageSquare, CheckCircle } from "lucide-react";
+import { useLang } from "@/contexts/LanguageContext";
 
 const highlights = [
-  "AI Agents & Automation",
-  "Enterprise Networking",
-  "CCTV & Security",
-  "Managed IT & AMC",
+  { en: "AI Agents & Automation", ar: "وكلاء الذكاء الاصطناعي والأتمتة" },
+  { en: "Enterprise Networking", ar: "الشبكات المؤسسية" },
+  { en: "CCTV & Security", ar: "كاميرات المراقبة والأمن" },
+  { en: "Managed IT & AMC", ar: "خدمات تقنية المعلومات المُدارة" },
 ];
 
 const stats = [
@@ -18,6 +19,7 @@ const stats = [
 ];
 
 export default function Hero3D() {
+  const { t, isAr } = useLang();
   return (
     <div className="relative min-h-screen flex items-center overflow-hidden bg-white pt-20">
       {/* Subtle background pattern */}
@@ -50,7 +52,7 @@ export default function Hero3D() {
             >
               <MapPin className="h-3.5 w-3.5 text-primary" />
               <span className="text-sm font-medium text-gray-600">
-                Based in Dubai, UAE
+                {t("Based in Dubai, UAE", "مقرنا في دبي، الإمارات")}
               </span>
             </motion.div>
 
@@ -62,11 +64,19 @@ export default function Hero3D() {
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 text-gray-900"
               data-testid="text-hero-headline"
             >
-              Enterprise AI &{" "}
-              <span className="bg-gradient-to-r from-primary via-rose-500 to-orange-500 bg-clip-text text-transparent">
-                Technology
-              </span>{" "}
-              Solutions for UAE
+              {isAr ? (
+                <>
+                  حلول <span className="bg-gradient-to-r from-primary via-rose-500 to-orange-500 bg-clip-text text-transparent">الذكاء الاصطناعي</span> والتقنية المؤسسية للإمارات
+                </>
+              ) : (
+                <>
+                  Enterprise AI &{" "}
+                  <span className="bg-gradient-to-r from-primary via-rose-500 to-orange-500 bg-clip-text text-transparent">
+                    Technology
+                  </span>{" "}
+                  Solutions for UAE
+                </>
+              )}
             </motion.h1>
 
             {/* Subheadline */}
@@ -77,8 +87,10 @@ export default function Hero3D() {
               className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl leading-relaxed"
               data-testid="text-hero-subtext"
             >
-              We help enterprises across UAE modernise operations with AI automation, 
-              robust networking, smart security, and cloud infrastructure.
+              {t(
+                "We help enterprises across UAE modernise operations with AI automation, robust networking, smart security, and cloud infrastructure.",
+                "نساعد المؤسسات في الإمارات على تحديث عملياتها بالذكاء الاصطناعي والشبكات المتقدمة والأمان الذكي والبنية السحابية."
+              )}
             </motion.p>
 
             {/* Feature list */}
@@ -89,9 +101,9 @@ export default function Hero3D() {
               className="grid grid-cols-2 gap-x-4 gap-y-2 mb-10"
             >
               {highlights.map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
+                <li key={item.en} className="flex items-center gap-2 text-sm text-gray-700">
                   <CheckCircle className="h-4 w-4 text-primary shrink-0" />
-                  {item}
+                  {isAr ? item.ar : item.en}
                 </li>
               ))}
             </motion.ul>
@@ -110,7 +122,7 @@ export default function Hero3D() {
                   data-testid="button-request-consultation"
                 >
                   <Sparkles className="mr-2 h-5 w-5" />
-                  Request Free Consultation
+                  {t("Request Free Consultation", "طلب استشارة مجانية")}
                 </Button>
               </Link>
               <Link href="/contact">
@@ -120,7 +132,7 @@ export default function Hero3D() {
                   className="text-base px-7 border-gray-300 text-gray-700 hover:border-primary hover:text-primary"
                   data-testid="button-get-quote"
                 >
-                  Get a Quote
+                  {t("Get a Quote", "احصل على عرض سعر")}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -149,7 +161,7 @@ export default function Hero3D() {
                 data-testid="link-hero-whatsapp"
               >
                 <MessageSquare className="h-4 w-4" />
-                WhatsApp Us
+                {t("WhatsApp Us", "تواصل عبر واتساب")}
               </a>
             </motion.div>
           </motion.div>

@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Arabic font support */
+.font-arabic, .font-arabic * {
+  font-family: 'Cairo', 'Noto Sans Arabic', sans-serif;
+}
+
 /* LIGHT MODE */
 :root {
   --button-outline: rgba(0,0,0, .10);

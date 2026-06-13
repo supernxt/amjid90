@@ -4,6 +4,7 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AIVoiceWidget from "@/components/AIVoiceWidget";
@@ -29,6 +30,7 @@ const ManagedIT           = lazy(() => import("@/pages/ManagedIT"));
 const NetworkInfrastructure = lazy(() => import("@/pages/NetworkInfrastructure"));
 const LaborCampWifi       = lazy(() => import("@/pages/LaborCampWifi"));
 const Pricing             = lazy(() => import("@/pages/Pricing"));
+const Blog                = lazy(() => import("@/pages/Blog"));
 const NotFoundPage        = lazy(() => import("@/pages/NotFoundPage"));
 
 function PageLoader() {
@@ -61,6 +63,7 @@ function Router() {
         <Route path="/network-infrastructure" component={NetworkInfrastructure} />
         <Route path="/labor-camp-wifi" component={LaborCampWifi} />
         <Route path="/pricing" component={Pricing} />
+        <Route path="/blog" component={Blog} />
         <Route component={NotFoundPage} />
       </Switch>
     </Suspense>
@@ -71,16 +74,18 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <div className="min-h-screen bg-background text-foreground">
-          <Navbar />
-          <Router />
-          <Footer />
-          <AIVoiceWidget />
-          <WhatsAppButton />
-          <ScrollToTop />
-          <CookieConsent />
-        </div>
-        <Toaster />
+        <LanguageProvider>
+          <div className="min-h-screen bg-background text-foreground">
+            <Navbar />
+            <Router />
+            <Footer />
+            <AIVoiceWidget />
+            <WhatsAppButton />
+            <ScrollToTop />
+            <CookieConsent />
+          </div>
+          <Toaster />
+        </LanguageProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

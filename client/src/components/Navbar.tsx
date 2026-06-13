@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Sparkles, ChevronDown, Camera, Cable, Headphones, Network, Wifi, Bot, Radio, Server, Globe } from "lucide-react";
+import { Menu, X, Sparkles, ChevronDown, Camera, Cable, Headphones, Network, Wifi, Bot, Radio, Server, Globe, BookOpen } from "lucide-react";
 import smallLogo from "@assets/icononly_transparent_nobuffer_1760207932143.png";
+import { useLang } from "@/contexts/LanguageContext";
 
 const serviceCategories = [
   {
@@ -32,13 +33,15 @@ const serviceCategories = [
 ];
 
 const mainNavItems = [
-  { label: "Pricing", path: "/pricing" },
-  { label: "About", path: "/about" },
-  { label: "Contact", path: "/contact" },
+  { label: "Pricing", labelAr: "الأسعار", path: "/pricing" },
+  { label: "Blog", labelAr: "المدونة", path: "/blog" },
+  { label: "About", labelAr: "من نحن", path: "/about" },
+  { label: "Contact", labelAr: "اتصل بنا", path: "/contact" },
 ];
 
 export default function Navbar() {
   const [location] = useLocation();
+  const { lang, toggle, isAr } = useLang();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [openMobileAccordion, setOpenMobileAccordion] = useState<number | null>(null);
@@ -163,7 +166,7 @@ export default function Navbar() {
                 </div>
               ))}
 
-              {/* Main nav items (About, Contact) */}
+              {/* Main nav items (Pricing, Blog, About, Contact) */}
               {mainNavItems.map((item) => (
                 <Link key={item.path} href={item.path}>
                   <button
@@ -174,7 +177,7 @@ export default function Navbar() {
                     }`}
                     data-testid={`link-nav-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
                   >
-                    {item.label}
+                    {isAr ? item.labelAr : item.label}
                   </button>
                 </Link>
               ))}
@@ -183,6 +186,16 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="hidden xl:flex items-center gap-3 shrink-0">
+            {/* Language Toggle */}
+            <button
+              onClick={toggle}
+              title={isAr ? "Switch to English" : "التبديل للعربية"}
+              data-testid="button-lang-toggle"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-sm font-semibold text-gray-600 hover:border-primary hover:text-primary transition-all"
+            >
+              <Globe className="h-3.5 w-3.5" />
+              {lang === "en" ? "عربي" : "EN"}
+            </button>
             <Link href="/contact">
               <Button
                 variant="outline"
@@ -190,7 +203,7 @@ export default function Navbar() {
                 className="border-gray-300 text-gray-700 hover:border-primary hover:text-primary"
                 data-testid="button-get-quote"
               >
-                Get a Quote
+                {isAr ? "احصل على عرض" : "Get a Quote"}
               </Button>
             </Link>
             <Link href="/contact">
@@ -200,7 +213,7 @@ export default function Navbar() {
                 data-testid="button-get-started"
               >
                 <Sparkles className="w-4 h-4 mr-2" />
-                Free Consultation
+                {isAr ? "استشارة مجانية" : "Free Consultation"}
               </Button>
             </Link>
           </div>
@@ -305,6 +318,15 @@ export default function Navbar() {
             ))}
 
             <div className="pt-4 border-t border-gray-100 flex flex-col gap-2">
+              {/* Mobile language toggle */}
+              <button
+                onClick={toggle}
+                data-testid="button-mobile-lang-toggle"
+                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-gray-200 text-sm font-semibold text-gray-600 hover:border-primary hover:text-primary transition-all"
+              >
+                <Globe className="h-4 w-4" />
+                {isAr ? "Switch to English" : "التبديل للعربية"}
+              </button>
               <Link href="/contact">
                 <Button
                   variant="outline"
@@ -312,7 +334,7 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   data-testid="button-mobile-get-quote"
                 >
-                  Get a Quote
+                  {isAr ? "احصل على عرض" : "Get a Quote"}
                 </Button>
               </Link>
               <Link href="/contact">
@@ -322,7 +344,7 @@ export default function Navbar() {
                   data-testid="button-mobile-get-started"
                 >
                   <Sparkles className="w-4 h-4 mr-2" />
-                  Free Consultation
+                  {isAr ? "استشارة مجانية" : "Free Consultation"}
                 </Button>
               </Link>
             </div>

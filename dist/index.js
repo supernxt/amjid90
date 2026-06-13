@@ -183,7 +183,13 @@ var ALL_URLS = [
   `${SITE_URL}/contact`,
   `${SITE_URL}/support`,
   `${SITE_URL}/legal/privacy`,
-  `${SITE_URL}/legal/eula`
+  `${SITE_URL}/legal/eula`,
+  `${SITE_URL}/blog`,
+  `${SITE_URL}/blog/ai-automation-uae-businesses-2025`,
+  `${SITE_URL}/blog/enterprise-wifi-dubai-hotels-guide`,
+  `${SITE_URL}/blog/cctv-solutions-uae-business-guide`,
+  `${SITE_URL}/blog/structured-cabling-vs-wireless-uae-office`,
+  `${SITE_URL}/blog/managed-it-amc-dubai-guide`
 ];
 async function pingIndexNow(urls = ALL_URLS) {
   try {
@@ -284,6 +290,23 @@ async function registerRoutes(app2) {
       urlsSubmitted: ALL_URLS.length,
       message: result.ok ? "IndexNow ping sent successfully to Bing/Yandex" : "IndexNow ping failed"
     });
+  });
+  app2.get("/sitemap.xml", (_req, res) => {
+    const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+    const urls = ALL_URLS.map((url) => `
+  <url>
+    <loc>${url}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${url === SITE_URL + "/" ? "weekly" : "monthly"}</changefreq>
+    <priority>${url === SITE_URL + "/" ? "1.0" : url.includes("/blog/") ? "0.7" : "0.8"}</priority>
+  </url>`).join("");
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>`;
+    res.setHeader("Content-Type", "application/xml");
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    res.send(xml);
   });
   const httpServer = createServer(app2);
   return httpServer;
