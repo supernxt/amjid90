@@ -32,8 +32,8 @@ const footerLinks = {
 
 const socialLinks = [
   { icon: SiWhatsapp, href: "https://wa.me/971048864215", label: "WhatsApp", color: "hover:text-green-600 hover:bg-green-50" },
-  { icon: SiLinkedin, href: "#", label: "LinkedIn", color: "hover:text-blue-600 hover:bg-blue-50" },
-  { icon: SiInstagram, href: "#", label: "Instagram", color: "hover:text-pink-600 hover:bg-pink-50" },
+  { icon: SiLinkedin, href: "https://www.linkedin.com/company/supernxt", label: "LinkedIn", color: "hover:text-blue-600 hover:bg-blue-50" },
+  { icon: SiInstagram, href: "https://www.instagram.com/supernxt", label: "Instagram", color: "hover:text-pink-600 hover:bg-pink-50" },
 ];
 
 export default function Footer() {

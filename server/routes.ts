@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import nodemailer from "nodemailer";
 
 const INDEXNOW_KEY = "d9cd85c9cabb24c38b4e96056d07fe11";
 const SITE_URL = "https://supernxt.com";
@@ -40,7 +41,76 @@ async function pingIndexNow(urls: string[] = ALL_URLS) {
   }
 }
 
+async function sendContactEmail(data: {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}) {
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST || "smtp.gmail.com",
+    port: Number(process.env.SMTP_PORT) || 587,
+    secure: false,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
+
+  await transporter.sendMail({
+    from: `"SNT Contact Form" <${process.env.SMTP_USER}>`,
+    to: "hello@supernxt.com",
+    replyTo: data.email,
+    subject: `[SNT Contact] ${data.subject || "New Enquiry"} — from ${data.name}`,
+    text: `Name: ${data.name}\nEmail: ${data.email}\nSubject: ${data.subject}\n\n${data.message}`,
+    html: `
+      <div style="font-family:sans-serif;max-width:600px;margin:0 auto">
+        <div style="background:#FF3333;padding:24px 32px;border-radius:12px 12px 0 0">
+          <h2 style="color:#fff;margin:0">New Contact Form Submission</h2>
+        </div>
+        <div style="background:#f9f9f9;padding:32px;border-radius:0 0 12px 12px;border:1px solid #eee">
+          <table style="width:100%;border-collapse:collapse">
+            <tr><td style="padding:8px 0;color:#666;width:100px"><strong>Name</strong></td><td style="padding:8px 0;color:#111">${data.name}</td></tr>
+            <tr><td style="padding:8px 0;color:#666"><strong>Email</strong></td><td style="padding:8px 0;color:#111"><a href="mailto:${data.email}" style="color:#FF3333">${data.email}</a></td></tr>
+            <tr><td style="padding:8px 0;color:#666"><strong>Subject</strong></td><td style="padding:8px 0;color:#111">${data.subject || "—"}</td></tr>
+          </table>
+          <hr style="border:none;border-top:1px solid #ddd;margin:20px 0"/>
+          <p style="color:#666;margin:0 0 8px"><strong>Message</strong></p>
+          <p style="color:#111;white-space:pre-wrap;margin:0">${data.message}</p>
+        </div>
+        <p style="color:#999;font-size:12px;text-align:center;margin-top:16px">Super Next Technologies · supernxt.com</p>
+      </div>
+    `,
+  });
+}
+
 export async function registerRoutes(app: Express): Promise<Server> {
+
+  // Contact form — POST /api/contact
+  app.post("/api/contact", async (req, res) => {
+    const { name, email, subject, message } = req.body || {};
+    if (!name || !email || !message) {
+      return res.status(400).json({ success: false, error: "Name, email, and message are required." });
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ success: false, error: "Invalid email address." });
+    }
+
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.warn("[contact] SMTP not configured — logging form submission instead");
+      console.log("[contact]", { name, email, subject, message });
+      return res.json({ success: true, message: "Message received (email delivery pending SMTP setup)." });
+    }
+
+    try {
+      await sendContactEmail({ name, email, subject, message });
+      return res.json({ success: true, message: "Message sent successfully." });
+    } catch (err: any) {
+      console.error("[contact] Email send failed:", err.message);
+      return res.status(500).json({ success: false, error: "Failed to send message. Please try calling or WhatsApp." });
+    }
+  });
 
   // IndexNow ping — POST /api/indexnow/ping
   // Notifies Bing, Yandex, and other IndexNow search engines of updated URLs
