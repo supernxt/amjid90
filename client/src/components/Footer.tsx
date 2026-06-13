@@ -4,11 +4,19 @@ import { SiWhatsapp, SiLinkedin, SiInstagram } from "react-icons/si";
 import logoIcon from "@assets/icononly_nobuffer_1760202128142.png";
 
 const footerLinks = {
-  Solutions: [
+  "AI & Web": [
     { label: "AI Solutions", path: "/ai-solutions" },
     { label: "Wireless Hotspot", path: "/wireless-hotspot" },
     { label: "Infrastructure", path: "/infrastructure" },
     { label: "Website Development", path: "/website-development" },
+    { label: "Pricing", path: "/pricing" },
+  ],
+  "IT Services": [
+    { label: "CCTV Solutions", path: "/cctv-solutions" },
+    { label: "Structured Cabling", path: "/structured-cabling" },
+    { label: "Managed IT & AMC", path: "/managed-it-services" },
+    { label: "Network Infrastructure", path: "/network-infrastructure" },
+    { label: "Labor Camp WiFi", path: "/labor-camp-wifi" },
   ],
   Resources: [
     { label: "Templates & Use Cases", path: "/templates" },

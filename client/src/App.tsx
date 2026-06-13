@@ -19,6 +19,11 @@ import Contact from "@/pages/Contact";
 import Pricing from "@/pages/Pricing";
 import EULA from "@/pages/EULA";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import CCTVSolutions from "@/pages/CCTVSolutions";
+import StructuredCabling from "@/pages/StructuredCabling";
+import ManagedIT from "@/pages/ManagedIT";
+import NetworkInfrastructure from "@/pages/NetworkInfrastructure";
+import LaborCampWifi from "@/pages/LaborCampWifi";
 import NotFoundPage from "@/pages/NotFoundPage";
 
 function Router() {
@@ -37,6 +42,11 @@ function Router() {
       <Route path="/pricing" component={Pricing} />
       <Route path="/legal/eula" component={EULA} />
       <Route path="/legal/privacy" component={PrivacyPolicy} />
+      <Route path="/cctv-solutions" component={CCTVSolutions} />
+      <Route path="/structured-cabling" component={StructuredCabling} />
+      <Route path="/managed-it-services" component={ManagedIT} />
+      <Route path="/network-infrastructure" component={NetworkInfrastructure} />
+      <Route path="/labor-camp-wifi" component={LaborCampWifi} />
       <Route component={NotFoundPage} />
     </Switch>
   );
