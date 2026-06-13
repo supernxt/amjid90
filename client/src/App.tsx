@@ -23,6 +23,7 @@ import StructuredCabling from "@/pages/StructuredCabling";
 import ManagedIT from "@/pages/ManagedIT";
 import NetworkInfrastructure from "@/pages/NetworkInfrastructure";
 import LaborCampWifi from "@/pages/LaborCampWifi";
+import Pricing from "@/pages/Pricing";
 import NotFoundPage from "@/pages/NotFoundPage";
 
 function Router() {
@@ -45,6 +46,7 @@ function Router() {
       <Route path="/managed-it-services" component={ManagedIT} />
       <Route path="/network-infrastructure" component={NetworkInfrastructure} />
       <Route path="/labor-camp-wifi" component={LaborCampWifi} />
+      <Route path="/pricing" component={Pricing} />
       <Route component={NotFoundPage} />
     </Switch>
   );
