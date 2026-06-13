@@ -1,0 +1,23 @@
+root@srv1064472:/var/www/amjid90# cd /var/www/amjid90 && git pull origin main && pm2 restart supernxt --update-env
+From https://github.com/supernxt/amjid90
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+[PM2] Applying action restartProcessId on app [supernxt](ids: [ 0 ])
+[PM2] [supernxt](0) ✓
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ 1.0.0   │ cluster │ 230270   │ 0s     │ 32   │ online    │ 0%       │ 44.9mb   │ root     │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+root@srv1064472:/var/www/amjid90# cd /var/www/amjid90 && git pull origin main && pm2 restart supernxt --update-env
+From https://github.com/supernxt/amjid90
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+[PM2] Applying action restartProcessId on app [supernxt](ids: [ 0 ])
+[PM2] [supernxt](0) ✓
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ 1.0.0   │ cluster │ 230298   │ 0s     │ 33   │ online    │ 0%       │ 44.9mb   │ root     │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+root@srv1064472:/var/www/amjid90# 
