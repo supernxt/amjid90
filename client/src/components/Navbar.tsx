@@ -32,7 +32,6 @@ const services = [
 ];
 
 const mainNavItems = [
-  { label: "Home", path: "/" },
   { label: "Case Studies", path: "/case-studies" },
   { label: "Pricing", path: "/pricing" },
   { label: "About", path: "/about" },
@@ -168,15 +167,27 @@ export default function Navbar() {
           </div>
 
           {/* CTA */}
-          <div className="hidden xl:flex items-center shrink-0">
-            <Button
-              size="default"
-              className="bg-gradient-to-r from-primary to-rose-500 hover:opacity-90 shadow-lg shadow-primary/20"
-              data-testid="button-get-started"
-            >
-              <Sparkles className="w-4 h-4 mr-2" />
-              Get Started
-            </Button>
+          <div className="hidden xl:flex items-center gap-3 shrink-0">
+            <Link href="/contact">
+              <Button
+                variant="outline"
+                size="default"
+                className="border-gray-300 text-gray-700 hover:border-primary hover:text-primary"
+                data-testid="button-get-quote"
+              >
+                Get a Quote
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button
+                size="default"
+                className="bg-gradient-to-r from-primary to-rose-500 hover:opacity-90 shadow-lg shadow-primary/20"
+                data-testid="button-get-started"
+              >
+                <Sparkles className="w-4 h-4 mr-2" />
+                Free Consultation
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
