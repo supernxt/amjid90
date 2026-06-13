@@ -5,6 +5,15 @@ import { openAIChat } from "@/lib/ai-assistant";
 import { Headphones, Shield, Server, RefreshCw, CheckCircle, ArrowRight, Clock, MapPin, Wrench, BarChart3 } from "lucide-react";
 import SEO from "@/components/SEO";
 import RelatedServices from "@/components/RelatedServices";
+import FAQSection from "@/components/FAQSection";
+
+const managedITFaqs = [
+  { q: "What does an IT AMC (Annual Maintenance Contract) include?", a: "Our IT AMC covers preventive maintenance visits, 24/7 NOC monitoring, unlimited remote support, priority on-site engineer dispatch, server health checks, network equipment inspection, security patch management, and monthly uptime reports. We tailor coverage to your specific infrastructure." },
+  { q: "What is your emergency response time?", a: "For critical issues (system down, major network outage), our SLA is 4 hours for on-site response and under 30 minutes for remote triage. Most issues are resolved remotely within 1–2 hours by our NOC team." },
+  { q: "How much does an IT AMC cost in UAE?", a: "AMC pricing depends on the number of servers, workstations, network devices, and coverage scope. Entry-level AMC for a 10-user office typically starts from AED 1,500/month. Contact us for a customised proposal based on your infrastructure." },
+  { q: "Do you support cloud and hybrid environments?", a: "Yes. We manage on-premise servers (Windows Server, Linux), cloud environments (Microsoft Azure, AWS, Google Cloud), and hybrid setups. Our team holds Microsoft, Cisco, and AWS certifications." },
+  { q: "Can you manage multiple office locations across UAE?", a: "Absolutely. We currently manage multi-site IT environments across Dubai, Abu Dhabi, and Sharjah under unified AMC agreements. Remote monitoring covers all sites 24/7 and on-site teams are dispatched from the nearest office." },
+];
 
 const managedITSchema = {
   "@context": "https://schema.org",
@@ -57,6 +66,7 @@ const industries = [
 
 export default function ManagedIT() {
   return (
+    <>
     <VideoBackground variant="default">
       <SEO
         title="Managed IT Services & IT AMC Dubai, UAE | Super Next Technologies"
@@ -199,5 +209,12 @@ export default function ManagedIT() {
         </div>
       </div>
     </VideoBackground>
+    <FAQSection
+      title="Managed IT & AMC — FAQs"
+      subtitle="Everything UAE businesses ask about IT maintenance contracts and managed services."
+      faqs={managedITFaqs}
+      ctaText="Get Your AMC Proposal"
+    />
+    </>
   );
 }

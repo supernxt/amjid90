@@ -5,12 +5,21 @@ import SEO from "@/components/SEO";
 import FlipCard from "@/components/FlipCard";
 import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
+import FAQSection from "@/components/FAQSection";
 import { 
   Mail, Edit, TrendingUp, Search, RefreshCw, FileText, 
   Globe, Users, MessageSquare, DollarSign, Clock, Bell,
   CheckSquare, FileCode, Phone, UserPlus, Target, 
   Briefcase, Bot, Headphones, MessageCircle, Book
 } from "lucide-react";
+
+const aiFaqs = [
+  { q: "What is an AI agent and how can it help my UAE business?", a: "An AI agent is a software system that uses artificial intelligence to perform tasks autonomously — answering customer enquiries on WhatsApp, qualifying leads, processing documents, monitoring systems, or running marketing sequences. Unlike basic chatbots, AI agents can reason, take actions, and integrate with your existing tools (CRM, ERP, email, WhatsApp)." },
+  { q: "How long does it take to implement AI automation?", a: "Simple automations (WhatsApp reply bot, invoice processing, email sequences) typically take 1–2 weeks. Complex multi-system integrations (AI SDR, full customer service replacement, ERP automation) take 4–8 weeks. We start with a discovery call to scope requirements and provide a fixed timeline." },
+  { q: "What is the ROI on AI automation for UAE businesses?", a: "ROI varies by use case. Typical outcomes our clients report: 40–60% reduction in customer support staff costs, 3x increase in sales outreach volume (AI SDR), 70% faster document processing, and 24/7 coverage without overtime. Most clients see ROI within 3–6 months." },
+  { q: "Do I need technical staff to manage AI agents?", a: "No. We build and maintain AI agents for you under our managed AI service. The AI systems are designed to be monitored through simple dashboards. We handle all technical maintenance, updates, and improvements. Your team just uses the output." },
+  { q: "What tools and platforms do you use for AI automation?", a: "We build on n8n, Make (formerly Integromat), OpenAI (GPT-4o), Anthropic Claude, ElevenLabs, Twilio, and WhatsApp Business API — integrated with your existing tools like Zoho, HubSpot, Salesforce, Microsoft 365, QuickBooks, and more." },
+];
 
 const aiSchema = [
   {
@@ -76,6 +85,7 @@ export default function AISolutions() {
     : agents.filter(agent => agent.category === selectedCategory);
 
   return (
+    <>
     <VideoBackground variant="ai">
       <SEO
         title="AI Agents & Automation Solutions UAE | Super Next Technologies"
@@ -166,5 +176,12 @@ export default function AISolutions() {
         </div>
       </div>
     </VideoBackground>
+    <FAQSection
+      title="AI Automation — FAQs"
+      subtitle="Common questions from UAE businesses exploring AI agents and automation."
+      faqs={aiFaqs}
+      ctaText="Book an AI Demo"
+    />
+    </>
   );
 }

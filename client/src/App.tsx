@@ -11,6 +11,7 @@ import AIVoiceWidget from "@/components/AIVoiceWidget";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
 import CookieConsent from "@/components/CookieConsent";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 
 const Home                = lazy(() => import("@/pages/Home"));
 const AISolutions         = lazy(() => import("@/pages/AISolutions"));
@@ -31,6 +32,8 @@ const NetworkInfrastructure = lazy(() => import("@/pages/NetworkInfrastructure")
 const LaborCampWifi       = lazy(() => import("@/pages/LaborCampWifi"));
 const Pricing             = lazy(() => import("@/pages/Pricing"));
 const Blog                = lazy(() => import("@/pages/Blog"));
+const AbuDhabi            = lazy(() => import("@/pages/AbuDhabi"));
+const Sharjah             = lazy(() => import("@/pages/Sharjah"));
 const NotFoundPage        = lazy(() => import("@/pages/NotFoundPage"));
 
 function PageLoader() {
@@ -64,6 +67,8 @@ function Router() {
         <Route path="/labor-camp-wifi" component={LaborCampWifi} />
         <Route path="/pricing" component={Pricing} />
         <Route path="/blog" component={Blog} />
+        <Route path="/abu-dhabi" component={AbuDhabi} />
+        <Route path="/sharjah" component={Sharjah} />
         <Route component={NotFoundPage} />
       </Switch>
     </Suspense>
@@ -83,6 +88,7 @@ function App() {
             <WhatsAppButton />
             <ScrollToTop />
             <CookieConsent />
+            <ExitIntentPopup />
           </div>
           <Toaster />
         </LanguageProvider>

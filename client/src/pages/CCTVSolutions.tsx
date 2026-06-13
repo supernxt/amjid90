@@ -5,6 +5,15 @@ import { openAIChat } from "@/lib/ai-assistant";
 import { Camera, Shield, Eye, Monitor, CheckCircle, ArrowRight, Wifi, Lock, Zap, MapPin } from "lucide-react";
 import SEO from "@/components/SEO";
 import RelatedServices from "@/components/RelatedServices";
+import FAQSection from "@/components/FAQSection";
+
+const cctvFaqs = [
+  { q: "How many CCTV cameras do I need for my business?", a: "It depends on your premises size and security goals. A small retail shop may need 4–8 cameras; a warehouse or hotel typically needs 20–100+. We provide a free site survey where a certified security engineer walks your premises and recommends optimal camera placement with no obligation." },
+  { q: "What's the difference between DVR and NVR systems?", a: "DVR (Digital Video Recorder) works with older analog cameras over coaxial cable. NVR (Network Video Recorder) works with modern IP cameras over Ethernet/PoE. IP/NVR systems offer higher resolution (2MP–8MP/4K), remote access, smart analytics, and easier scalability. We recommend NVR for new installations." },
+  { q: "Can I view my CCTV footage remotely on my phone?", a: "Yes. All our IP camera installations support live viewing and playback via mobile app (iOS and Android). You can monitor your premises from anywhere in the world with an internet connection." },
+  { q: "What resolution cameras do you recommend?", a: "For general surveillance we recommend 4MP (2K) cameras. For areas requiring face recognition or number plate reading (entrances, parking), we recommend 8MP (4K) cameras. We supply Hikvision, Dahua, Axis, and Hanwha cameras depending on budget and application." },
+  { q: "Do you comply with UAE CCTV regulations?", a: "Yes. We install signage per UAE regulations, configure data retention policies (typically 30 days minimum), and ensure systems comply with Telecommunications Regulatory Authority (TRA) guidelines for networked surveillance. We provide full documentation for regulatory purposes." },
+];
 
 const cctvSchema = {
   "@context": "https://schema.org",
@@ -57,6 +66,7 @@ const stats = [
 
 export default function CCTVSolutions() {
   return (
+    <>
     <VideoBackground variant="default">
       <SEO
         title="CCTV Solutions & Installation Dubai, UAE | Super Next Technologies"
@@ -201,5 +211,12 @@ export default function CCTVSolutions() {
         </div>
       </div>
     </VideoBackground>
+    <FAQSection
+      title="CCTV & IP Camera Systems — FAQs"
+      subtitle="Common questions from UAE businesses about security camera installations."
+      faqs={cctvFaqs}
+      ctaText="Book Free Security Survey"
+    />
+    </>
   );
 }

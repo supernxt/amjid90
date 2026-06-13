@@ -189,7 +189,9 @@ var ALL_URLS = [
   `${SITE_URL}/blog/enterprise-wifi-dubai-hotels-guide`,
   `${SITE_URL}/blog/cctv-solutions-uae-business-guide`,
   `${SITE_URL}/blog/structured-cabling-vs-wireless-uae-office`,
-  `${SITE_URL}/blog/managed-it-amc-dubai-guide`
+  `${SITE_URL}/blog/managed-it-amc-dubai-guide`,
+  `${SITE_URL}/abu-dhabi`,
+  `${SITE_URL}/sharjah`
 ];
 async function pingIndexNow(urls = ALL_URLS) {
   try {

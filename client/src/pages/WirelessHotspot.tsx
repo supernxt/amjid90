@@ -4,6 +4,15 @@ import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
 import { Wifi, Shield, Zap, Users, ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
+import FAQSection from "@/components/FAQSection";
+
+const wifiFaqs = [
+  { q: "What's the difference between consumer WiFi and enterprise WiFi?", a: "Consumer routers (home routers from Virgin, du, etc.) are designed for 5–10 devices. Enterprise WiFi systems use commercial-grade access points (Cisco, Ruckus, Ubiquiti) designed for 50–500+ simultaneous devices, with centralised management, seamless roaming, VLAN segmentation, and 24/7 uptime guarantees." },
+  { q: "How many access points does my building need?", a: "It depends on building size, construction materials (concrete walls absorb signal), number of users, and device density. A rule of thumb for standard offices is one AP per 100–150 sqm, but high-density areas like conference rooms or warehouses need more. We offer free site surveys with RF planning to determine the exact count." },
+  { q: "Can you set up separate WiFi for guests and staff?", a: "Yes. We configure multiple SSIDs with VLAN separation — staff get access to internal systems while guests are isolated on a separate internet-only network. Guest portals with UAE TRA-compliant authentication (user login or SMS OTP) are also available." },
+  { q: "What brands of enterprise WiFi do you install?", a: "We work with Cisco Meraki, Cisco Catalyst, Ruckus (CommScope), Ubiquiti UniFi, and MikroTik depending on budget and scale. All are enterprise-grade and managed through centralised controllers." },
+  { q: "Do you offer ongoing WiFi management?", a: "Yes. Our managed WiFi service includes 24/7 monitoring, remote troubleshooting, firmware updates, and an annual physical inspection. Most issues are resolved remotely within 1–2 hours." },
+];
 
 const hotspotSchema = [
   {
@@ -39,6 +48,7 @@ const hotspotSchema = [
 
 export default function WirelessHotspot() {
   return (
+    <>
     <VideoBackground variant="wireless">
       <SEO
         title="Enterprise Wireless Hotspots UAE | Super Next Technologies"
@@ -121,5 +131,12 @@ export default function WirelessHotspot() {
         </div>
       </div>
     </VideoBackground>
+    <FAQSection
+      title="Enterprise WiFi — FAQs"
+      subtitle="Everything UAE businesses ask about enterprise wireless networking."
+      faqs={wifiFaqs}
+      ctaText="Book a Free WiFi Site Survey"
+    />
+    </>
   );
 }

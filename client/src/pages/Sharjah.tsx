@@ -1,0 +1,191 @@
+import { motion } from "framer-motion";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
+import FAQSection from "@/components/FAQSection";
+import { MapPin, Bot, Wifi, Camera, Cable, Headphones, Server, CheckCircle, ArrowRight, Phone, MessageSquare } from "lucide-react";
+
+const services = [
+  { icon: Bot, title: "AI Automation", desc: "AI agents, chatbots, and workflow automation tailored for Sharjah manufacturers, retailers, and service businesses.", color: "bg-violet-50 text-violet-600" },
+  { icon: Wifi, title: "Enterprise WiFi", desc: "High-density enterprise WiFi for Sharjah industrial zones, warehouses, hotels, and office complexes.", color: "bg-blue-50 text-blue-600" },
+  { icon: Camera, title: "CCTV & Security", desc: "IP camera systems with video analytics for Sharjah factories, retail, schools, and residential buildings.", color: "bg-red-50 text-red-600" },
+  { icon: Cable, title: "Structured Cabling", desc: "TIA/ISO-certified network cabling for Sharjah free zones, industrial parks, and commercial developments.", color: "bg-amber-50 text-amber-600" },
+  { icon: Headphones, title: "Managed IT & AMC", desc: "Annual IT maintenance contracts with certified support across Sharjah, Ajman, and northern emirates.", color: "bg-emerald-50 text-emerald-600" },
+  { icon: Server, title: "Cloud & Servers", desc: "Server setup, cloud migration, and IT infrastructure for Sharjah businesses moving to digital operations.", color: "bg-cyan-50 text-cyan-600" },
+];
+
+const faqs = [
+  {
+    q: "Do you serve all of Sharjah and northern emirates?",
+    a: "Yes. We cover all areas of Sharjah including Sharjah City, Sharjah Industrial Area, Al Quoz Sharjah, Muwaileh, Al Majaz, Hamriyah Free Zone, and Sharjah Airport International Free Zone (SAIF Zone). We also serve Ajman, Umm Al Quwain, and Ras Al Khaimah.",
+  },
+  {
+    q: "Can you handle industrial and warehouse installations in Sharjah?",
+    a: "Yes. We have extensive experience with industrial installations across Sharjah Industrial Area and free zones — including structured cabling, enterprise WiFi with long-range coverage, IP CCTV systems, and access control for warehouses and factories.",
+  },
+  {
+    q: "What's your response time for Sharjah clients?",
+    a: "For AMC clients in Sharjah, we guarantee a 4-hour response for critical issues. Remote monitoring is 24/7 and most issues are resolved remotely within 1–2 hours. On-site engineers are dispatched from both Dubai and Sharjah.",
+  },
+  {
+    q: "Do you work with Sharjah free zone companies?",
+    a: "Yes. We regularly work with businesses in SAIF Zone, Hamriyah Free Zone, and SHAMS (Sharjah Media City). We understand free zone IT requirements and can handle end-to-end infrastructure from cabling to cloud.",
+  },
+  {
+    q: "How do I get started with IT services in Sharjah?",
+    a: "Contact us via phone, WhatsApp, or our contact form. We'll schedule a free site survey at your Sharjah premises within 24 hours and deliver a detailed proposal the same day.",
+  },
+];
+
+const sharjahSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Super Next Technologies - Sharjah",
+  description: "Enterprise IT solutions in Sharjah — AI automation, enterprise WiFi, CCTV, structured cabling, and managed IT services for Sharjah businesses and free zones.",
+  url: "https://supernxt.com/sharjah",
+  areaServed: { "@type": "City", name: "Sharjah" },
+  telephone: "+97148864215",
+  email: "hello@supernxt.com",
+};
+
+export default function Sharjah() {
+  return (
+    <div className="min-h-screen bg-white">
+      <SEO
+        title="IT Solutions Sharjah | AI, WiFi, CCTV & Managed IT | Super Next Technologies"
+        description="Enterprise IT services in Sharjah — AI automation, enterprise WiFi, CCTV systems, structured cabling, and 24/7 managed IT. Covering Sharjah, SAIF Zone, Hamriyah & northern emirates."
+        canonical="https://supernxt.com/sharjah"
+        schema={sharjahSchema}
+      />
+
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-gray-50 to-white border-b border-gray-100 pt-24 pb-16 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+                <MapPin className="h-3.5 w-3.5 text-primary" />
+                <span className="text-sm font-semibold text-primary">Serving Sharjah & Northern Emirates</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5 leading-tight">
+                Enterprise IT Solutions in{" "}
+                <span className="bg-gradient-to-r from-primary to-rose-500 bg-clip-text text-transparent">Sharjah</span>
+              </h1>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Super Next Technologies provides AI automation, networking, CCTV, cabling, and managed IT to businesses across Sharjah — including SAIF Zone, Hamriyah Free Zone, and all northern emirates.
+              </p>
+              <ul className="grid grid-cols-2 gap-3 mb-8">
+                {["Free site survey", "4-hour on-site SLA", "Industrial expertise", "Free zone experience", "24/7 NOC monitoring", "ISO-certified cabling"].map(item => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
+                    <CheckCircle className="h-4 w-4 text-primary shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex gap-3 flex-wrap">
+                <Link href="/contact">
+                  <Button className="bg-gradient-to-r from-primary to-rose-500 text-white" data-testid="button-sharjah-cta">
+                    Request Free Site Survey <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <a href="tel:+97148864215">
+                  <Button variant="outline" className="border-gray-300 text-gray-700" data-testid="button-sharjah-call">
+                    <Phone className="mr-2 h-4 w-4" /> Call Now
+                  </Button>
+                </a>
+              </div>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}>
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-gray-300/30 border border-gray-100">
+                <img
+                  src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=500&fit=crop&q=80"
+                  alt="Sharjah IT Solutions"
+                  className="w-full h-80 object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
+                    <p className="text-sm font-semibold text-gray-900">Sharjah & Northern Emirates</p>
+                    <p className="text-xs text-gray-500 mt-0.5">SAIF Zone · Hamriyah · Muwaileh · Ajman · RAK · UAQ</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="py-16 md:py-20 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">IT Services in Sharjah</h2>
+            <p className="text-gray-500 max-w-xl mx-auto">Full-stack technology solutions for Sharjah businesses, free zones, and industrial operations.</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((s, i) => (
+              <motion.div
+                key={s.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07 }}
+                className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-primary/20 transition-all"
+              >
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${s.color}`}>
+                  <s.icon className="h-5 w-5" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">{s.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Areas */}
+      <section className="py-12 bg-gray-50 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Areas We Cover in Sharjah & Northern Emirates</h2>
+          <div className="flex flex-wrap justify-center gap-3">
+            {["Sharjah City", "Al Majaz", "Muwaileh", "Al Nahda", "SAIF Zone", "Hamriyah Free Zone", "SHAMS", "Al Quoz Sharjah", "Industrial Area", "Ajman", "Umm Al Quwain", "Ras Al Khaimah"].map(area => (
+              <span key={area} className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-700 font-medium">
+                <MapPin className="h-3 w-3 inline mr-1 text-primary" />{area}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <FAQSection
+        title="IT Services Sharjah — FAQs"
+        subtitle="Common questions from Sharjah and northern emirates businesses."
+        faqs={faqs}
+        ctaText="Request Sharjah Site Survey"
+      />
+
+      {/* Final CTA */}
+      <section className="py-16 px-4 md:px-8 bg-white border-t border-gray-100">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Start Your Sharjah IT Project</h2>
+          <p className="text-gray-600 mb-6">Free consultation and site survey — we visit your Sharjah premises and deliver a proposal within 24 hours.</p>
+          <div className="flex gap-3 justify-center flex-wrap">
+            <Link href="/contact">
+              <Button className="bg-primary text-white" data-testid="button-sharjah-final-cta">
+                Book Free Consultation
+              </Button>
+            </Link>
+            <a href="https://wa.me/97148864215" target="_blank" rel="noreferrer">
+              <Button variant="outline" className="border-gray-300" data-testid="button-sharjah-whatsapp">
+                <MessageSquare className="mr-2 h-4 w-4" /> WhatsApp
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
