@@ -4,6 +4,25 @@ import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
 import { Camera, Shield, Eye, Monitor, CheckCircle, ArrowRight, Wifi, Lock, Zap, MapPin } from "lucide-react";
 import SEO from "@/components/SEO";
+import RelatedServices from "@/components/RelatedServices";
+
+const cctvSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "CCTV Solutions & Installation UAE",
+  "serviceType": "CCTV Installation and Video Surveillance",
+  "provider": {
+    "@type": "Organization",
+    "name": "Super Next Technologies",
+    "url": "https://supernxt.com",
+    "telephone": "+971-48864215",
+    "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
+  },
+  "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "Riyadh", "Jeddah", "Doha", "Muscat"],
+  "description": "Professional CCTV installation, IP camera systems, NVR/DVR setup, PTZ cameras, video analytics, and security surveillance for businesses in UAE, Saudi Arabia, Qatar, and Oman.",
+  "url": "https://supernxt.com/cctv-solutions",
+  "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
+};
 
 const features = [
   { icon: Camera, title: "IP & Analog CCTV", desc: "Full HD, 4K and megapixel cameras for any environment", color: "bg-red-500" },
@@ -44,6 +63,7 @@ export default function CCTVSolutions() {
         description="Professional CCTV installation, IP camera systems, video surveillance and security solutions in Dubai, UAE, Saudi Arabia, Qatar and Oman. 24/7 remote monitoring, NVR/DVR, AI video analytics. Super Next Technologies."
         keywords="CCTV solutions Dubai, CCTV installation UAE, IP camera system Dubai, video surveillance UAE, security cameras Saudi Arabia, CCTV Qatar, surveillance system Oman, NVR installation Dubai, PTZ camera UAE, CCTV AMC Dubai, CCTV company GCC"
         canonical="https://supernxt.com/cctv-solutions"
+        schema={cctvSchema}
       />
 
       <div className="pt-24 pb-20 px-4 md:px-8">
@@ -156,6 +176,12 @@ export default function CCTVSolutions() {
               ))}
             </div>
           </motion.div>
+
+          <RelatedServices services={[
+            { title: "Structured Cabling", desc: "Fiber optic and Cat6/Cat7 cabling for cameras and network backbone", path: "/structured-cabling", color: "bg-amber-500" },
+            { title: "Network Infrastructure", desc: "Cisco, Juniper, MikroTik networking to connect your CCTV system", path: "/network-infrastructure", color: "bg-blue-600" },
+            { title: "Managed IT & AMC", desc: "Annual maintenance for your CCTV and IT infrastructure", path: "/managed-it-services", color: "bg-blue-500" },
+          ]} />
 
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}

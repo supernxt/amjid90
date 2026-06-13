@@ -4,6 +4,25 @@ import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
 import { Wifi, Users, Shield, Zap, CheckCircle, ArrowRight, MapPin, Signal, Clock, DollarSign } from "lucide-react";
 import SEO from "@/components/SEO";
+import RelatedServices from "@/components/RelatedServices";
+
+const campWifiSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Labor Camp WiFi & Hotel WiFi Solutions UAE",
+  "serviceType": "Labor Camp WiFi and Hotel WiFi Installation",
+  "provider": {
+    "@type": "Organization",
+    "name": "Super Next Technologies",
+    "url": "https://supernxt.com",
+    "telephone": "+971-48864215",
+    "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
+  },
+  "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "Riyadh", "Jeddah", "Dammam", "Doha", "Muscat"],
+  "description": "High-density managed WiFi for labor camps, worker accommodations, hotels, and construction sites in UAE, Saudi Arabia, Qatar, and Oman. Includes MikroTik hotspot billing and 24/7 management.",
+  "url": "https://supernxt.com/labor-camp-wifi",
+  "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
+};
 
 const features = [
   { icon: Users, title: "High-Density Coverage", desc: "Supports hundreds to thousands of simultaneous users per camp", color: "bg-emerald-500" },
@@ -44,6 +63,7 @@ export default function LaborCampWifi() {
         description="Managed labor camp WiFi, smart camp internet, and hotel WiFi solutions in Dubai UAE, Saudi Arabia, Qatar and Oman. High-density wireless for worker camps, hotels, construction sites. MikroTik hotspot, outdoor APs. Super Next Technologies."
         keywords="labor camp WiFi UAE, labor camp internet Dubai, smart camp WiFi, hotel WiFi UAE, hotel internet solution Dubai, worker camp internet Saudi Arabia, camp WiFi Qatar, hotspot solution Oman, WiFi labor camp GCC, MikroTik hotspot Dubai, managed WiFi camp UAE"
         canonical="https://supernxt.com/labor-camp-wifi"
+        schema={campWifiSchema}
       />
 
       <div className="pt-24 pb-20 px-4 md:px-8">
@@ -154,6 +174,12 @@ export default function LaborCampWifi() {
               ))}
             </div>
           </motion.div>
+
+          <RelatedServices services={[
+            { title: "Structured Cabling", desc: "Fiber optic and Cat6 backbone for your camp WiFi network", path: "/structured-cabling", color: "bg-amber-500" },
+            { title: "CCTV Solutions", desc: "Add surveillance cameras to your camp or hotel network", path: "/cctv-solutions", color: "bg-red-500" },
+            { title: "Enterprise Wireless Hotspot", desc: "Enterprise-grade WiFi for offices, malls and corporate venues", path: "/wireless-hotspot", color: "bg-sky-500" },
+          ]} />
 
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}

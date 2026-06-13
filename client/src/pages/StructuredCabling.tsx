@@ -4,6 +4,25 @@ import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
 import { Cable, Zap, Shield, Server, CheckCircle, ArrowRight, MapPin, Network } from "lucide-react";
 import SEO from "@/components/SEO";
+import RelatedServices from "@/components/RelatedServices";
+
+const cablingSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Structured Cabling & Fiber Optic Infrastructure UAE",
+  "serviceType": "Structured Cabling and Fiber Optic Installation",
+  "provider": {
+    "@type": "Organization",
+    "name": "Super Next Technologies",
+    "url": "https://supernxt.com",
+    "telephone": "+971-48864215",
+    "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
+  },
+  "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "Riyadh", "Jeddah", "Doha", "Muscat"],
+  "description": "TIA/ISO-certified structured cabling (Cat6, Cat6A, Cat7) and fiber optic infrastructure installation, splicing, and testing in UAE, Saudi Arabia, Qatar, and Oman.",
+  "url": "https://supernxt.com/structured-cabling",
+  "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
+};
 
 const features = [
   { icon: Cable, title: "Fiber Optic Cabling", desc: "Single-mode & multi-mode fiber for high-speed backbone networks", color: "bg-amber-500" },
@@ -44,6 +63,7 @@ export default function StructuredCabling() {
         description="Professional structured cabling (Cat6, Cat6A, Cat7) and fiber optic installation in Dubai, UAE, Saudi Arabia, Qatar and Oman. TIA/ISO certified. Data center cabling, fiber splicing, OTDR testing. Super Next Technologies."
         keywords="structured cabling Dubai, fiber optic installation UAE, Cat6 cabling Dubai, fiber optic UAE, network cabling Saudi Arabia, structured cabling Qatar, fiber optic Oman, data center cabling Dubai, TIA certified cabling UAE, cabling contractor Dubai, network infrastructure GCC"
         canonical="https://supernxt.com/structured-cabling"
+        schema={cablingSchema}
       />
 
       <div className="pt-24 pb-20 px-4 md:px-8">
@@ -154,6 +174,12 @@ export default function StructuredCabling() {
               ))}
             </div>
           </motion.div>
+
+          <RelatedServices services={[
+            { title: "CCTV Solutions", desc: "IP camera systems installed on your new cabling infrastructure", path: "/cctv-solutions", color: "bg-red-500" },
+            { title: "Network Infrastructure", desc: "Cisco, Juniper & MikroTik networking over your cabled backbone", path: "/network-infrastructure", color: "bg-blue-600" },
+            { title: "Labor Camp WiFi", desc: "Wireless access points connected via your structured cabling", path: "/labor-camp-wifi", color: "bg-emerald-600" },
+          ]} />
 
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}

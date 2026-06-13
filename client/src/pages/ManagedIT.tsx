@@ -4,6 +4,25 @@ import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
 import { Headphones, Shield, Server, RefreshCw, CheckCircle, ArrowRight, Clock, MapPin, Wrench, BarChart3 } from "lucide-react";
 import SEO from "@/components/SEO";
+import RelatedServices from "@/components/RelatedServices";
+
+const managedITSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Managed IT Services & IT AMC Dubai UAE",
+  "serviceType": "Managed IT Services and Annual Maintenance Contract",
+  "provider": {
+    "@type": "Organization",
+    "name": "Super Next Technologies",
+    "url": "https://supernxt.com",
+    "telephone": "+971-48864215",
+    "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
+  },
+  "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "Riyadh", "Jeddah", "Doha", "Muscat"],
+  "description": "24/7 managed IT services, IT AMC (Annual Maintenance Contracts), helpdesk support, server management, and network monitoring for businesses in UAE, Saudi Arabia, Qatar, and Oman.",
+  "url": "https://supernxt.com/managed-it-services",
+  "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
+};
 
 const features = [
   { icon: Clock, title: "24/7 Monitoring", desc: "Round-the-clock proactive network and server monitoring", color: "bg-blue-500" },
@@ -44,6 +63,7 @@ export default function ManagedIT() {
         description="24/7 managed IT services, IT AMC (Annual Maintenance Contracts), helpdesk support, server management and network monitoring in Dubai, UAE, Saudi Arabia, Qatar and Oman. Super Next Technologies."
         keywords="managed IT services Dubai, IT AMC Dubai, IT annual maintenance contract UAE, IT support Dubai, managed IT UAE, helpdesk support Dubai, server management UAE, network monitoring Dubai, IT outsourcing UAE, IT company Dubai, managed services GCC"
         canonical="https://supernxt.com/managed-it-services"
+        schema={managedITSchema}
       />
 
       <div className="pt-24 pb-20 px-4 md:px-8">
@@ -154,6 +174,12 @@ export default function ManagedIT() {
               ))}
             </div>
           </motion.div>
+
+          <RelatedServices services={[
+            { title: "Network Infrastructure", desc: "Cisco, Juniper & MikroTik networking under your AMC coverage", path: "/network-infrastructure", color: "bg-blue-600" },
+            { title: "CCTV Solutions", desc: "Add CCTV maintenance to your IT AMC contract", path: "/cctv-solutions", color: "bg-red-500" },
+            { title: "Structured Cabling", desc: "Cabling infrastructure covered under your AMC agreement", path: "/structured-cabling", color: "bg-amber-500" },
+          ]} />
 
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}

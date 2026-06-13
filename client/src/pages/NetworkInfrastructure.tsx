@@ -4,6 +4,25 @@ import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
 import { Network, Shield, Server, Lock, CheckCircle, ArrowRight, MapPin, Wifi, Globe, Zap } from "lucide-react";
 import SEO from "@/components/SEO";
+import RelatedServices from "@/components/RelatedServices";
+
+const networkSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Enterprise Network Infrastructure UAE — Cisco, Juniper, MikroTik",
+  "serviceType": "Enterprise Networking and Network Security",
+  "provider": {
+    "@type": "Organization",
+    "name": "Super Next Technologies",
+    "url": "https://supernxt.com",
+    "telephone": "+971-48864215",
+    "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
+  },
+  "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "Riyadh", "Jeddah", "Doha", "Muscat"],
+  "description": "Enterprise networking solutions: Cisco, Juniper, MikroTik implementation, network security, firewalls, VPN, LAN/WAN design, and 24/7 NOC monitoring in UAE, Saudi Arabia, Qatar, and Oman.",
+  "url": "https://supernxt.com/network-infrastructure",
+  "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
+};
 
 const features = [
   { icon: Network, title: "Cisco Solutions", desc: "Cisco routers, switches, firewalls, and collaboration certified implementations", color: "bg-blue-600" },
@@ -40,6 +59,7 @@ export default function NetworkInfrastructure() {
         description="Enterprise networking solutions in Dubai UAE: Cisco, Juniper, MikroTik implementation, network security, VPN, firewall, data center networking. Saudi Arabia, Qatar, Oman. Super Next Technologies."
         keywords="enterprise networking Dubai, Cisco solutions UAE, Juniper solutions Dubai, MikroTik solutions UAE, network security Dubai, VPN solutions UAE, firewall installation Dubai, network infrastructure UAE, data center networking Dubai, enterprise networking Saudi Arabia, IT networking Qatar, network design Oman"
         canonical="https://supernxt.com/network-infrastructure"
+        schema={networkSchema}
       />
 
       <div className="pt-24 pb-20 px-4 md:px-8">
@@ -150,6 +170,12 @@ export default function NetworkInfrastructure() {
               ))}
             </div>
           </motion.div>
+
+          <RelatedServices services={[
+            { title: "Structured Cabling", desc: "Fiber optic and Cat6 cabling for your network infrastructure", path: "/structured-cabling", color: "bg-amber-500" },
+            { title: "Managed IT & AMC", desc: "24/7 monitoring and management of your network equipment", path: "/managed-it-services", color: "bg-blue-500" },
+            { title: "Enterprise Wireless Hotspot", desc: "Managed WiFi running on top of your Cisco/Juniper network", path: "/wireless-hotspot", color: "bg-sky-500" },
+          ]} />
 
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
