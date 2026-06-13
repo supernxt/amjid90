@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Sparkles, ChevronDown, Camera, Cable, Headphones, Network, Wifi, Bot, Radio, Server, Globe, ChevronRight } from "lucide-react";
+import { Menu, X, Sparkles, ChevronDown, Camera, Cable, Headphones, Network, Wifi, Bot, Radio, Server, Globe } from "lucide-react";
 import smallLogo from "@assets/icononly_transparent_nobuffer_1760207932143.png";
 
-const services = [
+const serviceCategories = [
   {
     category: "AI & Digital",
     items: [
@@ -32,8 +32,6 @@ const services = [
 ];
 
 const mainNavItems = [
-  { label: "Case Studies", path: "/case-studies" },
-  { label: "Pricing", path: "/pricing" },
   { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },
 ];
@@ -43,6 +41,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -62,12 +61,23 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const isServiceActive = services.some(cat => cat.items.some(i => i.path === location));
+  // Auto-select correct tab when on a service page
+  useEffect(() => {
+    serviceCategories.forEach((cat, i) => {
+      if (cat.items.some((item) => item.path === location)) setActiveTab(i);
+    });
+  }, [location]);
+
+  const isServiceActive = serviceCategories.some((cat) =>
+    cat.items.some((i) => i.path === location)
+  );
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-lg shadow-gray-200/50 border-b border-gray-100" : "bg-white border-b border-gray-100"
+        scrolled
+          ? "bg-white shadow-lg shadow-gray-200/50 border-b border-gray-100"
+          : "bg-white border-b border-gray-100"
       }`}
     >
       <div className="max-w-[1920px] mx-auto px-4 lg:px-8">
@@ -103,49 +113,77 @@ export default function Navbar() {
                 </button>
               </Link>
 
-              {/* Services Dropdown */}
+              {/* Services Dropdown — Tabbed */}
               <div ref={dropdownRef} className="relative">
                 <button
                   className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap ${
-                    isServiceActive || servicesOpen ? "text-primary bg-primary/10" : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                    isServiceActive || servicesOpen
+                      ? "text-primary bg-primary/10"
+                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                   }`}
                   onClick={() => setServicesOpen(!servicesOpen)}
                   data-testid="button-nav-services"
                 >
                   Services
-                  <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                  />
                 </button>
 
                 {servicesOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[680px] bg-white rounded-2xl shadow-2xl shadow-gray-200/60 border border-gray-100 p-5 grid grid-cols-3 gap-5 z-50">
-                    {services.map((cat) => (
-                      <div key={cat.category}>
-                        <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">{cat.category}</p>
-                        <div className="space-y-1">
-                          {cat.items.map((item) => (
-                            <Link key={item.path} href={item.path}>
-                              <button
-                                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all duration-200 group ${
-                                  location === item.path ? "bg-primary/10 text-primary" : "hover:bg-gray-50 text-gray-700 hover:text-gray-900"
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[520px] bg-white rounded-2xl shadow-2xl shadow-gray-200/60 border border-gray-100 overflow-hidden z-50">
+                    {/* Tab bar */}
+                    <div className="flex border-b border-gray-100 bg-gray-50">
+                      {serviceCategories.map((cat, i) => (
+                        <button
+                          key={cat.category}
+                          className={`flex-1 px-3 py-3 text-xs font-semibold transition-all duration-200 ${
+                            activeTab === i
+                              ? "text-primary border-b-2 border-primary bg-white"
+                              : "text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                          }`}
+                          onClick={() => setActiveTab(i)}
+                          data-testid={`tab-service-${i}`}
+                        >
+                          {cat.category}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Active tab items */}
+                    <div className="p-3 grid gap-1">
+                      {serviceCategories[activeTab].items.map((item) => (
+                        <Link key={item.path} href={item.path}>
+                          <button
+                            className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left transition-all duration-200 group ${
+                              location === item.path
+                                ? "bg-primary/10 text-primary"
+                                : "hover:bg-gray-50 text-gray-700 hover:text-gray-900"
+                            }`}
+                            onClick={() => setServicesOpen(false)}
+                            data-testid={`link-nav-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
+                          >
+                            <div
+                              className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
+                                location === item.path
+                                  ? "bg-primary/20"
+                                  : "bg-gray-100 group-hover:bg-primary/10"
+                              }`}
+                            >
+                              <item.icon
+                                className={`h-4 w-4 ${
+                                  location === item.path ? "text-primary" : "text-gray-500 group-hover:text-primary"
                                 }`}
-                                onClick={() => setServicesOpen(false)}
-                                data-testid={`link-nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
-                              >
-                                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                                  location === item.path ? "bg-primary/20" : "bg-gray-100 group-hover:bg-primary/10"
-                                }`}>
-                                  <item.icon className={`h-4 w-4 ${location === item.path ? "text-primary" : "text-gray-500 group-hover:text-primary"}`} />
-                                </div>
-                                <div>
-                                  <p className="text-sm font-medium leading-tight">{item.label}</p>
-                                  <p className="text-xs text-gray-400 leading-tight">{item.desc}</p>
-                                </div>
-                              </button>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
+                              />
+                            </div>
+                            <div>
+                              <p className="text-sm font-semibold leading-tight">{item.label}</p>
+                              <p className="text-xs text-gray-400 leading-tight mt-0.5">{item.desc}</p>
+                            </div>
+                          </button>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -155,9 +193,11 @@ export default function Navbar() {
                 <Link key={item.path} href={item.path}>
                   <button
                     className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap ${
-                      location === item.path ? "text-primary bg-primary/10" : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                      location === item.path
+                        ? "text-primary bg-primary/10"
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                     }`}
-                    data-testid={`link-nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    data-testid={`link-nav-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
                   >
                     {item.label}
                   </button>
@@ -211,7 +251,9 @@ export default function Navbar() {
             <Link href="/">
               <button
                 className={`w-full text-left px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
-                  location === "/" ? "bg-primary/10 text-primary border border-primary/20" : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                  location === "/"
+                    ? "bg-primary/10 text-primary border border-primary/20"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
                 data-testid="link-mobile-home"
@@ -224,36 +266,58 @@ export default function Navbar() {
             <div>
               <button
                 className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
-                  isServiceActive ? "bg-primary/10 text-primary border border-primary/20" : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                  isServiceActive
+                    ? "bg-primary/10 text-primary border border-primary/20"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                 }`}
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                 data-testid="button-mobile-services"
               >
                 <span>Services</span>
-                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} />
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                />
               </button>
 
               {mobileServicesOpen && (
-                <div className="mt-1 ml-4 space-y-1">
-                  {services.map((cat) => (
-                    <div key={cat.category}>
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-wider px-3 py-2">{cat.category}</p>
-                      {cat.items.map((item) => (
-                        <Link key={item.path} href={item.path}>
-                          <button
-                            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all duration-200 ${
-                              location === item.path ? "bg-primary/10 text-primary" : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-                            }`}
-                            onClick={() => { setMobileMenuOpen(false); setMobileServicesOpen(false); }}
-                            data-testid={`link-mobile-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
-                          >
-                            <item.icon className="h-4 w-4 shrink-0" />
-                            <span className="text-sm font-medium">{item.label}</span>
-                          </button>
-                        </Link>
-                      ))}
-                    </div>
-                  ))}
+                <div className="mt-2 ml-2 rounded-xl overflow-hidden border border-gray-100">
+                  {/* Mobile tab bar */}
+                  <div className="flex border-b border-gray-100 bg-gray-50">
+                    {serviceCategories.map((cat, i) => (
+                      <button
+                        key={cat.category}
+                        className={`flex-1 px-2 py-2.5 text-xs font-semibold transition-all ${
+                          activeTab === i
+                            ? "text-primary border-b-2 border-primary bg-white"
+                            : "text-gray-500"
+                        }`}
+                        onClick={() => setActiveTab(i)}
+                      >
+                        {cat.category.split(" ")[0]}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="p-2 space-y-1 bg-white">
+                    {serviceCategories[activeTab].items.map((item) => (
+                      <Link key={item.path} href={item.path}>
+                        <button
+                          className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-all duration-200 ${
+                            location === item.path
+                              ? "bg-primary/10 text-primary"
+                              : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                          }`}
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setMobileServicesOpen(false);
+                          }}
+                          data-testid={`link-mobile-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
+                        >
+                          <item.icon className="h-4 w-4 shrink-0" />
+                          <span className="text-sm font-medium">{item.label}</span>
+                        </button>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -262,24 +326,39 @@ export default function Navbar() {
               <Link key={item.path} href={item.path}>
                 <button
                   className={`w-full text-left px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
-                    location === item.path ? "bg-primary/10 text-primary border border-primary/20" : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                    location === item.path
+                      ? "bg-primary/10 text-primary border border-primary/20"
+                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
-                  data-testid={`link-mobile-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                  data-testid={`link-mobile-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
                 >
                   {item.label}
                 </button>
               </Link>
             ))}
 
-            <div className="pt-4 border-t border-gray-100">
-              <Button
-                className="w-full bg-gradient-to-r from-primary to-rose-500"
-                data-testid="button-mobile-get-started"
-              >
-                <Sparkles className="w-4 h-4 mr-2" />
-                Get Started
-              </Button>
+            <div className="pt-4 border-t border-gray-100 flex flex-col gap-2">
+              <Link href="/contact">
+                <Button
+                  variant="outline"
+                  className="w-full border-gray-300"
+                  onClick={() => setMobileMenuOpen(false)}
+                  data-testid="button-mobile-get-quote"
+                >
+                  Get a Quote
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button
+                  className="w-full bg-gradient-to-r from-primary to-rose-500"
+                  onClick={() => setMobileMenuOpen(false)}
+                  data-testid="button-mobile-get-started"
+                >
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  Free Consultation
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

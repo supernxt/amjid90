@@ -50,7 +50,7 @@ export default function Hero3D() {
             >
               <MapPin className="h-3.5 w-3.5 text-primary" />
               <span className="text-sm font-medium text-gray-600">
-                Based in Dubai — Serving UAE, KSA, Qatar & Oman
+                Based in Dubai — Serving also KSA, Qatar & Oman
               </span>
             </motion.div>
 

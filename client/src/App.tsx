@@ -16,7 +16,6 @@ import CaseStudies from "@/pages/CaseStudies";
 import Support from "@/pages/Support";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
-import Pricing from "@/pages/Pricing";
 import EULA from "@/pages/EULA";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import CCTVSolutions from "@/pages/CCTVSolutions";
@@ -39,7 +38,6 @@ function Router() {
       <Route path="/support" component={Support} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
-      <Route path="/pricing" component={Pricing} />
       <Route path="/legal/eula" component={EULA} />
       <Route path="/legal/privacy" component={PrivacyPolicy} />
       <Route path="/cctv-solutions" component={CCTVSolutions} />

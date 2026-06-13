@@ -9,7 +9,6 @@ const footerLinks = {
     { label: "Wireless Hotspot", path: "/wireless-hotspot" },
     { label: "Infrastructure", path: "/infrastructure" },
     { label: "Website Development", path: "/website-development" },
-    { label: "Pricing", path: "/pricing" },
   ],
   "IT Services": [
     { label: "CCTV Solutions", path: "/cctv-solutions" },
@@ -19,8 +18,8 @@ const footerLinks = {
     { label: "Labor Camp WiFi", path: "/labor-camp-wifi" },
   ],
   Resources: [
-    { label: "Templates & Use Cases", path: "/templates" },
     { label: "Case Studies", path: "/case-studies" },
+    { label: "Templates & Use Cases", path: "/templates" },
     { label: "Support", path: "/support" },
   ],
   Company: [
