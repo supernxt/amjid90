@@ -140,8 +140,8 @@ export default function Templates() {
     <VideoBackground variant="default">
       <SEO
         title="Website Templates UAE | Super Next Technologies"
-        description="Professional website templates for businesses in UAE, Saudi Arabia, Qatar and Oman. E-commerce, healthcare, hospitality, education and more. Ready-to-launch designs by Super Next Technologies, Dubai."
-        keywords="website templates UAE, web templates Dubai, business website templates GCC, e-commerce template Saudi Arabia, professional templates Qatar, website design Oman"
+        description="Professional website templates for businesses across UAE. E-commerce, healthcare, hospitality, education and more. Ready-to-launch designs by Super Next Technologies, Dubai."
+        keywords="website templates UAE, web templates Dubai, business website templates UAE, e-commerce template Dubai, professional templates Abu Dhabi, website design Sharjah"
         canonical="https://supernxt.com/templates"
       />
       <div className="pt-24 pb-20 px-4 md:px-8">

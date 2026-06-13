@@ -18,8 +18,8 @@ const campWifiSchema = {
     "telephone": "+971-48864215",
     "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
   },
-  "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "Riyadh", "Jeddah", "Dammam", "Doha", "Muscat"],
-  "description": "High-density managed WiFi for labor camps, worker accommodations, hotels, and construction sites in UAE, Saudi Arabia, Qatar, and Oman. Includes MikroTik hotspot billing and 24/7 management.",
+  "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Al Ain"],
+  "description": "High-density managed WiFi for labor camps, worker accommodations, hotels, and construction sites across UAE. Includes MikroTik hotspot billing and 24/7 management.",
   "url": "https://supernxt.com/labor-camp-wifi",
   "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
 };
@@ -50,7 +50,7 @@ const stats = [
 ];
 
 const useCases = [
-  "Labor Camps (UAE, KSA, Qatar)", "Construction Site Camps", "Worker Accommodations",
+  "Labor Camps (UAE)", "Construction Site Camps", "Worker Accommodations",
   "Smart Villages", "Hotels & Serviced Apartments", "Resorts & Chalets",
   "Holiday Camps", "Exhibition & Event Sites", "Military & Government Camps",
 ];
@@ -60,8 +60,8 @@ export default function LaborCampWifi() {
     <VideoBackground variant="default">
       <SEO
         title="Labor Camp WiFi & Hotel WiFi Solutions UAE | Super Next Technologies"
-        description="Managed labor camp WiFi, smart camp internet, and hotel WiFi solutions in Dubai UAE, Saudi Arabia, Qatar and Oman. High-density wireless for worker camps, hotels, construction sites. MikroTik hotspot, outdoor APs. Super Next Technologies."
-        keywords="labor camp WiFi UAE, labor camp internet Dubai, smart camp WiFi, hotel WiFi UAE, hotel internet solution Dubai, worker camp internet Saudi Arabia, camp WiFi Qatar, hotspot solution Oman, WiFi labor camp GCC, MikroTik hotspot Dubai, managed WiFi camp UAE"
+        description="Managed labor camp WiFi, smart camp internet, and hotel WiFi solutions in Dubai and across UAE. High-density wireless for worker camps, hotels, construction sites. MikroTik hotspot, outdoor APs. Super Next Technologies."
+        keywords="labor camp WiFi UAE, labor camp internet Dubai, smart camp WiFi, hotel WiFi UAE, hotel internet solution Dubai, worker camp internet UAE, camp WiFi Dubai, hotspot solution UAE, WiFi labor camp UAE, MikroTik hotspot Dubai, managed WiFi camp UAE"
         canonical="https://supernxt.com/labor-camp-wifi"
         schema={campWifiSchema}
       />
@@ -77,7 +77,7 @@ export default function LaborCampWifi() {
                 Camp & Hotel WiFi <span className="text-emerald-600">Solutions UAE</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-xl mb-8">
-                High-density managed WiFi for labor camps, worker accommodations, construction sites, hotels, and resorts across UAE, Saudi Arabia, Qatar, and Oman. Full deployment and 24/7 management included.
+                High-density managed WiFi for labor camps, worker accommodations, construction sites, hotels, and resorts across UAE. Full deployment and 24/7 management included.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" className="gap-2 bg-gradient-to-r from-emerald-600 to-emerald-500" onClick={openAIChat} data-testid="button-get-quote">
@@ -98,7 +98,7 @@ export default function LaborCampWifi() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <div className="absolute bottom-6 left-6 text-white">
                   <p className="font-bold text-lg">High-Density Camp WiFi</p>
-                  <p className="text-sm text-white/80">UAE • Saudi Arabia • Qatar • Oman</p>
+                  <p className="text-sm text-white/80">Dubai • Abu Dhabi • Sharjah • UAE</p>
                 </div>
               </div>
             </motion.div>
@@ -163,10 +163,10 @@ export default function LaborCampWifi() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="mb-16">
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Deployment Locations</h2>
-              <p className="text-gray-600 mt-2">On-site teams across UAE and GCC — remote sites welcome</p>
+              <p className="text-gray-600 mt-2">On-site teams across UAE — remote sites welcome</p>
             </div>
             <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-              {["Dubai", "Abu Dhabi", "Sharjah", "Riyadh", "Jeddah", "Dammam", "Doha", "Muscat"].map((city, i) => (
+              {["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Al Ain", "Remote Sites"].map((city, i) => (
                 <div key={i} className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl p-4">
                   <MapPin className="h-4 w-4 text-emerald-500 shrink-0" />
                   <span className="text-gray-700 font-medium">{city}</span>

@@ -62,7 +62,7 @@ export default function Footer() {
             </div>
             
             <p className="text-gray-400 mb-8 max-w-sm leading-relaxed">
-              AI-Powered Infrastructure & 3D Web Experiences for the future of enterprise technology in the UAE & GCC region.
+              AI-Powered Infrastructure & 3D Web Experiences for the future of enterprise technology in the UAE.
             </p>
             
             {/* Contact Cards */}

@@ -21,7 +21,7 @@ const coreValues = [
     icon: Globe, 
     title: "Global Reach", 
     desc: "Serving 50+ countries",
-    detail: "Headquartered in Dubai with clients across the GCC and beyond",
+    detail: "Headquartered in Dubai with clients across the UAE and beyond",
     color: "bg-blue-500"
   },
   { 
@@ -48,8 +48,8 @@ const milestones = [
   },
   {
     year: "2020",
-    title: "GCC Expansion",
-    description: "Expanded operations across UAE, Saudi Arabia, Qatar, and Bahrain, serving 100+ enterprise clients"
+    title: "UAE Expansion",
+    description: "Expanded operations across all seven UAE emirates, serving 100+ enterprise clients"
   },
   {
     year: "2022",
@@ -102,8 +102,8 @@ export default function About() {
     <VideoBackground variant="default">
       <SEO
         title="About Super Next Technologies | Enterprise AI & IT Company Dubai, UAE"
-        description="Super Next Technologies (SNT) is a Dubai-based enterprise technology company founded in 2020. 500+ clients, 100+ specialists, serving UAE, Saudi Arabia, Qatar, Oman and worldwide. AI, wireless, cloud, web."
-        keywords="about Super Next Technologies, SNT company Dubai, enterprise technology UAE, AI company Middle East, IT company Production City Dubai, technology firm GCC"
+        description="Super Next Technologies (SNT) is a Dubai-based enterprise technology company. 500+ clients, 100+ specialists, serving UAE and worldwide. AI, wireless, CCTV, cloud, web."
+        keywords="about Super Next Technologies, SNT company Dubai, enterprise technology UAE, AI company Dubai, IT company Production City Dubai, technology company UAE"
         canonical="https://supernxt.com/about"
       />
       <div className="pt-24 pb-20 px-4 md:px-8">

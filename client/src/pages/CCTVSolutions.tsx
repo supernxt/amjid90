@@ -18,8 +18,8 @@ const cctvSchema = {
     "telephone": "+971-48864215",
     "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
   },
-  "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "Riyadh", "Jeddah", "Doha", "Muscat"],
-  "description": "Professional CCTV installation, IP camera systems, NVR/DVR setup, PTZ cameras, video analytics, and security surveillance for businesses in UAE, Saudi Arabia, Qatar, and Oman.",
+  "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Al Ain"],
+  "description": "Professional CCTV installation, IP camera systems, NVR/DVR setup, PTZ cameras, video analytics, and security surveillance for businesses across UAE.",
   "url": "https://supernxt.com/cctv-solutions",
   "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
 };
@@ -60,8 +60,8 @@ export default function CCTVSolutions() {
     <VideoBackground variant="default">
       <SEO
         title="CCTV Solutions & Installation Dubai, UAE | Super Next Technologies"
-        description="Professional CCTV installation, IP camera systems, video surveillance and security solutions in Dubai, UAE, Saudi Arabia, Qatar and Oman. 24/7 remote monitoring, NVR/DVR, AI video analytics. Super Next Technologies."
-        keywords="CCTV solutions Dubai, CCTV installation UAE, IP camera system Dubai, video surveillance UAE, security cameras Saudi Arabia, CCTV Qatar, surveillance system Oman, NVR installation Dubai, PTZ camera UAE, CCTV AMC Dubai, CCTV company GCC"
+        description="Professional CCTV installation, IP camera systems, video surveillance and security solutions in Dubai and across UAE. 24/7 remote monitoring, NVR/DVR, AI video analytics. Super Next Technologies."
+        keywords="CCTV solutions Dubai, CCTV installation UAE, IP camera system Dubai, video surveillance UAE, security cameras Abu Dhabi, CCTV Sharjah, surveillance system UAE, NVR installation Dubai, PTZ camera UAE, CCTV AMC Dubai, CCTV company UAE"
         canonical="https://supernxt.com/cctv-solutions"
         schema={cctvSchema}
       />
@@ -77,7 +77,7 @@ export default function CCTVSolutions() {
                 CCTV Solutions <span className="text-red-600">UAE</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-xl mb-8">
-                Complete CCTV design, supply, installation, and maintenance for businesses across UAE, Saudi Arabia, Qatar, and Oman. IP cameras, analog, PTZ, NVR/DVR, and AI video analytics.
+                Complete CCTV design, supply, installation, and maintenance for businesses across UAE. IP cameras, analog, PTZ, NVR/DVR, and AI video analytics.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" className="gap-2 bg-gradient-to-r from-red-600 to-red-500" onClick={openAIChat} data-testid="button-get-quote">
@@ -98,7 +98,7 @@ export default function CCTVSolutions() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <div className="absolute bottom-6 left-6 text-white">
                   <p className="font-bold text-lg">Enterprise CCTV Systems</p>
-                  <p className="text-sm text-white/80">Dubai • Abu Dhabi • Doha • Riyadh • Muscat</p>
+                  <p className="text-sm text-white/80">Dubai • Abu Dhabi • Sharjah • Ajman</p>
                 </div>
               </div>
             </motion.div>
@@ -150,7 +150,7 @@ export default function CCTVSolutions() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="bg-gray-50 rounded-3xl p-10 mb-16">
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Industries We Serve</h2>
-              <p className="text-gray-600 mt-2">CCTV solutions tailored to every sector across UAE and GCC</p>
+              <p className="text-gray-600 mt-2">CCTV solutions tailored to every sector across UAE</p>
             </div>
             <div className="flex flex-wrap gap-3 justify-center">
               {industries.map((ind, i) => (
@@ -165,10 +165,10 @@ export default function CCTVSolutions() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="mb-16">
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900">CCTV Installation Locations</h2>
-              <p className="text-gray-600 mt-2">On-site installation and support across the GCC</p>
+              <p className="text-gray-600 mt-2">On-site installation and support across UAE</p>
             </div>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Riyadh", "Jeddah", "Doha", "Muscat"].map((city, i) => (
+              {["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Al Ain", "Umm Al Quwain"].map((city, i) => (
                 <div key={i} className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl p-4">
                   <MapPin className="h-4 w-4 text-red-500 shrink-0" />
                   <span className="text-gray-700 font-medium">{city}</span>

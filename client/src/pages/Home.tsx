@@ -19,10 +19,10 @@ import {
 
 const allServices = [
   { icon: Bot,       title: "AI Solutions & Automation",     desc: "AI agents, chatbots, n8n automation, WhatsApp bots, and intelligent workflows.",       path: "/ai-solutions",          color: "bg-violet-500", tag: "AI & Digital" },
-  { icon: Radio,     title: "Enterprise Wireless Hotspot",   desc: "Managed enterprise Wi-Fi for offices, hotels, malls, and venues across GCC.",          path: "/wireless-hotspot",      color: "bg-blue-500",   tag: "Networking" },
+  { icon: Radio,     title: "Enterprise Wireless Hotspot",   desc: "Managed enterprise Wi-Fi for offices, hotels, malls, and venues across UAE.",          path: "/wireless-hotspot",      color: "bg-blue-500",   tag: "Networking" },
   { icon: Server,    title: "Cloud Infrastructure",          desc: "Cloud servers, VPS hosting, network security, and 24/7 infrastructure management.",     path: "/infrastructure",        color: "bg-sky-500",    tag: "Cloud" },
-  { icon: Globe,     title: "Website Development",           desc: "Custom websites, e-commerce, and SEO-optimised web apps for GCC businesses.",          path: "/website-development",   color: "bg-emerald-500",tag: "Digital" },
-  { icon: Camera,    title: "CCTV Solutions",                desc: "IP cameras, NVR/DVR, video analytics, and full CCTV installation across UAE & GCC.",   path: "/cctv-solutions",        color: "bg-red-500",    tag: "Security" },
+  { icon: Globe,     title: "Website Development",           desc: "Custom websites, e-commerce, and SEO-optimised web apps for UAE businesses.",          path: "/website-development",   color: "bg-emerald-500",tag: "Digital" },
+  { icon: Camera,    title: "CCTV Solutions",                desc: "IP cameras, NVR/DVR, video analytics, and full CCTV installation across UAE.",          path: "/cctv-solutions",        color: "bg-red-500",    tag: "Security" },
   { icon: Cable,     title: "Structured Cabling",            desc: "TIA/ISO-certified Cat6, Cat6A, and fiber optic cabling for data centres & offices.",   path: "/structured-cabling",    color: "bg-amber-500",  tag: "Infrastructure" },
   { icon: Headphones,title: "Managed IT & AMC",              desc: "24/7 IT support, AMC contracts, helpdesk, server management, and NOC monitoring.",      path: "/managed-it-services",   color: "bg-blue-600",   tag: "IT Services" },
   { icon: Network,   title: "Network Infrastructure",        desc: "Cisco, Juniper & MikroTik — LAN/WAN design, firewalls, VPN, and NOC services.",        path: "/network-infrastructure",color: "bg-indigo-600", tag: "Networking" },
@@ -33,9 +33,9 @@ const whyUs = [
   { icon: Shield,  title: "ISO 27001 Certified Security",     desc: "Enterprise-grade security architecture built on internationally certified standards." },
   { icon: Clock,   title: "24/7 Proactive Monitoring",        desc: "Round-the-clock NOC and helpdesk ensures zero downtime for your critical systems." },
   { icon: Award,   title: "Certified Engineers",              desc: "Cisco, Juniper, Microsoft, and vendor-certified engineers for every project." },
-  { icon: Users,   title: "500+ Enterprise Clients",          desc: "Trusted by leading enterprises, hotels, hospitals, and government entities across GCC." },
+  { icon: Users,   title: "500+ Enterprise Clients",          desc: "Trusted by leading enterprises, hotels, hospitals, and government entities across UAE." },
   { icon: Zap,     title: "Single-Vendor Convenience",        desc: "AI, networking, CCTV, cabling, and IT — all from one accountable partner." },
-  { icon: Star,    title: "GCC Regional Coverage",            desc: "Offices and field teams operating across UAE, Saudi Arabia, Qatar, and Oman." },
+  { icon: Star,    title: "UAE-Wide Coverage",                desc: "Field teams operating across all seven UAE emirates — Dubai, Abu Dhabi, Sharjah, and beyond." },
 ];
 
 const industries = [
@@ -53,7 +53,7 @@ const homeSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "Super Next Technologies Services",
-  description: "Complete enterprise IT and technology services in UAE, Saudi Arabia, Qatar, and Oman",
+  description: "Complete enterprise IT and technology services in UAE",
   numberOfItems: 9,
   itemListElement: allServices.map((s, i) => ({
     "@type": "ListItem",
@@ -71,8 +71,8 @@ export default function Home() {
     <VideoBackground variant="default">
       <SEO
         title="Super Next Technologies | AI Solutions & Enterprise IT Services UAE"
-        description="Super Next Technologies — AI Solutions, Enterprise Wireless, CCTV, Fiber Optic Cabling, Managed IT, Cloud & Website Development in UAE, Saudi Arabia, Qatar & Oman. Based in Dubai."
-        keywords="AI solutions Dubai, AI agents UAE, enterprise IT services, CCTV Dubai, structured cabling UAE, managed IT services Dubai, wireless hotspot UAE, cloud infrastructure GCC, website development Saudi Arabia, network infrastructure UAE, Super Next Technologies"
+        description="Super Next Technologies — AI Solutions, Enterprise Wireless, CCTV, Fiber Optic Cabling, Managed IT, Cloud & Website Development across UAE. Based in Dubai."
+        keywords="AI solutions Dubai, AI agents UAE, enterprise IT services UAE, CCTV Dubai, structured cabling UAE, managed IT services Dubai, wireless hotspot UAE, cloud infrastructure UAE, website development UAE, network infrastructure UAE, Super Next Technologies"
         canonical="https://supernxt.com/"
         schema={homeSchema}
       />
@@ -125,7 +125,7 @@ export default function Home() {
               All Our Services
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              End-to-end enterprise technology across UAE, Saudi Arabia, Qatar, and Oman — all from one partner.
+              End-to-end enterprise technology across all UAE emirates — all from one partner.
             </p>
           </motion.div>
 
@@ -175,7 +175,7 @@ export default function Home() {
           >
             <span className="text-primary text-sm font-semibold tracking-wider uppercase">Why Super Next Technologies</span>
             <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-4 text-gray-900">
-              The Trusted IT Partner for GCC
+              The Trusted IT Partner for UAE
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               From AI to physical infrastructure — we deliver, monitor, and maintain everything under one contract.
@@ -273,7 +273,7 @@ export default function Home() {
                     "Free site survey & technology audit",
                     "Custom proposal within 24 hours",
                     "No-commitment consultation",
-                    "Serving Dubai, Abu Dhabi, Riyadh, Doha & Muscat",
+                    "Serving Dubai, Abu Dhabi, Sharjah, Ajman & Ras Al Khaimah",
                   ].map((point) => (
                     <li key={point} className="flex items-center gap-2 text-sm text-gray-300">
                       <CheckCircle className="h-4 w-4 text-primary shrink-0" />

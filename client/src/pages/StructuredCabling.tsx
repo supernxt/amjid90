@@ -18,8 +18,8 @@ const cablingSchema = {
     "telephone": "+971-48864215",
     "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
   },
-  "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "Riyadh", "Jeddah", "Doha", "Muscat"],
-  "description": "TIA/ISO-certified structured cabling (Cat6, Cat6A, Cat7) and fiber optic infrastructure installation, splicing, and testing in UAE, Saudi Arabia, Qatar, and Oman.",
+  "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Al Ain"],
+  "description": "TIA/ISO-certified structured cabling (Cat6, Cat6A, Cat7) and fiber optic infrastructure installation, splicing, and testing across UAE.",
   "url": "https://supernxt.com/structured-cabling",
   "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
 };
@@ -60,8 +60,8 @@ export default function StructuredCabling() {
     <VideoBackground variant="default">
       <SEO
         title="Structured Cabling & Fiber Optic Infrastructure UAE | Super Next Technologies"
-        description="Professional structured cabling (Cat6, Cat6A, Cat7) and fiber optic installation in Dubai, UAE, Saudi Arabia, Qatar and Oman. TIA/ISO certified. Data center cabling, fiber splicing, OTDR testing. Super Next Technologies."
-        keywords="structured cabling Dubai, fiber optic installation UAE, Cat6 cabling Dubai, fiber optic UAE, network cabling Saudi Arabia, structured cabling Qatar, fiber optic Oman, data center cabling Dubai, TIA certified cabling UAE, cabling contractor Dubai, network infrastructure GCC"
+        description="Professional structured cabling (Cat6, Cat6A, Cat7) and fiber optic installation in Dubai and across UAE. TIA/ISO certified. Data center cabling, fiber splicing, OTDR testing. Super Next Technologies."
+        keywords="structured cabling Dubai, fiber optic installation UAE, Cat6 cabling Dubai, fiber optic UAE, network cabling Abu Dhabi, structured cabling Sharjah, fiber optic UAE, data center cabling Dubai, TIA certified cabling UAE, cabling contractor Dubai, network infrastructure UAE"
         canonical="https://supernxt.com/structured-cabling"
         schema={cablingSchema}
       />
@@ -77,7 +77,7 @@ export default function StructuredCabling() {
                 Structured Cabling <span className="text-amber-600">UAE</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-xl mb-8">
-                TIA/ISO-certified structured cabling and fiber optic infrastructure for offices, data centers, hotels, labor camps, and buildings across UAE, Saudi Arabia, Qatar, and Oman.
+                TIA/ISO-certified structured cabling and fiber optic infrastructure for offices, data centers, hotels, labor camps, and buildings across UAE.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" className="gap-2 bg-gradient-to-r from-amber-500 to-orange-500" onClick={openAIChat} data-testid="button-get-quote">
@@ -98,7 +98,7 @@ export default function StructuredCabling() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <div className="absolute bottom-6 left-6 text-white">
                   <p className="font-bold text-lg">TIA/ISO Certified Installations</p>
-                  <p className="text-sm text-white/80">Dubai • Abu Dhabi • Riyadh • Doha • Muscat</p>
+                  <p className="text-sm text-white/80">Dubai • Abu Dhabi • Sharjah • Ajman</p>
                 </div>
               </div>
             </motion.div>
@@ -150,7 +150,7 @@ export default function StructuredCabling() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="bg-gray-50 rounded-3xl p-10 mb-16">
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Industries We Cable</h2>
-              <p className="text-gray-600 mt-2">Trusted by leading businesses across UAE and GCC</p>
+              <p className="text-gray-600 mt-2">Trusted by leading businesses across UAE</p>
             </div>
             <div className="flex flex-wrap gap-3 justify-center">
               {industries.map((ind, i) => (
@@ -163,10 +163,10 @@ export default function StructuredCabling() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="mb-16">
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Service Locations</h2>
-              <p className="text-gray-600 mt-2">On-site cabling teams across UAE and GCC</p>
+              <p className="text-gray-600 mt-2">On-site cabling teams across UAE</p>
             </div>
             <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-              {["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Riyadh", "Jeddah", "Doha", "Muscat"].map((city, i) => (
+              {["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Al Ain", "Umm Al Quwain"].map((city, i) => (
                 <div key={i} className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl p-4">
                   <MapPin className="h-4 w-4 text-amber-500 shrink-0" />
                   <span className="text-gray-700 font-medium">{city}</span>

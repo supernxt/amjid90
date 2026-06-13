@@ -10,8 +10,8 @@ export default function Infrastructure() {
     <VideoBackground variant="infrastructure">
       <SEO
         title="Cloud Infrastructure Services UAE | Super Next Technologies"
-        description="Managed cloud infrastructure, server management, cloud migration and enterprise networking in UAE, Saudi Arabia, Qatar and Oman. 99.9% uptime SLA. 24/7 monitoring. Super Next Technologies, Dubai."
-        keywords="cloud infrastructure UAE, server management Dubai, cloud services Saudi Arabia, managed IT Qatar, cloud migration Oman, enterprise networking GCC, VPS hosting Dubai, IT infrastructure Middle East"
+        description="Managed cloud infrastructure, server management, cloud migration and enterprise networking across UAE. 99.9% uptime SLA. 24/7 monitoring. Super Next Technologies, Dubai."
+        keywords="cloud infrastructure UAE, server management Dubai, cloud services UAE, managed IT Dubai, cloud migration UAE, enterprise networking UAE, VPS hosting Dubai, IT infrastructure UAE"
         canonical="https://supernxt.com/infrastructure"
       />
       <div className="pt-24 pb-20 px-4 md:px-8">

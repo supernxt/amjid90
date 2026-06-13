@@ -12,14 +12,11 @@
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/" />
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/" />
-    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/" />
-    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/" />
-    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/" />
     <image:image>
       <image:loc>https://supernxt.com/og-image.png</image:loc>
       <image:title>Super Next Technologies — AI Solutions &amp; Enterprise IT Services</image:title>
-      <image:caption>Leading AI Solutions provider in UAE, Saudi Arabia, Qatar and Oman</image:caption>
+      <image:caption>Leading AI Solutions provider in UAE. Based in Dubai.</image:caption>
     </image:image>
   </url>
 
@@ -31,9 +28,6 @@
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/ai-solutions" />
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/ai-solutions" />
-    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/ai-solutions" />
-    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/ai-solutions" />
-    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/ai-solutions" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/ai-solutions" />
   </url>
 
@@ -45,9 +39,6 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/wireless-hotspot" />
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/wireless-hotspot" />
-    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/wireless-hotspot" />
-    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/wireless-hotspot" />
-    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/wireless-hotspot" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/wireless-hotspot" />
   </url>
 
@@ -59,9 +50,6 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/infrastructure" />
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/infrastructure" />
-    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/infrastructure" />
-    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/infrastructure" />
-    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/infrastructure" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/infrastructure" />
   </url>
 
@@ -73,9 +61,6 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/website-development" />
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/website-development" />
-    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/website-development" />
-    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/website-development" />
-    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/website-development" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/website-development" />
   </url>
 
@@ -87,9 +72,6 @@
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/pricing" />
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/pricing" />
-    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/pricing" />
-    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/pricing" />
-    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/pricing" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/pricing" />
   </url>
 
@@ -131,9 +113,6 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/contact" />
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/contact" />
-    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/contact" />
-    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/contact" />
-    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/contact" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/contact" />
   </url>
 
@@ -175,9 +154,6 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/cctv-solutions" />
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/cctv-solutions" />
-    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/cctv-solutions" />
-    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/cctv-solutions" />
-    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/cctv-solutions" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/cctv-solutions" />
   </url>
 
@@ -189,9 +165,6 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/structured-cabling" />
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/structured-cabling" />
-    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/structured-cabling" />
-    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/structured-cabling" />
-    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/structured-cabling" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/structured-cabling" />
   </url>
 
@@ -203,9 +176,6 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/managed-it-services" />
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/managed-it-services" />
-    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/managed-it-services" />
-    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/managed-it-services" />
-    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/managed-it-services" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/managed-it-services" />
   </url>
 
@@ -217,9 +187,6 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/network-infrastructure" />
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/network-infrastructure" />
-    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/network-infrastructure" />
-    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/network-infrastructure" />
-    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/network-infrastructure" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/network-infrastructure" />
   </url>
 
@@ -231,9 +198,6 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/labor-camp-wifi" />
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/labor-camp-wifi" />
-    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/labor-camp-wifi" />
-    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/labor-camp-wifi" />
-    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/labor-camp-wifi" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/labor-camp-wifi" />
   </url>
 

@@ -115,7 +115,7 @@ export default function Support() {
       <SEO
         title="24/7 Support | Super Next Technologies UAE"
         description="24/7 technical support for AI solutions, enterprise wireless hotspots, cloud infrastructure and websites. Phone, email, WhatsApp and AI assistant support. Super Next Technologies, Dubai UAE."
-        keywords="tech support UAE, IT support Dubai, 24/7 support GCC, enterprise support Saudi Arabia, AI support Qatar, technical assistance Oman, Super Next Technologies support"
+        keywords="tech support UAE, IT support Dubai, 24/7 support UAE, enterprise support Abu Dhabi, AI support UAE, technical assistance Dubai, Super Next Technologies support"
         canonical="https://supernxt.com/support"
       />
       <div className="pt-24 pb-20 px-4 md:px-8">

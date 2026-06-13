@@ -46,8 +46,8 @@ export default function AISolutions() {
     <VideoBackground variant="ai">
       <SEO
         title="AI Agents & Automation Solutions UAE | Super Next Technologies"
-        description="Custom AI agents for marketing, sales, operations and support. Intelligent automation workflows for businesses in UAE, Saudi Arabia, Qatar and Oman. Based in Dubai."
-        keywords="AI agents UAE, AI automation Dubai, chatbot development UAE, WhatsApp AI bot, voice AI assistant, n8n automation UAE, AI SDR Dubai, marketing automation GCC, AI solutions Saudi Arabia, intelligent automation Qatar"
+        description="Custom AI agents for marketing, sales, operations and support. Intelligent automation workflows for businesses across UAE. Based in Dubai."
+        keywords="AI agents UAE, AI automation Dubai, chatbot development UAE, WhatsApp AI bot, voice AI assistant, n8n automation UAE, AI SDR Dubai, marketing automation UAE, AI solutions Dubai, intelligent automation UAE"
         canonical="https://supernxt.com/ai-solutions"
       />
       <div className="pt-24 pb-20 px-4 md:px-8">

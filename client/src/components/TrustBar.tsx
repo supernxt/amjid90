@@ -7,7 +7,7 @@ const trustItems = [
   { icon: Award, value: "Enterprise", label: "Grade Solutions", color: "text-blue-600", bg: "bg-blue-500/10" },
   { icon: Users, value: "500+", label: "Happy Clients", color: "text-violet-600", bg: "bg-violet-500/10" },
   { icon: Zap, value: "24/7", label: "AI Support", color: "text-amber-600", bg: "bg-amber-500/10" },
-  { icon: Globe, value: "GCC", label: "Coverage", color: "text-cyan-600", bg: "bg-cyan-500/10" },
+  { icon: Globe, value: "UAE", label: "Coverage", color: "text-cyan-600", bg: "bg-cyan-500/10" },
 ];
 
 export default function TrustBar() {

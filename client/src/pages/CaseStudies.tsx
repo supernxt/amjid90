@@ -38,7 +38,7 @@ const caseStudies = [
       "180% increase in online sales",
       "50% reduction in cart abandonment",
       "24/7 AI customer support",
-      "Expanded to 15 GCC locations"
+      "Expanded to 15 UAE locations"
     ],
     color: "from-purple-500 to-pink-500",
     stats: { metric: "180%", label: "Sales Growth" }
@@ -121,8 +121,8 @@ export default function CaseStudies() {
     <VideoBackground variant="default">
       <SEO
         title="Case Studies — AI & IT Solutions UAE | Super Next Technologies"
-        description="Real-world case studies from Super Next Technologies. AI automation, enterprise WiFi, cloud infrastructure and web development projects across UAE, Saudi Arabia, Qatar and Oman."
-        keywords="AI case studies UAE, technology success stories Dubai, enterprise IT results GCC, AI automation case study, wireless hotspot project UAE, cloud infrastructure case study"
+        description="Real-world case studies from Super Next Technologies. AI automation, enterprise WiFi, cloud infrastructure and web development projects across UAE."
+        keywords="AI case studies UAE, technology success stories Dubai, enterprise IT results UAE, AI automation case study, wireless hotspot project UAE, cloud infrastructure case study"
         canonical="https://supernxt.com/case-studies"
       />
       <div className="pt-24 pb-20 px-4 md:px-8">

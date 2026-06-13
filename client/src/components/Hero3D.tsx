@@ -14,7 +14,7 @@ const stats = [
   { value: "500+", label: "Projects Delivered", color: "text-primary" },
   { value: "99.9%", label: "Uptime SLA", color: "text-emerald-600" },
   { value: "24/7", label: "Support", color: "text-blue-600" },
-  { value: "GCC", label: "Region Coverage", color: "text-violet-600" },
+  { value: "UAE", label: "Region Coverage", color: "text-violet-600" },
 ];
 
 export default function Hero3D() {
@@ -50,7 +50,7 @@ export default function Hero3D() {
             >
               <MapPin className="h-3.5 w-3.5 text-primary" />
               <span className="text-sm font-medium text-gray-600">
-                Based in Dubai — Serving also KSA, Qatar & Oman
+                Based in Dubai, UAE
               </span>
             </motion.div>
 
@@ -66,7 +66,7 @@ export default function Hero3D() {
               <span className="bg-gradient-to-r from-primary via-rose-500 to-orange-500 bg-clip-text text-transparent">
                 Technology
               </span>{" "}
-              Solutions for GCC
+              Solutions for UAE
             </motion.h1>
 
             {/* Subheadline */}
@@ -77,7 +77,7 @@ export default function Hero3D() {
               className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl leading-relaxed"
               data-testid="text-hero-subtext"
             >
-              We help enterprises in UAE and GCC modernise operations with AI automation, 
+              We help enterprises across UAE modernise operations with AI automation, 
               robust networking, smart security, and cloud infrastructure.
             </motion.p>
 
@@ -179,7 +179,7 @@ export default function Hero3D() {
                     AI-Powered Enterprise Operations
                   </p>
                   <p className="text-xs text-gray-500 mt-0.5">
-                    Trusted by 500+ enterprises across UAE & GCC
+                    Trusted by 500+ enterprises across UAE
                   </p>
                 </div>
               </div>

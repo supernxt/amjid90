@@ -18,8 +18,8 @@ const managedITSchema = {
     "telephone": "+971-48864215",
     "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
   },
-  "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "Riyadh", "Jeddah", "Doha", "Muscat"],
-  "description": "24/7 managed IT services, IT AMC (Annual Maintenance Contracts), helpdesk support, server management, and network monitoring for businesses in UAE, Saudi Arabia, Qatar, and Oman.",
+  "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Al Ain"],
+  "description": "24/7 managed IT services, IT AMC (Annual Maintenance Contracts), helpdesk support, server management, and network monitoring for businesses across UAE.",
   "url": "https://supernxt.com/managed-it-services",
   "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
 };
@@ -60,8 +60,8 @@ export default function ManagedIT() {
     <VideoBackground variant="default">
       <SEO
         title="Managed IT Services & IT AMC Dubai, UAE | Super Next Technologies"
-        description="24/7 managed IT services, IT AMC (Annual Maintenance Contracts), helpdesk support, server management and network monitoring in Dubai, UAE, Saudi Arabia, Qatar and Oman. Super Next Technologies."
-        keywords="managed IT services Dubai, IT AMC Dubai, IT annual maintenance contract UAE, IT support Dubai, managed IT UAE, helpdesk support Dubai, server management UAE, network monitoring Dubai, IT outsourcing UAE, IT company Dubai, managed services GCC"
+        description="24/7 managed IT services, IT AMC (Annual Maintenance Contracts), helpdesk support, server management and network monitoring in Dubai and across UAE. Super Next Technologies."
+        keywords="managed IT services Dubai, IT AMC Dubai, IT annual maintenance contract UAE, IT support Dubai, managed IT UAE, helpdesk support Dubai, server management UAE, network monitoring Dubai, IT outsourcing UAE, IT company Dubai, managed services UAE"
         canonical="https://supernxt.com/managed-it-services"
         schema={managedITSchema}
       />
@@ -77,7 +77,7 @@ export default function ManagedIT() {
                 Managed IT Services <span className="text-blue-600">UAE</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-xl mb-8">
-                End-to-end IT AMC, 24/7 monitoring, helpdesk support, and managed IT services for businesses in Dubai, UAE, Saudi Arabia, Qatar, and Oman. One contract, everything covered.
+                End-to-end IT AMC, 24/7 monitoring, helpdesk support, and managed IT services for businesses in Dubai and across UAE. One contract, everything covered.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" className="gap-2 bg-gradient-to-r from-blue-600 to-blue-500" onClick={openAIChat} data-testid="button-get-quote">
@@ -98,7 +98,7 @@ export default function ManagedIT() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <div className="absolute bottom-6 left-6 text-white">
                   <p className="font-bold text-lg">24/7 IT Support & AMC</p>
-                  <p className="text-sm text-white/80">Dubai • Abu Dhabi • Riyadh • Doha • Muscat</p>
+                  <p className="text-sm text-white/80">Dubai • Abu Dhabi • Sharjah • Ajman</p>
                 </div>
               </div>
             </motion.div>
@@ -163,10 +163,10 @@ export default function ManagedIT() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="mb-16">
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900">IT AMC Coverage Areas</h2>
-              <p className="text-gray-600 mt-2">On-site engineers across UAE and GCC</p>
+              <p className="text-gray-600 mt-2">On-site engineers across UAE</p>
             </div>
             <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-              {["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Riyadh", "Jeddah", "Doha", "Muscat"].map((city, i) => (
+              {["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Al Ain", "Umm Al Quwain"].map((city, i) => (
                 <div key={i} className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl p-4">
                   <MapPin className="h-4 w-4 text-blue-500 shrink-0" />
                   <span className="text-gray-700 font-medium">{city}</span>

@@ -25,7 +25,7 @@ export default function Contact() {
     <VideoBackground variant="default">
       <SEO
         title="Contact Super Next Technologies | Dubai, UAE"
-        description="Contact Super Next Technologies in Dubai, UAE. Phone: +971-48864215. Email: hello@supernxt.com. Enterprise AI, wireless hotspot, cloud infrastructure and web development services across UAE, Saudi Arabia, Qatar and Oman."
+        description="Contact Super Next Technologies in Dubai, UAE. Phone: +971-48864215. Email: hello@supernxt.com. Enterprise AI, wireless hotspot, cloud infrastructure and web development services across UAE."
         keywords="contact Super Next Technologies, Super Next Technologies Dubai, SNT UAE contact, enterprise IT services contact, AI company Dubai phone, technology company UAE email"
         canonical="https://supernxt.com/contact"
       />

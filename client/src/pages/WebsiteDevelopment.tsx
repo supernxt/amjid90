@@ -10,8 +10,8 @@ export default function WebsiteDevelopment() {
     <VideoBackground variant="web">
       <SEO
         title="Website Development Dubai & UAE | Super Next Technologies"
-        description="Professional website design and development in UAE, Saudi Arabia, Qatar and Oman. Custom, responsive, SEO-optimized websites for businesses. Super Next Technologies based in Dubai."
-        keywords="website development Dubai, web design UAE, website company Saudi Arabia, web development Qatar, website Oman, custom website GCC, e-commerce UAE, web application Dubai, SEO website Middle East"
+        description="Professional website design and development across UAE. Custom, responsive, SEO-optimized websites for businesses. Super Next Technologies based in Dubai."
+        keywords="website development Dubai, web design UAE, website company Dubai, web development Abu Dhabi, website Sharjah, custom website UAE, e-commerce UAE, web application Dubai, SEO website UAE"
         canonical="https://supernxt.com/website-development"
       />
       <div className="pt-24 pb-20 px-4 md:px-8">
