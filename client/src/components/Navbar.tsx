@@ -14,7 +14,7 @@ const serviceCategories = [
     ],
   },
   {
-    category: "Networking & Wireless",
+    category: "Networking",
     items: [
       { label: "Wireless Hotspot", path: "/wireless-hotspot", icon: Radio, desc: "Enterprise WiFi" },
       { label: "Network Infrastructure", path: "/network-infrastructure", icon: Network, desc: "Cisco, Juniper, MikroTik" },
@@ -39,11 +39,10 @@ const mainNavItems = [
 export default function Navbar() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState(0);
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [openMobileAccordion, setOpenMobileAccordion] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -53,24 +52,16 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setServicesOpen(false);
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpenDropdown(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Auto-select correct tab when on a service page
-  useEffect(() => {
-    serviceCategories.forEach((cat, i) => {
-      if (cat.items.some((item) => item.path === location)) setActiveTab(i);
-    });
-  }, [location]);
-
-  const isServiceActive = serviceCategories.some((cat) =>
-    cat.items.some((i) => i.path === location)
-  );
+  const isCategoryActive = (catIndex: number) =>
+    serviceCategories[catIndex].items.some((item) => item.path === location);
 
   return (
     <nav
@@ -98,7 +89,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden xl:flex items-center justify-center flex-1 mx-6">
+          <div ref={navRef} className="hidden xl:flex items-center justify-center flex-1 mx-6">
             <div className="flex items-center gap-1">
 
               {/* Home */}
@@ -113,82 +104,65 @@ export default function Navbar() {
                 </button>
               </Link>
 
-              {/* Services Dropdown — Tabbed */}
-              <div ref={dropdownRef} className="relative">
-                <button
-                  className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap ${
-                    isServiceActive || servicesOpen
-                      ? "text-primary bg-primary/10"
-                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-                  }`}
-                  onClick={() => setServicesOpen(!servicesOpen)}
-                  data-testid="button-nav-services"
-                >
-                  Services
-                  <ChevronDown
-                    className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
-                  />
-                </button>
+              {/* Three top-level category dropdowns */}
+              {serviceCategories.map((cat, catIndex) => (
+                <div key={cat.category} className="relative">
+                  <button
+                    className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap ${
+                      isCategoryActive(catIndex) || openDropdown === catIndex
+                        ? "text-primary bg-primary/10"
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                    }`}
+                    onClick={() => setOpenDropdown(openDropdown === catIndex ? null : catIndex)}
+                    data-testid={`button-nav-${cat.category.toLowerCase().replace(/\s+/g, "-")}`}
+                  >
+                    {cat.category}
+                    <ChevronDown
+                      className={`h-3.5 w-3.5 transition-transform duration-200 ${openDropdown === catIndex ? "rotate-180" : ""}`}
+                    />
+                  </button>
 
-                {servicesOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[520px] bg-white rounded-2xl shadow-2xl shadow-gray-200/60 border border-gray-100 overflow-hidden z-50">
-                    {/* Tab bar */}
-                    <div className="flex border-b border-gray-100 bg-gray-50">
-                      {serviceCategories.map((cat, i) => (
-                        <button
-                          key={cat.category}
-                          className={`flex-1 px-3 py-3 text-xs font-semibold transition-all duration-200 ${
-                            activeTab === i
-                              ? "text-primary border-b-2 border-primary bg-white"
-                              : "text-gray-500 hover:text-gray-800 hover:bg-gray-100"
-                          }`}
-                          onClick={() => setActiveTab(i)}
-                          data-testid={`tab-service-${i}`}
-                        >
-                          {cat.category}
-                        </button>
-                      ))}
-                    </div>
-
-                    {/* Active tab items */}
-                    <div className="p-3 grid gap-1">
-                      {serviceCategories[activeTab].items.map((item) => (
-                        <Link key={item.path} href={item.path}>
-                          <button
-                            className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left transition-all duration-200 group ${
-                              location === item.path
-                                ? "bg-primary/10 text-primary"
-                                : "hover:bg-gray-50 text-gray-700 hover:text-gray-900"
-                            }`}
-                            onClick={() => setServicesOpen(false)}
-                            data-testid={`link-nav-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
-                          >
-                            <div
-                              className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
+                  {openDropdown === catIndex && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-white rounded-2xl shadow-2xl shadow-gray-200/60 border border-gray-100 overflow-hidden z-50">
+                      <div className="p-3 grid gap-1">
+                        {cat.items.map((item) => (
+                          <Link key={item.path} href={item.path}>
+                            <button
+                              className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left transition-all duration-200 group ${
                                 location === item.path
-                                  ? "bg-primary/20"
-                                  : "bg-gray-100 group-hover:bg-primary/10"
+                                  ? "bg-primary/10 text-primary"
+                                  : "hover:bg-gray-50 text-gray-700 hover:text-gray-900"
                               }`}
+                              onClick={() => setOpenDropdown(null)}
+                              data-testid={`link-nav-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
                             >
-                              <item.icon
-                                className={`h-4 w-4 ${
-                                  location === item.path ? "text-primary" : "text-gray-500 group-hover:text-primary"
+                              <div
+                                className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
+                                  location === item.path
+                                    ? "bg-primary/20"
+                                    : "bg-gray-100 group-hover:bg-primary/10"
                                 }`}
-                              />
-                            </div>
-                            <div>
-                              <p className="text-sm font-semibold leading-tight">{item.label}</p>
-                              <p className="text-xs text-gray-400 leading-tight mt-0.5">{item.desc}</p>
-                            </div>
-                          </button>
-                        </Link>
-                      ))}
+                              >
+                                <item.icon
+                                  className={`h-4 w-4 ${
+                                    location === item.path ? "text-primary" : "text-gray-500 group-hover:text-primary"
+                                  }`}
+                                />
+                              </div>
+                              <div>
+                                <p className="text-sm font-semibold leading-tight">{item.label}</p>
+                                <p className="text-xs text-gray-400 leading-tight mt-0.5">{item.desc}</p>
+                              </div>
+                            </button>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
-              </div>
+                  )}
+                </div>
+              ))}
 
-              {/* Main nav items */}
+              {/* Main nav items (About, Contact) */}
               {mainNavItems.map((item) => (
                 <Link key={item.path} href={item.path}>
                   <button
@@ -262,66 +236,57 @@ export default function Navbar() {
               </button>
             </Link>
 
-            {/* Mobile Services Accordion */}
-            <div>
-              <button
-                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
-                  isServiceActive
-                    ? "bg-primary/10 text-primary border border-primary/20"
-                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                }`}
-                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                data-testid="button-mobile-services"
-              >
-                <span>Services</span>
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
-                />
-              </button>
+            {/* Mobile — one accordion per category */}
+            {serviceCategories.map((cat, catIndex) => (
+              <div key={cat.category}>
+                <button
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
+                    isCategoryActive(catIndex)
+                      ? "bg-primary/10 text-primary border border-primary/20"
+                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                  }`}
+                  onClick={() =>
+                    setOpenMobileAccordion(openMobileAccordion === catIndex ? null : catIndex)
+                  }
+                  data-testid={`button-mobile-${cat.category.toLowerCase().replace(/\s+/g, "-")}`}
+                >
+                  <span>{cat.category}</span>
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${
+                      openMobileAccordion === catIndex ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
 
-              {mobileServicesOpen && (
-                <div className="mt-2 ml-2 rounded-xl overflow-hidden border border-gray-100">
-                  {/* Mobile tab bar */}
-                  <div className="flex border-b border-gray-100 bg-gray-50">
-                    {serviceCategories.map((cat, i) => (
-                      <button
-                        key={cat.category}
-                        className={`flex-1 px-2 py-2.5 text-xs font-semibold transition-all ${
-                          activeTab === i
-                            ? "text-primary border-b-2 border-primary bg-white"
-                            : "text-gray-500"
-                        }`}
-                        onClick={() => setActiveTab(i)}
-                      >
-                        {cat.category.split(" ")[0]}
-                      </button>
-                    ))}
+                {openMobileAccordion === catIndex && (
+                  <div className="mt-1 ml-2 rounded-xl overflow-hidden border border-gray-100">
+                    <div className="p-2 space-y-1 bg-white">
+                      {cat.items.map((item) => (
+                        <Link key={item.path} href={item.path}>
+                          <button
+                            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-all duration-200 ${
+                              location === item.path
+                                ? "bg-primary/10 text-primary"
+                                : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                            }`}
+                            onClick={() => {
+                              setMobileMenuOpen(false);
+                              setOpenMobileAccordion(null);
+                            }}
+                            data-testid={`link-mobile-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
+                          >
+                            <item.icon className="h-4 w-4 shrink-0" />
+                            <span className="text-sm font-medium">{item.label}</span>
+                          </button>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                  <div className="p-2 space-y-1 bg-white">
-                    {serviceCategories[activeTab].items.map((item) => (
-                      <Link key={item.path} href={item.path}>
-                        <button
-                          className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-all duration-200 ${
-                            location === item.path
-                              ? "bg-primary/10 text-primary"
-                              : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-                          }`}
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setMobileServicesOpen(false);
-                          }}
-                          data-testid={`link-mobile-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
-                        >
-                          <item.icon className="h-4 w-4 shrink-0" />
-                          <span className="text-sm font-medium">{item.label}</span>
-                        </button>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            ))}
 
+            {/* About & Contact */}
             {mainNavItems.map((item) => (
               <Link key={item.path} href={item.path}>
                 <button
