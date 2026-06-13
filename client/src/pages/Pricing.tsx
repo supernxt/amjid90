@@ -7,13 +7,156 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Mail, Phone, MessageSquare } from "lucide-react";
 
+const WHATSAPP = "https://wa.me/971048864215";
+
+const aiCards = [
+  {
+    title: "AI Automation",
+    description: "Automate repetitive tasks and improve operational efficiency.",
+    features: [
+      "Business Process Automation",
+      "AI-Powered Workflows",
+      "Smart Notifications",
+      "CRM Integration",
+      "Email Automation",
+      "Productivity Enhancement",
+    ],
+    buttonLabel: "Get Started",
+    buttonHref: "/contact",
+  },
+  {
+    title: "AI Assistants",
+    description: "Custom AI assistants for customer support, operations, and internal teams.",
+    features: [
+      "Website AI Chatbots",
+      "WhatsApp AI Assistant",
+      "Knowledge Base Integration",
+      "Lead Qualification",
+      "Multi-Language Support",
+      "Custom Training",
+    ],
+    isPopular: true,
+    buttonLabel: "Book a Demo",
+    buttonHref: "/contact",
+  },
+  {
+    title: "AI Transformation",
+    description: "Enterprise-grade AI solutions designed around your business goals.",
+    features: [
+      "Custom AI Development",
+      "Department Automation",
+      "Enterprise Integrations",
+      "Data Intelligence",
+      "AI Consulting",
+      "Ongoing Support",
+    ],
+    buttonLabel: "Talk to an AI Expert",
+    buttonHref: WHATSAPP,
+    buttonExternal: true,
+  },
+];
+
+const hotspotCards = [
+  {
+    title: "Managed WiFi",
+    description: "Reliable internet access for staff accommodations, camps, hotels, and businesses.",
+    features: [
+      "Captive Portal Authentication",
+      "User & Voucher Management",
+      "Network Monitoring",
+      "Secure Internet Access",
+      "Professional Deployment",
+      "Ongoing Technical Support",
+    ],
+    buttonLabel: "Get a Custom Solution",
+    buttonHref: "/contact",
+  },
+  {
+    title: "Smart Connectivity",
+    description: "Designed for organizations that require performance, stability, and centralized management.",
+    features: [
+      "Multi-Site Connectivity",
+      "Advanced User Control",
+      "Usage Analytics",
+      "Bandwidth Management",
+      "ISP Integration",
+      "Priority Technical Support",
+    ],
+    isPopular: true,
+    buttonLabel: "Request Consultation",
+    buttonHref: "/contact",
+  },
+  {
+    title: "Enterprise Networking",
+    description: "Tailored networking solutions for large-scale operations and mission-critical environments.",
+    features: [
+      "Enterprise WiFi Infrastructure",
+      "High Availability Design",
+      "Network Security Integration",
+      "Scalable Architecture",
+      "24/7 Monitoring Options",
+      "Dedicated Project Management",
+    ],
+    buttonLabel: "Contact Our Experts",
+    buttonHref: WHATSAPP,
+    buttonExternal: true,
+  },
+];
+
+const websiteCards = [
+  {
+    title: "Business Website",
+    description: "Professional websites designed to build trust and generate inquiries.",
+    features: [
+      "Modern Responsive Design",
+      "Mobile Friendly",
+      "SEO Ready",
+      "Contact Forms",
+      "Fast Loading",
+      "Domain & Hosting Included",
+    ],
+    buttonLabel: "Request a Quote",
+    buttonHref: "/contact",
+  },
+  {
+    title: "Business Growth Website",
+    description: "Designed for companies looking to attract more customers and generate leads.",
+    features: [
+      "Premium Design",
+      "SEO Optimization",
+      "Lead Generation Forms",
+      "WhatsApp Integration",
+      "Content Management",
+      "Performance Optimization",
+    ],
+    isPopular: true,
+    buttonLabel: "Get a Proposal",
+    buttonHref: "/contact",
+  },
+  {
+    title: "Enterprise Digital Platform",
+    description: "Advanced web solutions for organizations requiring custom functionality.",
+    features: [
+      "Custom Development",
+      "Business System Integration",
+      "Client Portals",
+      "API Connectivity",
+      "Enhanced Security",
+      "Scalable Architecture",
+    ],
+    buttonLabel: "Speak With Our Team",
+    buttonHref: WHATSAPP,
+    buttonExternal: true,
+  },
+];
+
 export default function Pricing() {
   return (
     <VideoBackground variant="pricing">
       <SEO
-        title="Plans & Pricing | Super Next Technologies UAE"
-        description="Custom-quoted enterprise IT plans — AI agents, wireless hotspots, CCTV, structured cabling, managed IT and website development across UAE. Contact us for a tailored proposal."
-        keywords="IT services pricing UAE, enterprise technology quote Dubai, AI solutions quote UAE, CCTV pricing Dubai, managed IT quote UAE, Super Next Technologies plans"
+        title="Custom Solutions & Pricing | Super Next Technologies UAE"
+        description="Tailored AI, networking, and web solutions for every business in UAE. Contact us for a custom quote — no hidden fees, no bloated packages."
+        keywords="IT services pricing UAE, enterprise technology quote Dubai, AI solutions quote UAE, managed WiFi pricing Dubai, website development quote UAE, Super Next Technologies"
         canonical="https://supernxt.com/pricing"
       />
       <div className="pt-24 pb-20 px-4 md:px-8">
@@ -27,10 +170,10 @@ export default function Pricing() {
           >
             <span className="text-primary text-sm font-semibold tracking-wider uppercase">Plans & Pricing</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display mt-4 mb-6 text-gray-900">
-              Tailored to Your Business
+              Custom Solutions for Every Business
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Every deployment is different. We scope each project individually so you only pay for exactly what you need — no hidden fees, no bloated packages.
+              Every business is unique. We design tailored technology, AI, networking, and web solutions based on your exact requirements, ensuring maximum value, performance, and long-term success.
             </p>
           </motion.div>
 
@@ -53,8 +196,8 @@ export default function Pricing() {
                 04 886 4215
               </Button>
             </a>
-            <a href="https://wa.me/971048864215" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-green-600 hover:bg-green-700 gap-2">
+            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
+              <Button className="bg-green-600 gap-2">
                 <MessageSquare className="h-4 w-4" />
                 WhatsApp Us
               </Button>
@@ -69,134 +212,27 @@ export default function Pricing() {
               <TabsTrigger value="website" data-testid="tab-pricing-website">Websites</TabsTrigger>
             </TabsList>
 
-            <TabsContent value="ai" className="space-y-8">
+            <TabsContent value="ai">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <PricingCard
-                  title="AI Starter"
-                  description="For small teams getting started with AI"
-                  features={[
-                    "3 AI agent seats",
-                    "Email & Web channels",
-                    "Basic integrations",
-                    "Email support",
-                    "500 responses/month",
-                  ]}
-                />
-                <PricingCard
-                  title="AI Pro"
-                  description="For growing teams needing more power"
-                  features={[
-                    "10 AI agent seats",
-                    "All channels (Email, WhatsApp, Voice)",
-                    "Advanced integrations",
-                    "Priority support",
-                    "5,000 responses/month",
-                    "Custom workflows",
-                  ]}
-                  isPopular={true}
-                />
-                <PricingCard
-                  title="AI Enterprise"
-                  description="Fully custom for large organisations"
-                  features={[
-                    "Unlimited seats",
-                    "All channels + Custom",
-                    "Full integration suite",
-                    "24/7 dedicated support",
-                    "Unlimited responses",
-                    "Custom SLA",
-                    "White-label options",
-                  ]}
-                />
+                {aiCards.map((card) => (
+                  <PricingCard key={card.title} {...card} />
+                ))}
               </div>
             </TabsContent>
 
-            <TabsContent value="hotspot" className="space-y-8">
+            <TabsContent value="hotspot">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <PricingCard
-                  title="Hotspot Basic"
-                  description="Single location setup"
-                  features={[
-                    "Up to 5 access points",
-                    "Basic captive portal",
-                    "2 VLANs",
-                    "Email support",
-                    "Monthly reports",
-                  ]}
-                />
-                <PricingCard
-                  title="Hotspot Pro"
-                  description="Multi-location enterprise"
-                  features={[
-                    "Up to 20 access points",
-                    "Advanced captive portal",
-                    "10 VLANs",
-                    "Priority support",
-                    "Real-time analytics",
-                    "Multi-WAN failover",
-                  ]}
-                  isPopular={true}
-                />
-                <PricingCard
-                  title="Hotspot Enterprise"
-                  description="Large-scale managed deployment"
-                  features={[
-                    "Unlimited access points",
-                    "Full feature set",
-                    "Unlimited VLANs",
-                    "24/7 managed support",
-                    "Custom analytics",
-                    "Dedicated account manager",
-                  ]}
-                />
+                {hotspotCards.map((card) => (
+                  <PricingCard key={card.title} {...card} />
+                ))}
               </div>
             </TabsContent>
 
-            <TabsContent value="website" className="space-y-8">
+            <TabsContent value="website">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <PricingCard
-                  title="Static Site"
-                  description="Fast, SEO-optimized business sites"
-                  features={[
-                    "Up to 10 pages",
-                    "Responsive design",
-                    "SEO optimization",
-                    "1-Year Domain & Hosting",
-                    "Free Domain",
-                    "Free Email Hosting",
-                  ]}
-                  hasOffer={true}
-                />
-                <PricingCard
-                  title="Dynamic Site"
-                  description="Interactive web applications"
-                  features={[
-                    "Custom functionality",
-                    "CMS integration",
-                    "User authentication",
-                    "API integration",
-                    "1-Year Domain & Hosting",
-                    "Free Domain",
-                    "Free Email Hosting",
-                  ]}
-                  isPopular={true}
-                  hasOffer={true}
-                />
-                <PricingCard
-                  title="3D Immersive"
-                  description="Cutting-edge 3D web experiences"
-                  features={[
-                    "React Three Fiber",
-                    "Custom 3D scenes",
-                    "AR-ready components",
-                    "Performance optimized",
-                    "Premium support",
-                    "1-Year Domain & Hosting",
-                    "Free Domain",
-                    "Free Email Hosting",
-                  ]}
-                  hasOffer={true}
-                />
+                {websiteCards.map((card) => (
+                  <PricingCard key={card.title} {...card} />
+                ))}
               </div>
             </TabsContent>
           </Tabs>
@@ -208,15 +244,23 @@ export default function Pricing() {
             viewport={{ once: true }}
             className="mt-16 text-center bg-gradient-to-br from-primary/5 to-rose-500/5 border border-primary/20 rounded-3xl p-10"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Not sure which plan fits?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Not sure where to start?</h2>
             <p className="text-gray-600 mb-6 max-w-xl mx-auto">
-              Our team will assess your site, team size, and goals — then recommend the right scope and provide a transparent, itemised quote.
+              Our team will assess your requirements and recommend the right solution — then provide a transparent, itemised quote with no obligation.
             </p>
-            <Link href="/contact">
-              <Button size="lg" className="bg-gradient-to-r from-primary to-rose-500 shadow-lg shadow-primary/20">
-                Request a Free Consultation
-              </Button>
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/contact">
+                <Button size="lg" className="bg-gradient-to-r from-primary to-rose-500 shadow-lg shadow-primary/20">
+                  Request a Free Consultation
+                </Button>
+              </Link>
+              <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline" className="border-green-600 text-green-700 gap-2">
+                  <MessageSquare className="h-4 w-4" />
+                  Chat on WhatsApp
+                </Button>
+              </a>
+            </div>
           </motion.div>
 
         </div>

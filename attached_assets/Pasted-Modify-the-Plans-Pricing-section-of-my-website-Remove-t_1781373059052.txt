@@ -1,0 +1,187 @@
+Modify the Plans & Pricing section of my website.
+
+Remove the current package names and content from all three tabs: AI Solutions, Hotspot, and Websites.
+
+Do not use package-style names such as Basic, Pro, Enterprise, Static, Dynamic, or 3D Immersive. Replace them with simple, professional, business-focused solution cards that encourage visitors to contact us for a custom quote.
+
+Keep the same clean card layout, red/white branding, tabs, contact buttons, “Most Popular” badge, and responsive design.
+
+Update the section heading to:
+
+Custom Solutions for Every Business
+
+Update the section description to:
+
+Every business is unique. We design tailored technology, AI, networking, and web solutions based on your exact requirements, ensuring maximum value, performance, and long-term success.
+
+HOTSPOT TAB
+
+Card 1 Title:
+Managed WiFi
+
+Subtitle:
+Reliable internet access for staff accommodations, camps, hotels, and businesses.
+
+Features:
+
+* Captive Portal Authentication
+* User & Voucher Management
+* Network Monitoring
+* Secure Internet Access
+* Professional Deployment
+* Ongoing Technical Support
+
+Button:
+Get a Custom Solution
+
+Card 2 Title:
+Smart Connectivity
+
+Subtitle:
+Designed for organizations that require performance, stability, and centralized management.
+
+Features:
+
+* Multi-Site Connectivity
+* Advanced User Control
+* Usage Analytics
+* Bandwidth Management
+* ISP Integration
+* Priority Technical Support
+
+Button:
+Request Consultation
+
+Card 3 Title:
+Enterprise Networking
+
+Subtitle:
+Tailored networking solutions for large-scale operations and mission-critical environments.
+
+Features:
+
+* Enterprise WiFi Infrastructure
+* High Availability Design
+* Network Security Integration
+* Scalable Architecture
+* 24/7 Monitoring Options
+* Dedicated Project Management
+
+Button:
+Contact Our Experts
+
+AI SOLUTIONS TAB
+
+Card 1 Title:
+AI Automation
+
+Subtitle:
+Automate repetitive tasks and improve operational efficiency.
+
+Features:
+
+* Business Process Automation
+* AI-Powered Workflows
+* Smart Notifications
+* CRM Integration
+* Email Automation
+* Productivity Enhancement
+
+Button:
+Get Started
+
+Card 2 Title:
+AI Assistants
+
+Subtitle:
+Custom AI assistants for customer support, operations, and internal teams.
+
+Features:
+
+* Website AI Chatbots
+* WhatsApp AI Assistant
+* Knowledge Base Integration
+* Lead Qualification
+* Multi-Language Support
+* Custom Training
+
+Button:
+Book a Demo
+
+Card 3 Title:
+AI Transformation
+
+Subtitle:
+Enterprise-grade AI solutions designed around your business goals.
+
+Features:
+
+* Custom AI Development
+* Department Automation
+* Enterprise Integrations
+* Data Intelligence
+* AI Consulting
+* Ongoing Support
+
+Button:
+Talk to an AI Expert
+
+WEBSITES TAB
+
+Card 1 Title:
+Business Website
+
+Subtitle:
+Professional websites designed to build trust and generate inquiries.
+
+Features:
+
+* Modern Responsive Design
+* Mobile Friendly
+* SEO Ready
+* Contact Forms
+* Fast Loading
+* Domain & Hosting Included
+
+Button:
+Request a Quote
+
+Card 2 Title:
+Business Growth Website
+
+Subtitle:
+Designed for companies looking to attract more customers and generate leads.
+
+Features:
+
+* Premium Design
+* SEO Optimization
+* Lead Generation Forms
+* WhatsApp Integration
+* Content Management
+* Performance Optimization
+
+Button:
+Get a Proposal
+
+Card 3 Title:
+Enterprise Digital Platform
+
+Subtitle:
+Advanced web solutions for organizations requiring custom functionality.
+
+Features:
+
+* Custom Development
+* Business System Integration
+* Client Portals
+* API Connectivity
+* Enhanced Security
+* Scalable Architecture
+
+Button:
+Speak With Our Team
+
+Make all buttons open the contact form, WhatsApp, or quote action already used on the website.
+
+Ensure the section looks professional, modern, mobile-responsive, and aligned with Super Next Technologies branding.

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Check, Star, Gift, Mail } from "lucide-react";
+import { Check, Star, Mail } from "lucide-react";
 import { Link } from "wouter";
 
 interface PricingCardProps {
@@ -8,7 +8,9 @@ interface PricingCardProps {
   description: string;
   features: string[];
   isPopular?: boolean;
-  hasOffer?: boolean;
+  buttonLabel?: string;
+  buttonHref?: string;
+  buttonExternal?: boolean;
 }
 
 export default function PricingCard({
@@ -16,8 +18,20 @@ export default function PricingCard({
   description,
   features,
   isPopular = false,
-  hasOffer = false,
+  buttonLabel = "Get a Custom Quote",
+  buttonHref = "/contact",
+  buttonExternal = false,
 }: PricingCardProps) {
+  const buttonEl = (
+    <Button
+      variant={isPopular ? "default" : "outline"}
+      className={`w-full ${isPopular ? "bg-gradient-to-r from-primary to-rose-500" : "border-gray-300 text-gray-700"}`}
+      data-testid="button-get-quote"
+    >
+      {buttonLabel}
+    </Button>
+  );
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -48,13 +62,6 @@ export default function PricingCard({
             <Mail className="h-4 w-4 text-primary" />
             <span className="text-primary font-semibold text-sm">Custom Quote</span>
           </div>
-
-          {hasOffer && (
-            <div className="mt-3 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-medium ml-2">
-              <Gift className="h-4 w-4" />
-              Free Domain + Hosting
-            </div>
-          )}
         </div>
 
         <ul className="space-y-3 mb-8 flex-1">
@@ -66,15 +73,15 @@ export default function PricingCard({
           ))}
         </ul>
 
-        <Link href="/contact">
-          <Button
-            variant={isPopular ? "default" : "outline"}
-            className={`w-full ${isPopular ? "bg-gradient-to-r from-primary to-rose-500" : "border-gray-300 text-gray-700"}`}
-            data-testid="button-get-quote"
-          >
-            Get a Quote
-          </Button>
-        </Link>
+        {buttonExternal ? (
+          <a href={buttonHref} target="_blank" rel="noopener noreferrer">
+            {buttonEl}
+          </a>
+        ) : (
+          <Link href={buttonHref}>
+            {buttonEl}
+          </Link>
+        )}
       </div>
     </motion.div>
   );
