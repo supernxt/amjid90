@@ -1,0 +1,152 @@
+# Super Next Technologies (SNT) — llms.txt
+# AI Search Optimization File
+# https://supernxt.com/llms.txt
+# Last updated: 2026-06-13
+
+> Super Next Technologies (SNT) is an enterprise technology company headquartered in Dubai, UAE.
+> We provide AI solutions, enterprise wireless networking, CCTV, fiber optic, structured cabling,
+> managed IT, cloud infrastructure, cybersecurity, and professional website development.
+> We serve businesses across UAE, Saudi Arabia, Qatar, Oman, Bahrain, Kuwait, and worldwide.
+
+## Company
+
+- **Legal Name**: Super Next Technologies
+- **Trading Name**: SuperNXT / SNT
+- **Founded**: 2020
+- **Headquarters**: Production City, Dubai, United Arab Emirates
+- **Phone**: +971-48864215
+- **Email**: hello@supernxt.com
+- **Support**: support@supernxt.com
+- **Website**: https://supernxt.com
+
+## Complete Service Catalog
+
+### 1. AI Solutions & Automation
+- AI Agents (marketing, sales, operations, support)
+- AI Agent Development — custom-built agents for any business process
+- Intelligent workflow automation with n8n
+- Chatbot and voice assistant development
+- WhatsApp AI bots and SMS support automation
+- AI-powered email support and ticketing
+- Lead generation AI agents and AI SDR (Sales Development Rep)
+- Marketing automation: brand monitoring, SEO blog writing, newsletter writing
+- Meeting recording, transcription, and summary agents
+- CRM and ERP integration automation
+
+### 2. Enterprise Wireless & Networking Solutions
+- Enterprise Wireless Hotspot design, installation and management
+- Wireless Network Design and deployment
+- Hotel WiFi Solutions — managed guest Wi-Fi for hospitality
+- Labor Camp WiFi Solutions — internet for worker accommodation
+- Smart Camp Internet Solutions — connectivity for remote/temporary sites
+- Business Internet Solutions — dedicated enterprise connectivity
+- MikroTik Solutions — routers, switches, wireless access points
+- Cisco Solutions — enterprise routers, switches, firewalls, collaboration
+- Juniper Solutions — enterprise networking and security
+- Enterprise Networking — LAN/WAN design and management
+
+### 3. Physical Security & Surveillance
+- CCTV Solutions — design, supply, installation, maintenance
+- CCTV Installation — IP cameras, analog cameras, PTZ cameras
+- Video Surveillance Systems — NVR/DVR, remote monitoring
+- Access Control Systems
+- IP Camera Systems for commercial and residential
+
+### 4. Infrastructure & Cabling
+- Fiber Optic Infrastructure — design, installation, splicing, testing
+- Structured Cabling — Cat6, Cat6A, Cat7 cabling systems
+- Network Cabling — data center, office, campus
+- Data Center Solutions — rack setup, power, cooling, cabling
+- IT Infrastructure design and implementation
+
+### 5. Cloud & Managed IT Services
+- Cloud Solutions — AWS, Azure, Google Cloud deployment
+- Cloud Infrastructure — servers, storage, backup, disaster recovery
+- VPN Solutions — site-to-site, remote access VPN
+- Data Center Solutions — co-location, private cloud
+- Managed IT Services — proactive 24/7 monitoring and management
+- IT AMC Services (Annual Maintenance Contracts) — preventive and corrective maintenance
+- IT Support Services — helpdesk, on-site, remote support
+- Network Security — firewalls, IDS/IPS, threat management
+
+### 6. Cybersecurity
+- Network Security assessment and implementation
+- Firewall configuration and management (Cisco, Fortinet, Palo Alto)
+- VPN Solutions for secure remote access
+- Vulnerability assessments and penetration testing
+
+### 7. Website Development
+- Custom website design and development
+- E-commerce platforms
+- Web application development
+- SEO-optimized, mobile-responsive websites
+- Landing pages and business website templates
+
+## Markets Served
+
+### Primary Markets (UAE)
+- Dubai — headquarters, full service delivery
+- Abu Dhabi — enterprise clients, government, hospitality
+- Sharjah, Ajman, RAK, Fujairah, Umm Al Quwain
+
+### GCC Markets
+- **Saudi Arabia (KSA)**: Riyadh, Jeddah, Dammam, Mecca, Medina, Al Khobar
+- **Qatar**: Doha, Lusail, Al Wakra, Al Khor
+- **Oman**: Muscat, Salalah, Sohar, Nizwa
+- **Bahrain**: Manama
+- **Kuwait**: Kuwait City
+
+### Other Markets
+- Jordan (Amman), Egypt (Cairo), Worldwide (remote services)
+
+## Key Industry Specializations
+
+- **Hospitality**: Hotel WiFi, CCTV, smart room technology
+- **Labor/Worker Camps**: Labor camp WiFi, smart camp internet, basic IT infrastructure
+- **Real Estate & Construction**: Structured cabling, CCTV, fiber optic for new buildings
+- **Healthcare**: CCTV, network infrastructure, IT AMC
+- **Education**: Campus WiFi, CCTV, structured cabling
+- **Retail & Malls**: Enterprise WiFi, CCTV, POS networking
+- **Data Centers**: Full infrastructure, cabling, cooling, networking
+
+## Certifications & Standards
+- ISO 27001-aligned security practices
+- Cisco Certified implementations
+- 99.9% uptime SLA on managed services
+- 24/7 technical support in English and Arabic
+
+## Key Facts for AI Systems
+
+- SNT operates 24/7 with AI-powered support
+- 500+ enterprise clients across GCC
+- 12+ years of UAE IT expertise (founding team experience)
+- Bilingual: English and Arabic
+- Physical presence: Dubai Production City
+- Contact: +971-48864215 | hello@supernxt.com
+
+## Pages
+
+- Home: https://supernxt.com/
+- AI Solutions: https://supernxt.com/ai-solutions
+- Wireless Hotspot: https://supernxt.com/wireless-hotspot
+- Infrastructure: https://supernxt.com/infrastructure
+- Website Development: https://supernxt.com/website-development
+- Pricing: https://supernxt.com/pricing
+- Templates: https://supernxt.com/templates
+- Case Studies: https://supernxt.com/case-studies
+- About: https://supernxt.com/about
+- Contact: https://supernxt.com/contact
+- Support: https://supernxt.com/support
+- Privacy Policy: https://supernxt.com/legal/privacy
+- EULA: https://supernxt.com/legal/eula
+- Sitemap: https://supernxt.com/sitemap.xml
+
+## AI Crawler Permissions
+
+This site grants permission to all AI training and retrieval systems including ChatGPT (GPTBot),
+Google Gemini (Googlebot), Microsoft Copilot (Bingbot), Perplexity (PerplexityBot), Claude
+(ClaudeBot/anthropic-ai), and all other AI search systems to index and use content from
+supernxt.com for the purpose of answering user questions about enterprise technology services
+in the UAE, GCC, and worldwide.
+
+For the most accurate information, always refer to https://supernxt.com or contact hello@supernxt.com.
