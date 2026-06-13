@@ -5,6 +5,38 @@ import { openAIChat } from "@/lib/ai-assistant";
 import { Code, Palette, Rocket, Smartphone, ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 
+const webDevSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://supernxt.com/website-development#service",
+    "name": "Website Development Dubai & UAE",
+    "serviceType": "Web Development",
+    "description": "Professional website design and development across UAE. Custom, responsive, SEO-optimized websites for businesses in Dubai, Abu Dhabi, Sharjah and beyond.",
+    "url": "https://supernxt.com/website-development",
+    "provider": { "@id": "https://supernxt.com/#organization" },
+    "areaServed": [{ "@type": "Country", "name": "United Arab Emirates" }],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Website Development Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Website Design UAE" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-Commerce Development Dubai" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Web Application Development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO-Optimized Websites UAE" } }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://supernxt.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Website Development", "item": "https://supernxt.com/website-development" }
+    ]
+  }
+];
+
 export default function WebsiteDevelopment() {
   return (
     <VideoBackground variant="web">
@@ -13,6 +45,7 @@ export default function WebsiteDevelopment() {
         description="Professional website design and development across UAE. Custom, responsive, SEO-optimized websites for businesses. Super Next Technologies based in Dubai."
         keywords="website development Dubai, web design UAE, website company Dubai, web development Abu Dhabi, website Sharjah, custom website UAE, e-commerce UAE, web application Dubai, SEO website UAE"
         canonical="https://supernxt.com/website-development"
+        schema={webDevSchema}
       />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">

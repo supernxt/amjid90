@@ -9,6 +9,25 @@ import { Mail, Phone, MessageSquare } from "lucide-react";
 
 const WHATSAPP = "https://wa.me/971048864215";
 
+const pricingSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://supernxt.com/pricing#webpage",
+    "url": "https://supernxt.com/pricing",
+    "name": "Custom Solutions & Pricing | Super Next Technologies UAE",
+    "description": "Tailored AI, networking, and web solutions for every business in UAE. Contact us for a custom quote — no hidden fees, no bloated packages.",
+    "isPartOf": { "@id": "https://supernxt.com/#website" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://supernxt.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://supernxt.com/pricing" }
+      ]
+    }
+  }
+];
+
 const aiCards = [
   {
     title: "AI Automation",
@@ -158,6 +177,7 @@ export default function Pricing() {
         description="Tailored AI, networking, and web solutions for every business in UAE. Contact us for a custom quote — no hidden fees, no bloated packages."
         keywords="IT services pricing UAE, enterprise technology quote Dubai, AI solutions quote UAE, managed WiFi pricing Dubai, website development quote UAE, Super Next Technologies"
         canonical="https://supernxt.com/pricing"
+        schema={pricingSchema}
       />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">

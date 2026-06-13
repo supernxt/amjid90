@@ -5,6 +5,38 @@ import { openAIChat } from "@/lib/ai-assistant";
 import { Wifi, Shield, Zap, Users, ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 
+const hotspotSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://supernxt.com/wireless-hotspot#service",
+    "name": "Enterprise Wireless Hotspot Solutions UAE",
+    "serviceType": "Wireless Networking",
+    "description": "Managed enterprise Wi-Fi hotspot solutions for hotels, malls, offices and venues across UAE. Captive portal, user management, analytics.",
+    "url": "https://supernxt.com/wireless-hotspot",
+    "provider": { "@id": "https://supernxt.com/#organization" },
+    "areaServed": [{ "@type": "Country", "name": "United Arab Emirates" }],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Wireless Hotspot Solutions",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hotel WiFi Solutions" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise Hotspot Deployment" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Captive Portal Setup" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Managed Wireless Networks" } }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://supernxt.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Enterprise Wireless Hotspot", "item": "https://supernxt.com/wireless-hotspot" }
+    ]
+  }
+];
+
 export default function WirelessHotspot() {
   return (
     <VideoBackground variant="wireless">
@@ -13,6 +45,7 @@ export default function WirelessHotspot() {
         description="Professional enterprise Wi-Fi hotspot solutions for hotels, malls, offices and venues across UAE. Managed wireless infrastructure by Super Next Technologies, Dubai."
         keywords="enterprise wireless hotspot UAE, WiFi hotspot Dubai, managed WiFi UAE, hotel WiFi Dubai, enterprise WiFi UAE, wireless infrastructure UAE, hotspot installation Dubai"
         canonical="https://supernxt.com/wireless-hotspot"
+        schema={hotspotSchema}
       />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">

@@ -9,6 +9,26 @@ import {
 } from "lucide-react";
 import SEO from "@/components/SEO";
 
+const aboutSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": "https://supernxt.com/about#webpage",
+    "url": "https://supernxt.com/about",
+    "name": "About Super Next Technologies | Enterprise AI & IT Company Dubai, UAE",
+    "description": "Super Next Technologies (SNT) is a Dubai-based enterprise technology company. 500+ clients, AI, wireless, CCTV, cloud, and web services across UAE.",
+    "isPartOf": { "@id": "https://supernxt.com/#website" },
+    "about": { "@id": "https://supernxt.com/#organization" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://supernxt.com/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://supernxt.com/about" }
+      ]
+    }
+  }
+];
+
 const coreValues = [
   { 
     icon: Users, 
@@ -105,6 +125,7 @@ export default function About() {
         description="Super Next Technologies (SNT) is a Dubai-based enterprise technology company. 500+ clients, 100+ specialists, serving UAE and worldwide. AI, wireless, CCTV, cloud, web."
         keywords="about Super Next Technologies, SNT company Dubai, enterprise technology UAE, AI company Dubai, IT company Production City Dubai, technology company UAE"
         canonical="https://supernxt.com/about"
+        schema={aboutSchema}
       />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">

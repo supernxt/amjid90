@@ -12,6 +12,39 @@ import {
   Briefcase, Bot, Headphones, MessageCircle, Book
 } from "lucide-react";
 
+const aiSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://supernxt.com/ai-solutions#service",
+    "name": "AI Agents & Automation Solutions UAE",
+    "serviceType": "AI Automation",
+    "description": "Custom AI agents for marketing, sales, operations and support. Intelligent automation workflows, WhatsApp bots, n8n workflows, and AI chatbots for businesses across UAE.",
+    "url": "https://supernxt.com/ai-solutions",
+    "provider": { "@id": "https://supernxt.com/#organization" },
+    "areaServed": [{ "@type": "Country", "name": "United Arab Emirates" }],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AI Solutions",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Marketing Automation" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Sales & SDR Automation" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Customer Support Agents" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "WhatsApp AI Bots" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "n8n Workflow Automation" } }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://supernxt.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Solutions", "item": "https://supernxt.com/ai-solutions" }
+    ]
+  }
+];
+
 const categories = ["All", "Marketing", "Operations", "Product", "Sales", "Support"];
 
 const agents = [
@@ -49,6 +82,7 @@ export default function AISolutions() {
         description="Custom AI agents for marketing, sales, operations and support. Intelligent automation workflows for businesses across UAE. Based in Dubai."
         keywords="AI agents UAE, AI automation Dubai, chatbot development UAE, WhatsApp AI bot, voice AI assistant, n8n automation UAE, AI SDR Dubai, marketing automation UAE, AI solutions Dubai, intelligent automation UAE"
         canonical="https://supernxt.com/ai-solutions"
+        schema={aiSchema}
       />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">

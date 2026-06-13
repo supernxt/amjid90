@@ -47,14 +47,20 @@ export default function SEO({
 
     setMeta("description", description);
     if (keywords) setMeta("keywords", keywords);
+    const canonicalUrl = canonical || `https://supernxt.com${window.location.pathname}`;
+
+    setMeta("og:type", "website", true);
+    setMeta("og:url", canonicalUrl, true);
     setMeta("og:title", ogTitle || title, true);
     setMeta("og:description", ogDescription || description, true);
     setMeta("og:image", ogImage, true);
+    setMeta("og:locale", "en_AE", true);
+    setMeta("twitter:card", "summary_large_image", true);
+    setMeta("twitter:url", canonicalUrl, true);
     setMeta("twitter:title", ogTitle || title, true);
     setMeta("twitter:description", ogDescription || description, true);
     setMeta("twitter:image", ogImage, true);
 
-    const canonicalUrl = canonical || `https://supernxt.com${window.location.pathname}`;
     setLink("canonical", canonicalUrl);
 
     if (schema) {

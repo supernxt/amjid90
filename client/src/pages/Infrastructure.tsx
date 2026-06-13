@@ -5,6 +5,38 @@ import { openAIChat } from "@/lib/ai-assistant";
 import { Server, Database, Cloud, Lock, ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 
+const infraSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://supernxt.com/infrastructure#service",
+    "name": "Cloud Infrastructure & Server Management UAE",
+    "serviceType": "Cloud Computing",
+    "description": "Managed cloud infrastructure, server management, cloud migration and enterprise networking across UAE. 99.9% uptime SLA. 24/7 monitoring.",
+    "url": "https://supernxt.com/infrastructure",
+    "provider": { "@id": "https://supernxt.com/#organization" },
+    "areaServed": [{ "@type": "Country", "name": "United Arab Emirates" }],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Cloud Infrastructure Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Server Management" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Migration UAE" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "VPS Hosting Dubai" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Network Security" } }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://supernxt.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Cloud Infrastructure", "item": "https://supernxt.com/infrastructure" }
+    ]
+  }
+];
+
 export default function Infrastructure() {
   return (
     <VideoBackground variant="infrastructure">
@@ -13,6 +45,7 @@ export default function Infrastructure() {
         description="Managed cloud infrastructure, server management, cloud migration and enterprise networking across UAE. 99.9% uptime SLA. 24/7 monitoring. Super Next Technologies, Dubai."
         keywords="cloud infrastructure UAE, server management Dubai, cloud services UAE, managed IT Dubai, cloud migration UAE, enterprise networking UAE, VPS hosting Dubai, IT infrastructure UAE"
         canonical="https://supernxt.com/infrastructure"
+        schema={infraSchema}
       />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">

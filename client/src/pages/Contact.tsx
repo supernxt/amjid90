@@ -7,6 +7,25 @@ import { Mail, Phone, MapPin, Send, MessageSquare, CheckCircle, AlertCircle, Loa
 import { useState } from "react";
 import SEO from "@/components/SEO";
 
+const contactSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": "https://supernxt.com/contact#webpage",
+    "url": "https://supernxt.com/contact",
+    "name": "Contact Super Next Technologies | Dubai, UAE",
+    "description": "Contact Super Next Technologies in Dubai. Phone: +971-48864215. Email: hello@supernxt.com. 24/7 support for enterprise AI, wireless, and IT services.",
+    "isPartOf": { "@id": "https://supernxt.com/#website" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://supernxt.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://supernxt.com/contact" }
+      ]
+    }
+  }
+];
+
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -44,6 +63,7 @@ export default function Contact() {
         description="Contact Super Next Technologies in Dubai, UAE. Phone: +971-48864215. Email: hello@supernxt.com. Enterprise AI, wireless hotspot, cloud infrastructure and web development services across UAE."
         keywords="contact Super Next Technologies, Super Next Technologies Dubai, SNT UAE contact, enterprise IT services contact, AI company Dubai phone, technology company UAE email"
         canonical="https://supernxt.com/contact"
+        schema={contactSchema}
       />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
