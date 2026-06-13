@@ -243,7 +243,85 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. Lead Generation / Consultation CTA */}
+      {/* 7. Client Testimonials */}
+      <section className="px-4 md:px-8 py-20 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <span className="text-primary text-sm font-semibold tracking-wider uppercase">Client Stories</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-4 text-gray-900">
+              Trusted by UAE Enterprises
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              From hospitality to healthcare — here's what our clients say about working with SNT.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                quote: "SNT deployed our entire hotel Wi-Fi across 312 rooms in under a week. Zero downtime since go-live. Exceptional team.",
+                name: "Mohammed Al Rashid",
+                role: "IT Director",
+                company: "Luxury Hotel Group, Dubai",
+                rating: 5,
+                initial: "M",
+                color: "bg-blue-500",
+              },
+              {
+                quote: "Their AI automation cut our manual invoicing time by 80%. The WhatsApp bot alone handles 200+ customer queries a day without any human intervention.",
+                name: "Priya Nair",
+                role: "Operations Manager",
+                company: "Retail Chain, Abu Dhabi",
+                rating: 5,
+                initial: "P",
+                color: "bg-violet-500",
+              },
+              {
+                quote: "We needed CCTV, structured cabling, and managed IT — all from one vendor. SNT delivered on time, on budget, across all our UAE branches.",
+                name: "Ahmed Hassan",
+                role: "CEO",
+                company: "Real Estate Developer, Sharjah",
+                rating: 5,
+                initial: "A",
+                color: "bg-emerald-500",
+              },
+            ].map((t, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-gray-50 rounded-2xl p-7 border border-gray-100 flex flex-col gap-5 hover:shadow-md hover:border-primary/20 transition-all"
+                data-testid={`card-testimonial-${i}`}
+              >
+                <div className="flex gap-1">
+                  {Array.from({ length: t.rating }).map((_, s) => (
+                    <Star key={s} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed flex-1">"{t.quote}"</p>
+                <div className="flex items-center gap-3 pt-2 border-t border-gray-200">
+                  <div className={`w-9 h-9 rounded-full ${t.color} flex items-center justify-center text-white font-bold text-sm shrink-0`}>
+                    {t.initial}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 text-sm">{t.name}</p>
+                    <p className="text-gray-500 text-xs">{t.role} · {t.company}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Lead Generation / Consultation CTA */}
       <section className="px-4 md:px-8 py-20 bg-white">
         <div className="max-w-5xl mx-auto">
           <motion.div

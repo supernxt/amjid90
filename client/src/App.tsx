@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import AIVoiceWidget from "@/components/AIVoiceWidget";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
+import CookieConsent from "@/components/CookieConsent";
 
 const Home                = lazy(() => import("@/pages/Home"));
 const AISolutions         = lazy(() => import("@/pages/AISolutions"));
@@ -77,6 +78,7 @@ function App() {
           <AIVoiceWidget />
           <WhatsAppButton />
           <ScrollToTop />
+          <CookieConsent />
         </div>
         <Toaster />
       </TooltipProvider>
