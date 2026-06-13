@@ -1,0 +1,57 @@
+root@srv1064472:/var/www/amjid90# cd /var/www/amjid90
+git pull origin main
+bash deploy-vps.sh
+From https://github.com/supernxt/amjid90
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+🚀 Building Super Next Technologies...
+📦 Building frontend...
+deploy-vps.sh: line 8: vite: command not found
+📦 Building backend...
+deploy-vps.sh: line 12: esbuild: command not found
+✅ Build complete!
+📁 Files ready in dist/ folder
+root@srv1064472:/var/www/amjid90# cd /var/www/amjid90
+git pull origin main
+npx vite build
+npx esbuild server/index.ts --platform=node --bundle --format=esm --outdir=dist --external:vite --external:@vitejs/plugin-react --external:@replit/vite-plugin-cartographer --external:@replit/vite-plugin-runtime-error-modal
+pm2 restart supernxt --update-env
+From https://github.com/supernxt/amjid90
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+vite v5.4.20 building for production...
+transforming (1) index.htmlBrowserslist: browsers data (caniuse-lite) is 20 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+transforming (4) src/App.tsx
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 2042 modules transformed.
+../dist/public/index.html                                                        23.87 kB │ gzip:   5.39 kB
+../dist/public/assets/icononly_transparent_nobuffer_1760207932143-DuY2fWzj.png   80.75 kB
+../dist/public/assets/icononly_nobuffer_1760202128142-ClxSnXFr.png               90.15 kB
+../dist/public/assets/index-DAzz6-Mf.css                                        107.19 kB │ gzip:  16.03 kB
+../dist/public/assets/index-DRb1difY.js                                         606.81 kB │ gzip: 171.66 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 7.07s
+✘ [ERROR] Could not resolve "nodemailer"
+
+    server/routes.ts:4:23:
+      4 │ import nodemailer from "nodemailer";
+        ╵                        ~~~~~~~~~~~~
+
+  You can mark the path "nodemailer" as external to exclude it from the bundle, which will remove
+  this error and leave the unresolved path in the bundle.
+
+1 error
+[PM2] Applying action restartProcessId on app [supernxt](ids: [ 0 ])
+[PM2] [supernxt](0) ✓
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ 1.0.0   │ cluster │ 229135   │ 0s     │ 11   │ online    │ 0%       │ 44.9mb   │ root     │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+root@srv1064472:/var/www/amjid90# 

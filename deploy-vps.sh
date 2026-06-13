@@ -9,17 +9,18 @@ echo "=== Super Next Technologies — Deploy ==="
 echo "[1/5] Pulling latest code..."
 git pull origin main
 
-# 2. Install / update dependencies (only needed for build tools)
-echo "[2/5] Installing dependencies..."
-npm install
+# 2. Install runtime dependencies from the public npm registry
+#    (bypasses any Replit internal registry that VPS can't reach)
+echo "[2/5] Installing runtime dependencies..."
+npm install nodemailer --registry https://registry.npmjs.org
 
 # 3. Build frontend (Vite)
 echo "[3/5] Building frontend..."
 npx vite build
 
-# 4. Build backend — bundle everything EXCEPT Node built-ins and vite
-#    nodemailer and all runtime deps are bundled in so the VPS needs no npm registry
-echo "[4/5] Building backend (self-contained bundle)..."
+# 4. Build backend — bundle everything except vite (dev-only) and nodemailer
+#    nodemailer is loaded from node_modules installed in step 2
+echo "[4/5] Building backend..."
 npx esbuild server/index.ts \
   --platform=node \
   --bundle \
@@ -28,9 +29,10 @@ npx esbuild server/index.ts \
   --external:vite \
   --external:@vitejs/plugin-react \
   --external:@replit/vite-plugin-cartographer \
-  --external:@replit/vite-plugin-runtime-error-modal
+  --external:@replit/vite-plugin-runtime-error-modal \
+  --external:nodemailer
 
-# 5. Restart (or start) pm2 with the correct command
+# 5. Restart pm2
 echo "[5/5] Restarting pm2..."
 if pm2 describe supernxt > /dev/null 2>&1; then
   pm2 restart supernxt --update-env
