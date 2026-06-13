@@ -38,3 +38,10 @@ author = "agent"
 task = "shell.exec"
 args = "npm run dev"
 waitForPort = 5000
+
+[userenv]
+
+[userenv.shared]
+SMTP_HOST = "mail.supernxt.com"
+SMTP_PORT = "587"
+SMTP_USER = "hello@supernxt.com"
