@@ -1,81 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
   <url>
     <loc>https://supernxt.com/</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/" />
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/" />
+    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/" />
+    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/" />
+    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/" />
+    <image:image>
+      <image:loc>https://supernxt.com/og-image.png</image:loc>
+      <image:title>Super Next Technologies — AI Solutions &amp; Enterprise IT Services</image:title>
+      <image:caption>Leading AI Solutions provider in UAE, Saudi Arabia, Qatar and Oman</image:caption>
+    </image:image>
   </url>
+
+  <!-- AI Solutions -->
   <url>
     <loc>https://supernxt.com/ai-solutions</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/ai-solutions" />
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/ai-solutions" />
+    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/ai-solutions" />
+    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/ai-solutions" />
+    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/ai-solutions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/ai-solutions" />
   </url>
+
+  <!-- Enterprise Wireless Hotspot -->
   <url>
     <loc>https://supernxt.com/wireless-hotspot</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/wireless-hotspot" />
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/wireless-hotspot" />
+    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/wireless-hotspot" />
+    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/wireless-hotspot" />
+    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/wireless-hotspot" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/wireless-hotspot" />
   </url>
+
+  <!-- Infrastructure -->
   <url>
     <loc>https://supernxt.com/infrastructure</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/infrastructure" />
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/infrastructure" />
+    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/infrastructure" />
+    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/infrastructure" />
+    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/infrastructure" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/infrastructure" />
   </url>
+
+  <!-- Website Development -->
   <url>
     <loc>https://supernxt.com/website-development</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/website-development" />
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/website-development" />
+    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/website-development" />
+    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/website-development" />
+    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/website-development" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/website-development" />
   </url>
-  <url>
-    <loc>https://supernxt.com/templates</loc>
-    <lastmod>2026-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://supernxt.com/case-studies</loc>
-    <lastmod>2026-01-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://supernxt.com/support</loc>
-    <lastmod>2026-01-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://supernxt.com/about</loc>
-    <lastmod>2026-01-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://supernxt.com/contact</loc>
-    <lastmod>2026-01-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+
+  <!-- Pricing -->
   <url>
     <loc>https://supernxt.com/pricing</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/pricing" />
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/pricing" />
+    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/pricing" />
+    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/pricing" />
+    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/pricing" />
+  </url>
+
+  <!-- Templates -->
+  <url>
+    <loc>https://supernxt.com/templates</loc>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/templates" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/templates" />
   </url>
+
+  <!-- Case Studies -->
   <url>
-    <loc>https://supernxt.com/legal/eula</loc>
-    <lastmod>2026-01-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://supernxt.com/case-studies</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/case-studies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/case-studies" />
   </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://supernxt.com/about</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/about" />
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://supernxt.com/contact</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/contact" />
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://supernxt.com/contact" />
+    <xhtml:link rel="alternate" hreflang="en-SA" href="https://supernxt.com/contact" />
+    <xhtml:link rel="alternate" hreflang="en-QA" href="https://supernxt.com/contact" />
+    <xhtml:link rel="alternate" hreflang="en-OM" href="https://supernxt.com/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/contact" />
+  </url>
+
+  <!-- Support -->
+  <url>
+    <loc>https://supernxt.com/support</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/support" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/support" />
+  </url>
+
+  <!-- Legal: Privacy Policy -->
   <url>
     <loc>https://supernxt.com/legal/privacy</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/legal/privacy" />
   </url>
+
+  <!-- Legal: EULA -->
+  <url>
+    <loc>https://supernxt.com/legal/eula</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://supernxt.com/legal/eula" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://supernxt.com/legal/eula" />
+  </url>
+
 </urlset>

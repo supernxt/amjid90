@@ -4,10 +4,17 @@ import ValueTiles from "@/components/ValueTiles";
 import OfferStrip from "@/components/OfferStrip";
 import TrustBar from "@/components/TrustBar";
 import VideoSlider from "@/components/VideoSlider";
+import SEO from "@/components/SEO";
 
 export default function Home() {
   return (
     <VideoBackground variant="default">
+      <SEO
+        title="Super Next Technologies | AI Solutions & Enterprise IT Services in UAE, Saudi Arabia, Qatar, Oman"
+        description="Super Next Technologies — Leading AI Solutions, Enterprise Wireless Hotspots, Cloud Infrastructure & Website Development in UAE, Saudi Arabia, Qatar, Oman and worldwide. Based in Dubai. 24/7 support."
+        keywords="AI solutions Dubai, AI agents UAE, enterprise IT services, wireless hotspot UAE, cloud infrastructure GCC, website development Saudi Arabia, IT company Qatar, technology Oman, Super Next Technologies"
+        canonical="https://supernxt.com/"
+      />
       <Hero3D />
       <TrustBar />
       <div className="px-4 md:px-8 py-20 bg-white">

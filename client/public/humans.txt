@@ -1,0 +1,26 @@
+/* TEAM */
+Company: Super Next Technologies (SNT)
+Location: Production City, Dubai, United Arab Emirates
+Contact: hello@supernxt.com
+Phone: +971-48864215
+
+/* SITE */
+Last update: 2026-06-13
+Language: English, Arabic
+Doctype: HTML5
+IDE: VS Code, Cursor
+Standards: HTML5, CSS3, ES6+, TypeScript, React
+
+/* TECHNOLOGY */
+Frontend: React 18, TypeScript, Vite, TailwindCSS, Framer Motion
+Backend: Node.js, Express
+Database: PostgreSQL (Neon)
+AI: ElevenLabs Conversational AI
+Hosting: Hostinger VPS with Nginx + SSL (Let's Encrypt)
+Domain: supernxt.com
+
+/* DESCRIPTION */
+Super Next Technologies is an enterprise technology company based in Dubai, UAE.
+We specialize in AI agents, intelligent automation, enterprise wireless hotspots,
+cloud infrastructure, and professional website development.
+Serving UAE, Saudi Arabia, Qatar, Oman, and the wider GCC region.

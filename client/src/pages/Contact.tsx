@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send, MessageSquare } from "lucide-react";
 import { useState } from "react";
+import SEO from "@/components/SEO";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -22,6 +23,12 @@ export default function Contact() {
 
   return (
     <VideoBackground variant="default">
+      <SEO
+        title="Contact Super Next Technologies | Dubai, UAE"
+        description="Contact Super Next Technologies in Dubai, UAE. Phone: +971-48864215. Email: hello@supernxt.com. Enterprise AI, wireless hotspot, cloud infrastructure and web development services across UAE, Saudi Arabia, Qatar and Oman."
+        keywords="contact Super Next Technologies, Super Next Technologies Dubai, SNT UAE contact, enterprise IT services contact, AI company Dubai phone, technology company UAE email"
+        canonical="https://supernxt.com/contact"
+      />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}

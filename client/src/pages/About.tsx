@@ -7,6 +7,7 @@ import {
   Award, TrendingUp, Target, Building2,
   CheckCircle, ArrowRight, MapPin, Phone
 } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const coreValues = [
   { 
@@ -99,6 +100,12 @@ const expertise = [
 export default function About() {
   return (
     <VideoBackground variant="default">
+      <SEO
+        title="About Super Next Technologies | Enterprise AI & IT Company Dubai, UAE"
+        description="Super Next Technologies (SNT) is a Dubai-based enterprise technology company founded in 2020. 500+ clients, 100+ specialists, serving UAE, Saudi Arabia, Qatar, Oman and worldwide. AI, wireless, cloud, web."
+        keywords="about Super Next Technologies, SNT company Dubai, enterprise technology UAE, AI company Middle East, IT company Production City Dubai, technology firm GCC"
+        canonical="https://supernxt.com/about"
+      />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}

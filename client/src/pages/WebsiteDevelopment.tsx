@@ -3,10 +3,17 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
 import { Code, Palette, Rocket, Smartphone, ArrowRight } from "lucide-react";
+import SEO from "@/components/SEO";
 
 export default function WebsiteDevelopment() {
   return (
     <VideoBackground variant="web">
+      <SEO
+        title="Website Development Dubai & UAE | Super Next Technologies"
+        description="Professional website design and development in UAE, Saudi Arabia, Qatar and Oman. Custom, responsive, SEO-optimized websites for businesses. Super Next Technologies based in Dubai."
+        keywords="website development Dubai, web design UAE, website company Saudi Arabia, web development Qatar, website Oman, custom website GCC, e-commerce UAE, web application Dubai, SEO website Middle East"
+        canonical="https://supernxt.com/website-development"
+      />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header with Image */}

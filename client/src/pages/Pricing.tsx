@@ -2,10 +2,17 @@ import { motion } from "framer-motion";
 import VideoBackground from "@/components/VideoBackground";
 import PricingCard from "@/components/PricingCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import SEO from "@/components/SEO";
 
 export default function Pricing() {
   return (
     <VideoBackground variant="pricing">
+      <SEO
+        title="Pricing — AI Solutions & IT Services | Super Next Technologies UAE"
+        description="Transparent pricing for AI agents, enterprise wireless hotspots, cloud infrastructure and website development. Flexible plans for businesses in UAE, Saudi Arabia, Qatar and Oman."
+        keywords="AI solutions pricing UAE, IT services cost Dubai, enterprise technology pricing GCC, website development cost Saudi Arabia, cloud infrastructure pricing Qatar, Super Next Technologies plans"
+        canonical="https://supernxt.com/pricing"
+      />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
         <motion.div

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import VideoBackground from "@/components/VideoBackground";
+import SEO from "@/components/SEO";
 import FlipCard from "@/components/FlipCard";
 import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
@@ -43,6 +44,12 @@ export default function AISolutions() {
 
   return (
     <VideoBackground variant="ai">
+      <SEO
+        title="AI Agents & Automation Solutions UAE | Super Next Technologies"
+        description="Custom AI agents for marketing, sales, operations and support. Intelligent automation workflows for businesses in UAE, Saudi Arabia, Qatar and Oman. Based in Dubai."
+        keywords="AI agents UAE, AI automation Dubai, chatbot development UAE, WhatsApp AI bot, voice AI assistant, n8n automation UAE, AI SDR Dubai, marketing automation GCC, AI solutions Saudi Arabia, intelligent automation Qatar"
+        canonical="https://supernxt.com/ai-solutions"
+      />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header with AI Image */}

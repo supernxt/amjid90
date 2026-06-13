@@ -3,10 +3,17 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
 import { Server, Database, Cloud, Lock, ArrowRight } from "lucide-react";
+import SEO from "@/components/SEO";
 
 export default function Infrastructure() {
   return (
     <VideoBackground variant="infrastructure">
+      <SEO
+        title="Cloud Infrastructure Services UAE | Super Next Technologies"
+        description="Managed cloud infrastructure, server management, cloud migration and enterprise networking in UAE, Saudi Arabia, Qatar and Oman. 99.9% uptime SLA. 24/7 monitoring. Super Next Technologies, Dubai."
+        keywords="cloud infrastructure UAE, server management Dubai, cloud services Saudi Arabia, managed IT Qatar, cloud migration Oman, enterprise networking GCC, VPS hosting Dubai, IT infrastructure Middle East"
+        canonical="https://supernxt.com/infrastructure"
+      />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header with Image */}

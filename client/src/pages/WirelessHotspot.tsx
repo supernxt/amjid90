@@ -3,10 +3,17 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
 import { Wifi, Shield, Zap, Users, ArrowRight } from "lucide-react";
+import SEO from "@/components/SEO";
 
 export default function WirelessHotspot() {
   return (
     <VideoBackground variant="wireless">
+      <SEO
+        title="Enterprise Wireless Hotspots UAE | Super Next Technologies"
+        description="Professional enterprise Wi-Fi hotspot solutions for hotels, malls, offices and venues in UAE, Saudi Arabia, Qatar and Oman. Managed wireless infrastructure by Super Next Technologies, Dubai."
+        keywords="enterprise wireless hotspot UAE, WiFi hotspot Dubai, managed WiFi Saudi Arabia, hotel WiFi Qatar, enterprise WiFi Oman, wireless infrastructure GCC, hotspot installation Dubai"
+        canonical="https://supernxt.com/wireless-hotspot"
+      />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header with Image */}

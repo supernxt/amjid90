@@ -8,6 +8,7 @@ import {
   Hotel, TrendingUp, Users, DollarSign, ArrowRight,
   CheckCircle, Star, Award
 } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const caseStudies = [
   {
@@ -118,6 +119,12 @@ const stats = [
 export default function CaseStudies() {
   return (
     <VideoBackground variant="default">
+      <SEO
+        title="Case Studies — AI & IT Solutions UAE | Super Next Technologies"
+        description="Real-world case studies from Super Next Technologies. AI automation, enterprise WiFi, cloud infrastructure and web development projects across UAE, Saudi Arabia, Qatar and Oman."
+        keywords="AI case studies UAE, technology success stories Dubai, enterprise IT results GCC, AI automation case study, wireless hotspot project UAE, cloud infrastructure case study"
+        canonical="https://supernxt.com/case-studies"
+      />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}

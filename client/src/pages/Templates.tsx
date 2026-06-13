@@ -1,6 +1,7 @@
 import { useState } from "react";
 import VideoBackground from "@/components/VideoBackground";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { 
@@ -137,6 +138,12 @@ export default function Templates() {
 
   return (
     <VideoBackground variant="default">
+      <SEO
+        title="Website Templates UAE | Super Next Technologies"
+        description="Professional website templates for businesses in UAE, Saudi Arabia, Qatar and Oman. E-commerce, healthcare, hospitality, education and more. Ready-to-launch designs by Super Next Technologies, Dubai."
+        keywords="website templates UAE, web templates Dubai, business website templates GCC, e-commerce template Saudi Arabia, professional templates Qatar, website design Oman"
+        canonical="https://supernxt.com/templates"
+      />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header Section */}
