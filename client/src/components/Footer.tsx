@@ -19,9 +19,6 @@ const footerLinks = {
   ],
   Locations: [
     { label: "Dubai", path: "/" },
-    { label: "Dubai — JLT", path: "/dubai/jlt" },
-    { label: "Dubai — Deira", path: "/dubai/deira" },
-    { label: "Dubai — Business Bay", path: "/dubai/business-bay" },
     { label: "Abu Dhabi", path: "/abu-dhabi" },
     { label: "Sharjah", path: "/sharjah" },
     { label: "Ajman", path: "/ajman" },
@@ -32,14 +29,7 @@ const footerLinks = {
     { label: "Hotels & Resorts", path: "/hotels" },
     { label: "Hospitals & Clinics", path: "/hospitals" },
     { label: "Warehouses & Logistics", path: "/warehouses" },
-    { label: "Government & Public Sector", path: "/government" },
-    { label: "Schools & Universities", path: "/education" },
-    { label: "Retail & Malls", path: "/retail" },
     { label: "Labor Camps", path: "/labor-camp-wifi" },
-  ],
-  Portfolio: [
-    { label: "Project Portfolio", path: "/portfolio" },
-    { label: "Case Studies", path: "/case-studies" },
   ],
   Company: [
     { label: "About", path: "/about" },
