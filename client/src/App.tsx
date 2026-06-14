@@ -34,6 +34,12 @@ const Pricing             = lazy(() => import("@/pages/Pricing"));
 const Blog                = lazy(() => import("@/pages/Blog"));
 const AbuDhabi            = lazy(() => import("@/pages/AbuDhabi"));
 const Sharjah             = lazy(() => import("@/pages/Sharjah"));
+const Ajman               = lazy(() => import("@/pages/Ajman"));
+const RasAlKhaimah        = lazy(() => import("@/pages/RasAlKhaimah"));
+const Fujairah            = lazy(() => import("@/pages/Fujairah"));
+const Hotels              = lazy(() => import("@/pages/Hotels"));
+const Hospitals           = lazy(() => import("@/pages/Hospitals"));
+const Warehouses          = lazy(() => import("@/pages/Warehouses"));
 const NotFoundPage        = lazy(() => import("@/pages/NotFoundPage"));
 
 function PageLoader() {
@@ -69,6 +75,12 @@ function Router() {
         <Route path="/blog" component={Blog} />
         <Route path="/abu-dhabi" component={AbuDhabi} />
         <Route path="/sharjah" component={Sharjah} />
+        <Route path="/ajman" component={Ajman} />
+        <Route path="/ras-al-khaimah" component={RasAlKhaimah} />
+        <Route path="/fujairah" component={Fujairah} />
+        <Route path="/hotels" component={Hotels} />
+        <Route path="/hospitals" component={Hospitals} />
+        <Route path="/warehouses" component={Warehouses} />
         <Route component={NotFoundPage} />
       </Switch>
     </Suspense>
