@@ -99,7 +99,7 @@ export default function Ajman() {
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-gray-300/30 border border-gray-100">
                 <img
-                  src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=500&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800&h=500&fit=crop&q=80"
                   alt="Ajman IT Solutions"
                   className="w-full h-80 object-cover"
                   loading="lazy"

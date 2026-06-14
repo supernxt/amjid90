@@ -17,14 +17,25 @@ const footerLinks = {
     { label: "Network Infrastructure", path: "/network-infrastructure" },
     { label: "Labor Camp WiFi", path: "/labor-camp-wifi" },
   ],
-  Resources: [
-    { label: "Case Studies", path: "/case-studies" },
-    { label: "Templates & Use Cases", path: "/templates" },
-    { label: "Support", path: "/support" },
+  Locations: [
+    { label: "Dubai", path: "/" },
+    { label: "Abu Dhabi", path: "/abu-dhabi" },
+    { label: "Sharjah", path: "/sharjah" },
+    { label: "Ajman", path: "/ajman" },
+    { label: "Ras Al Khaimah", path: "/ras-al-khaimah" },
+    { label: "Fujairah", path: "/fujairah" },
+  ],
+  Industries: [
+    { label: "Hotels & Resorts", path: "/hotels" },
+    { label: "Hospitals & Clinics", path: "/hospitals" },
+    { label: "Warehouses & Logistics", path: "/warehouses" },
+    { label: "Labor Camps", path: "/labor-camp-wifi" },
   ],
   Company: [
     { label: "About", path: "/about" },
     { label: "Contact", path: "/contact" },
+    { label: "Case Studies", path: "/case-studies" },
+    { label: "Blog", path: "/blog" },
     { label: "Privacy Policy", path: "/legal/privacy" },
     { label: "EULA", path: "/legal/eula" },
   ],
@@ -45,7 +56,7 @@ export default function Footer() {
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-rose-500 to-orange-500" />
       
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-10 mb-16">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
