@@ -34,6 +34,7 @@ const footerLinks = {
   Company: [
     { label: "About", path: "/about" },
     { label: "Contact", path: "/contact" },
+    { label: "Free IT Audit", path: "/free-audit" },
     { label: "Case Studies", path: "/case-studies" },
     { label: "Blog", path: "/blog" },
     { label: "Privacy Policy", path: "/legal/privacy" },

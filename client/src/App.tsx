@@ -40,6 +40,7 @@ const Fujairah            = lazy(() => import("@/pages/Fujairah"));
 const Hotels              = lazy(() => import("@/pages/Hotels"));
 const Hospitals           = lazy(() => import("@/pages/Hospitals"));
 const Warehouses          = lazy(() => import("@/pages/Warehouses"));
+const FreeAudit           = lazy(() => import("@/pages/FreeAudit"));
 const NotFoundPage        = lazy(() => import("@/pages/NotFoundPage"));
 
 function PageLoader() {
@@ -81,6 +82,7 @@ function Router() {
         <Route path="/hotels" component={Hotels} />
         <Route path="/hospitals" component={Hospitals} />
         <Route path="/warehouses" component={Warehouses} />
+        <Route path="/free-audit" component={FreeAudit} />
         <Route component={NotFoundPage} />
       </Switch>
     </Suspense>

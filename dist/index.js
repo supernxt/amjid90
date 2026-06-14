@@ -197,7 +197,8 @@ var ALL_URLS = [
   `${SITE_URL}/fujairah`,
   `${SITE_URL}/hotels`,
   `${SITE_URL}/hospitals`,
-  `${SITE_URL}/warehouses`
+  `${SITE_URL}/warehouses`,
+  `${SITE_URL}/free-audit`
 ];
 async function pingIndexNow(urls = ALL_URLS) {
   try {
