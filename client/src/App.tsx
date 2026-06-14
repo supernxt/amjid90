@@ -32,6 +32,7 @@ const NetworkInfrastructure = lazy(() => import("@/pages/NetworkInfrastructure")
 const LaborCampWifi       = lazy(() => import("@/pages/LaborCampWifi"));
 const Pricing             = lazy(() => import("@/pages/Pricing"));
 const Blog                = lazy(() => import("@/pages/Blog"));
+const BlogPost            = lazy(() => import("@/pages/BlogPost"));
 const AbuDhabi            = lazy(() => import("@/pages/AbuDhabi"));
 const Sharjah             = lazy(() => import("@/pages/Sharjah"));
 const Ajman               = lazy(() => import("@/pages/Ajman"));
@@ -74,6 +75,7 @@ function Router() {
         <Route path="/labor-camp-wifi" component={LaborCampWifi} />
         <Route path="/pricing" component={Pricing} />
         <Route path="/blog" component={Blog} />
+        <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/abu-dhabi" component={AbuDhabi} />
         <Route path="/sharjah" component={Sharjah} />
         <Route path="/ajman" component={Ajman} />

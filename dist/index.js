@@ -190,6 +190,11 @@ var ALL_URLS = [
   `${SITE_URL}/blog/cctv-solutions-uae-business-guide`,
   `${SITE_URL}/blog/structured-cabling-vs-wireless-uae-office`,
   `${SITE_URL}/blog/managed-it-amc-dubai-guide`,
+  `${SITE_URL}/blog/it-amc-cost-dubai-2025`,
+  `${SITE_URL}/blog/cctv-installation-dubai-cost-guide`,
+  `${SITE_URL}/blog/whatsapp-chatbot-uae-businesses`,
+  `${SITE_URL}/blog/fiber-optic-vs-cat6a-uae-offices`,
+  `${SITE_URL}/blog/it-support-company-dubai-how-to-choose`,
   `${SITE_URL}/abu-dhabi`,
   `${SITE_URL}/sharjah`,
   `${SITE_URL}/ajman`,
@@ -198,14 +203,7 @@ var ALL_URLS = [
   `${SITE_URL}/hotels`,
   `${SITE_URL}/hospitals`,
   `${SITE_URL}/warehouses`,
-  `${SITE_URL}/free-audit`,
-  `${SITE_URL}/dubai/jlt`,
-  `${SITE_URL}/dubai/deira`,
-  `${SITE_URL}/dubai/business-bay`,
-  `${SITE_URL}/government`,
-  `${SITE_URL}/education`,
-  `${SITE_URL}/retail`,
-  `${SITE_URL}/portfolio`
+  `${SITE_URL}/free-audit`
 ];
 async function pingIndexNow(urls = ALL_URLS) {
   try {
