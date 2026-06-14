@@ -41,6 +41,13 @@ const Hotels              = lazy(() => import("@/pages/Hotels"));
 const Hospitals           = lazy(() => import("@/pages/Hospitals"));
 const Warehouses          = lazy(() => import("@/pages/Warehouses"));
 const FreeAudit           = lazy(() => import("@/pages/FreeAudit"));
+const DubaiJLT            = lazy(() => import("@/pages/DubaiJLT"));
+const DubaiDeira          = lazy(() => import("@/pages/DubaiDeira"));
+const DubaiBusinessBay    = lazy(() => import("@/pages/DubaiBusinessBay"));
+const Government          = lazy(() => import("@/pages/Government"));
+const Education           = lazy(() => import("@/pages/Education"));
+const Retail              = lazy(() => import("@/pages/Retail"));
+const Portfolio           = lazy(() => import("@/pages/Portfolio"));
 const NotFoundPage        = lazy(() => import("@/pages/NotFoundPage"));
 
 function PageLoader() {
@@ -83,6 +90,13 @@ function Router() {
         <Route path="/hospitals" component={Hospitals} />
         <Route path="/warehouses" component={Warehouses} />
         <Route path="/free-audit" component={FreeAudit} />
+        <Route path="/dubai/jlt" component={DubaiJLT} />
+        <Route path="/dubai/deira" component={DubaiDeira} />
+        <Route path="/dubai/business-bay" component={DubaiBusinessBay} />
+        <Route path="/government" component={Government} />
+        <Route path="/education" component={Education} />
+        <Route path="/retail" component={Retail} />
+        <Route path="/portfolio" component={Portfolio} />
         <Route component={NotFoundPage} />
       </Switch>
     </Suspense>

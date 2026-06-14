@@ -198,7 +198,14 @@ var ALL_URLS = [
   `${SITE_URL}/hotels`,
   `${SITE_URL}/hospitals`,
   `${SITE_URL}/warehouses`,
-  `${SITE_URL}/free-audit`
+  `${SITE_URL}/free-audit`,
+  `${SITE_URL}/dubai/jlt`,
+  `${SITE_URL}/dubai/deira`,
+  `${SITE_URL}/dubai/business-bay`,
+  `${SITE_URL}/government`,
+  `${SITE_URL}/education`,
+  `${SITE_URL}/retail`,
+  `${SITE_URL}/portfolio`
 ];
 async function pingIndexNow(urls = ALL_URLS) {
   try {
