@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { SiWhatsapp } from "react-icons/si";
-import { X, Send, MessageCircle } from "lucide-react";
+import { X, Send, MessageCircle, Phone } from "lucide-react";
 import { useCookieBanner } from "@/hooks/useCookieBanner";
 
 const QUICK_MESSAGES = [
@@ -34,10 +34,8 @@ export default function WhatsAppButton() {
   return (
     <AnimatePresence>
       {visible && (
-        <motion.div
-          className={`fixed right-6 z-50 flex flex-col items-end gap-3 transition-all duration-500 ${bottomClass}`}
-          animate={{ bottom: undefined }}
-        >
+        <div className={`fixed right-6 z-50 flex flex-col items-end gap-3 transition-all duration-500 ${bottomClass}`}>
+
           {/* Chat panel */}
           <AnimatePresence>
             {open && (
@@ -120,32 +118,48 @@ export default function WhatsAppButton() {
             )}
           </AnimatePresence>
 
-          {/* FAB button */}
-          <motion.button
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            onClick={() => { setOpen(o => !o); setPulse(false); }}
-            data-testid="button-whatsapp-fab"
-            aria-label="Chat on WhatsApp"
-            className="relative flex items-center justify-center w-14 h-14 rounded-full bg-green-500 text-white shadow-xl hover:bg-green-600 transition-colors duration-200"
-          >
-            {pulse && !open && (
-              <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-60" />
-            )}
-            <AnimatePresence mode="wait">
-              {open ? (
-                <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                  <MessageCircle className="w-6 h-6 relative z-10" />
-                </motion.div>
-              ) : (
-                <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                  <SiWhatsapp className="w-7 h-7 relative z-10" />
-                </motion.div>
+          {/* FAB stack: WhatsApp on top, Call below */}
+          <div className="flex flex-col items-center gap-2">
+            {/* WhatsApp FAB */}
+            <motion.button
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              onClick={() => { setOpen(o => !o); setPulse(false); }}
+              data-testid="button-whatsapp-fab"
+              aria-label="Chat on WhatsApp"
+              className="relative flex items-center justify-center w-14 h-14 rounded-full bg-green-500 text-white shadow-xl hover:bg-green-600 transition-colors duration-200"
+            >
+              {pulse && !open && (
+                <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-60" />
               )}
-            </AnimatePresence>
-          </motion.button>
-        </motion.div>
+              <AnimatePresence mode="wait">
+                {open ? (
+                  <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
+                    <MessageCircle className="w-6 h-6 relative z-10" />
+                  </motion.div>
+                ) : (
+                  <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
+                    <SiWhatsapp className="w-7 h-7 relative z-10" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.button>
+
+            {/* Call FAB */}
+            <motion.a
+              href="tel:048864215"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.08 }}
+              data-testid="button-float-call"
+              aria-label="Call us"
+              className="flex items-center justify-center w-14 h-14 rounded-full bg-white border-2 border-gray-200 text-primary shadow-xl hover:border-primary hover:shadow-2xl transition-all duration-200"
+            >
+              <Phone className="w-6 h-6" />
+            </motion.a>
+          </div>
+        </div>
       )}
     </AnimatePresence>
   );
