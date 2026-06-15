@@ -15,6 +15,17 @@ export default function CookieConsent() {
     }
   }, []);
 
+  useEffect(() => {
+    if (visible) {
+      document.body.classList.add("cookie-banner-visible");
+    } else {
+      document.body.classList.remove("cookie-banner-visible");
+    }
+    return () => {
+      document.body.classList.remove("cookie-banner-visible");
+    };
+  }, [visible]);
+
   const accept = () => {
     localStorage.setItem("snt_cookie_consent", "accepted");
     setVisible(false);
@@ -33,10 +44,10 @@ export default function CookieConsent() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="fixed bottom-0 left-0 right-0 z-40 p-4 md:p-6"
+          className="fixed bottom-0 left-0 right-0 z-40 p-3 md:p-6"
         >
-          <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl shadow-xl p-5 md:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+          <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl shadow-xl p-4 md:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4">
+            <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
               <Cookie className="h-5 w-5 text-primary" />
             </div>
             <div className="flex-1 min-w-0">
@@ -47,13 +58,13 @@ export default function CookieConsent() {
                 </Link>.
               </p>
             </div>
-            <div className="flex items-center gap-2 shrink-0">
+            <div className="flex items-center gap-2 shrink-0 w-full sm:w-auto">
               <Button
                 size="sm"
                 variant="outline"
                 onClick={decline}
                 data-testid="button-cookie-decline"
-                className="border-gray-200 text-gray-600"
+                className="border-gray-200 text-gray-600 flex-1 sm:flex-none"
               >
                 Decline
               </Button>
@@ -61,7 +72,7 @@ export default function CookieConsent() {
                 size="sm"
                 onClick={accept}
                 data-testid="button-cookie-accept"
-                className="bg-primary text-white"
+                className="bg-primary text-white flex-1 sm:flex-none"
               >
                 Accept All
               </Button>
@@ -69,7 +80,7 @@ export default function CookieConsent() {
                 onClick={decline}
                 aria-label="Close"
                 data-testid="button-cookie-close"
-                className="ml-1 p-1 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
+                className="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
               >
                 <X className="h-4 w-4" />
               </button>

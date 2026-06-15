@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { SiWhatsapp } from "react-icons/si";
 import { X, Send, MessageCircle } from "lucide-react";
+import { useCookieBanner } from "@/hooks/useCookieBanner";
 
 const QUICK_MESSAGES = [
   "I'd like a free IT audit for my business.",
@@ -14,6 +15,7 @@ export default function WhatsAppButton() {
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const [pulse, setPulse] = useState(true);
+  const cookieBannerVisible = useCookieBanner();
 
   useEffect(() => {
     const t1 = setTimeout(() => setVisible(true), 1500);
@@ -25,10 +27,17 @@ export default function WhatsAppButton() {
     window.open(`https://wa.me/97148864215?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
+  const bottomClass = cookieBannerVisible
+    ? "bottom-36 sm:bottom-32 md:bottom-6"
+    : "bottom-6";
+
   return (
     <AnimatePresence>
       {visible && (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+        <motion.div
+          className={`fixed right-6 z-50 flex flex-col items-end gap-3 transition-all duration-500 ${bottomClass}`}
+          animate={{ bottom: undefined }}
+        >
           {/* Chat panel */}
           <AnimatePresence>
             {open && (
@@ -136,7 +145,7 @@ export default function WhatsAppButton() {
               )}
             </AnimatePresence>
           </motion.button>
-        </div>
+        </motion.div>
       )}
     </AnimatePresence>
   );

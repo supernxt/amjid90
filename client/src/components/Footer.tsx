@@ -17,18 +17,16 @@ const footerLinks = {
     { label: "Network Infrastructure", path: "/network-infrastructure" },
     { label: "Labor Camp WiFi", path: "/labor-camp-wifi" },
   ],
-  Locations: [
+  "Locations": [
     { label: "Dubai", path: "/" },
     { label: "Abu Dhabi", path: "/abu-dhabi" },
     { label: "Sharjah", path: "/sharjah" },
     { label: "Ajman", path: "/ajman" },
     { label: "Ras Al Khaimah", path: "/ras-al-khaimah" },
     { label: "Fujairah", path: "/fujairah" },
-  ],
-  Industries: [
     { label: "Hotels & Resorts", path: "/hotels" },
     { label: "Hospitals & Clinics", path: "/hospitals" },
-    { label: "Warehouses & Logistics", path: "/warehouses" },
+    { label: "Warehouses", path: "/warehouses" },
     { label: "Labor Camps", path: "/labor-camp-wifi" },
   ],
   Company: [
@@ -57,7 +55,7 @@ export default function Footer() {
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-rose-500 to-orange-500" />
       
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-10 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 mb-16">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
@@ -129,7 +127,7 @@ export default function Footer() {
               <h3 className="font-semibold text-white mb-5">{category}</h3>
               <ul className="space-y-3">
                 {links.map((link) => (
-                  <li key={link.path}>
+                  <li key={link.path + link.label}>
                     <Link href={link.path}>
                       <span 
                         className="text-gray-400 hover:text-primary transition-colors cursor-pointer flex items-center gap-1 group"

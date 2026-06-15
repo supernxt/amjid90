@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { openAIChat } from "@/lib/ai-assistant";
+import { useCookieBanner } from "@/hooks/useCookieBanner";
 
 declare global {
   namespace JSX {
@@ -12,8 +13,9 @@ declare global {
 }
 
 export default function AIVoiceWidget() {
+  const cookieBannerVisible = useCookieBanner();
+
   useEffect(() => {
-    // Only load AI assistant on HTTPS (required for microphone access)
     const isSecure = window.location.protocol === 'https:' || window.location.hostname === 'localhost';
     
     if (!isSecure) {
@@ -29,16 +31,12 @@ export default function AIVoiceWidget() {
     const initializeWidget = async () => {
       try {
         const existingWidget = document.querySelector('elevenlabs-convai');
-        if (existingWidget) {
-          return;
-        }
+        if (existingWidget) return;
 
-        // Wait for script to load
         await new Promise(resolve => setTimeout(resolve, 2000));
         
         if (!mounted) return;
 
-        // Check if custom element is defined
         if (!customElements.get('elevenlabs-convai')) {
           retryCount++;
           if (retryCount < maxRetries) {
@@ -49,7 +47,6 @@ export default function AIVoiceWidget() {
 
         widget = document.createElement('elevenlabs-convai');
         widget.setAttribute('agent-id', 'agent_9801k71wapq9ehvrghfwzstqjbdn');
-        
         document.body.appendChild(widget);
       } catch {
         // Silently fail
@@ -60,7 +57,6 @@ export default function AIVoiceWidget() {
 
     return () => {
       mounted = false;
-      
       if (widget && widget.parentNode) {
         widget.remove();
         widget = null;
@@ -68,8 +64,15 @@ export default function AIVoiceWidget() {
     };
   }, []);
 
+  const bottomClass = cookieBannerVisible
+    ? "bottom-52 sm:bottom-48 md:bottom-6"
+    : "bottom-6";
+
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3" data-testid="widget-ai-voice">
+    <div
+      className={`fixed right-24 z-50 flex flex-col gap-3 transition-all duration-500 ${bottomClass}`}
+      data-testid="widget-ai-voice"
+    >
       <Button
         size="icon"
         onClick={openAIChat}
