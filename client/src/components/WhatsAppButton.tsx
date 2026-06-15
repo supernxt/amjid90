@@ -27,7 +27,6 @@ export default function WhatsAppButton() {
     window.open(`https://wa.me/97148864215?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
-  // When cookie banner is visible, shift both buttons up to clear it
   const bottomClass = cookieBannerVisible
     ? "bottom-36 sm:bottom-32 md:bottom-6"
     : "bottom-6";
@@ -35,10 +34,13 @@ export default function WhatsAppButton() {
   return (
     <AnimatePresence>
       {visible && (
-        <div className={`fixed z-50 flex flex-col items-end gap-3 transition-all duration-500 ${bottomClass}`}
-          style={{ right: "6rem" }} // right-24 — leaves room for ElevenLabs widget at far right
-        >
-          {/* Chat panel */}
+        /*
+         * Pinned BOTTOM-LEFT so it never touches the ElevenLabs widget
+         * which is always anchored at bottom-right by the provider.
+         */
+        <div className={`fixed left-4 z-50 flex flex-col items-start gap-3 transition-all duration-500 ${bottomClass}`}>
+
+          {/* Chat panel — opens above the buttons, aligned to the left */}
           <AnimatePresence>
             {open && (
               <motion.div
@@ -106,13 +108,13 @@ export default function WhatsAppButton() {
             )}
           </AnimatePresence>
 
-          {/* Tooltip */}
+          {/* Tooltip — slides in from the left */}
           <AnimatePresence>
             {!open && pulse && (
               <motion.div
-                initial={{ opacity: 0, x: 8 }}
+                initial={{ opacity: 0, x: -8 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 8 }}
+                exit={{ opacity: 0, x: -8 }}
                 className="bg-white text-gray-800 text-sm font-medium px-3 py-1.5 rounded-xl shadow-lg border border-gray-100 whitespace-nowrap"
               >
                 Chat on WhatsApp
@@ -130,7 +132,7 @@ export default function WhatsAppButton() {
               onClick={() => { setOpen(o => !o); setPulse(false); }}
               data-testid="button-whatsapp-fab"
               aria-label="Chat on WhatsApp"
-              className="relative flex items-center justify-center w-13 h-13 w-[52px] h-[52px] rounded-full bg-green-500 text-white shadow-xl hover:bg-green-600 transition-colors duration-200"
+              className="relative flex items-center justify-center w-[52px] h-[52px] rounded-full bg-green-500 text-white shadow-xl hover:bg-green-600 transition-colors duration-200"
             >
               {pulse && !open && (
                 <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-60" />
@@ -161,6 +163,7 @@ export default function WhatsAppButton() {
               <Phone className="w-5 h-5" />
             </motion.a>
           </div>
+
         </div>
       )}
     </AnimatePresence>
