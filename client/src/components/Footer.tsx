@@ -53,24 +53,24 @@ function AccordionColumn({ title, links }: { title: string; links: { label: stri
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b border-gray-800 lg:border-none">
-      {/* Header — always clickable on mobile, static label on desktop */}
+    <div className="border-b border-gray-800">
+      {/* Clickable header — collapsed by default on all screen sizes */}
       <button
-        className="w-full flex items-center justify-between py-4 lg:py-0 lg:cursor-default lg:mb-5 group"
+        className="w-full flex items-center justify-between py-4 group"
         onClick={() => setOpen(o => !o)}
         data-testid={`button-footer-section-${title.toLowerCase().replace(/\s+/g, "-")}`}
         aria-expanded={open}
       >
         <h3 className="font-semibold text-white text-sm">{title}</h3>
         <ChevronDown
-          className={`h-4 w-4 text-gray-400 transition-transform duration-300 lg:hidden ${open ? "rotate-180" : ""}`}
+          className={`h-4 w-4 text-gray-400 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
         />
       </button>
 
-      {/* Links — always visible on desktop, accordion on mobile */}
+      {/* Drill-down links — collapsed until clicked */}
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out lg:overflow-visible lg:max-h-none lg:opacity-100 ${
-          open ? "max-h-96 opacity-100 pb-4" : "max-h-0 opacity-0 lg:pb-0"
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          open ? "max-h-[28rem] opacity-100 pb-4" : "max-h-0 opacity-0"
         }`}
       >
         <ul className="space-y-3">
@@ -165,7 +165,7 @@ export default function Footer() {
           </div>
 
           {/* Accordion Link Columns */}
-          <div className="lg:col-span-4 grid grid-cols-1 lg:grid-cols-4 lg:gap-8">
+          <div className="lg:col-span-4">
             {Object.entries(footerLinks).map(([category, links]) => (
               <AccordionColumn key={category} title={category} links={links} />
             ))}
