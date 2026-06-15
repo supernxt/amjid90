@@ -27,6 +27,7 @@ export default function WhatsAppButton() {
     window.open(`https://wa.me/97148864215?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
+  // When cookie banner is visible, shift both buttons up to clear it
   const bottomClass = cookieBannerVisible
     ? "bottom-36 sm:bottom-32 md:bottom-6"
     : "bottom-6";
@@ -34,8 +35,9 @@ export default function WhatsAppButton() {
   return (
     <AnimatePresence>
       {visible && (
-        <div className={`fixed right-6 z-50 flex flex-col items-end gap-3 transition-all duration-500 ${bottomClass}`}>
-
+        <div className={`fixed z-50 flex flex-col items-end gap-3 transition-all duration-500 ${bottomClass}`}
+          style={{ right: "6rem" }} // right-24 — leaves room for ElevenLabs widget at far right
+        >
           {/* Chat panel */}
           <AnimatePresence>
             {open && (
@@ -44,13 +46,13 @@ export default function WhatsAppButton() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 16, scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 300, damping: 28 }}
-                className="bg-white rounded-2xl shadow-2xl border border-gray-100 w-80 overflow-hidden"
+                className="bg-white rounded-2xl shadow-2xl border border-gray-100 w-72 sm:w-80 overflow-hidden"
               >
                 {/* Header */}
                 <div className="bg-green-500 px-4 py-3 flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
-                      <SiWhatsapp className="w-5 h-5 text-white" />
+                    <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                      <SiWhatsapp className="w-4 h-4 text-white" />
                     </div>
                     <div>
                       <p className="text-white font-semibold text-sm leading-tight">Super Next Technologies</p>
@@ -66,22 +68,22 @@ export default function WhatsAppButton() {
                 </div>
 
                 {/* Chat bubble */}
-                <div className="px-4 py-4 bg-gray-50">
+                <div className="px-4 py-3 bg-gray-50">
                   <div className="bg-white rounded-2xl rounded-tl-none px-4 py-3 shadow-sm border border-gray-100 max-w-[90%]">
                     <p className="text-sm text-gray-700 leading-relaxed">
                       Hi! How can we help you today? Pick a topic or type your own message.
                     </p>
-                    <p className="text-xs text-gray-400 mt-1.5">SNT Team</p>
+                    <p className="text-xs text-gray-400 mt-1">SNT Team</p>
                   </div>
                 </div>
 
                 {/* Quick replies */}
-                <div className="px-4 pb-4 bg-gray-50 space-y-2">
+                <div className="px-4 pb-4 bg-gray-50 space-y-1.5">
                   {QUICK_MESSAGES.map((msg) => (
                     <button
                       key={msg}
                       onClick={() => sendMessage(msg)}
-                      className="w-full text-left text-sm px-3.5 py-2.5 rounded-xl border border-green-200 bg-white text-gray-700 hover:bg-green-50 hover:border-green-400 transition-all flex items-center justify-between gap-2 group"
+                      className="w-full text-left text-sm px-3 py-2 rounded-xl border border-green-200 bg-white text-gray-700 hover:bg-green-50 hover:border-green-400 transition-all flex items-center justify-between gap-2 group"
                       data-testid="button-whatsapp-quick"
                     >
                       <span className="leading-snug">{msg}</span>
@@ -93,7 +95,7 @@ export default function WhatsAppButton() {
                     href="https://wa.me/97148864215"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-1 w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-semibold py-3 rounded-xl transition-colors"
+                    className="mt-1 w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-semibold py-2.5 rounded-xl transition-colors"
                     data-testid="link-whatsapp-open"
                   >
                     <SiWhatsapp className="w-4 h-4" />
@@ -104,22 +106,22 @@ export default function WhatsAppButton() {
             )}
           </AnimatePresence>
 
-          {/* Tooltip when closed */}
+          {/* Tooltip */}
           <AnimatePresence>
             {!open && pulse && (
               <motion.div
                 initial={{ opacity: 0, x: 8 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 8 }}
-                className="bg-white text-gray-800 text-sm font-medium px-3.5 py-2 rounded-xl shadow-lg border border-gray-100 whitespace-nowrap"
+                className="bg-white text-gray-800 text-sm font-medium px-3 py-1.5 rounded-xl shadow-lg border border-gray-100 whitespace-nowrap"
               >
-                Chat with us on WhatsApp
+                Chat on WhatsApp
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* FAB stack: WhatsApp on top, Call below */}
-          <div className="flex flex-col items-center gap-2">
+          {/* FAB stack: WhatsApp above, Call below */}
+          <div className="flex flex-col items-center gap-2.5">
             {/* WhatsApp FAB */}
             <motion.button
               initial={{ scale: 0, opacity: 0 }}
@@ -128,7 +130,7 @@ export default function WhatsAppButton() {
               onClick={() => { setOpen(o => !o); setPulse(false); }}
               data-testid="button-whatsapp-fab"
               aria-label="Chat on WhatsApp"
-              className="relative flex items-center justify-center w-14 h-14 rounded-full bg-green-500 text-white shadow-xl hover:bg-green-600 transition-colors duration-200"
+              className="relative flex items-center justify-center w-13 h-13 w-[52px] h-[52px] rounded-full bg-green-500 text-white shadow-xl hover:bg-green-600 transition-colors duration-200"
             >
               {pulse && !open && (
                 <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-60" />
@@ -136,11 +138,11 @@ export default function WhatsAppButton() {
               <AnimatePresence mode="wait">
                 {open ? (
                   <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                    <MessageCircle className="w-6 h-6 relative z-10" />
+                    <MessageCircle className="w-5 h-5 relative z-10" />
                   </motion.div>
                 ) : (
                   <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                    <SiWhatsapp className="w-7 h-7 relative z-10" />
+                    <SiWhatsapp className="w-6 h-6 relative z-10" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -154,9 +156,9 @@ export default function WhatsAppButton() {
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.08 }}
               data-testid="button-float-call"
               aria-label="Call us"
-              className="flex items-center justify-center w-14 h-14 rounded-full bg-white border-2 border-gray-200 text-primary shadow-xl hover:border-primary hover:shadow-2xl transition-all duration-200"
+              className="flex items-center justify-center w-[52px] h-[52px] rounded-full bg-white border-2 border-gray-200 text-primary shadow-xl hover:border-primary hover:shadow-2xl transition-all duration-200"
             >
-              <Phone className="w-6 h-6" />
+              <Phone className="w-5 h-5" />
             </motion.a>
           </div>
         </div>
