@@ -50,8 +50,8 @@ const footerSections: {
     title: "Network Tools",
     primaryPath: "/tools/",
     links: [
-      { label: "Network Analyzer", path: "/analyzer/" },
-      { label: "Speed Test", path: "/tools/speed-test/" },
+      { label: "Speed Test", path: "/analyzer" },
+      { label: "DNS Speed Test", path: "/tools/speed-test/" },
       { label: "DNS Finder", path: "/tools/fastest-dns-finder/" },
       { label: "Ping & Latency", path: "/tools/ping-latency-test/" },
       { label: "Network Health", path: "/tools/network-health-assessment/" },

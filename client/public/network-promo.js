@@ -9,14 +9,14 @@
     'Test Your Hotel Internet Speed',
     'Check Your Internet Performance',
     'Find the Fastest DNS for Your Network',
-    'Analyze Your Network Latency',
+    'Analyse Your Network Latency',
     'Diagnose Your Internet Connection',
   ];
-  var TARGET_URL = '/analyzer/';
+  var TARGET_URL = '/analyzer';
   var ROTATE_MS  = 7000;
   var SESSION_KEY = 'snt_promo_dismissed';
 
-  /* ─── Guard: skip on /analyzer/ and /tools/* pages ─────── */
+  /* ─── Guard: skip on /analyzer and /tools/* pages ───────── */
   var path = window.location.pathname;
   if (
     path === '/analyzer/' ||
@@ -35,8 +35,9 @@
   /* ─── Inject CSS ────────────────────────────────────────── */
   var style = document.createElement('style');
   style.textContent = [
+    /* Widget positioned top-right, just below the sticky navbar (~64px) */
     '.snt-promo{',
-      'position:fixed;bottom:110px;right:16px;z-index:9000;',
+      'position:fixed;top:72px;right:16px;z-index:9000;',
       'background:#243B66;color:#fff;',
       'border-radius:12px;',
       'box-shadow:0 4px 24px rgba(0,0,0,.35);',
@@ -75,9 +76,9 @@
     '}',
     '.snt-promo__close:hover{color:#fff;}',
     '.snt-promo__close:focus-visible{outline:1px solid #E30613;border-radius:2px;}',
-    /* mobile: compact */
+    /* mobile: full-width below navbar */
     '@media(max-width:480px){',
-      '.snt-promo{bottom:90px;right:10px;left:10px;max-width:none;}',
+      '.snt-promo{top:68px;right:10px;left:10px;max-width:none;}',
     '}',
   ].join('');
   document.head.appendChild(style);
@@ -92,11 +93,11 @@
   widget.innerHTML  = [
     '<div class="snt-promo__dot" aria-hidden="true"></div>',
     '<div class="snt-promo__body">',
-      '<div class="snt-promo__label">Free Network Tool</div>',
+      '<div class="snt-promo__label">Free Speed Test</div>',
       '<div class="snt-promo__msg" id="sntPromoMsg">' + MESSAGES[0] + '</div>',
       '<div class="snt-promo__sub">Tap to analyse your connection →</div>',
     '</div>',
-    '<button class="snt-promo__close" aria-label="Dismiss network tool promotion" id="sntPromoClose">✕</button>',
+    '<button class="snt-promo__close" aria-label="Dismiss" id="sntPromoClose">✕</button>',
   ].join('');
 
   /* ─── Dismiss ────────────────────────────────────────────── */
@@ -104,7 +105,7 @@
     sessionStorage.setItem(SESSION_KEY, '1');
     if (!reducedMotion) {
       widget.style.opacity   = '0';
-      widget.style.transform = 'translateY(8px)';
+      widget.style.transform = 'translateY(-8px)';
       setTimeout(function () { if (widget.parentNode) widget.parentNode.removeChild(widget); }, 350);
     } else {
       if (widget.parentNode) widget.parentNode.removeChild(widget);
@@ -112,7 +113,6 @@
   }
 
   document.getElementById && (function(){
-    /* close button */
     widget.addEventListener('click', function (e) {
       var target = e.target;
       if (target.id === 'sntPromoClose' || target.closest('#sntPromoClose')) {
@@ -123,7 +123,6 @@
       window.location.href = TARGET_URL;
     });
 
-    /* keyboard: Enter activates, Escape dismisses */
     widget.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') { window.location.href = TARGET_URL; }
       if (e.key === 'Escape') { dismiss(); }
@@ -151,7 +150,6 @@
   /* ─── Mount after page interactive ─────────────────────── */
   function mount() {
     document.body.appendChild(widget);
-    /* ensure dismiss removes timer */
     var origDismiss = dismiss;
     dismiss = function () { clearInterval(rotateTimer); origDismiss(); };
   }

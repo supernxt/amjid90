@@ -39,7 +39,7 @@ const mainNavItems = [
   { label: "Contact", labelAr: "اتصل بنا", path: "/contact" },
 ];
 
-const networkToolsItem = { label: "Network Analyzer", href: "/analyzer/" };
+const networkToolsItem = { label: "Speed Test", href: "/analyzer" };
 
 export default function Navbar() {
   const [location] = useLocation();
