@@ -108,20 +108,6 @@ export default function WhatsAppButton() {
             )}
           </AnimatePresence>
 
-          {/* Tooltip — slides in from the left */}
-          <AnimatePresence>
-            {!open && pulse && (
-              <motion.div
-                initial={{ opacity: 0, x: -8 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -8 }}
-                className="bg-white text-gray-800 text-sm font-medium px-3 py-1.5 rounded-xl shadow-lg border border-gray-100 whitespace-nowrap"
-              >
-                Chat on WhatsApp
-              </motion.div>
-            )}
-          </AnimatePresence>
-
           {/* FAB stack: WhatsApp above, Call below */}
           <div className="flex flex-col items-center gap-2.5">
             {/* WhatsApp FAB */}

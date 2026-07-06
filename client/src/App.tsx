@@ -6,12 +6,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
 import AIVoiceWidget from "@/components/AIVoiceWidget";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
 import CookieConsent from "@/components/CookieConsent";
-import ExitIntentPopup from "@/components/ExitIntentPopup";
 
 const Home                = lazy(() => import("@/pages/Home"));
 const AISolutions         = lazy(() => import("@/pages/AISolutions"));
@@ -104,6 +104,7 @@ function App() {
         <LanguageProvider>
           <div className="min-h-screen bg-background text-foreground">
             <Navbar />
+            <AnnouncementBar />
             <Router />
             <Footer />
             <AIVoiceWidget />

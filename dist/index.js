@@ -290,16 +290,14 @@ ${data.message}`,
   });
 }
 async function registerRoutes(app2) {
-  const serveAnalyzer = (_req, res) => {
+  app2.get("/analyzer", (_req, res) => {
     const isProd = process.env.NODE_ENV === "production";
     const filePath = path.resolve(
       isProd ? "dist/public/analyzer/index.html" : "client/public/analyzer/index.html"
     );
     res.setHeader("Cache-Control", "no-store");
     res.sendFile(filePath);
-  };
-  app2.get("/analyzer", serveAnalyzer);
-  app2.get("/analyzer/", serveAnalyzer);
+  });
   app2.post("/api/contact", async (req, res) => {
     const { name, email, phone, subject, message } = req.body || {};
     if (!name || !email || !message) {
