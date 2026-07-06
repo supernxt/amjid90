@@ -4,10 +4,17 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FileText, Shield, AlertCircle, Scale, ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
+import SEO from "@/components/SEO";
 
 export default function EULA() {
   return (
     <VideoBackground variant="default">
+      <SEO
+        title="End-User License Agreement (EULA) | Super Next Technologies"
+        description="Read the End-User License Agreement for Super Next Technologies (SNT) services and software. Governing terms for use of SNT AI, wireless, and IT products in UAE."
+        canonical="https://supernxt.com/legal/eula"
+        keywords="Super Next Technologies EULA, SNT license agreement, software terms UAE, IT services agreement Dubai"
+      />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.div

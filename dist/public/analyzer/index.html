@@ -15,34 +15,44 @@
 <meta property="og:url" content="https://supernxt.com/analyzer">
 <meta property="og:image" content="https://supernxt.com/og-image.png">
 <link rel="canonical" href="https://supernxt.com/analyzer">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "SuperNXT Free Speed Test",
+  "url": "https://supernxt.com/analyzer",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "description": "Free internet speed test, DNS benchmark, ping and latency analyser for UAE businesses. Test your office, hotel or home broadband speed instantly.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": {
+    "@type": "Organization",
+    "name": "Super Next Technologies",
+    "url": "https://supernxt.com"
+  },
+  "featureList": ["Download Speed Test", "Upload Speed Test", "Ping Latency Test", "DNS Benchmark", "Network Info", "Test History Export"],
+  "screenshot": "https://supernxt.com/og-image.png",
+  "browserRequirements": "Requires JavaScript"
+}
+</script>
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="%23E30613"/><text x="50" y="66" font-size="44" font-weight="900" font-family="Arial" fill="white" text-anchor="middle">SN</text></svg>'>
 <script>
-/* Inline PWA manifest via data URI (works in Chrome for Add to Home Screen) */
 (function(){
-  const icon = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="110" fill="#E30613"/><text x="256" y="338" font-size="220" font-weight="900" font-family="Arial" fill="#fff" text-anchor="middle">SN</text></svg>');
-  const manifest = {
-    name: "SuperNXT Speed Test",
-    short_name: "Speed Test",
-    start_url: location.href.split('#')[0],
-    display: "standalone",
-    background_color: "#0B1119",
-    theme_color: "#0B1119",
-    icons: [{ src: icon, sizes: "512x512", type: "image/svg+xml", purpose: "any" }]
-  };
-  const link = document.createElement('link');
-  link.rel = 'manifest';
-  link.href = 'data:application/manifest+json,' + encodeURIComponent(JSON.stringify(manifest));
-  document.head.appendChild(link);
+  const icon='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="110" fill="#E30613"/><text x="256" y="338" font-size="220" font-weight="900" font-family="Arial" fill="#fff" text-anchor="middle">SN</text></svg>');
+  const m={name:"SuperNXT Speed Test",short_name:"Speed Test",start_url:location.href.split('#')[0],display:"standalone",background_color:"#0B1119",theme_color:"#0B1119",icons:[{src:icon,sizes:"512x512",type:"image/svg+xml",purpose:"any"}]};
+  const l=document.createElement('link');l.rel='manifest';
+  l.href='data:application/manifest+json,'+encodeURIComponent(JSON.stringify(m));
+  document.head.appendChild(l);
 })();
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root{
   --red:#E30613; --bg:#0B1119; --panel:#121A26; --soft:#0F1620; --border:#1E2A3A;
   --text:#E8EDF4; --sub:#8B99AC; --good:#2DD4A7; --warn:#F5B83D; --bad:#FF5C5C; --info:#4DA3FF;
 }
 [data-theme="light"]{
-  --bg:#F2F4F8; --panel:#FFFFFF; --soft:#F7F9FC; --border:#E2E8F0;
+  --bg:#F5F7FA; --panel:#FFFFFF; --soft:#F0F3F7; --border:#E2E8F0;
   --text:#16202E; --sub:#5B6B80; --good:#0E9F6E; --warn:#C77E00; --bad:#D93030; --info:#1D6FD1;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -50,101 +60,113 @@ html,body{height:100%}
 body{
   font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
   background:var(--bg); color:var(--text);
+  display:flex; flex-direction:column; min-height:100dvh;
+  padding-bottom:calc(58px + env(safe-area-inset-bottom));
 }
-[dir="rtl"] body{font-family:'Segoe UI',Tahoma,system-ui,sans-serif}
 header{
-  position:sticky; top:0; z-index:30; display:flex; align-items:center; justify-content:space-between;
-  padding:10px 14px; padding-top:calc(10px + env(safe-area-inset-top));
-  background:var(--panel); border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px; padding-top:calc(12px + env(safe-area-inset-top));
 }
-.brand{display:flex;align-items:center;gap:10px}
-.logo{width:34px;height:34px;border-radius:9px;background:var(--red);color:#fff;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center}
-.brand h1{font-size:14px;font-weight:800;line-height:1.1}
-.brand small{font-size:10px;color:var(--sub);font-weight:400}
-.hbtns{display:flex;gap:8px}
-.hbtn{background:transparent;border:1px solid var(--border);color:var(--text);border-radius:9px;padding:7px 10px;font-size:12px;font-weight:700;cursor:pointer}
-main{padding:14px;padding-top:calc(14px + 58px);max-width:760px;margin:0 auto}
-.view{display:none;animation:fade .25s ease}
-.view.active{display:block}
-@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion: reduce){ *{animation:none!important;transition:none!important} }
+.brand{display:flex;align-items:center;gap:9px}
+.logo{width:30px;height:30px;border-radius:8px;background:var(--red);color:#fff;font-weight:900;font-size:12px;display:flex;align-items:center;justify-content:center}
+.brand b{font-size:13px;font-weight:800}
+.brand small{display:block;font-size:9px;color:var(--sub);font-weight:400}
+.hbtns{display:flex;gap:7px;align-items:center}
+.hbtn{background:transparent;border:1px solid var(--border);color:var(--text);border-radius:8px;padding:6px 10px;font-size:11px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.hbtn:hover{border-color:var(--red);color:var(--red)}
+.hbtn-back{background:transparent;border:1px solid var(--border);color:var(--sub);border-radius:8px;padding:6px 10px;font-size:11px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.hbtn-back:hover{border-color:var(--red);color:var(--red)}
+main{flex:1;display:flex;flex-direction:column;width:100%;max-width:640px;margin:0 auto;padding:0 16px}
+.view{display:none;flex:1;animation:fade .25s ease}
+.view.active{display:flex;flex-direction:column}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-.badge{display:inline-flex;align-items:center;gap:6px;font-size:10px;color:var(--sub);border:1px solid var(--border);border-radius:99px;padding:3px 9px;margin-bottom:12px}
-.dot{width:7px;height:7px;border-radius:99px;background:var(--good)}
-.dot.pulse{animation:pulse 1.5s infinite}
-@keyframes pulse{50%{opacity:.35}}
+/* ── fast.com style hero ── */
+#hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:46vh}
+#stat{font-size:13px;color:var(--sub);margin-bottom:6px;min-height:18px;text-align:center}
+#bigWrap{display:flex;align-items:baseline;gap:10px;line-height:1}
+#bigNum{font-size:clamp(88px,26vw,150px);font-weight:800;letter-spacing:-4px;font-variant-numeric:tabular-nums}
+#bigUnit{font-size:clamp(20px,5vw,30px);font-weight:700;color:var(--red)}
+#reBtn{
+  margin-top:18px;width:44px;height:44px;border-radius:99px;border:1.5px solid var(--border);
+  background:transparent;color:var(--sub);font-size:20px;cursor:pointer;display:none;
+}
+#reBtn:active{transform:rotate(180deg);transition:transform .3s}
+.mrow{display:flex;justify-content:center;gap:26px;margin-top:26px;flex-wrap:wrap}
+.m{ text-align:center;min-width:80px }
+.m .ml{font-size:10px;color:var(--sub);letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:5px}
+.m .mv{font-size:22px;font-weight:800;margin-top:3px}
+.m .mv small{font-size:11px;color:var(--sub);font-weight:500}
+.mdot{width:7px;height:7px;border-radius:99px;display:inline-block}
+#moreBtn{
+  margin:26px auto 8px;display:block;background:transparent;border:1px solid var(--border);
+  color:var(--sub);border-radius:99px;padding:9px 20px;font-size:12px;font-weight:700;cursor:pointer;
+}
+#moreArea{display:none;padding-bottom:18px}
+.foot{font-size:10px;color:var(--sub);text-align:center;padding:10px 0 16px;opacity:.8}
 
+/* ── shared ── */
 .panel{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:14px}
-.ptitle{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.ptitle{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px}
 .ptitle span{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sub)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .stat{background:var(--soft);border:1px solid var(--border);border-radius:11px;padding:10px}
 .stat .l{font-size:10px;color:var(--sub);margin-bottom:4px}
-.stat .v{font-size:17px;font-weight:800;line-height:1}
+.stat .v{font-size:16px;font-weight:800;line-height:1.15;word-break:break-word}
 .stat .v small{font-size:10px;color:var(--sub);font-weight:500;margin-inline-start:3px}
-
-.btn{width:100%;border:none;border-radius:12px;padding:13px;background:var(--red);color:#fff;font-size:14px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn{border:none;border-radius:10px;padding:10px 16px;background:var(--red);color:#fff;font-size:13px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px}
 .btn:disabled{opacity:.55}
-.btn.sm{width:auto;padding:7px 14px;font-size:12px;border-radius:9px}
-.spin{width:14px;height:14px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:99px;animation:rot .8s linear infinite;display:inline-block}
+.btn.gray{background:var(--border);color:var(--text)}
+.btn.w{width:100%}
+.spin{width:13px;height:13px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:99px;animation:rot .8s linear infinite;display:inline-block}
 @keyframes rot{to{transform:rotate(360deg)}}
-
-#gaugeWrap{position:relative;max-width:300px;margin:0 auto}
-.gLabel{text-align:center;font-size:11px;color:var(--sub);letter-spacing:.15em;margin-top:-6px}
-.phase{text-align:center;font-size:12px;color:var(--sub);margin-top:8px;min-height:16px}
-
 .row{display:flex;align-items:center;gap:10px;background:var(--soft);border:1px solid var(--border);border-radius:11px;padding:10px;margin-bottom:8px}
-.rank{width:26px;height:26px;border-radius:8px;background:var(--border);color:var(--sub);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rank{width:25px;height:25px;border-radius:8px;background:var(--border);color:var(--sub);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .rank.top{background:var(--red);color:#fff}
 .row .info{flex:1;min-width:0}
-.row .nm{font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px}
+.row .nm{font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .row .ip{font-size:10px;color:var(--sub);font-family:monospace}
-.row .ms{font-size:13px;font-weight:800;text-align:end}
+.row .ms{font-size:13px;font-weight:800;text-align:end;flex-shrink:0}
 .row .ms small{display:block;font-size:9px;color:var(--sub);font-weight:500}
 .tag{font-size:8px;background:var(--red);color:#fff;border-radius:99px;padding:2px 7px;font-weight:700}
 .tag.gray{background:var(--border);color:var(--sub)}
 .bar{height:5px;border-radius:99px;background:var(--border);overflow:hidden;margin-top:5px}
-.bar i{display:block;height:100%;border-radius:99px;background:var(--good);transition:width .4s}
-
+.bar i{display:block;height:100%;border-radius:99px;transition:width .4s}
 .calcgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 @media(min-width:520px){.calcgrid{grid-template-columns:repeat(3,1fr)}}
-.calc{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center}
+.calc{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:13px;text-align:center}
 .calc .s{font-size:11px;color:var(--sub)}
-.calc .t{font-size:16px;font-weight:800;color:var(--good);margin-top:4px}
+.calc .t{font-size:15px;font-weight:800;color:var(--good);margin-top:4px}
 .calc.big .t{color:var(--warn)}
-
 table{width:100%;border-collapse:collapse;font-size:11px}
 th{color:var(--sub);font-weight:600;text-align:start;padding:7px 6px;border-bottom:1px solid var(--border)}
 td{padding:8px 6px;border-bottom:1px solid var(--border)}
 .note{display:flex;gap:8px;font-size:11px;color:var(--sub);background:var(--soft);border:1px solid var(--border);border-radius:11px;padding:10px;line-height:1.5;margin-top:10px}
-.hscore{display:flex;align-items:center;gap:16px}
-.ring{position:relative;width:92px;height:92px;flex-shrink:0}
-.ring .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:22px;font-weight:900}
-.ring .num small{font-size:9px;color:var(--sub);font-weight:500}
-.hband{font-size:17px;font-weight:800}
-.hmeta{font-size:11px;color:var(--sub);margin-top:4px;line-height:1.6}
-.recs li{font-size:12.5px;line-height:1.5;margin-bottom:8px;list-style:none;padding-inline-start:16px;position:relative}
-.recs li::before{content:"›";position:absolute;inset-inline-start:0;color:var(--red);font-weight:900}
-[dir="rtl"] .recs li::before{content:"‹"}
+.center{text-align:center;color:var(--sub);font-size:12.5px;padding:18px 8px}
+select,input[type=text]{
+  background:var(--soft);border:1px solid var(--border);color:var(--text);
+  border-radius:10px;padding:9px 11px;font-size:13px;width:100%;outline:none;
+}
 canvas{max-width:100%}
-
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:9.5px;color:var(--sub);border:1px solid var(--border);border-radius:99px;padding:3px 9px}
+.dot{width:6px;height:6px;border-radius:99px;background:var(--good)}
+.dot.pulse{animation:pulse 1.5s infinite}
+@keyframes pulse{50%{opacity:.3}}
 nav{
-  position:fixed;top:58px;left:50%;transform:translateX(-50%);z-index:25;
-  display:flex;background:var(--panel);border:1px solid var(--border);
-  border-radius:99px;padding:4px;gap:2px;
-  box-shadow:0 4px 24px rgba(0,0,0,.18);
-  white-space:nowrap;
+  position:fixed;bottom:0;left:0;right:0;z-index:30;display:flex;
+  background:var(--panel);border-top:1px solid var(--border);
+  padding-bottom:env(safe-area-inset-bottom);
 }
 nav button{
-  flex:none;background:none;border:none;color:var(--sub);padding:7px 14px;cursor:pointer;
-  display:flex;flex-direction:column;align-items:center;gap:3px;font-size:9.5px;font-weight:600;
-  border-radius:99px;transition:color .2s,background .2s;
+  flex:1;background:none;border:none;color:var(--sub);padding:8px 2px 6px;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:2px;font-size:9.5px;font-weight:600;
+  border-top:2px solid transparent;
 }
-nav button.active{color:var(--red);background:var(--soft);}
-nav svg{width:18px;height:18px}
-.hidden{display:none!important}
-.center{text-align:center;color:var(--sub);font-size:13px;padding:22px 8px}
+nav button.active{color:var(--red);border-top-color:var(--red)}
+nav svg{width:19px;height:19px}
+.pstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
 </style>
 </head>
 <body>
@@ -152,85 +174,84 @@ nav svg{width:18px;height:18px}
 <header>
   <div class="brand">
     <div class="logo">SN</div>
-    <div><h1 data-i="appName">Super Network Analyzer</h1><small data-i="by">by Super Next Technologies</small></div>
+    <div><b data-i="appName">Super Network Analyzer</b><small data-i="by">by Super Next Technologies</small></div>
   </div>
   <div class="hbtns">
+    <a href="https://supernxt.com" class="hbtn-back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Website
+    </a>
     <button class="hbtn" id="langBtn">عربي</button>
     <button class="hbtn" id="themeBtn">☀️</button>
   </div>
 </header>
 
 <main>
-  <div class="badge" id="modeBadge"><span class="dot pulse"></span><span id="modeTxt">Live measurement engine</span></div>
-
-  <!-- ═══ HOME ═══ -->
-  <section class="view active" id="v-home">
-    <div class="grid3" style="margin-bottom:14px">
-      <div class="stat"><div class="l" data-i="download">Download</div><div class="v"><span id="h-down">—</span><small data-i="mbps">Mbps</small></div></div>
-      <div class="stat"><div class="l" data-i="upload">Upload</div><div class="v"><span id="h-up">—</span><small data-i="mbps">Mbps</small></div></div>
-      <div class="stat"><div class="l" data-i="ping">Ping</div><div class="v"><span id="h-ping">—</span><small data-i="ms">ms</small></div></div>
+  <!-- ═══ SPEED (main, fast.com style) ═══ -->
+  <section class="view active" id="v-speed">
+    <div id="hero">
+      <div id="stat"></div>
+      <div id="bigWrap">
+        <span id="bigNum">0</span>
+        <span id="bigUnit" data-i="mbps">Mbps</span>
+      </div>
+      <div class="mrow">
+        <div class="m"><div class="ml"><span class="mdot" style="background:var(--sub)"></span><span data-i="pingUn">Ping unloaded</span></div><div class="mv" id="m-pu">—<small> ms</small></div></div>
+        <div class="m"><div class="ml"><span class="mdot" style="background:var(--warn)"></span><span data-i="pingLd">Ping loaded</span></div><div class="mv" id="m-pl">—<small> ms</small></div></div>
+        <div class="m"><div class="ml"><span class="mdot" style="background:var(--good)"></span><span data-i="upload">Upload</span></div><div class="mv" id="m-up">—<small> Mbps</small></div></div>
+      </div>
+      <button id="reBtn" title="Restart">↻</button>
     </div>
 
-    <div class="panel">
-      <div class="ptitle"><span data-i="healthScore">Connection Health</span></div>
-      <div class="hscore">
-        <div class="ring">
-          <svg viewBox="0 0 100 100" style="transform:rotate(-90deg)">
-            <circle cx="50" cy="50" r="42" fill="none" stroke="var(--border)" stroke-width="9"/>
-            <circle id="ringArc" cx="50" cy="50" r="42" fill="none" stroke="var(--good)" stroke-width="9" stroke-linecap="round" stroke-dasharray="0 264" style="transition:stroke-dasharray .6s"/>
-          </svg>
-          <div class="num"><span id="hsNum">—</span><small>/100</small></div>
-        </div>
-        <div>
-          <div class="hband" id="hsBand">—</div>
-          <div class="hmeta" id="hsMeta"></div>
+    <button id="moreBtn" data-i="showMore">Show more info</button>
+
+    <div id="moreArea">
+      <div class="panel">
+        <div class="grid3">
+          <div class="stat"><div class="l" data-i="jitter">Jitter</div><div class="v" id="d-jit">—<small>ms</small></div></div>
+          <div class="stat"><div class="l" data-i="server">Server</div><div class="v" id="d-srv" style="font-size:11px">speed.cloudflare.com</div></div>
+          <div class="stat"><div class="l" data-i="client">Client</div><div class="v" id="d-cli" style="font-size:11px">—</div></div>
         </div>
       </div>
+      <div class="panel">
+        <div class="ptitle"><span data-i="history">Test History</span><button class="btn" style="padding:6px 12px;font-size:11px" id="csvBtn" data-i="exportCsv">Export CSV</button></div>
+        <div style="overflow-x:auto"><table id="histTable"></table></div>
+      </div>
     </div>
-
-    <div class="panel">
-      <div class="ptitle"><span data-i="liveLatency">Live latency</span><span id="latNow" style="text-transform:none;font-weight:800;color:var(--info)"></span></div>
-      <canvas id="latChart" height="110"></canvas>
-    </div>
-
-    <div class="panel">
-      <div class="ptitle"><span data-i="recommendations">Recommendations</span></div>
-      <ul class="recs" id="recList"></ul>
-    </div>
+    <div class="foot">SuperNXT · supernxt.com</div>
   </section>
 
-  <!-- ═══ SPEED ═══ -->
-  <section class="view" id="v-speed">
-    <div class="panel">
-      <div id="gaugeWrap"><canvas id="gauge" width="300" height="200"></canvas></div>
-      <div class="gLabel" id="gLabel">Mbps · DOWNLOAD</div>
-      <div class="phase" id="phaseTxt"></div>
-      <button class="btn" id="speedBtn" style="margin-top:10px"><span data-i="startTest">Start Speed Test</span></button>
-    </div>
-
-    <div class="panel">
-      <div class="ptitle"><span>Throughput</span></div>
-      <canvas id="thrChart" height="120"></canvas>
-      <div class="grid3" id="resGrid" style="margin-top:12px;display:none">
-        <div class="stat"><div class="l" data-i="download">Download</div><div class="v" id="r-down">—</div></div>
-        <div class="stat"><div class="l" data-i="upload">Upload</div><div class="v" id="r-up">—</div></div>
-        <div class="stat"><div class="l" data-i="ping">Ping</div><div class="v" id="r-ping">—</div></div>
-        <div class="stat"><div class="l" data-i="jitter">Jitter</div><div class="v" id="r-jit">—</div></div>
-        <div class="stat"><div class="l" data-i="server">Server</div><div class="v" id="r-srv" style="font-size:12px">—</div></div>
-        <div class="stat"><div class="l" data-i="lastTest">Time</div><div class="v" id="r-time" style="font-size:12px">—</div></div>
+  <!-- ═══ PING TOOL ═══ -->
+  <section class="view" id="v-ping">
+    <div class="panel" style="margin-top:6px">
+      <div class="ptitle"><span data-i="pingTool">Ping Tool</span><span class="badge" id="pingBadge"><span class="dot" id="pingDot" style="background:var(--sub)"></span><span id="pingState">idle</span></span></div>
+      <div class="grid2" style="margin-bottom:10px">
+        <select id="pingTarget">
+          <option value="cf">Cloudflare (1.1.1.1 edge)</option>
+          <option value="gg">Google (dns.google)</option>
+          <option value="q9">Quad9 (dns.quad9.net)</option>
+          <option value="custom" data-i="customHost">Custom host…</option>
+        </select>
+        <button class="btn w" id="pingBtn"><span data-i="startPing">Start Ping</span></button>
       </div>
-    </div>
-
-    <div class="panel">
-      <div class="ptitle"><span data-i="history">Test History</span><button class="btn sm" id="csvBtn" data-i="exportCsv">Export CSV</button></div>
-      <div style="overflow-x:auto"><table id="histTable"></table></div>
+      <input type="text" id="customHost" placeholder="example.com" style="display:none;margin-bottom:10px" dir="ltr">
+      <canvas id="pingChart" height="130"></canvas>
+      <div class="pstats">
+        <div class="stat"><div class="l" data-i="cur">Current</div><div class="v" id="p-cur">—<small>ms</small></div></div>
+        <div class="stat"><div class="l" data-i="avg">Avg</div><div class="v" id="p-avg">—<small>ms</small></div></div>
+        <div class="stat"><div class="l" data-i="best">Min / Max</div><div class="v" id="p-mm" style="font-size:13px">—</div></div>
+        <div class="stat"><div class="l" data-i="jitter">Jitter</div><div class="v" id="p-jit">—<small>ms</small></div></div>
+        <div class="stat"><div class="l" data-i="sent">Sent / Recv</div><div class="v" id="p-sr" style="font-size:13px">0 / 0</div></div>
+        <div class="stat"><div class="l" data-i="loss">Loss</div><div class="v" id="p-loss">0<small>%</small></div></div>
+      </div>
+      <div class="note">ℹ️ <span data-i="pingNote">HTTP-based ping (HTTPS round-trip). Values run slightly higher than raw ICMP ping but trends, jitter and loss are accurate.</span></div>
     </div>
   </section>
 
   <!-- ═══ DNS ═══ -->
   <section class="view" id="v-dns">
-    <div class="panel">
-      <div class="ptitle"><span data-i="dnsTitle">Fastest Public DNS</span><button class="btn sm" id="dnsBtn" data-i="runDns">Test DNS</button></div>
+    <div class="panel" style="margin-top:6px">
+      <div class="ptitle"><span data-i="dnsTitle">Fastest Public DNS</span><button class="btn" style="padding:7px 14px;font-size:11px" id="dnsBtn" data-i="runDns">Test DNS</button></div>
       <div id="dnsList"><div class="center" data-i="dnsIntro">Tests real DNS-over-HTTPS response times from your connection.</div></div>
       <div class="note" id="dnsNote" style="display:none">🛡️ <span data-i="dnsApplyNote"></span></div>
     </div>
@@ -238,7 +259,7 @@ nav svg{width:18px;height:18px}
 
   <!-- ═══ CALC ═══ -->
   <section class="view" id="v-calc">
-    <div class="panel">
+    <div class="panel" style="margin-top:6px">
       <div class="ptitle"><span data-i="calcTitle">Download Time Estimator</span></div>
       <div id="calcBase" style="font-size:12px;color:var(--sub);margin-bottom:12px"></div>
       <div class="calcgrid" id="calcGrid"></div>
@@ -248,377 +269,309 @@ nav svg{width:18px;height:18px}
 
   <!-- ═══ INFO ═══ -->
   <section class="view" id="v-info">
-    <div class="panel">
-      <div class="ptitle"><span data-i="diagTitle">Connection Info</span><button class="btn sm" id="infoBtn" data-i="refresh">Refresh</button></div>
+    <div class="panel" style="margin-top:6px">
+      <div class="ptitle"><span data-i="diagTitle">Connection Info</span><button class="btn" style="padding:7px 14px;font-size:11px" id="infoBtn" data-i="refresh">Refresh</button></div>
       <div class="grid2" id="infoGrid"></div>
     </div>
     <div class="panel">
-      <div class="ptitle"><span data-i="dohCheck">Secure DNS Check</span></div>
-      <div id="dohRes" class="center">—</div>
-    </div>
-    <div class="panel">
       <div class="ptitle"><span data-i="ttlTitle">TTL &amp; Traceroute</span><span class="tag gray" data-i="desktopOnly">Desktop version</span></div>
-      <div class="center" style="text-align:start" data-i="ttlNote">Raw ICMP (ping TTL, traceroute, packet loss) is blocked inside mobile browsers for security. These modules run in the Super Network Analyzer desktop app with the measurement backend.</div>
+      <div style="font-size:12px;color:var(--sub);line-height:1.6" data-i="ttlNote">Raw ICMP (ping TTL, traceroute, packet loss) is blocked inside mobile browsers for security. These modules run in the Super Network Analyzer desktop app.</div>
     </div>
   </section>
 </main>
 
 <nav id="nav">
-  <button data-v="home" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h5v-6h4v6h5V10"/></svg><span data-i="navHome">Home</span></button>
-  <button data-v="speed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="14" r="8"/><path d="M12 14l4-4"/></svg><span data-i="navSpeed">Speed</span></button>
+  <button data-v="speed" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="14" r="8"/><path d="M12 14l4-4"/></svg><span data-i="navSpeed">Speed</span></button>
+  <button data-v="ping"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg><span data-i="navPing">Ping</span></button>
   <button data-v="dns"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg><span data-i="navDns">DNS</span></button>
   <button data-v="calc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span data-i="navCalc">Timer</span></button>
   <button data-v="info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span data-i="navInfo">Info</span></button>
 </nav>
 
 <script>
-/* ═══════════════════════════ I18N ═══════════════════════════ */
+/* ═══════════ I18N ═══════════ */
 const T = {
-en:{appName:"Super Network Analyzer",by:"by Super Next Technologies",
-liveMode:"Live measurement engine",demoMode:"Demo mode — network blocked, showing simulated data",
-download:"Download",upload:"Upload",ping:"Ping",jitter:"Jitter",mbps:"Mbps",ms:"ms",server:"Server",
-startTest:"Start Speed Test",testAgain:"Run Again",testing:"Testing…",
-phasePing:"Measuring latency…",phaseDown:"Measuring download…",phaseUp:"Measuring upload…",phaseDone:"Test complete ✓",
-history:"Test History",exportCsv:"Export CSV",noHistory:"No tests yet.",lastTest:"Time",
-healthScore:"Connection Health",excellent:"Excellent",good:"Good",fair:"Fair",poor:"Poor",
-liveLatency:"Live latency",recommendations:"Recommendations",
+en:{appName:"Super Network Analyzer",by:"by Super Next Technologies",mbps:"Mbps",
+statIdle:"Tap ↻ to test",statPing:"Checking latency…",statDown:"Testing your download speed…",statDone:"Your internet speed is",statUp:"Measuring upload & loaded latency…",statErr:"Network blocked — demo values shown",
+pingUn:"Ping unloaded",pingLd:"Ping loaded",upload:"Upload",showMore:"Show more info",hideMore:"Hide info",
+jitter:"Jitter",server:"Server",client:"Client",history:"Test History",exportCsv:"Export CSV",noHistory:"No tests yet.",lastTest:"Time",
+pingTool:"Ping Tool",startPing:"Start Ping",stopPing:"Stop",customHost:"Custom host…",cur:"Current",avg:"Avg",best:"Min / Max",sent:"Sent / Recv",loss:"Loss",
+pingNote:"HTTP-based ping (HTTPS round-trip). Values run slightly higher than raw ICMP ping but trends, jitter and loss are accurate.",
 dnsTitle:"Fastest Public DNS",runDns:"Test DNS",dnsTesting:"Testing…",recommended:"Recommended",failed:"No response",
 dnsIntro:"Tests real DNS-over-HTTPS response times from your connection.",
 dnsApplyNote:"To apply: set primary + secondary DNS in your phone's Wi-Fi settings (Private DNS on Android) or in your router.",
-calcTitle:"Download Time Estimator",basedOnReal:"Based on your measured speed",runFirst:"Run a speed test first — estimates below use a 100 Mbps example.",
+calcTitle:"Download Time Estimator",basedOnReal:"Based on your measured speed",runFirst:"Run a speed test first — estimates use a 100 Mbps example.",
 calcRef:"Reference: 100 Mbps → 1 GB ≈ 1 min 20 sec",
 diagTitle:"Connection Info",refresh:"Refresh",publicIp:"Public IP",isp:"ISP / Network",geo:"Location",ipv6:"IPv6",ipv4:"IPv4",active:"Active",inactive:"Not detected",checking:"Checking…",protocol:"HTTP",
-dohCheck:"Secure DNS Check",ttlTitle:"TTL & Traceroute",desktopOnly:"Desktop version",
-ttlNote:"Raw ICMP (ping TTL, traceroute, packet loss) is blocked inside mobile browsers for security. These modules run in the Super Network Analyzer desktop app with the measurement backend.",
-navHome:"Home",navSpeed:"Speed",navDns:"DNS",navCalc:"Timer",navInfo:"Info",
-lt1:"< 1 sec",h:"h",m:"min",s:"sec",
-recs:{excellent:["Connection is performing at its best — no action needed.","Keep your router firmware up to date."],
-good:["Performance is solid with minor latency spikes.","Prefer 5 GHz Wi-Fi or Ethernet for latency-sensitive work."],
-fair:["Noticeable jitter detected. Restart your router and modem.","Check for bandwidth-heavy devices on the network.","Move closer to the access point."],
-poor:["Connection is unstable. Contact your ISP if this persists.","Test with another network to isolate the issue.","Check your router's WAN status."]}},
-ar:{appName:"سوبر محلل الشبكات",by:"من سوبر نكست للتقنيات",
-liveMode:"محرك القياس المباشر نشط",demoMode:"وضع العرض — الشبكة محجوبة، بيانات محاكاة",
-download:"التنزيل",upload:"الرفع",ping:"الاستجابة",jitter:"التذبذب",mbps:"ميغابت/ث",ms:"م.ث",server:"الخادم",
-startTest:"ابدأ اختبار السرعة",testAgain:"إعادة الاختبار",testing:"جارٍ الاختبار…",
-phasePing:"قياس زمن الاستجابة…",phaseDown:"قياس سرعة التنزيل…",phaseUp:"قياس سرعة الرفع…",phaseDone:"اكتمل الاختبار ✓",
-history:"سجل الاختبارات",exportCsv:"تصدير CSV",noHistory:"لا توجد اختبارات بعد.",lastTest:"الوقت",
-healthScore:"صحة الاتصال",excellent:"ممتاز",good:"جيد",fair:"مقبول",poor:"ضعيف",
-liveLatency:"زمن الاستجابة المباشر",recommendations:"التوصيات",
+ttlTitle:"TTL & Traceroute",desktopOnly:"Desktop version",
+ttlNote:"Raw ICMP (ping TTL, traceroute, packet loss) is blocked inside mobile browsers for security. These modules run in the Super Network Analyzer desktop app.",
+navSpeed:"Speed",navPing:"Ping",navDns:"DNS",navCalc:"Timer",navInfo:"Info",
+lt1:"< 1 sec",h:"h",m:"min",s:"sec"},
+ar:{appName:"سوبر محلل الشبكات",by:"من سوبر نكست للتقنيات",mbps:"ميغابت/ث",
+statIdle:"اضغط ↻ للاختبار",statPing:"فحص زمن الاستجابة…",statDown:"جارٍ قياس سرعة التنزيل…",statDone:"سرعة الإنترنت لديك",statUp:"قياس الرفع وزمن الاستجابة تحت الحمل…",statErr:"الشبكة محجوبة — قيم تجريبية",
+pingUn:"استجابة بدون حمل",pingLd:"استجابة تحت الحمل",upload:"الرفع",showMore:"عرض المزيد",hideMore:"إخفاء",
+jitter:"التذبذب",server:"الخادم",client:"العميل",history:"سجل الاختبارات",exportCsv:"تصدير CSV",noHistory:"لا توجد اختبارات بعد.",lastTest:"الوقت",
+pingTool:"أداة Ping",startPing:"ابدأ",stopPing:"إيقاف",customHost:"مضيف مخصص…",cur:"الحالي",avg:"المتوسط",best:"أدنى / أقصى",sent:"مرسل / مستلم",loss:"الفقدان",
+pingNote:"قياس عبر HTTP (زمن ذهاب وعودة HTTPS). القيم أعلى قليلاً من ICMP الخام لكن الاتجاهات والتذبذب والفقدان دقيقة.",
 dnsTitle:"أسرع DNS عام",runDns:"اختبار DNS",dnsTesting:"جارٍ الاختبار…",recommended:"موصى به",failed:"لا استجابة",
 dnsIntro:"يقيس زمن استجابة DNS-over-HTTPS الحقيقي من اتصالك.",
-dnsApplyNote:"للتطبيق: عيّن DNS الأساسي والثانوي في إعدادات الواي فاي بالهاتف (Private DNS في أندرويد) أو في الراوتر.",
-calcTitle:"حاسبة وقت التنزيل",basedOnReal:"بناءً على سرعتك المقاسة",runFirst:"قم باختبار السرعة أولاً — التقديرات أدناه بمثال 100 ميغابت/ث.",
-calcRef:"مثال: 100 ميغابت/ث ← تنزيل 1 جيجابايت ≈ دقيقة و20 ثانية",
+dnsApplyNote:"للتطبيق: عيّن DNS في إعدادات الواي فاي بالهاتف (Private DNS في أندرويد) أو في الراوتر.",
+calcTitle:"حاسبة وقت التنزيل",basedOnReal:"بناءً على سرعتك المقاسة",runFirst:"قم باختبار السرعة أولاً — التقديرات بمثال 100 ميغابت/ث.",
+calcRef:"مثال: 100 ميغابت/ث ← 1 جيجابايت ≈ دقيقة و20 ثانية",
 diagTitle:"معلومات الاتصال",refresh:"تحديث",publicIp:"العنوان العام",isp:"مزود الخدمة",geo:"الموقع",ipv6:"IPv6",ipv4:"IPv4",active:"نشط",inactive:"غير متوفر",checking:"جارٍ الفحص…",protocol:"HTTP",
-dohCheck:"فحص DNS الآمن",ttlTitle:"TTL وتتبع المسار",desktopOnly:"نسخة سطح المكتب",
-ttlNote:"قياسات ICMP الخام (TTL، تتبع المسار، فقدان الحزم) محجوبة داخل متصفحات الهاتف لأسباب أمنية. هذه الوحدات تعمل في نسخة سطح المكتب مع خادم القياس.",
-navHome:"الرئيسية",navSpeed:"السرعة",navDns:"DNS",navCalc:"الحاسبة",navInfo:"معلومات",
-lt1:"أقل من ثانية",h:"س",m:"د",s:"ث",
-recs:{excellent:["الاتصال يعمل بأفضل أداء — لا حاجة لأي إجراء.","حافظ على تحديث برنامج الراوتر."],
-good:["الأداء جيد مع ارتفاعات طفيفة في زمن الاستجابة.","يفضل واي فاي 5GHz أو كابل إيثرنت للمهام الحساسة."],
-fair:["تذبذب ملحوظ. أعد تشغيل الراوتر والمودم.","تحقق من الأجهزة المستهلكة للسرعة.","اقترب من نقطة الوصول."],
-poor:["الاتصال غير مستقر. تواصل مع مزود الخدمة إذا استمر.","جرّب شبكة أخرى لعزل المشكلة.","تحقق من حالة WAN في الراوتر."]}}
+ttlTitle:"TTL وتتبع المسار",desktopOnly:"نسخة سطح المكتب",
+ttlNote:"قياسات ICMP الخام محجوبة داخل متصفحات الهاتف لأسباب أمنية. هذه الوحدات تعمل في نسخة سطح المكتب.",
+navSpeed:"السرعة",navPing:"Ping",navDns:"DNS",navCalc:"الحاسبة",navInfo:"معلومات",
+lt1:"أقل من ثانية",h:"س",m:"د",s:"ث"}
 };
-let lang = 'en', theme = 'dark', demoMode = false;
-const $ = id => document.getElementById(id);
-const t = k => T[lang][k];
-
-/* safe storage (falls back to memory if blocked) */
-const mem = {};
-const store = {
-  get(k){ try{ return localStorage.getItem(k) }catch(e){ return mem[k] ?? null } },
-  set(k,v){ try{ localStorage.setItem(k,v) }catch(e){ mem[k]=v } }
-};
+let lang='en',theme='dark',demoMode=false;
+const $=id=>document.getElementById(id);
+const t=k=>T[lang][k];
+const mem={};
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return mem[k]??null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){mem[k]=v}}};
 
 function applyI18n(){
-  document.documentElement.dir = lang==='ar' ? 'rtl' : 'ltr';
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-i]').forEach(el=>{
-    const k = el.getAttribute('data-i');
-    if (T[lang][k]) el.textContent = T[lang][k];
-  });
-  $('langBtn').textContent = lang==='en' ? 'عربي' : 'EN';
-  $('modeTxt').textContent = demoMode ? t('demoMode') : t('liveMode');
-  document.querySelector('#modeBadge .dot').style.background = demoMode ? 'var(--warn)' : 'var(--good)';
-  renderHealth(); renderCalc(); renderHistory(); renderInfo();
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(el=>{const k=el.getAttribute('data-i');if(T[lang][k])el.textContent=T[lang][k];});
+  $('langBtn').textContent=lang==='en'?'عربي':'EN';
+  renderCalc();renderHistory();renderInfo();
+  if($('moreArea').style.display==='block')$('moreBtn').textContent=t('hideMore');
 }
-$('langBtn').onclick = ()=>{ lang = lang==='en'?'ar':'en'; store.set('sna-lang',lang); applyI18n(); };
-$('themeBtn').onclick = ()=>{
-  theme = theme==='dark'?'light':'dark';
-  document.documentElement.setAttribute('data-theme',theme);
-  $('themeBtn').textContent = theme==='dark'?'☀️':'🌙';
-  store.set('sna-theme',theme);
-};
+$('langBtn').onclick=()=>{lang=lang==='en'?'ar':'en';store.set('sna-lang',lang);applyI18n();};
+$('themeBtn').onclick=()=>{theme=theme==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',theme);$('themeBtn').textContent=theme==='dark'?'☀️':'🌙';store.set('sna-theme',theme);};
+document.querySelectorAll('nav button').forEach(b=>{b.onclick=()=>{
+  document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');$('v-'+b.dataset.v).classList.add('active');
+};});
 
-/* nav */
-document.querySelectorAll('nav button').forEach(b=>{
-  b.onclick = ()=>{
-    document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
-    document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active');
-    $('v-'+b.dataset.v).classList.add('active');
-  };
-});
+/* ═══════════ ENGINE ═══════════ */
+const CF='https://speed.cloudflare.com';
+const bust=()=>'&r='+Math.random().toString(36).slice(2);
 
-/* ═══════════════════ MEASUREMENT ENGINE (real) ═══════════════════ */
-const CF = 'https://speed.cloudflare.com';
-const bust = ()=>'&r='+Math.random().toString(36).slice(2);
-
-async function timedFetch(url, opts={}, timeout=8000){
-  const ctrl = new AbortController();
-  const to = setTimeout(()=>ctrl.abort(), timeout);
-  const t0 = performance.now();
-  try{
-    const res = await fetch(url, {...opts, cache:'no-store', signal:ctrl.signal});
-    await res.arrayBuffer();
-    clearTimeout(to);
-    return performance.now()-t0;
-  }catch(e){ clearTimeout(to); throw e; }
+async function timedFetch(url,opts={},timeout=6000){
+  const ctrl=new AbortController();const to=setTimeout(()=>ctrl.abort(),timeout);
+  const t0=performance.now();
+  try{const res=await fetch(url,{...opts,cache:'no-store',signal:ctrl.signal});await res.arrayBuffer();clearTimeout(to);return performance.now()-t0;}
+  catch(e){clearTimeout(to);throw e;}
 }
-
-async function measureLatency(n=8){
+async function measureLatency(n=6){
   const times=[];
-  for(let i=0;i<n;i++){
-    try{ times.push(await timedFetch(CF+'/__down?bytes=0'+bust(),{},4000)); }catch(e){}
-  }
-  if(!times.length) throw new Error('offline');
+  for(let i=0;i<n;i++){try{times.push(await timedFetch(CF+'/__down?bytes=0'+bust(),{},3500));}catch(e){}}
+  if(!times.length)throw new Error('offline');
   times.sort((a,b)=>a-b);
-  const best = times[0];
-  const avg = times.reduce((a,b)=>a+b,0)/times.length;
-  const jit = Math.sqrt(times.reduce((a,b)=>a+(b-avg)**2,0)/times.length);
-  return { ping:+best.toFixed(1), jitter:+jit.toFixed(1) };
+  const avg=times.reduce((a,b)=>a+b,0)/times.length;
+  const jit=Math.sqrt(times.reduce((a,b)=>a+(b-avg)**2,0)/times.length);
+  return{ping:+times[0].toFixed(0),jitter:+jit.toFixed(1)};
 }
-
-/* streaming download: reads chunks, reports live Mbps via cb */
-async function measureDownload(cb, durMs=8000){
-  let totalBytes=0; const t0=performance.now();
-  let lastT=t0, lastB=0;
-  const sizes=[10e6,25e6,50e6,100e6]; let si=0;
-  while(performance.now()-t0 < durMs && si < sizes.length){
-    const ctrl = new AbortController();
-    try{
-      const res = await fetch(CF+'/__down?bytes='+sizes[si++]+bust(),{cache:'no-store',signal:ctrl.signal});
-      const reader = res.body.getReader();
-      while(true){
-        const {done,value} = await reader.read();
-        if(done) break;
-        totalBytes += value.length;
-        const now = performance.now();
-        if(now-lastT > 180){
-          const inst = ((totalBytes-lastB)*8)/((now-lastT)/1000)/1e6;
-          cb(inst); lastT=now; lastB=totalBytes;
+/* parallel streaming download — 4 connections, like fast.com */
+async function measureDownload(cb,onLoadedPing,durMs=8000,streams=4){
+  const state={bytes:0,ctrl:new AbortController()};
+  const t0=performance.now(),endAt=t0+durMs;
+  let lastB=0,lastT=t0;
+  const rep=setInterval(()=>{
+    const now=performance.now();
+    const inst=(state.bytes-lastB)*8/((now-lastT)/1000)/1e6;
+    lastB=state.bytes;lastT=now;cb(inst);
+  },250);
+  const lp=setInterval(async()=>{
+    try{const ms=await timedFetch(CF+'/__down?bytes=0'+bust(),{},3000);onLoadedPing(ms);}catch(e){}
+  },900);
+  const worker=async()=>{
+    while(performance.now()<endAt){
+      try{
+        const res=await fetch(CF+'/__down?bytes=26214400'+bust(),{cache:'no-store',signal:state.ctrl.signal});
+        const rd=res.body.getReader();
+        while(true){
+          const{done,value}=await rd.read();
+          if(done)break;
+          state.bytes+=value.length;
+          if(performance.now()>endAt){state.ctrl.abort();return;}
         }
-        if(now-t0 > durMs){ ctrl.abort(); break; }
-      }
-    }catch(e){ if(e.name!=='AbortError') break; else break; }
-  }
+      }catch(e){return;}
+    }
+  };
+  await Promise.all(Array.from({length:streams},worker));
+  clearInterval(rep);clearInterval(lp);
   const secs=(performance.now()-t0)/1000;
-  if(totalBytes < 200000) throw new Error('blocked');
-  return +((totalBytes*8)/secs/1e6).toFixed(1);
+  if(state.bytes<3e5)throw new Error('blocked');
+  return +((state.bytes*8)/secs/1e6).toFixed(1);
 }
-
-async function measureUpload(cb, durMs=7000){
-  let totalBytes=0; const t0=performance.now();
-  const chunk = new Uint8Array(2e6); // 2 MB
-  crypto.getRandomValues(chunk.subarray(0,65536));
-  while(performance.now()-t0 < durMs){
-    const s0=performance.now();
-    try{
-      await fetch(CF+'/__up?'+bust(),{method:'POST',body:chunk,cache:'no-store'});
-      totalBytes += chunk.length;
-      const inst = (chunk.length*8)/((performance.now()-s0)/1000)/1e6;
-      cb(inst);
-    }catch(e){ break; }
-  }
+async function measureUpload(cb,durMs=6000,streams=3){
+  const state={bytes:0};
+  const t0=performance.now(),endAt=t0+durMs;
+  let lastB=0,lastT=t0;
+  const chunk=new Uint8Array(1.5e6);crypto.getRandomValues(chunk.subarray(0,65536));
+  const rep=setInterval(()=>{
+    const now=performance.now();
+    const inst=(state.bytes-lastB)*8/((now-lastT)/1000)/1e6;
+    lastB=state.bytes;lastT=now;cb(inst);
+  },300);
+  const worker=async()=>{
+    while(performance.now()<endAt){
+      try{await fetch(CF+'/__up?'+bust(),{method:'POST',body:chunk,cache:'no-store'});state.bytes+=chunk.length;}
+      catch(e){return;}
+    }
+  };
+  await Promise.all(Array.from({length:streams},worker));
+  clearInterval(rep);
   const secs=(performance.now()-t0)/1000;
-  if(totalBytes < 200000) throw new Error('blocked');
-  return +((totalBytes*8)/secs/1e6).toFixed(1);
+  if(state.bytes<2e5)throw new Error('blocked');
+  return +((state.bytes*8)/secs/1e6).toFixed(1);
 }
 
-/* ═══════════════════ GAUGE (canvas) ═══════════════════ */
-const gctx = $('gauge').getContext('2d');
-let gVal=0, gMax=300, gColor='#4DA3FF';
-function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
-function drawGauge(){
-  const W=300,H=200,cx=150,cy=150,R=110;
-  gctx.clearRect(0,0,W,H);
-  const a0=Math.PI*0.83, a1=Math.PI*2.17;
-  gctx.lineCap='round';
-  gctx.lineWidth=13; gctx.strokeStyle=css('--border');
-  gctx.beginPath(); gctx.arc(cx,cy,R,a0,a1); gctx.stroke();
-  const pct=Math.min(gVal/gMax,1);
-  if(pct>0.004){
-    gctx.strokeStyle=gColor;
-    gctx.beginPath(); gctx.arc(cx,cy,R,a0,a0+(a1-a0)*pct); gctx.stroke();
-  }
-  /* ticks + labels */
-  gctx.lineWidth=1.5; gctx.strokeStyle=css('--sub');
-  gctx.fillStyle=css('--sub'); gctx.font='10px Segoe UI'; gctx.textAlign='center';
-  for(let i=0;i<=6;i++){
-    const a=a0+(a1-a0)*i/6;
-    gctx.beginPath();
-    gctx.moveTo(cx+Math.cos(a)*(R-16),cy+Math.sin(a)*(R-16));
-    gctx.lineTo(cx+Math.cos(a)*(R-24),cy+Math.sin(a)*(R-24));
-    gctx.globalAlpha=.6; gctx.stroke(); gctx.globalAlpha=1;
-    gctx.fillText(Math.round(gMax*i/6), cx+Math.cos(a)*(R-38), cy+Math.sin(a)*(R-38)+3);
-  }
-  /* needle */
-  const a=a0+(a1-a0)*pct;
-  gctx.strokeStyle='#E30613'; gctx.lineWidth=3;
-  gctx.beginPath(); gctx.moveTo(cx,cy);
-  gctx.lineTo(cx+Math.cos(a)*(R-45),cy+Math.sin(a)*(R-45)); gctx.stroke();
-  gctx.fillStyle='#E30613'; gctx.beginPath(); gctx.arc(cx,cy,6,0,7); gctx.fill();
-  /* value */
-  gctx.fillStyle=css('--text'); gctx.font='800 26px Segoe UI';
-  gctx.fillText(gVal.toFixed(1), cx, cy+42);
-}
-function setGauge(v,mode){
-  gVal=v; gColor = mode==='up'?css('--good'):css('--info');
-  while(gVal>gMax) gMax*=2;
-  $('gLabel').textContent = (lang==='ar'?T.ar.mbps:'Mbps')+' · '+(mode==='up'?t('upload'):t('download')).toUpperCase();
-  drawGauge();
-}
-drawGauge();
+/* ═══════════ SPEED FLOW (auto-start, fast.com style) ═══════════ */
+let history=[];try{history=JSON.parse(store.get('sna-history')||'[]');}catch(e){}
+let lastResult=history[history.length-1]||null;
+let shown=0,running=false,phase2done=false,currentRec=null;
 
-/* ═══════════════════ CHARTS ═══════════════════ */
-Chart.defaults.color = '#8B99AC'; Chart.defaults.font.size = 10;
-const latData = Array(30).fill(null);
-const latChart = new Chart($('latChart'),{type:'line',
-  data:{labels:Array(30).fill(''),datasets:[{data:latData,borderColor:'#4DA3FF',backgroundColor:'rgba(77,163,255,.12)',fill:true,tension:.35,pointRadius:0,borderWidth:2}]},
-  options:{animation:false,plugins:{legend:{display:false}},scales:{x:{display:false},y:{beginAtZero:true,grid:{color:'rgba(139,153,172,.12)'}}}}});
-const thrChart = new Chart($('thrChart'),{type:'line',
-  data:{labels:[],datasets:[{data:[],borderColor:'#E30613',backgroundColor:'rgba(227,6,19,.12)',fill:true,tension:.3,pointRadius:0,borderWidth:2}]},
-  options:{animation:false,plugins:{legend:{display:false}},scales:{x:{display:false},y:{beginAtZero:true,grid:{color:'rgba(139,153,172,.12)'}}}}});
+function setBig(v){
+  shown=shown*0.65+v*0.35;               /* smoothing like fast.com */
+  const d=shown>=100?0:1;
+  $('bigNum').textContent=shown.toFixed(d);
+}
+function setBigFinal(v){shown=v;$('bigNum').textContent=v>=100?Math.round(v):v.toFixed(1);}
 
-/* ═══════════════════ LIVE HEALTH MONITOR ═══════════════════ */
-const latSamples=[];
-async function pingOnce(){
+async function runTest(){
+  if(running)return;running=true;phase2done=false;currentRec=null;
+  $('reBtn').style.display='none';shown=0;$('bigNum').textContent='0';
+  $('m-pu').innerHTML='—<small> ms</small>';$('m-pl').innerHTML='—<small> ms</small>';$('m-up').innerHTML='—<small> Mbps</small>';
+  $('d-jit').innerHTML='—<small>ms</small>';
+  const loaded=[];
   try{
-    if(demoMode) throw 0;
-    const ms = await timedFetch(CF+'/__down?bytes=0'+bust(),{},4000);
-    return +ms.toFixed(1);
-  }catch(e){ return +(6+Math.random()*8+(Math.random()<.06?25:0)).toFixed(1); }
-}
-async function healthTick(){
-  const ms = await pingOnce();
-  latSamples.push(ms); if(latSamples.length>30) latSamples.shift();
-  latData.push(ms); latData.shift();
-  latChart.update('none');
-  $('latNow').textContent = ms+' '+t('ms');
-  renderHealth();
-}
-function renderHealth(){
-  if(!latSamples.length){ $('recList').innerHTML = t('recs').good.map(r=>'<li>'+r+'</li>').join(''); return; }
-  const avg = latSamples.reduce((a,b)=>a+b,0)/latSamples.length;
-  const jit = Math.sqrt(latSamples.reduce((a,b)=>a+(b-avg)**2,0)/latSamples.length);
-  let score = Math.round(Math.max(0,Math.min(100, 100-Math.max(0,(avg-25))*0.7-Math.min(jit*1.6,30))));
-  const band = score>=88?'excellent':score>=72?'good':score>=50?'fair':'poor';
-  const col = {excellent:'var(--good)',good:'var(--info)',fair:'var(--warn)',poor:'var(--bad)'}[band];
-  $('hsNum').textContent = score;
-  $('hsBand').textContent = t(band); $('hsBand').style.color = col;
-  $('ringArc').style.stroke = col;
-  $('ringArc').setAttribute('stroke-dasharray', (score/100*264)+' 264');
-  $('hsMeta').innerHTML = t('ping')+': <b>'+avg.toFixed(1)+' '+t('ms')+'</b><br>'+t('jitter')+': <b>'+jit.toFixed(1)+' '+t('ms')+'</b>';
-  $('recList').innerHTML = t('recs')[band].map(r=>'<li>'+r+'</li>').join('');
-}
-setInterval(healthTick, 3000); healthTick();
-
-/* ═══════════════════ SPEED TEST FLOW ═══════════════════ */
-let history = [];
-try{ history = JSON.parse(store.get('sna-history')||'[]'); }catch(e){}
-let lastResult = history[history.length-1] || null;
-let running=false;
-
-async function runSpeedTest(){
-  if(running) return; running=true;
-  const btn=$('speedBtn');
-  btn.disabled=true; btn.innerHTML='<span class="spin"></span> '+t('testing');
-  $('resGrid').style.display='none';
-  thrChart.data.labels=[]; thrChart.data.datasets[0].data=[]; thrChart.update();
-  gMax=300; setGauge(0,'down');
-  const pushThr=v=>{ thrChart.data.labels.push(''); thrChart.data.datasets[0].data.push(+v.toFixed(1));
-    if(thrChart.data.labels.length>90){thrChart.data.labels.shift();thrChart.data.datasets[0].data.shift();}
-    thrChart.update('none'); };
-  let rec;
-  try{
-    if(demoMode) throw new Error('demo');
-    $('phaseTxt').textContent=t('phasePing');
-    const {ping,jitter} = await measureLatency();
-    $('phaseTxt').textContent=t('phaseDown');
-    const down = await measureDownload(v=>{ setGauge(v,'down'); pushThr(v); });
-    $('phaseTxt').textContent=t('phaseUp');
-    setGauge(0,'up');
-    const up = await measureUpload(v=>{ setGauge(v,'up'); pushThr(v); });
-    rec={time:Date.now(),down,up,ping,jitter,srv:'speed.cloudflare.com',real:true};
-    setGauge(down,'down');
+    if(demoMode)throw new Error('demo');
+    $('stat').textContent=t('statPing');
+    const{ping,jitter}=await measureLatency();
+    $('m-pu').innerHTML=ping+'<small> ms</small>';
+    $('d-jit').innerHTML=jitter+'<small>ms</small>';
+    $('stat').textContent=t('statDown');
+    const down=await measureDownload(v=>setBig(v),ms=>loaded.push(ms),8000,4);
+    setBigFinal(down);
+    if(loaded.length){
+      loaded.sort((a,b)=>a-b);
+      $('m-pl').innerHTML=Math.round(loaded[Math.floor(loaded.length/2)])+'<small> ms</small>';
+    }
+    $('stat').textContent=t('statUp');
+    const up=await measureUpload(v=>{$('m-up').innerHTML=v.toFixed(1)+'<small> Mbps</small>';},6000,3);
+    $('m-up').innerHTML=up+'<small> Mbps</small>';
+    currentRec={time:Date.now(),down,up,ping,jitter,
+      pl:loaded.length?Math.round(loaded[Math.floor(loaded.length/2)]):null,real:true};
   }catch(e){
-    /* graceful fallback → simulated demo run */
-    demoMode=true; applyI18n();
-    const target=430+Math.random()*80, up=400+Math.random()*80;
-    $('phaseTxt').textContent=t('phaseDown');
-    for(let i=0;i<=40;i++){ const v=target*(1-Math.pow(1-i/40,3))*(0.94+Math.random()*.1);
-      setGauge(v,'down'); pushThr(v); await new Promise(r=>setTimeout(r,110)); }
-    $('phaseTxt').textContent=t('phaseUp'); setGauge(0,'up');
-    for(let i=0;i<=35;i++){ const v=up*(1-Math.pow(1-i/35,3))*(0.94+Math.random()*.1);
-      setGauge(v,'up'); pushThr(v); await new Promise(r=>setTimeout(r,110)); }
-    rec={time:Date.now(),down:+target.toFixed(1),up:+up.toFixed(1),ping:+(5+Math.random()*5).toFixed(1),jitter:+(0.5+Math.random()*1.5).toFixed(1),srv:'demo',real:false};
-    setGauge(rec.down,'down');
+    demoMode=true;
+    $('stat').textContent=t('statDown');
+    const target=430+Math.random()*80;
+    for(let i=0;i<=36;i++){setBig(target*(1-Math.pow(1-i/36,3))*(0.95+Math.random()*.08));await new Promise(r=>setTimeout(r,110));}
+    setBigFinal(+target.toFixed(1));
+    const up=+(400+Math.random()*80).toFixed(1),ping=+(6+Math.random()*5).toFixed(0);
+    $('m-pu').innerHTML=ping+'<small> ms</small>';
+    $('m-pl').innerHTML=(ping*3+8|0)+'<small> ms</small>';
+    $('m-up').innerHTML=up+'<small> Mbps</small>';
+    $('d-jit').innerHTML=(0.5+Math.random()*1.5).toFixed(1)+'<small>ms</small>';
+    currentRec={time:Date.now(),down:+target.toFixed(1),up,ping,jitter:1.2,pl:null,real:false};
+    $('stat').textContent=t('statErr');
   }
-  lastResult=rec; history.push(rec); if(history.length>50) history.shift();
+  if(currentRec.real!==false)$('stat').textContent=t('statDone');
+  lastResult=currentRec;history.push(currentRec);if(history.length>50)history.shift();
   store.set('sna-history',JSON.stringify(history));
-  $('phaseTxt').textContent=t('phaseDone'); $('phaseTxt').style.color='var(--good)';
-  $('r-down').textContent=rec.down; $('r-up').textContent=rec.up;
-  $('r-ping').textContent=rec.ping; $('r-jit').textContent=rec.jitter;
-  $('r-srv').textContent=rec.srv;
-  $('r-time').textContent=new Date(rec.time).toLocaleTimeString(lang==='ar'?'ar-AE':'en-GB',{hour:'2-digit',minute:'2-digit'});
-  $('resGrid').style.display='grid';
-  $('h-down').textContent=rec.down; $('h-up').textContent=rec.up; $('h-ping').textContent=rec.ping;
-  renderHistory(); renderCalc();
-  btn.disabled=false; btn.innerHTML='<span>'+t('testAgain')+'</span>';
+  renderHistory();renderCalc();
+  $('reBtn').style.display='block';
   running=false;
 }
-$('speedBtn').onclick=runSpeedTest;
+$('reBtn').onclick=runTest;
+$('moreBtn').onclick=()=>{
+  const a=$('moreArea');
+  const open=a.style.display==='block';
+  a.style.display=open?'none':'block';
+  $('moreBtn').textContent=open?t('showMore'):t('hideMore');
+};
 
 function renderHistory(){
   const tb=$('histTable');
-  if(!history.length){ tb.innerHTML='<tr><td class="center">'+t('noHistory')+'</td></tr>'; return; }
+  if(!history.length){tb.innerHTML='<tr><td class="center">'+t('noHistory')+'</td></tr>';return;}
   const loc=lang==='ar'?'ar-AE':'en-GB';
-  tb.innerHTML='<tr><th>'+t('lastTest')+'</th><th>↓ '+t('mbps')+'</th><th>↑ '+t('mbps')+'</th><th>'+t('ping')+'</th><th>'+t('jitter')+'</th></tr>'+
+  tb.innerHTML='<tr><th>'+t('lastTest')+'</th><th>↓</th><th>↑</th><th>Ping</th></tr>'+
     [...history].reverse().slice(0,10).map(h=>
       '<tr><td style="color:var(--sub)">'+new Date(h.time).toLocaleString(loc,{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})+
       (h.real===false?' <span class="tag gray">demo</span>':'')+'</td>'+
       '<td style="color:var(--info);font-weight:700">'+h.down+'</td>'+
-      '<td style="color:var(--good);font-weight:700">'+h.up+'</td>'+
-      '<td>'+h.ping+'</td><td>'+h.jitter+'</td></tr>').join('');
+      '<td style="color:var(--good);font-weight:700">'+(h.up??'—')+'</td>'+
+      '<td>'+h.ping+'</td></tr>').join('');
 }
 $('csvBtn').onclick=()=>{
-  const rows=[['Time','Download (Mbps)','Upload (Mbps)','Ping (ms)','Jitter (ms)','Source'],
-    ...history.map(h=>[new Date(h.time).toISOString(),h.down,h.up,h.ping,h.jitter,h.real===false?'demo':'measured'])];
+  const rows=[['Time','Download (Mbps)','Upload (Mbps)','Ping (ms)','Ping loaded (ms)','Jitter (ms)','Source'],
+    ...history.map(h=>[new Date(h.time).toISOString(),h.down,h.up??'',h.ping,h.pl??'',h.jitter??'',h.real===false?'demo':'measured'])];
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob([rows.map(r=>r.join(',')).join('\n')],{type:'text/csv'}));
-  a.download='super-network-analyzer-history.csv'; a.click(); URL.revokeObjectURL(a.href);
+  a.download='supernxt-speed-history.csv';a.click();URL.revokeObjectURL(a.href);
 };
 
-/* ═══════════════════ CALC ═══════════════════ */
-const SIZES=[{l:'100 MB',gb:.1},{l:'500 MB',gb:.5},{l:'1 GB',gb:1},{l:'5 GB',gb:5},{l:'10 GB',gb:10},{l:'50 GB',gb:50}];
-function fmtDur(sec){
-  if(sec<1) return t('lt1');
-  const h=Math.floor(sec/3600),m=Math.floor(sec%3600/60),s=Math.round(sec%60),p=[];
-  if(h)p.push(h+' '+t('h')); if(m)p.push(m+' '+t('m')); if(s&&!h)p.push(s+' '+t('s'));
-  return p.join(' ')||'0 '+t('s');
-}
-function renderCalc(){
-  const speed = lastResult?lastResult.down:100;
-  $('calcBase').innerHTML = lastResult
-    ? t('basedOnReal')+': <b style="color:var(--info)">'+speed+' '+t('mbps')+'</b>'
-    : t('runFirst');
-  $('calcGrid').innerHTML = SIZES.map(f=>{
-    const sec=f.gb*8*1000/speed;
-    return '<div class="calc'+(f.gb>=10?' big':'')+'"><div class="s">'+f.l+'</div><div class="t">'+fmtDur(sec)+'</div></div>';
-  }).join('');
-}
+/* ═══════════ PING TOOL ═══════════ */
+let pinging=false,pingTimer=null,pingChart=null;
+const P={times:[],sent:0,recv:0};
+const PING_TARGETS={
+  cf:()=>timedFetch(CF+'/__down?bytes=0'+bust(),{},4000),
+  gg:()=>timedFetch('https://dns.google/resolve?name=example.com&type=A&_='+Math.random(),{},4000),
+  q9:()=>timedFetch('https://dns.quad9.net:5053/dns-query?name=example.com&type=A&_='+Math.random(),{headers:{accept:'application/dns-json'}},4000),
+  custom:async()=>{
+    const host=$('customHost').value.trim().replace(/^https?:\/\//,'').split('/')[0];
+    if(!host)throw new Error('nohost');
+    const ctrl=new AbortController();const to=setTimeout(()=>ctrl.abort(),4000);
+    const t0=performance.now();
+    try{await fetch('https://'+host+'/favicon.ico?_='+Math.random(),{mode:'no-cors',cache:'no-store',signal:ctrl.signal});clearTimeout(to);return performance.now()-t0;}
+    catch(e){clearTimeout(to);throw e;}
+  }
+};
+$('pingTarget').onchange=()=>{$('customHost').style.display=$('pingTarget').value==='custom'?'block':'none';};
 
-/* ═══════════════════ DNS (real DoH timing) ═══════════════════ */
+function ensurePingChart(){
+  if(pingChart||!window.Chart)return;
+  Chart.defaults.color='#8B99AC';Chart.defaults.font.size=10;
+  pingChart=new Chart($('pingChart'),{type:'line',
+    data:{labels:[],datasets:[{data:[],borderColor:'#E30613',backgroundColor:'rgba(227,6,19,.10)',fill:true,tension:.3,pointRadius:0,borderWidth:2,spanGaps:false}]},
+    options:{animation:false,plugins:{legend:{display:false}},scales:{x:{display:false},y:{beginAtZero:true,grid:{color:'rgba(139,153,172,.12)'}}}}});
+}
+function pingStats(){
+  const ok=P.times.filter(v=>v!==null);
+  $('p-sr').textContent=P.sent+' / '+P.recv;
+  $('p-loss').innerHTML=(P.sent?Math.round((P.sent-P.recv)/P.sent*100):0)+'<small>%</small>';
+  if(!ok.length)return;
+  const avg=ok.reduce((a,b)=>a+b,0)/ok.length;
+  const jit=Math.sqrt(ok.reduce((a,b)=>a+(b-avg)**2,0)/ok.length);
+  $('p-cur').innerHTML=Math.round(ok[ok.length-1])+'<small>ms</small>';
+  $('p-avg').innerHTML=Math.round(avg)+'<small>ms</small>';
+  $('p-mm').textContent=Math.round(Math.min(...ok))+' / '+Math.round(Math.max(...ok));
+  $('p-jit').innerHTML=jit.toFixed(1)+'<small>ms</small>';
+}
+async function pingOnce(){
+  const fn=PING_TARGETS[$('pingTarget').value];
+  P.sent++;
+  let ms=null;
+  try{ms=await fn();P.recv++;}catch(e){}
+  P.times.push(ms);if(P.times.length>60)P.times.shift();
+  if(pingChart){
+    pingChart.data.labels=P.times.map(()=>'' );
+    pingChart.data.datasets[0].data=P.times.map(v=>v===null?null:+v.toFixed(1));
+    pingChart.update('none');
+  }
+  pingStats();
+}
+$('pingBtn').onclick=()=>{
+  if(pinging){
+    pinging=false;clearInterval(pingTimer);
+    $('pingBtn').innerHTML='<span>'+t('startPing')+'</span>';
+    $('pingState').textContent='idle';$('pingDot').style.background='var(--sub)';$('pingDot').classList.remove('pulse');
+    return;
+  }
+  ensurePingChart();
+  P.times.length=0;P.sent=0;P.recv=0;
+  pinging=true;
+  $('pingBtn').innerHTML='<span>'+t('stopPing')+'</span>';
+  $('pingState').textContent='live';$('pingDot').style.background='var(--good)';$('pingDot').classList.add('pulse');
+  pingOnce();pingTimer=setInterval(pingOnce,1200);
+};
+
+/* ═══════════ DNS ═══════════ */
 const DOH=[
  {name:'Cloudflare',ip:'1.1.1.1 · 1.0.0.1',url:q=>'https://cloudflare-dns.com/dns-query?name='+q+'&type=A',hdr:{accept:'application/dns-json'}},
  {name:'Google DNS',ip:'8.8.8.8 · 8.8.4.4',url:q=>'https://dns.google/resolve?name='+q+'&type=A',hdr:{}},
@@ -627,78 +580,93 @@ const DOH=[
  {name:'OpenDNS',ip:'208.67.222.222',url:q=>'https://doh.opendns.com/dns-query?name='+q+'&type=A',hdr:{accept:'application/dns-json'}},
 ];
 $('dnsBtn').onclick=async()=>{
-  const btn=$('dnsBtn'); btn.disabled=true; btn.innerHTML='<span class="spin"></span>';
+  const btn=$('dnsBtn');btn.disabled=true;btn.innerHTML='<span class="spin"></span>';
   $('dnsList').innerHTML='<div class="center">'+t('dnsTesting')+'</div>';
   const results=[];
   for(const s of DOH){
     const times=[];
     for(let i=0;i<3;i++){
       const q=['supernxt.com','example.com','cloudflare.com'][i];
-      try{ times.push(await timedFetch(s.url(q)+'&_='+Math.random(),{headers:s.hdr},5000)); }catch(e){}
+      try{times.push(await timedFetch(s.url(q)+'&_='+Math.random(),{headers:s.hdr},5000));}catch(e){}
     }
-    if(times.length){
-      times.sort((a,b)=>a-b);
-      results.push({...s,ms:+times[0].toFixed(1),rel:Math.round(times.length/3*100)});
-    } else results.push({...s,ms:null,rel:0});
+    if(times.length){times.sort((a,b)=>a-b);results.push({...s,ms:+times[0].toFixed(1),rel:Math.round(times.length/3*100)});}
+    else results.push({...s,ms:null,rel:0});
   }
   const ok=results.filter(r=>r.ms!==null).sort((a,b)=>a.ms-b.ms);
   const fail=results.filter(r=>r.ms===null);
   const best=ok[0];
   $('dnsList').innerHTML=[...ok,...fail].map((d,i)=>{
-    const top = d===best;
-    const col = d.ms===null?'var(--sub)':d.ms<40?'var(--good)':d.ms<90?'var(--warn)':'var(--bad)';
-    const w = d.ms===null?0:Math.max(8,Math.min(100,(1-d.ms/200)*100));
+    const top=d===best;
+    const col=d.ms===null?'var(--sub)':d.ms<40?'var(--good)':d.ms<90?'var(--warn)':'var(--bad)';
+    const w=d.ms===null?0:Math.max(8,Math.min(100,(1-d.ms/200)*100));
     return '<div class="row" '+(top?'style="border-color:var(--red)"':'')+'>'+
       '<div class="rank'+(top?' top':'')+'">'+(i+1)+'</div>'+
       '<div class="info"><div class="nm">'+d.name+(top?' <span class="tag">'+t('recommended')+'</span>':'')+'</div>'+
       '<div class="ip">'+d.ip+'</div><div class="bar"><i style="width:'+w+'%;background:'+col+'"></i></div></div>'+
-      '<div class="ms" style="color:'+col+'">'+(d.ms===null?t('failed'):d.ms+' '+t('ms'))+
-      '<small>DoH · '+d.rel+'%</small></div></div>';
+      '<div class="ms" style="color:'+col+'">'+(d.ms===null?t('failed'):d.ms+' ms')+'<small>DoH · '+d.rel+'%</small></div></div>';
   }).join('');
   $('dnsNote').style.display='flex';
-  btn.disabled=false; btn.textContent=t('runDns');
+  btn.disabled=false;btn.textContent=t('runDns');
 };
 
-/* ═══════════════════ INFO ═══════════════════ */
+/* ═══════════ CALC ═══════════ */
+const SIZES=[{l:'100 MB',gb:.1},{l:'500 MB',gb:.5},{l:'1 GB',gb:1},{l:'5 GB',gb:5},{l:'10 GB',gb:10},{l:'50 GB',gb:50}];
+function fmtDur(sec){
+  if(sec<1)return t('lt1');
+  const h=Math.floor(sec/3600),m=Math.floor(sec%3600/60),s=Math.round(sec%60),p=[];
+  if(h)p.push(h+' '+t('h'));if(m)p.push(m+' '+t('m'));if(s&&!h)p.push(s+' '+t('s'));
+  return p.join(' ')||'0 '+t('s');
+}
+function renderCalc(){
+  const speed=lastResult?lastResult.down:100;
+  $('calcBase').innerHTML=lastResult
+    ?t('basedOnReal')+': <b style="color:var(--info)">'+speed+' '+t('mbps')+'</b>'
+    :t('runFirst');
+  $('calcGrid').innerHTML=SIZES.map(f=>{
+    const sec=f.gb*8*1000/speed;
+    return '<div class="calc'+(f.gb>=10?' big':'')+'"><div class="s">'+f.l+'</div><div class="t">'+fmtDur(sec)+'</div></div>';
+  }).join('');
+}
+
+/* ═══════════ INFO ═══════════ */
 let info={ip:'—',isp:'—',geo:'—',v4:'—',v6:'—',proto:'—'};
 function renderInfo(){
   $('infoGrid').innerHTML=[
     [t('publicIp'),info.ip],[t('isp'),info.isp],[t('geo'),info.geo],
     [t('ipv4'),info.v4],[t('ipv6'),info.v6],[t('protocol'),info.proto],
-  ].map(x=>'<div class="stat"><div class="l">'+x[0]+'</div><div class="v" style="font-size:13px;word-break:break-all">'+x[1]+'</div></div>').join('');
+  ].map(x=>'<div class="stat"><div class="l">'+x[0]+'</div><div class="v" style="font-size:12.5px">'+x[1]+'</div></div>').join('');
 }
 async function loadInfo(){
   info={ip:t('checking'),isp:t('checking'),geo:t('checking'),v4:t('checking'),v6:t('checking'),proto:'—'};
   renderInfo();
   try{
-    const r=await fetch(CF+'/meta',{cache:'no-store'}); const m=await r.json();
+    const r=await fetch(CF+'/meta',{cache:'no-store'});const m=await r.json();
     info.ip=m.clientIp||'—';
     info.isp=(m.asOrganization||'—')+(m.asn?' (AS'+m.asn+')':'');
     info.geo=[m.city,m.country].filter(Boolean).join(', ')||'—';
     info.proto=m.httpProtocol||'HTTPS';
     info.v4=m.clientIp&&m.clientIp.includes('.')?t('active'):t('inactive');
-    $('dohRes').innerHTML='<span style="color:var(--good);font-weight:700">✓ '+(lang==='ar'?'اتصال DNS الآمن يعمل عبر':'Secure DNS reachable via')+' cloudflare-dns.com</span>';
+    $('d-cli').textContent=(m.city||'')+' · '+(m.asOrganization||'').slice(0,22);
   }catch(e){
     demoMode=true;
     info={ip:'94.205.112.47 (demo)',isp:'du — EITC (demo)',geo:'Dubai, AE (demo)',v4:t('active'),v6:'—',proto:'—'};
-    $('dohRes').textContent='—';
-    applyI18n();
   }
   try{
     const r6=await fetch('https://api6.ipify.org?format=json',{cache:'no-store',signal:AbortSignal.timeout(5000)});
-    const j=await r6.json(); info.v6=j.ip?t('active')+' · '+j.ip:t('inactive');
-  }catch(e){ if(!demoMode) info.v6=t('inactive'); }
+    const j=await r6.json();info.v6=j.ip?t('active'):t('inactive');
+  }catch(e){if(!demoMode)info.v6=t('inactive');}
   renderInfo();
 }
 $('infoBtn').onclick=loadInfo;
 
-/* ═══════════════════ INIT ═══════════════════ */
+/* ═══════════ INIT ═══════════ */
 (function init(){
-  const sl=store.get('sna-lang'), st=store.get('sna-theme');
-  if(sl) lang=sl;
-  if(st){ theme=st; document.documentElement.setAttribute('data-theme',theme); $('themeBtn').textContent=theme==='dark'?'☀️':'🌙'; }
-  if(lastResult){ $('h-down').textContent=lastResult.down; $('h-up').textContent=lastResult.up; $('h-ping').textContent=lastResult.ping; }
-  applyI18n(); loadInfo();
+  const sl=store.get('sna-lang'),st=store.get('sna-theme');
+  if(sl)lang=sl;
+  if(st){theme=st;document.documentElement.setAttribute('data-theme',theme);$('themeBtn').textContent=theme==='dark'?'☀️':'🌙';}
+  applyI18n();loadInfo();
+  /* fast.com behavior: auto-start on load */
+  setTimeout(runTest,500);
 })();
 </script>
 </body>

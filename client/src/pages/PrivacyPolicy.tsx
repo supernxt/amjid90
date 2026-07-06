@@ -4,10 +4,17 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Shield, Database, Share2, Lock, UserCheck, FileText, ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
+import SEO from "@/components/SEO";
 
 export default function PrivacyPolicy() {
   return (
     <VideoBackground variant="default">
+      <SEO
+        title="Privacy Policy | Super Next Technologies"
+        description="Super Next Technologies (SNT) Privacy Policy — how we collect, use, and protect your data. GDPR & UAE data protection compliant. Based in Dubai, UAE."
+        canonical="https://supernxt.com/legal/privacy"
+        keywords="Super Next Technologies privacy policy, SNT data protection, UAE privacy law, GDPR Dubai, IT company privacy policy UAE"
+      />
       <div className="pt-24 pb-20 px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.div
