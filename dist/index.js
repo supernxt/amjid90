@@ -205,8 +205,8 @@ var ALL_URLS = [
   `${SITE_URL}/hospitals`,
   `${SITE_URL}/warehouses`,
   `${SITE_URL}/free-audit`,
-  /* Network Analyzer & Tools Hub */
-  `${SITE_URL}/analyzer/`,
+  /* Speed Test & Tools Hub */
+  `${SITE_URL}/analyzer`,
   `${SITE_URL}/tools/`,
   `${SITE_URL}/tools/speed-test/`,
   `${SITE_URL}/tools/fastest-dns-finder/`,
