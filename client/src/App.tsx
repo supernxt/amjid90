@@ -110,7 +110,6 @@ function App() {
             <WhatsAppButton />
             <ScrollToTop />
             <CookieConsent />
-            <ExitIntentPopup />
           </div>
           <Toaster />
         </LanguageProvider>
