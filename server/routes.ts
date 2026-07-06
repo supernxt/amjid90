@@ -134,19 +134,16 @@ async function sendContactEmail(data: {
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Serve the Super Network Analyzer static HTML byte-for-byte at /analyzer and /analyzer/.
-  // Must be registered BEFORE Vite/express.static middleware so dev mode works.
-  // No CSP headers — the app makes outbound browser fetches to external origins.
-  const serveAnalyzer = (_req: any, res: any) => {
+  // Serve the Super Network Analyzer static HTML. Registered before Vite middleware
+  // so it works in dev. Non-strict routing means this matches /analyzer AND /analyzer/.
+  app.get("/analyzer", (_req, res) => {
     const isProd = process.env.NODE_ENV === "production";
     const filePath = path.resolve(
       isProd ? "dist/public/analyzer/index.html" : "client/public/analyzer/index.html"
     );
     res.setHeader("Cache-Control", "no-store");
     res.sendFile(filePath);
-  };
-  app.get("/analyzer", serveAnalyzer);
-  app.get("/analyzer/", serveAnalyzer);
+  });
 
 
   // Contact form — POST /api/contact
