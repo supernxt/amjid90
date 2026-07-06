@@ -11,7 +11,7 @@ var __export = (target, all) => {
 // vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "path";
+import path2 from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 var vite_config_default;
 var init_vite_config = __esm({
@@ -32,14 +32,14 @@ var init_vite_config = __esm({
       ],
       resolve: {
         alias: {
-          "@": path.resolve(import.meta.dirname, "client", "src"),
-          "@shared": path.resolve(import.meta.dirname, "shared"),
-          "@assets": path.resolve(import.meta.dirname, "attached_assets")
+          "@": path2.resolve(import.meta.dirname, "client", "src"),
+          "@shared": path2.resolve(import.meta.dirname, "shared"),
+          "@assets": path2.resolve(import.meta.dirname, "attached_assets")
         }
       },
-      root: path.resolve(import.meta.dirname, "client"),
+      root: path2.resolve(import.meta.dirname, "client"),
       build: {
-        outDir: path.resolve(import.meta.dirname, "dist/public"),
+        outDir: path2.resolve(import.meta.dirname, "dist/public"),
         emptyOutDir: true
       },
       server: {
@@ -61,7 +61,7 @@ __export(vite_exports, {
 });
 import express from "express";
 import fs from "fs";
-import path2 from "path";
+import path3 from "path";
 import { createServer as createViteServer, createLogger } from "vite";
 import { nanoid } from "nanoid";
 function log(message, source = "express") {
@@ -96,7 +96,7 @@ async function setupVite(app2, server) {
   app2.use("*", async (req, res, next) => {
     const url = req.originalUrl;
     try {
-      const clientTemplate = path2.resolve(
+      const clientTemplate = path3.resolve(
         import.meta.dirname,
         "..",
         "client",
@@ -116,7 +116,7 @@ async function setupVite(app2, server) {
   });
 }
 function serveStatic(app2) {
-  const distPath = path2.resolve(import.meta.dirname, "public");
+  const distPath = path3.resolve(import.meta.dirname, "public");
   if (!fs.existsSync(distPath)) {
     throw new Error(
       `Could not find the build directory: ${distPath}, make sure to build the client first`
@@ -124,7 +124,7 @@ function serveStatic(app2) {
   }
   app2.use(express.static(distPath));
   app2.use("*", (_req, res) => {
-    res.sendFile(path2.resolve(distPath, "index.html"));
+    res.sendFile(path3.resolve(distPath, "index.html"));
   });
 }
 var viteLogger;
@@ -143,9 +143,9 @@ __export(static_exports, {
 });
 import express2 from "express";
 import fs2 from "fs";
-import path3 from "path";
+import path4 from "path";
 function serveStatic2(app2) {
-  const distPath = path3.resolve(import.meta.dirname, "public");
+  const distPath = path4.resolve(import.meta.dirname, "public");
   if (!fs2.existsSync(distPath)) {
     throw new Error(
       `Could not find the build directory: ${distPath}, make sure to build the client first`
@@ -153,7 +153,7 @@ function serveStatic2(app2) {
   }
   app2.use(express2.static(distPath));
   app2.use("*", (_req, res) => {
-    res.sendFile(path3.resolve(distPath, "index.html"));
+    res.sendFile(path4.resolve(distPath, "index.html"));
   });
 }
 var init_static = __esm({
@@ -168,6 +168,7 @@ import express3 from "express";
 // server/routes.ts
 import { createServer } from "http";
 import nodemailer from "nodemailer";
+import path from "path";
 var INDEXNOW_KEY = "d9cd85c9cabb24c38b4e96056d07fe11";
 var SITE_URL = "https://supernxt.com";
 var ALL_URLS = [
@@ -203,7 +204,20 @@ var ALL_URLS = [
   `${SITE_URL}/hotels`,
   `${SITE_URL}/hospitals`,
   `${SITE_URL}/warehouses`,
-  `${SITE_URL}/free-audit`
+  `${SITE_URL}/free-audit`,
+  /* Network Analyzer & Tools Hub */
+  `${SITE_URL}/analyzer/`,
+  `${SITE_URL}/tools/`,
+  `${SITE_URL}/tools/speed-test/`,
+  `${SITE_URL}/tools/fastest-dns-finder/`,
+  `${SITE_URL}/tools/dns-benchmark/`,
+  `${SITE_URL}/tools/ttl-analyzer/`,
+  `${SITE_URL}/tools/ping-latency-test/`,
+  `${SITE_URL}/tools/packet-loss-test/`,
+  `${SITE_URL}/tools/wifi-quality-analyzer/`,
+  `${SITE_URL}/tools/isp-performance-checker/`,
+  `${SITE_URL}/tools/ip-information-lookup/`,
+  `${SITE_URL}/tools/network-health-assessment/`
 ];
 async function pingIndexNow(urls = ALL_URLS) {
   try {
@@ -276,6 +290,16 @@ ${data.message}`,
   });
 }
 async function registerRoutes(app2) {
+  const serveAnalyzer = (_req, res) => {
+    const isProd = process.env.NODE_ENV === "production";
+    const filePath = path.resolve(
+      isProd ? "dist/public/analyzer/index.html" : "client/public/analyzer/index.html"
+    );
+    res.setHeader("Cache-Control", "no-store");
+    res.sendFile(filePath);
+  };
+  app2.get("/analyzer", serveAnalyzer);
+  app2.get("/analyzer/", serveAnalyzer);
   app2.post("/api/contact", async (req, res) => {
     const { name, email, phone, subject, message } = req.body || {};
     if (!name || !email || !message) {
@@ -353,7 +377,7 @@ app.use(express3.json());
 app.use(express3.urlencoded({ extended: false }));
 app.use((req, res, next) => {
   const start = Date.now();
-  const path4 = req.path;
+  const path5 = req.path;
   let capturedJsonResponse = void 0;
   const originalResJson = res.json;
   res.json = function(bodyJson, ...args) {
@@ -362,8 +386,8 @@ app.use((req, res, next) => {
   };
   res.on("finish", () => {
     const duration = Date.now() - start;
-    if (path4.startsWith("/api")) {
-      let logLine = `${req.method} ${path4} ${res.statusCode} in ${duration}ms`;
+    if (path5.startsWith("/api")) {
+      let logLine = `${req.method} ${path5} ${res.statusCode} in ${duration}ms`;
       if (capturedJsonResponse) {
         logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
       }

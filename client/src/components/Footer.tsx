@@ -47,6 +47,18 @@ const footerSections: {
     ],
   },
   {
+    title: "Network Tools",
+    primaryPath: "/tools/",
+    links: [
+      { label: "Network Analyzer", path: "/analyzer/" },
+      { label: "Speed Test", path: "/tools/speed-test/" },
+      { label: "DNS Finder", path: "/tools/fastest-dns-finder/" },
+      { label: "Ping & Latency", path: "/tools/ping-latency-test/" },
+      { label: "Network Health", path: "/tools/network-health-assessment/" },
+      { label: "All Tools", path: "/tools/" },
+    ],
+  },
+  {
     title: "Company",
     primaryPath: "/about",
     links: [
@@ -120,19 +132,28 @@ function AccordionColumn({
         }`}
       >
         <ul className="space-y-2.5">
-          {links.map((link) => (
-            <li key={link.path + link.label}>
-              <Link href={link.path}>
-                <span
-                  className="text-gray-400 hover:text-primary transition-colors cursor-pointer flex items-center gap-1 group text-sm"
-                  data-testid={`link-footer-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
-                >
-                  {link.label}
-                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </span>
-              </Link>
-            </li>
-          ))}
+          {links.map((link) => {
+            const isExternal = link.path.startsWith("/analyzer");
+            const cls = "text-gray-400 hover:text-primary transition-colors cursor-pointer flex items-center gap-1 group text-sm";
+            const testId = `link-footer-${link.label.toLowerCase().replace(/\s+/g, "-")}`;
+            const inner = (
+              <>
+                {link.label}
+                <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </>
+            );
+            return (
+              <li key={link.path + link.label}>
+                {isExternal ? (
+                  <a href={link.path} className={cls} data-testid={testId}>{inner}</a>
+                ) : (
+                  <Link href={link.path}>
+                    <span className={cls} data-testid={testId}>{inner}</span>
+                  </Link>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>

@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import nodemailer from "nodemailer";
+import path from "path";
 
 const INDEXNOW_KEY = "d9cd85c9cabb24c38b4e96056d07fe11";
 const SITE_URL = "https://supernxt.com";
@@ -40,6 +41,19 @@ const ALL_URLS = [
   `${SITE_URL}/hospitals`,
   `${SITE_URL}/warehouses`,
   `${SITE_URL}/free-audit`,
+  /* Network Analyzer & Tools Hub */
+  `${SITE_URL}/analyzer/`,
+  `${SITE_URL}/tools/`,
+  `${SITE_URL}/tools/speed-test/`,
+  `${SITE_URL}/tools/fastest-dns-finder/`,
+  `${SITE_URL}/tools/dns-benchmark/`,
+  `${SITE_URL}/tools/ttl-analyzer/`,
+  `${SITE_URL}/tools/ping-latency-test/`,
+  `${SITE_URL}/tools/packet-loss-test/`,
+  `${SITE_URL}/tools/wifi-quality-analyzer/`,
+  `${SITE_URL}/tools/isp-performance-checker/`,
+  `${SITE_URL}/tools/ip-information-lookup/`,
+  `${SITE_URL}/tools/network-health-assessment/`,
 ];
 
 async function pingIndexNow(urls: string[] = ALL_URLS) {
@@ -120,6 +134,20 @@ async function sendContactEmail(data: {
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Serve the Super Network Analyzer static HTML byte-for-byte at /analyzer and /analyzer/.
+  // Must be registered BEFORE Vite/express.static middleware so dev mode works.
+  // No CSP headers — the app makes outbound browser fetches to external origins.
+  const serveAnalyzer = (_req: any, res: any) => {
+    const isProd = process.env.NODE_ENV === "production";
+    const filePath = path.resolve(
+      isProd ? "dist/public/analyzer/index.html" : "client/public/analyzer/index.html"
+    );
+    res.setHeader("Cache-Control", "no-store");
+    res.sendFile(filePath);
+  };
+  app.get("/analyzer", serveAnalyzer);
+  app.get("/analyzer/", serveAnalyzer);
+
 
   // Contact form — POST /api/contact
   app.post("/api/contact", async (req, res) => {

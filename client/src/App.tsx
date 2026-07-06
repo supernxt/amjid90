@@ -42,6 +42,8 @@ const Hotels              = lazy(() => import("@/pages/Hotels"));
 const Hospitals           = lazy(() => import("@/pages/Hospitals"));
 const Warehouses          = lazy(() => import("@/pages/Warehouses"));
 const FreeAudit           = lazy(() => import("@/pages/FreeAudit"));
+const ToolsHub            = lazy(() => import("@/pages/ToolsHub"));
+const ToolPage            = lazy(() => import("@/pages/ToolPage"));
 const NotFoundPage        = lazy(() => import("@/pages/NotFoundPage"));
 
 function PageLoader() {
@@ -85,6 +87,10 @@ function Router() {
         <Route path="/hospitals" component={Hospitals} />
         <Route path="/warehouses" component={Warehouses} />
         <Route path="/free-audit" component={FreeAudit} />
+        <Route path="/tools/" component={ToolsHub} />
+        <Route path="/tools" component={ToolsHub} />
+        <Route path="/tools/:slug/" component={ToolPage} />
+        <Route path="/tools/:slug" component={ToolPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </Suspense>

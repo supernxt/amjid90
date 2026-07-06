@@ -39,6 +39,8 @@ const mainNavItems = [
   { label: "Contact", labelAr: "اتصل بنا", path: "/contact" },
 ];
 
+const networkToolsItem = { label: "Network Analyzer", href: "/analyzer/" };
+
 export default function Navbar() {
   const [location] = useLocation();
   const { lang, toggle, isAr } = useLang();
@@ -181,6 +183,16 @@ export default function Navbar() {
                   </button>
                 </Link>
               ))}
+
+              {/* Network Analyzer — static page, plain anchor */}
+              <a
+                href={networkToolsItem.href}
+                className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                data-testid="link-nav-network-analyzer"
+              >
+                <BookOpen className="h-3.5 w-3.5" />
+                {networkToolsItem.label}
+              </a>
             </div>
           </div>
 
@@ -316,6 +328,17 @@ export default function Navbar() {
                 </button>
               </Link>
             ))}
+
+            {/* Network Analyzer — static page */}
+            <a
+              href={networkToolsItem.href}
+              className="flex items-center gap-2 w-full text-left px-4 py-3 rounded-xl font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all duration-300"
+              data-testid="link-mobile-network-analyzer"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <BookOpen className="h-4 w-4 shrink-0" />
+              {networkToolsItem.label}
+            </a>
 
             <div className="pt-4 border-t border-gray-100 flex flex-col gap-2">
               {/* Mobile language toggle */}

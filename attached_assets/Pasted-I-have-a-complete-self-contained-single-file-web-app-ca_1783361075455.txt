@@ -1,0 +1,46 @@
+I have a complete, self-contained single-file web app called "Super Network Analyzer" (index.html), already uploaded to this project. Integrate it into my existing website supernxt.com and build a scalable network-tools ecosystem around it. Treat everything below as additions — do NOT redesign or restructure the existing website.
+
+════════ PART A — CORE: SERVE THE ANALYZER (highest priority) ════════
+
+1. Serve index.html at /analyzer/ → https://supernxt.com/analyzer/
+   - Static site: create folder "analyzer" in the served directory, place index.html inside.
+   - Server framework (Express/Flask/Next.js etc.): add a static mount so GET /analyzer/ serves this exact file; redirect /analyzer → /analyzer/.
+
+2. CRITICAL: Do NOT edit, reformat, minify, refactor, or "improve" index.html. It is production-ready and must be served byte-for-byte as-is. Do not inject scripts, analytics, or headers into it. If you think it needs changes, ask me first — the answer is no.
+
+3. No Content-Security-Policy or restrictive headers on /analyzer/. The app makes outbound browser fetches to: speed.cloudflare.com, cloudflare-dns.com, dns.google, dns.quad9.net:5053, dns.adguard-dns.com, doh.opendns.com, api6.ipify.org, and loads Chart.js from cdnjs.cloudflare.com. No backend proxy needed.
+
+4. Add "Network Analyzer" to the main nav and footer (matching existing site style, including mobile menu), linking to /analyzer/.
+
+5. Keep HTTPS and the existing supernxt.com domain mapping untouched.
+
+════════ PART B — SITE-WIDE PROMO WIDGET ════════
+
+6. Build a floating promo widget shown on all website pages EXCEPT /analyzer/ and /tools/* pages themselves:
+   - Small pill/card fixed to the bottom corner (bottom-right on LTR), SuperNXT branding: navy #243B66 background, red #E30613 accent, white text, subtle shadow, rounded corners, small pulse dot.
+   - Rotates these CTA messages with a smooth fade every ~7 seconds: "Test Your Office Network Speed" · "Test Your Accommodation Wi-Fi Speed" · "Test Your Hotel Internet Speed" · "Check Your Internet Performance" · "Find the Fastest DNS for Your Network" · "Analyze Your Network Latency" · "Diagnose Your Internet Connection". Store messages in a single config array so I can edit them later.
+   - Click → /analyzer/. Include a small ✕ dismiss button; remember dismissal for the session (sessionStorage) so it doesn't nag.
+   - Implementation: ONE small vanilla-JS file + minimal CSS (no jQuery, no framework, target under 10 KB total), loaded with defer. Must cause zero layout shift (CLS 0), respect prefers-reduced-motion (no animation if set), have aria-label and keyboard focus support, and never overlap existing floating elements (e.g. WhatsApp button) — offset above them if present. On small screens keep it compact and never cover nav or content.
+
+════════ PART C — SEO TOOL ECOSYSTEM (/tools/) ════════
+
+7. Create a tools hub page at /tools/ titled "Free Network Tools by SuperNXT" with a card grid linking to individual tool landing pages.
+
+8. Create dedicated SEO landing pages using ONE shared, reusable template driven by a config file (array/JSON of tool definitions) so future tools are added by appending a config entry — no template or backend changes. Initial pages:
+   /tools/speed-test/ · /tools/fastest-dns-finder/ · /tools/dns-benchmark/ · /tools/ttl-analyzer/ · /tools/ping-latency-test/ · /tools/packet-loss-test/ · /tools/wifi-quality-analyzer/ · /tools/isp-performance-checker/ · /tools/ip-information-lookup/ · /tools/network-health-assessment/
+
+9. Each landing page must include: unique <title> and meta description; one H1; 300–500 words of original, non-duplicated explanatory content about that measurement (what it is, why it matters, how to interpret results — write for UAE/GCC business users); a short FAQ (3–4 questions); JSON-LD structured data (WebApplication + FAQPage schema); breadcrumb navigation; canonical URL; Open Graph tags; a primary CTA button "Launch Tool" → /analyzer/.
+
+10. IMPORTANT — honesty per tool: Speed Test, Fastest DNS Finder, DNS Benchmark, Ping & Latency, IP Lookup, ISP Performance, and Network Health are LIVE in the analyzer today — their CTA is "Launch Tool". TTL Analyzer, Packet Loss Test, and Wi-Fi Quality Analyzer require the desktop version — on those pages the CTA is "Launch Web Analyzer" plus a note "Full version available in the SuperNXT desktop suite — contact us", linking to the contact page. Never claim a browser tool measures something it cannot.
+
+11. Lead generation: every /tools/ page ends with a consistent "Enterprise Solutions by SuperNXT" section promoting our managed Wi-Fi solutions, enterprise networking, AI automation, and IT infrastructure services (AMC, CCTV, structured cabling), with a button to the site's existing contact page. Reuse one shared component for this section.
+
+12. SEO plumbing: add all new pages to sitemap.xml (create it if missing) and link the /tools/ hub from the main nav or footer. Add sensible internal links between related tool pages.
+
+════════ PART D — PERFORMANCE & QUALITY BAR ════════
+
+13. All new pages/components: mobile-first responsive, semantic HTML, accessible (contrast, focus states, alt text), scripts deferred, no render-blocking additions to existing pages, Lighthouse Performance and SEO ≥ 90 on the new pages, and no measurable slowdown of existing pages.
+
+14. Do not modify any existing page content, workflows, or logic except: (a) adding the nav/footer links, (b) including the promo widget script. No dependency upgrades, no framework changes, no config rewrites beyond what's specified.
+
+15. When done: list every new URL created, confirm https://supernxt.com/analyzer/ serves the untouched file, and confirm the widget appears site-wide and is dismissible.
