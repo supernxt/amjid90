@@ -1,0 +1,150 @@
+Act as a Senior Technical SEO Engineer, Enterprise Content Strategist, and Google Search Console SEO Specialist.
+
+Perform a complete technical and content SEO audit of https://supernxt.com and implement all necessary improvements following Google's latest Search Essentials, Core Web Vitals, and E-E-A-T guidelines.
+
+Current Google Search Console Status:
+• 68 Clicks
+• 2.02K Impressions
+• 3.4% CTR
+• Average Position: 7.1
+• 20 Indexed Pages
+• 30 Non-Indexed Pages
+• 13 "Discovered – Currently Not Indexed"
+• 3 "Crawled – Currently Not Indexed"
+• 11 Alternate Canonical Pages
+• 2 Duplicate Canonical Issues
+
+Primary Objectives
+
+1. Increase CTR from 3.4% to 7% or higher by rewriting all page titles and meta descriptions with compelling, keyword-rich copy.
+
+2. Increase organic traffic by targeting high-value commercial keywords related to:
+   • AI Agents
+   • AI Automation
+   • Business Process Automation
+   • n8n Automation
+   • IT AMC
+   • Managed IT Services
+   • Network Infrastructure
+   • Enterprise Wi-Fi Solutions
+   • Labour Camp Wi-Fi
+   • MikroTik Solutions
+   • Cisco Networking
+   • Juniper Networks
+   • Structured Cabling
+   • Fiber Optic Solutions
+   • Cloud Infrastructure
+   • VPN Solutions
+   • Website Development
+   • Web Applications
+   • AI-Powered Business Solutions
+   • IT Support UAE
+
+3. Resolve all indexing issues reported in Google Search Console by:
+   • Improving thin or duplicate content
+   • Strengthening internal linking
+   • Fixing canonical implementation
+   • Optimizing crawl budget
+   • Ensuring all important pages are indexed
+
+4. Expand every important service page into comprehensive, high-quality content (1,500–3,000 words) including:
+   • FAQs
+   • Benefits
+   • Process
+   • Use Cases
+   • Technical Details
+   • Strong Calls-to-Action
+   • Internal Links
+
+5. Generate SEO-optimized titles, meta descriptions, H1-H3 headings, image ALT text, and structured content for every page.
+
+6. Implement complete structured data including:
+   • Organization
+   • LocalBusiness
+   • Service
+   • FAQ
+   • Breadcrumb
+   • Website
+   • SearchAction
+   • Article
+   • CaseStudy
+
+7. Review and optimize:
+   • sitemap.xml
+   • robots.txt
+   • Canonical URLs
+   • Open Graph
+   • Twitter Cards
+   • Structured Data
+   • XML Sitemap Coverage
+
+8. Optimize Core Web Vitals by improving:
+   • Largest Contentful Paint (LCP)
+   • Interaction to Next Paint (INP)
+   • Cumulative Layout Shift (CLS)
+   • JavaScript performance
+   • CSS optimization
+   • Image compression (WebP/AVIF)
+   • Lazy Loading
+   • Font Loading
+   • Browser Caching
+   • Brotli/Gzip Compression
+
+9. Create dedicated SEO landing pages for:
+   • AI Agents
+   • AI Automation
+   • n8n Automation
+   • IT AMC
+   • Managed IT Services
+   • Enterprise Wi-Fi
+   • Labour Camp Internet Solutions
+   • Structured Cabling
+   • Fiber Optic Installation
+   • Cloud Solutions
+   • VPN Solutions
+   • Website Development
+   • Business Automation
+   • Network Monitoring
+
+10. Create location-specific landing pages for:
+   • Dubai
+   • Abu Dhabi
+   • Sharjah
+   • Ajman
+   • Ras Al Khaimah
+   • Fujairah
+   • UAE
+
+11. Build a powerful internal linking strategy connecting:
+   • Service Pages
+   • Blogs
+   • Case Studies
+   • Industry Solutions
+   • FAQs
+   • Contact Pages
+
+12. Improve Google's E-E-A-T signals by adding:
+   • Company Story
+   • CEO Profile
+   • Team Information
+   • Client Success Stories
+   • Case Studies
+   • Technology Stack
+   • Certifications
+   • Trust Signals
+   • Contact Information
+
+13. Ensure the website is fully responsive, accessible, mobile-first, and optimized for desktop, tablet, and mobile devices.
+
+14. Audit every page for duplicate content, missing metadata, broken links, orphan pages, slow-loading assets, indexing issues, and schema errors.
+
+15. Provide a final implementation report including:
+   • Every SEO improvement made
+   • Before vs After comparison
+   • Remaining issues
+   • Expected impact
+   • Priority recommendations
+   • Estimated improvements in rankings, indexing, CTR, and organic traffic.
+
+Important:
+Do not make cosmetic changes only. Perform production-ready improvements throughout the entire project. Follow Google's latest SEO guidelines, avoid keyword stuffing, maintain natural readability, and optimize for both users and search engines.

@@ -34,7 +34,7 @@ const footerSections: {
     title: "Locations",
     primaryPath: "/",
     links: [
-      { label: "Dubai", path: "/" },
+      { label: "Dubai", path: "/dubai" },
       { label: "Abu Dhabi", path: "/abu-dhabi" },
       { label: "Sharjah", path: "/sharjah" },
       { label: "Ajman", path: "/ajman" },
@@ -67,6 +67,8 @@ const footerSections: {
       { label: "Free IT Audit", path: "/free-audit" },
       { label: "Case Studies", path: "/case-studies" },
       { label: "Blog", path: "/blog" },
+      { label: "Support", path: "/support" },
+      { label: "Templates", path: "/templates" },
       { label: "Privacy Policy", path: "/legal/privacy" },
       { label: "EULA", path: "/legal/eula" },
     ],

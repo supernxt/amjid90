@@ -71,7 +71,7 @@ export default function Home() {
     <VideoBackground variant="default">
       <SEO
         title="Super Next Technologies | AI Solutions & Enterprise IT Services UAE"
-        description="Super Next Technologies — AI Solutions, Enterprise Wireless, CCTV, Fiber Optic Cabling, Managed IT, Cloud & Website Development across UAE. Based in Dubai."
+        description="AI agents, enterprise WiFi, CCTV, managed IT & structured cabling for UAE businesses. 500+ clients. Free site survey. 24/7 support. Super Next Technologies, Dubai."
         keywords="AI solutions Dubai, AI agents UAE, enterprise IT services UAE, CCTV Dubai, structured cabling UAE, managed IT services Dubai, wireless hotspot UAE, cloud infrastructure UAE, website development UAE, network infrastructure UAE, Super Next Technologies"
         canonical="https://supernxt.com/"
         schema={homeSchema}

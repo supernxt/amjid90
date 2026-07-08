@@ -88,8 +88,8 @@ export default function AISolutions() {
     <>
     <VideoBackground variant="ai">
       <SEO
-        title="AI Agents & Automation Solutions UAE | Super Next Technologies"
-        description="Custom AI agents for marketing, sales, operations and support. Intelligent automation workflows for businesses across UAE. Based in Dubai."
+        title="AI Agents & Automation UAE | WhatsApp Bots, n8n, ChatGPT | Super Next"
+        description="Custom AI agents, WhatsApp bots & n8n workflow automation for UAE businesses. Cut costs 40–60%, automate lead follow-up, support & reporting. Free demo. Dubai-based."
         keywords="AI agents UAE, AI automation Dubai, chatbot development UAE, WhatsApp AI bot, voice AI assistant, n8n automation UAE, AI SDR Dubai, marketing automation UAE, AI solutions Dubai, intelligent automation UAE"
         canonical="https://supernxt.com/ai-solutions"
         schema={aiSchema}
@@ -172,6 +172,28 @@ export default function AISolutions() {
               <Button size="lg" className="bg-gradient-to-r from-primary to-rose-500" onClick={openAIChat} data-testid="button-book-demo">Book an AI Demo</Button>
               <Button size="lg" variant="outline" className="border-gray-300 text-gray-700" onClick={openAIChat} data-testid="button-talk-ai-assistant">Talk to AI Assistant</Button>
             </div>
+          </div>
+
+          {/* Internal links to related automation pages */}
+          <div className="mt-10 grid sm:grid-cols-2 gap-4">
+            <a href="/n8n-automation" className="group flex items-start gap-4 border border-gray-200 rounded-2xl p-5 hover:border-primary/30 hover:shadow-md transition-all bg-white">
+              <div className="w-10 h-10 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center flex-shrink-0">
+                <Globe className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="font-bold text-gray-900 group-hover:text-primary transition-colors">n8n Workflow Automation</p>
+                <p className="text-sm text-gray-500 mt-1">Self-hosted business process automation, CRM integration & WhatsApp bots for UAE businesses.</p>
+              </div>
+            </a>
+            <a href="/it-amc" className="group flex items-start gap-4 border border-gray-200 rounded-2xl p-5 hover:border-primary/30 hover:shadow-md transition-all bg-white">
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0">
+                <Headphones className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="font-bold text-gray-900 group-hover:text-primary transition-colors">IT AMC & Managed IT</p>
+                <p className="text-sm text-gray-500 mt-1">Annual IT maintenance contracts with 24/7 helpdesk, NOC monitoring and 4-hour on-site SLA.</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>

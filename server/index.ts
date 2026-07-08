@@ -1,4 +1,5 @@
 import express, { type Request, Response, NextFunction } from "express";
+import compression from "compression";
 import { registerRoutes } from "./routes";
 
 function log(message: string) {
@@ -13,6 +14,7 @@ function log(message: string) {
 
 const app = express();
 app.set("env", process.env.NODE_ENV || "development");
+app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

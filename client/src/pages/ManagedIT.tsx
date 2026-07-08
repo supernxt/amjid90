@@ -69,8 +69,8 @@ export default function ManagedIT() {
     <>
     <VideoBackground variant="default">
       <SEO
-        title="Managed IT Services & IT AMC Dubai, UAE | Super Next Technologies"
-        description="24/7 managed IT services, IT AMC (Annual Maintenance Contracts), helpdesk support, server management and network monitoring in Dubai and across UAE. Super Next Technologies."
+        title="Managed IT Services & IT AMC Dubai, UAE | 24/7 Support | Super Next"
+        description="IT AMC & managed IT for UAE businesses. 24/7 helpdesk, 4-hr on-site SLA, NOC monitoring & server management. Fixed annual cost. 500+ clients. Free audit. Dubai-based."
         keywords="managed IT services Dubai, IT AMC Dubai, IT annual maintenance contract UAE, IT support Dubai, managed IT UAE, helpdesk support Dubai, server management UAE, network monitoring Dubai, IT outsourcing UAE, IT company Dubai, managed services UAE"
         canonical="https://supernxt.com/managed-it-services"
         schema={managedITSchema}
@@ -186,6 +186,7 @@ export default function ManagedIT() {
           </motion.div>
 
           <RelatedServices services={[
+            { title: "IT AMC (Annual Maintenance)", desc: "Detailed IT AMC plans, pricing and SLA options for UAE businesses", path: "/it-amc", color: "bg-emerald-600" },
             { title: "Network Infrastructure", desc: "Cisco, Juniper & MikroTik networking under your AMC coverage", path: "/network-infrastructure", color: "bg-blue-600" },
             { title: "CCTV Solutions", desc: "Add CCTV maintenance to your IT AMC contract", path: "/cctv-solutions", color: "bg-red-500" },
             { title: "Structured Cabling", desc: "Cabling infrastructure covered under your AMC agreement", path: "/structured-cabling", color: "bg-amber-500" },

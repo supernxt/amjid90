@@ -51,8 +51,8 @@ export default function WirelessHotspot() {
     <>
     <VideoBackground variant="wireless">
       <SEO
-        title="Enterprise Wireless Hotspots UAE | Super Next Technologies"
-        description="Professional enterprise Wi-Fi hotspot solutions for hotels, malls, offices and venues across UAE. Managed wireless infrastructure by Super Next Technologies, Dubai."
+        title="Enterprise WiFi UAE | Hotel, Office & Camp WiFi | Super Next Technologies"
+        description="Enterprise WiFi installation for hotels, offices & labour camps in UAE. Cisco, Ruckus & Ubiquiti. Branded captive portal, 24/7 monitoring. Free site survey. Dubai-based."
         keywords="enterprise wireless hotspot UAE, WiFi hotspot Dubai, managed WiFi UAE, hotel WiFi Dubai, enterprise WiFi UAE, wireless infrastructure UAE, hotspot installation Dubai"
         canonical="https://supernxt.com/wireless-hotspot"
         schema={hotspotSchema}

@@ -41,6 +41,9 @@ const Fujairah            = lazy(() => import("@/pages/Fujairah"));
 const Hotels              = lazy(() => import("@/pages/Hotels"));
 const Hospitals           = lazy(() => import("@/pages/Hospitals"));
 const Warehouses          = lazy(() => import("@/pages/Warehouses"));
+const Dubai               = lazy(() => import("@/pages/Dubai"));
+const N8nAutomation       = lazy(() => import("@/pages/N8nAutomation"));
+const ItAmc               = lazy(() => import("@/pages/ItAmc"));
 const FreeAudit           = lazy(() => import("@/pages/FreeAudit"));
 const ToolsHub            = lazy(() => import("@/pages/ToolsHub"));
 const ToolPage            = lazy(() => import("@/pages/ToolPage"));
@@ -86,6 +89,9 @@ function Router() {
         <Route path="/hotels" component={Hotels} />
         <Route path="/hospitals" component={Hospitals} />
         <Route path="/warehouses" component={Warehouses} />
+        <Route path="/dubai" component={Dubai} />
+        <Route path="/n8n-automation" component={N8nAutomation} />
+        <Route path="/it-amc" component={ItAmc} />
         <Route path="/free-audit" component={FreeAudit} />
         <Route path="/tools/" component={ToolsHub} />
         <Route path="/tools" component={ToolsHub} />

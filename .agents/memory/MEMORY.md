@@ -1,0 +1,2 @@
+- [SEO audit fixes](seo-audit-fixes.md) — sitemap had 5 missing service pages; /support and /templates were orphan pages with no footer/nav links.
+- [New landing pages](new-landing-pages.md) — /dubai, /n8n-automation, /it-amc created as new commercial keyword targets; all routed in App.tsx.
