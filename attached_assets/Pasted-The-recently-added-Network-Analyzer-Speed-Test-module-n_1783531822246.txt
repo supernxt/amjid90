@@ -1,0 +1,124 @@
+The recently added **Network Analyzer / Speed Test** module needs to be optimized for SEO and search engine visibility. The objective is to make this page rank for users searching for internet speed tests, Wi-Fi performance, and DNS testing, particularly in the **United Arab Emirates (UAE)** and across the **GCC countries** (Saudi Arabia, Qatar, Kuwait, Bahrain, Oman, and the UAE).
+
+### SEO Objectives
+
+Please perform a complete on-page and technical SEO optimization for the Analyzer page (`/analyzer`) with the goal of improving discoverability on Google, Bing, Yahoo, and other major search engines.
+
+### Keyword Strategy
+
+Optimize the page naturally around high-intent keywords such as:
+
+* Speed Test
+* Internet Speed Test
+* WiFi Speed Test
+* Broadband Speed Test
+* Network Speed Test
+* Check Internet Speed
+* Test My Internet Speed
+* Test My WiFi Speed
+* Check Network Speed
+* Speed Test UAE
+* Internet Speed Test UAE
+* WiFi Speed Test UAE
+* Speed Test Dubai
+* Speed Test Abu Dhabi
+* Hotel WiFi Speed Test
+* Hotel Apartment WiFi Speed Test
+* Accommodation WiFi Speed Test
+* Labour Camp WiFi Speed Test
+* Camp Internet Speed Test
+* Staff Accommodation Speed Test
+* Measure Download Speed
+* Measure Upload Speed
+* Check Ping
+* Check Latency
+* Fast Internet Test
+* Check the Fastest DNS
+* Find the Fastest DNS for My Location
+* Best DNS Based on My Location
+* DNS Performance Test
+* Network Performance Analyzer
+* Internet Connection Analyzer
+
+### Technical SEO
+
+Implement and verify the following:
+
+* Optimized page title (under 60 characters).
+* High-quality meta description (150–160 characters).
+* Proper H1, H2, and H3 heading hierarchy.
+* Canonical URL.
+* Open Graph and Twitter Card metadata.
+* Structured data (Schema.org) where applicable.
+* Breadcrumb schema if appropriate.
+* FAQ schema for common speed test questions.
+* XML sitemap inclusion.
+* robots.txt validation.
+* Clean, SEO-friendly URLs.
+* Optimized internal linking from relevant pages.
+* Image optimization with descriptive ALT tags.
+* Core Web Vitals optimization.
+* Mobile-first optimization.
+* Lazy loading where appropriate.
+* Fast page rendering and asset optimization.
+
+### Content Optimization
+
+Expand the Analyzer page with valuable SEO-friendly content explaining:
+
+* How internet speed tests work.
+* Download, upload, ping, and latency.
+* Why WiFi performance matters.
+* DNS optimization and benefits.
+* How users can identify slow internet issues.
+* Tips to improve WiFi performance.
+* Network troubleshooting basics.
+
+Ensure the content is natural, informative, and written for users rather than keyword stuffing.
+
+### Local SEO
+
+Optimize specifically for UAE and GCC searches by naturally incorporating location-based relevance, including:
+
+* UAE
+* Dubai
+* Abu Dhabi
+* Sharjah
+* Ajman
+* Ras Al Khaimah
+* Fujairah
+* Umm Al Quwain
+* Saudi Arabia
+* Qatar
+* Kuwait
+* Bahrain
+* Oman
+
+### Branding
+
+Strengthen SuperNXT branding throughout the page without overusing the company name. Position SuperNXT as an expert in:
+
+* Network Performance
+* WiFi Optimization
+* Internet Diagnostics
+* DNS Optimization
+* Enterprise Networking
+* Labour Camp Internet Solutions
+* Hotel & Accommodation WiFi Solutions
+* Managed IT Infrastructure
+
+### Search Intent
+
+The page should rank whenever users search for terms related to:
+
+* Speed Test
+* Check Internet Speed
+* Test My WiFi
+* Network Speed Test
+* Internet Performance
+* Fastest DNS
+* DNS Speed Test
+* Internet Diagnostic Tool
+* WiFi Analyzer
+
+The objective is to attract high-quality organic traffic, increase search visibility, improve rankings in UAE and GCC search results, and establish SuperNXT's Analyzer as a trusted online speed test and network diagnostics platform while fully complying with Google's SEO best practices and avoiding keyword stuffing or spammy optimization techniques.

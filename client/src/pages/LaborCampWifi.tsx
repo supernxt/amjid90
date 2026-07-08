@@ -87,6 +87,9 @@ export default function LaborCampWifi() {
                   Call: +971 4 886 4215
                 </Button>
               </div>
+              <a href="/analyzer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 mt-5" data-testid="link-camp-speed-test">
+                Test your camp or hotel WiFi speed <ArrowRight className="h-3.5 w-3.5" />
+              </a>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="hidden lg:block">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-gray-300/50">

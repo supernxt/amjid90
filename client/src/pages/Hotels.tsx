@@ -114,6 +114,9 @@ export default function Hotels() {
                   <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
                     <p className="text-sm font-semibold text-gray-900">Serving hotels across UAE</p>
                     <p className="text-xs text-gray-500 mt-0.5">Dubai · Abu Dhabi · Sharjah · RAK · Fujairah</p>
+                    <a href="/analyzer" className="text-xs font-semibold text-primary mt-1.5 inline-block" data-testid="link-hotel-speed-test">
+                      Check your hotel WiFi speed →
+                    </a>
                   </div>
                 </div>
               </div>

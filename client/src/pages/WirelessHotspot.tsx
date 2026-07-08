@@ -72,6 +72,9 @@ export default function WirelessHotspot() {
               <p className="text-xl text-gray-600 max-w-xl">
                 Secure, scalable, and lightning-fast wireless connectivity for your business
               </p>
+              <a href="/analyzer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 mt-4" data-testid="link-wifi-speed-test">
+                Test your current WiFi speed <ArrowRight className="h-3.5 w-3.5" />
+              </a>
             </motion.div>
             
             <motion.div
