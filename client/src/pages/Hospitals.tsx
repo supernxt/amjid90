@@ -3,11 +3,10 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
 import FAQSection from "@/components/FAQSection";
-import { Wifi, Camera, Cable, Headphones, Bot, Shield, CheckCircle, ArrowRight, Phone, MessageSquare, Activity } from "lucide-react";
+import { Wifi, Cable, Headphones, Bot, Shield, CheckCircle, ArrowRight, Phone, MessageSquare, Activity } from "lucide-react";
 
 const services = [
   { icon: Wifi, title: "Healthcare WiFi", desc: "High-density clinical WiFi supporting medical devices, EMR systems, VoIP, and patient WiFi — all on separate, secure VLANs.", color: "bg-blue-50 text-blue-600" },
-  { icon: Camera, title: "Hospital CCTV", desc: "IP camera systems covering entry points, wards, pharmacies, car parks, and restricted areas with 30-day recording and audit trails.", color: "bg-red-50 text-red-600" },
   { icon: Cable, title: "Structured Cabling", desc: "Cat6A and fiber optic backbone connecting nursing stations, labs, imaging equipment, and admin offices on a single certified infrastructure.", color: "bg-amber-50 text-amber-600" },
   { icon: Headphones, title: "IT AMC & Helpdesk", desc: "Dedicated healthcare IT support with priority response, 24/7 remote helpdesk, and on-site engineers familiar with clinical environments.", color: "bg-emerald-50 text-emerald-600" },
   { icon: Shield, title: "Network Security", desc: "Firewall, VLAN segmentation, medical device isolation, and cyber security policies aligned with UAE health data regulations.", color: "bg-violet-50 text-violet-600" },
@@ -24,10 +23,6 @@ const faqs = [
     a: "Yes. We design all healthcare IT infrastructure with compliance in mind — including data segmentation, access controls, and network policies aligned with UAE Ministry of Health and DHA (Dubai Health Authority) guidelines for healthcare data security.",
   },
   {
-    q: "Can you install CCTV in sensitive areas like wards and pharmacies?",
-    a: "Yes. We work with hospital management to define camera placement that meets security requirements while respecting patient privacy in clinical areas. All camera footage is secured with role-based access controls and maintains full audit trails.",
-  },
-  {
     q: "What is your response time for critical IT issues in hospitals?",
     a: "For healthcare AMC clients, we offer 2-hour critical response SLA for network and system outages affecting patient care. We maintain an on-call engineer roster specifically for healthcare clients to ensure rapid response at any hour.",
   },
@@ -42,7 +37,7 @@ const schema = {
   "@type": "Service",
   name: "Hospital & Healthcare IT Solutions UAE",
   provider: { "@type": "Organization", name: "Super Next Technologies", url: "https://supernxt.com" },
-  description: "Enterprise WiFi, CCTV, structured cabling, and managed IT services for hospitals and healthcare facilities across UAE.",
+  description: "Enterprise WiFi, structured cabling, and managed IT services for hospitals and healthcare facilities across UAE.",
   areaServed: { "@type": "Country", name: "United Arab Emirates" },
 };
 
@@ -50,8 +45,8 @@ export default function Hospitals() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Hospital & Healthcare IT Solutions UAE | WiFi, CCTV & Managed IT | Super Next Technologies"
-        description="Enterprise IT for hospitals and clinics in UAE — clinical WiFi, CCTV, structured cabling, healthcare data security, and 24/7 managed IT. Serving Dubai, Abu Dhabi, Sharjah healthcare facilities."
+        title="Hospital & Healthcare IT Solutions UAE | WiFi, AI & Managed IT | Super Next Technologies"
+        description="Enterprise IT for hospitals and clinics in UAE — clinical WiFi, structured cabling, healthcare data security, AI patient engagement, and 24/7 managed IT. Serving Dubai, Abu Dhabi, Sharjah."
         canonical="https://supernxt.com/hospitals"
         schema={schema}
       />
@@ -69,10 +64,10 @@ export default function Hospitals() {
                 <span className="bg-gradient-to-r from-primary to-rose-500 bg-clip-text text-transparent">Hospitals & Clinics</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Super Next Technologies delivers secure, compliant IT infrastructure for hospitals, clinics, and medical centres across the UAE — including clinical WiFi, CCTV, structured cabling, and 24/7 managed IT support.
+                Super Next Technologies delivers secure, compliant IT infrastructure for hospitals, clinics, and medical centres across the UAE — including clinical WiFi, structured cabling, AI patient engagement, and 24/7 managed IT support.
               </p>
               <ul className="grid grid-cols-2 gap-3 mb-8">
-                {["Clinical WiFi design", "Medical device isolation", "DHA/MOH compliant", "24/7 critical response", "Secure CCTV", "AI patient engagement"].map(item => (
+                {["Clinical WiFi design", "Medical device isolation", "DHA/MOH compliant", "24/7 critical response", "Network security", "AI patient engagement"].map(item => (
                   <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
                     <CheckCircle className="h-4 w-4 text-primary shrink-0" />
                     {item}

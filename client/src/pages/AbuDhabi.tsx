@@ -3,12 +3,11 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
 import FAQSection from "@/components/FAQSection";
-import { MapPin, Bot, Wifi, Camera, Cable, Headphones, Server, CheckCircle, ArrowRight, Phone, MessageSquare } from "lucide-react";
+import { MapPin, Bot, Wifi, Cable, Headphones, Server, CheckCircle, ArrowRight, Phone, MessageSquare } from "lucide-react";
 
 const services = [
   { icon: Bot, title: "AI Automation", desc: "Custom AI agents, WhatsApp bots, and workflow automation for Abu Dhabi enterprises.", color: "bg-violet-50 text-violet-600" },
   { icon: Wifi, title: "Enterprise WiFi", desc: "Cisco, Ruckus & Ubiquiti deployments for hotels, offices, and campuses across Abu Dhabi.", color: "bg-blue-50 text-blue-600" },
-  { icon: Camera, title: "CCTV & Security", desc: "Full HD IP camera systems with video analytics, remote monitoring, and UAE TRA compliance.", color: "bg-red-50 text-red-600" },
   { icon: Cable, title: "Structured Cabling", desc: "TIA/ISO-certified Cat6A and fiber optic installations for Abu Dhabi commercial projects.", color: "bg-amber-50 text-amber-600" },
   { icon: Headphones, title: "Managed IT & AMC", desc: "Annual maintenance contracts with 24/7 NOC monitoring and 4-hour on-site SLA in Abu Dhabi.", color: "bg-emerald-50 text-emerald-600" },
   { icon: Server, title: "Cloud Infrastructure", desc: "Cloud migration, hosted servers, and IT infrastructure for Abu Dhabi government and private sector.", color: "bg-cyan-50 text-cyan-600" },
@@ -29,11 +28,11 @@ const faqs = [
   },
   {
     q: "Can you handle large-scale projects in Abu Dhabi?",
-    a: "Absolutely. We have delivered structured cabling, enterprise WiFi, and CCTV projects for hotels, commercial towers, warehouses, and campuses in Abu Dhabi. We can handle projects from 50 to 5,000+ points.",
+    a: "Absolutely. We have delivered structured cabling, enterprise WiFi, and network infrastructure projects for hotels, commercial towers, warehouses, and campuses in Abu Dhabi. We can handle projects from 50 to 5,000+ points.",
   },
   {
     q: "Do you offer free site surveys in Abu Dhabi?",
-    a: "Yes. We offer complimentary on-site surveys for IT infrastructure, CCTV, WiFi, and cabling projects in Abu Dhabi. A certified engineer will visit your site, assess requirements, and provide a detailed proposal.",
+    a: "Yes. We offer complimentary on-site surveys for IT infrastructure, WiFi, and cabling projects in Abu Dhabi. A certified engineer will visit your site, assess requirements, and provide a detailed proposal.",
   },
 ];
 
@@ -41,7 +40,7 @@ const abuDhabiSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Super Next Technologies - Abu Dhabi",
-  description: "Enterprise IT solutions in Abu Dhabi — AI automation, enterprise WiFi, CCTV, structured cabling, and managed IT services.",
+  description: "Enterprise IT solutions in Abu Dhabi — AI automation, enterprise WiFi, structured cabling, and managed IT services.",
   url: "https://supernxt.com/abu-dhabi",
   areaServed: { "@type": "City", name: "Abu Dhabi" },
   telephone: "+97148864215",
@@ -52,8 +51,8 @@ export default function AbuDhabi() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="IT Solutions Abu Dhabi | AI, WiFi, CCTV & Managed IT | Super Next Technologies"
-        description="Enterprise IT services in Abu Dhabi — AI automation, enterprise WiFi, CCTV systems, structured cabling, and 24/7 managed IT support. Free site survey across Abu Dhabi."
+        title="IT Solutions Abu Dhabi | AI, WiFi & Managed IT | Super Next Technologies"
+        description="Enterprise IT services in Abu Dhabi — AI automation, enterprise WiFi, structured cabling, and 24/7 managed IT support. Free site survey across Abu Dhabi."
         canonical="https://supernxt.com/abu-dhabi"
         schema={abuDhabiSchema}
       />
@@ -72,7 +71,7 @@ export default function AbuDhabi() {
                 <span className="bg-gradient-to-r from-primary to-rose-500 bg-clip-text text-transparent">Abu Dhabi</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Super Next Technologies delivers AI automation, enterprise networking, CCTV, structured cabling, and managed IT services to businesses across Abu Dhabi — with a free site survey and same-day proposals.
+                Super Next Technologies delivers AI automation, enterprise networking, structured cabling, and managed IT services to businesses across Abu Dhabi — with a free site survey and same-day proposals.
               </p>
               <ul className="grid grid-cols-2 gap-3 mb-8">
                 {["Free site survey", "4-hour on-site SLA", "Certified engineers", "24/7 NOC monitoring", "Government compliant", "ISO-certified cabling"].map(item => (

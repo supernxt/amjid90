@@ -3,12 +3,11 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
 import FAQSection from "@/components/FAQSection";
-import { MapPin, Bot, Wifi, Camera, Cable, Headphones, Server, CheckCircle, ArrowRight, Phone, MessageSquare } from "lucide-react";
+import { MapPin, Bot, Wifi, Cable, Headphones, Server, CheckCircle, ArrowRight, Phone, MessageSquare } from "lucide-react";
 
 const services = [
   { icon: Bot, title: "AI Automation", desc: "Custom AI agents, WhatsApp bots, and intelligent automation workflows for RAK businesses.", color: "bg-violet-50 text-violet-600" },
   { icon: Wifi, title: "Enterprise WiFi", desc: "Professional wireless deployments for RAK's hotels, resorts, and industrial facilities.", color: "bg-blue-50 text-blue-600" },
-  { icon: Camera, title: "CCTV & Security", desc: "Full HD IP camera systems with video analytics and remote monitoring across Ras Al Khaimah.", color: "bg-red-50 text-red-600" },
   { icon: Cable, title: "Structured Cabling", desc: "TIA/ISO-certified Cat6A and fiber optic cabling for RAK commercial and industrial projects.", color: "bg-amber-50 text-amber-600" },
   { icon: Headphones, title: "Managed IT & AMC", desc: "Annual maintenance contracts with 24/7 NOC monitoring and on-site SLA across RAK.", color: "bg-emerald-50 text-emerald-600" },
   { icon: Server, title: "Cloud Infrastructure", desc: "Cloud migration and hosted servers for RAK businesses and RAKEZ free zone companies.", color: "bg-cyan-50 text-cyan-600" },
@@ -21,7 +20,7 @@ const faqs = [
   },
   {
     q: "Do you serve hotels and resorts in RAK?",
-    a: "Yes. Ras Al Khaimah's growing hospitality sector is a key market for us. We install enterprise WiFi, CCTV, structured cabling, and provide IT AMC services for hotels and beach resorts throughout RAK.",
+    a: "Yes. Ras Al Khaimah's growing hospitality sector is a key market for us. We install enterprise WiFi, structured cabling, and provide IT AMC services for hotels and beach resorts throughout RAK.",
   },
   {
     q: "What is your response time for on-site support in RAK?",
@@ -29,11 +28,11 @@ const faqs = [
   },
   {
     q: "Do you work with RAKEZ free zone companies?",
-    a: "Yes. We work with RAKEZ (Ras Al Khaimah Economic Zone) businesses providing IT infrastructure, structured cabling, enterprise WiFi, CCTV, and managed IT services compliant with free zone standards.",
+    a: "Yes. We work with RAKEZ (Ras Al Khaimah Economic Zone) businesses providing IT infrastructure, structured cabling, enterprise WiFi, and managed IT services compliant with free zone standards.",
   },
   {
     q: "Do you offer free site surveys in Ras Al Khaimah?",
-    a: "Yes. We offer complimentary on-site surveys across Ras Al Khaimah for IT, CCTV, WiFi, and cabling projects. Our engineer will assess your site and provide a detailed proposal at no cost.",
+    a: "Yes. We offer complimentary on-site surveys across Ras Al Khaimah for IT, WiFi, and cabling projects. Our engineer will assess your site and provide a detailed proposal at no cost.",
   },
 ];
 
@@ -41,7 +40,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Super Next Technologies - Ras Al Khaimah",
-  description: "Enterprise IT solutions in Ras Al Khaimah — AI automation, enterprise WiFi, CCTV, structured cabling, and managed IT services.",
+  description: "Enterprise IT solutions in Ras Al Khaimah — AI automation, enterprise WiFi, structured cabling, and managed IT services.",
   url: "https://supernxt.com/ras-al-khaimah",
   areaServed: { "@type": "City", name: "Ras Al Khaimah" },
   telephone: "+97148864215",
@@ -52,8 +51,8 @@ export default function RasAlKhaimah() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="IT Solutions Ras Al Khaimah | AI, WiFi, CCTV & Managed IT | Super Next Technologies"
-        description="Enterprise IT services in Ras Al Khaimah — AI automation, enterprise WiFi, CCTV systems, structured cabling, and 24/7 managed IT. Free site survey across RAK and RAKEZ."
+        title="IT Solutions Ras Al Khaimah | AI, WiFi & Managed IT | Super Next Technologies"
+        description="Enterprise IT services in Ras Al Khaimah — AI automation, enterprise WiFi, structured cabling, and 24/7 managed IT. Free site survey across RAK and RAKEZ."
         canonical="https://supernxt.com/ras-al-khaimah"
         schema={schema}
       />
@@ -71,7 +70,7 @@ export default function RasAlKhaimah() {
                 <span className="bg-gradient-to-r from-primary to-rose-500 bg-clip-text text-transparent">Ras Al Khaimah</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Super Next Technologies delivers AI automation, enterprise networking, CCTV, structured cabling, and managed IT services to businesses across RAK — with a free site survey and proposals within 24 hours.
+                Super Next Technologies delivers AI automation, enterprise networking, structured cabling, and managed IT services to businesses across RAK — with a free site survey and proposals within 24 hours.
               </p>
               <ul className="grid grid-cols-2 gap-3 mb-8">
                 {["Free site survey", "Same-day response", "Certified engineers", "24/7 NOC monitoring", "RAKEZ compliant", "Hotel & resort specialists"].map(item => (

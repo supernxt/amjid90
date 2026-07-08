@@ -23,7 +23,6 @@ const footerSections: {
     title: "IT Services",
     primaryPath: "/managed-it-services",
     links: [
-      { label: "CCTV Solutions", path: "/cctv-solutions" },
       { label: "Structured Cabling", path: "/structured-cabling" },
       { label: "Managed IT & AMC", path: "/managed-it-services" },
       { label: "Network Infrastructure", path: "/network-infrastructure" },

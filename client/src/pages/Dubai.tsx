@@ -3,12 +3,11 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
 import FAQSection from "@/components/FAQSection";
-import { MapPin, Bot, Wifi, Camera, Cable, Headphones, Server, CheckCircle, ArrowRight, Phone, MessageSquare, Zap, Network } from "lucide-react";
+import { MapPin, Bot, Wifi, Cable, Headphones, Server, CheckCircle, ArrowRight, Phone, MessageSquare, Zap, Network } from "lucide-react";
 
 const services = [
   { icon: Bot, title: "AI Agents & Automation", desc: "Custom AI agents, WhatsApp bots, n8n workflows and business process automation for Dubai enterprises.", color: "bg-violet-50 text-violet-600" },
   { icon: Wifi, title: "Enterprise WiFi", desc: "Cisco Meraki, Ruckus & Ubiquiti deployments for hotels, offices, malls, and campuses across Dubai.", color: "bg-blue-50 text-blue-600" },
-  { icon: Camera, title: "CCTV & Video Surveillance", desc: "Full HD IP camera systems, AI video analytics, remote monitoring and UAE TRA-compliant security solutions.", color: "bg-red-50 text-red-600" },
   { icon: Cable, title: "Structured Cabling & Fiber Optic", desc: "TIA/ISO-certified Cat6A, fiber optic, and data center cabling for Dubai commercial and free zone projects.", color: "bg-amber-50 text-amber-600" },
   { icon: Headphones, title: "Managed IT & AMC", desc: "Annual IT maintenance contracts with 24/7 NOC monitoring, helpdesk, and 4-hour on-site SLA across Dubai.", color: "bg-emerald-50 text-emerald-600" },
   { icon: Server, title: "Cloud & Network Infrastructure", desc: "Cloud migration, VPN setup, server management and enterprise networking for Dubai businesses.", color: "bg-cyan-50 text-cyan-600" },
@@ -39,7 +38,7 @@ const faqs = [
   },
   {
     q: "Do you offer free site surveys for Dubai IT projects?",
-    a: "Yes. We offer complimentary on-site surveys for IT infrastructure, CCTV, WiFi, structured cabling, and automation projects across Dubai. A certified engineer will assess your requirements and deliver a detailed proposal within 24 hours.",
+    a: "Yes. We offer complimentary on-site surveys for IT infrastructure, WiFi, structured cabling, and automation projects across Dubai. A certified engineer will assess your requirements and deliver a detailed proposal within 24 hours.",
   },
 ];
 
@@ -48,7 +47,7 @@ const dubaiSchema = [
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "TechCompany"],
     name: "Super Next Technologies - Dubai",
-    description: "Enterprise IT solutions in Dubai — AI automation, enterprise WiFi, CCTV, structured cabling, managed IT & AMC services for Dubai businesses.",
+    description: "Enterprise IT solutions in Dubai — AI automation, enterprise WiFi, structured cabling, managed IT & AMC services for Dubai businesses.",
     url: "https://supernxt.com/dubai",
     areaServed: { "@type": "City", name: "Dubai" },
     telephone: "+97148864215",
@@ -76,10 +75,10 @@ export default function Dubai() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="IT Solutions Dubai | AI, WiFi, CCTV, Managed IT & AMC | Super Next"
-        description="Enterprise IT services in Dubai — AI agents, enterprise WiFi, CCTV, structured cabling, managed IT & AMC. Free site survey. Serving DIFC, Business Bay, JAFZA & all Dubai."
+        title="IT Solutions Dubai | AI, WiFi, Managed IT & AMC | Super Next"
+        description="Enterprise IT services in Dubai — AI agents, enterprise WiFi, structured cabling, managed IT & AMC. Free site survey. Serving DIFC, Business Bay, JAFZA & all Dubai."
         canonical="https://supernxt.com/dubai"
-        keywords="IT solutions Dubai, managed IT Dubai, IT AMC Dubai, enterprise WiFi Dubai, CCTV installation Dubai, structured cabling Dubai, AI automation Dubai, n8n automation Dubai, IT support Dubai, network infrastructure Dubai, fiber optic Dubai"
+        keywords="IT solutions Dubai, managed IT Dubai, IT AMC Dubai, enterprise WiFi Dubai, structured cabling Dubai, AI automation Dubai, n8n automation Dubai, IT support Dubai, network infrastructure Dubai, fiber optic Dubai"
         schema={dubaiSchema}
       />
 
@@ -97,7 +96,7 @@ export default function Dubai() {
                 <span className="bg-gradient-to-r from-primary to-rose-500 bg-clip-text text-transparent">Dubai</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Super Next Technologies delivers AI automation, enterprise WiFi, CCTV, structured cabling, and managed IT services to businesses across Dubai — with a free site survey and same-day proposals.
+                Super Next Technologies delivers AI automation, enterprise WiFi, structured cabling, and managed IT services to businesses across Dubai — with a free site survey and same-day proposals.
               </p>
               <ul className="grid grid-cols-2 gap-3 mb-8">
                 {["Free site survey", "4-hour on-site SLA", "Certified engineers", "24/7 NOC monitoring", "Dubai free zone compliant", "ISO-certified cabling"].map(item => (
@@ -212,13 +211,12 @@ export default function Dubai() {
             {[
               { label: "AI Agents & Automation", path: "/ai-solutions", desc: "WhatsApp bots, AI agents, n8n workflows" },
               { label: "Enterprise WiFi", path: "/wireless-hotspot", desc: "Cisco, Ruckus, Ubiquiti for Dubai offices & hotels" },
-              { label: "CCTV Solutions", path: "/cctv-solutions", desc: "IP cameras, NVR, AI video analytics" },
               { label: "Structured Cabling", path: "/structured-cabling", desc: "Cat6A, fiber optic, data center cabling" },
               { label: "Managed IT & AMC", path: "/managed-it-services", desc: "24/7 helpdesk, NOC, server management" },
               { label: "Network Infrastructure", path: "/network-infrastructure", desc: "Core switching, firewall, SD-WAN" },
               { label: "n8n Automation", path: "/n8n-automation", desc: "Workflow automation & CRM integration" },
               { label: "IT AMC", path: "/it-amc", desc: "Annual maintenance contracts for Dubai businesses" },
-              { label: "Hotel WiFi & IT", path: "/hotels", desc: "Guest WiFi, CCTV, AI concierge for Dubai hotels" },
+              { label: "Hotel WiFi & IT", path: "/hotels", desc: "Guest WiFi, managed IT & AI concierge for Dubai hotels" },
             ].map(({ label, path, desc }) => (
               <Link key={path} href={path}>
                 <div className="border border-gray-200 rounded-xl p-4 hover:border-primary/30 hover:shadow-md transition-all cursor-pointer group">

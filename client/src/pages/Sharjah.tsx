@@ -3,12 +3,11 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
 import FAQSection from "@/components/FAQSection";
-import { MapPin, Bot, Wifi, Camera, Cable, Headphones, Server, CheckCircle, ArrowRight, Phone, MessageSquare } from "lucide-react";
+import { MapPin, Bot, Wifi, Cable, Headphones, Server, CheckCircle, ArrowRight, Phone, MessageSquare } from "lucide-react";
 
 const services = [
   { icon: Bot, title: "AI Automation", desc: "AI agents, chatbots, and workflow automation tailored for Sharjah manufacturers, retailers, and service businesses.", color: "bg-violet-50 text-violet-600" },
   { icon: Wifi, title: "Enterprise WiFi", desc: "High-density enterprise WiFi for Sharjah industrial zones, warehouses, hotels, and office complexes.", color: "bg-blue-50 text-blue-600" },
-  { icon: Camera, title: "CCTV & Security", desc: "IP camera systems with video analytics for Sharjah factories, retail, schools, and residential buildings.", color: "bg-red-50 text-red-600" },
   { icon: Cable, title: "Structured Cabling", desc: "TIA/ISO-certified network cabling for Sharjah free zones, industrial parks, and commercial developments.", color: "bg-amber-50 text-amber-600" },
   { icon: Headphones, title: "Managed IT & AMC", desc: "Annual IT maintenance contracts with certified support across Sharjah, Ajman, and northern emirates.", color: "bg-emerald-50 text-emerald-600" },
   { icon: Server, title: "Cloud & Servers", desc: "Server setup, cloud migration, and IT infrastructure for Sharjah businesses moving to digital operations.", color: "bg-cyan-50 text-cyan-600" },
@@ -21,7 +20,7 @@ const faqs = [
   },
   {
     q: "Can you handle industrial and warehouse installations in Sharjah?",
-    a: "Yes. We have extensive experience with industrial installations across Sharjah Industrial Area and free zones — including structured cabling, enterprise WiFi with long-range coverage, IP CCTV systems, and access control for warehouses and factories.",
+    a: "Yes. We have extensive experience with industrial installations across Sharjah Industrial Area and free zones — including structured cabling, enterprise WiFi with long-range coverage, and access control for warehouses and factories.",
   },
   {
     q: "What's your response time for Sharjah clients?",
@@ -41,7 +40,7 @@ const sharjahSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Super Next Technologies - Sharjah",
-  description: "Enterprise IT solutions in Sharjah — AI automation, enterprise WiFi, CCTV, structured cabling, and managed IT services for Sharjah businesses and free zones.",
+  description: "Enterprise IT solutions in Sharjah — AI automation, enterprise WiFi, structured cabling, and managed IT services for Sharjah businesses and free zones.",
   url: "https://supernxt.com/sharjah",
   areaServed: { "@type": "City", name: "Sharjah" },
   telephone: "+97148864215",
@@ -52,8 +51,8 @@ export default function Sharjah() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="IT Solutions Sharjah | AI, WiFi, CCTV & Managed IT | Super Next Technologies"
-        description="Enterprise IT services in Sharjah — AI automation, enterprise WiFi, CCTV systems, structured cabling, and 24/7 managed IT. Covering Sharjah, SAIF Zone, Hamriyah & northern emirates."
+        title="IT Solutions Sharjah | AI, WiFi & Managed IT | Super Next Technologies"
+        description="Enterprise IT services in Sharjah — AI automation, enterprise WiFi, structured cabling, and 24/7 managed IT. Covering Sharjah, SAIF Zone, Hamriyah & northern emirates."
         canonical="https://supernxt.com/sharjah"
         schema={sharjahSchema}
       />
@@ -72,7 +71,7 @@ export default function Sharjah() {
                 <span className="bg-gradient-to-r from-primary to-rose-500 bg-clip-text text-transparent">Sharjah</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Super Next Technologies provides AI automation, networking, CCTV, cabling, and managed IT to businesses across Sharjah — including SAIF Zone, Hamriyah Free Zone, and all northern emirates.
+                Super Next Technologies provides AI automation, networking, structured cabling, and managed IT to businesses across Sharjah — including SAIF Zone, Hamriyah Free Zone, and all northern emirates.
               </p>
               <ul className="grid grid-cols-2 gap-3 mb-8">
                 {["Free site survey", "4-hour on-site SLA", "Industrial expertise", "Free zone experience", "24/7 NOC monitoring", "ISO-certified cabling"].map(item => (

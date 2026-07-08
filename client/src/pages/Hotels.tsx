@@ -3,11 +3,10 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
 import FAQSection from "@/components/FAQSection";
-import { Wifi, Camera, Cable, Headphones, Bot, Star, CheckCircle, ArrowRight, Phone, MessageSquare, Shield, Zap } from "lucide-react";
+import { Wifi, Cable, Headphones, Bot, Star, CheckCircle, ArrowRight, Phone, MessageSquare, Shield, Zap } from "lucide-react";
 
 const services = [
   { icon: Wifi, title: "Hotel Enterprise WiFi", desc: "High-density WiFi covering every room, lobby, pool, and conference hall. Guest portal with branding, bandwidth controls, and usage analytics.", color: "bg-blue-50 text-blue-600" },
-  { icon: Camera, title: "Hotel CCTV Systems", desc: "Discreet IP camera coverage for lobbies, corridors, car parks, and back-of-house. Remote viewing via app with 30-day cloud recording.", color: "bg-red-50 text-red-600" },
   { icon: Bot, title: "AI Concierge & Chatbot", desc: "WhatsApp AI assistant for room service orders, booking enquiries, local recommendations, and complaint logging — 24/7 with zero wait time.", color: "bg-violet-50 text-violet-600" },
   { icon: Cable, title: "Structured Cabling", desc: "Cat6A and fiber backbone for your entire property — linking PMS, POS, IPTV, door access, and WiFi on a single reliable infrastructure.", color: "bg-amber-50 text-amber-600" },
   { icon: Headphones, title: "IT AMC Support", desc: "Monthly/annual maintenance contracts with 24/7 helpdesk, on-site SLA, and a dedicated account manager for your property.", color: "bg-emerald-50 text-emerald-600" },
@@ -49,7 +48,7 @@ const schema = {
   "@type": "Service",
   name: "Hotel IT Solutions UAE",
   provider: { "@type": "Organization", name: "Super Next Technologies", url: "https://supernxt.com" },
-  description: "Enterprise WiFi, CCTV, AI concierge, structured cabling, and managed IT services for hotels and resorts across UAE.",
+  description: "Enterprise WiFi, AI concierge, structured cabling, and managed IT services for hotels and resorts across UAE.",
   areaServed: { "@type": "Country", name: "United Arab Emirates" },
 };
 
@@ -57,8 +56,8 @@ export default function Hotels() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Hotel IT Solutions UAE | WiFi, CCTV & AI Concierge | Super Next Technologies"
-        description="Enterprise IT for hotels in UAE — guest WiFi with branded portal, CCTV surveillance, AI concierge chatbot, structured cabling, and 24/7 managed IT. Serving Dubai, Abu Dhabi, RAK hotels."
+        title="Hotel IT Solutions UAE | WiFi, AI Concierge & Managed IT | Super Next Technologies"
+        description="Enterprise IT for hotels in UAE — guest WiFi with branded portal, AI concierge chatbot, structured cabling, and 24/7 managed IT. Serving Dubai, Abu Dhabi, RAK hotels."
         canonical="https://supernxt.com/hotels"
         schema={schema}
       />
@@ -77,7 +76,7 @@ export default function Hotels() {
                 <span className="bg-gradient-to-r from-primary to-rose-500 bg-clip-text text-transparent">Hotels in UAE</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                From guest WiFi and CCTV to AI concierge chatbots and full managed IT — Super Next Technologies is the trusted technology partner for hotels and resorts across the UAE.
+                From guest WiFi and AI concierge chatbots to structured cabling and full managed IT — Super Next Technologies is the trusted technology partner for hotels and resorts across the UAE.
               </p>
               <ul className="grid grid-cols-2 gap-3 mb-8">
                 {["Branded guest WiFi portal", "Zero dead zones", "AI WhatsApp concierge", "PMS integration", "UAE TRA compliant", "24/7 AMC support"].map(item => (
@@ -172,7 +171,7 @@ export default function Hotels() {
           <div className="grid md:grid-cols-2 gap-4">
             {[
               { problem: "Guests complaining about slow or no WiFi", fix: "Enterprise high-density WiFi redesign with guaranteed speeds" },
-              { problem: "CCTV footage inaccessible or low quality", fix: "Full HD IP camera replacement with cloud recording & app access" },
+              { problem: "Network downtime affecting PMS and POS systems", fix: "Redundant network design with automatic failover and 24/7 NOC" },
               { problem: "IT issues causing front desk downtime", fix: "24/7 managed IT with 4-hour on-site SLA" },
               { problem: "High cost of WhatsApp/phone customer service", fix: "AI concierge handling 80% of guest requests automatically" },
               { problem: "PMS, POS, and door locks on separate networks", fix: "Unified structured cabling and VLAN network design" },

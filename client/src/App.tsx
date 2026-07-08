@@ -25,7 +25,6 @@ const About               = lazy(() => import("@/pages/About"));
 const Contact             = lazy(() => import("@/pages/Contact"));
 const EULA                = lazy(() => import("@/pages/EULA"));
 const PrivacyPolicy       = lazy(() => import("@/pages/PrivacyPolicy"));
-const CCTVSolutions       = lazy(() => import("@/pages/CCTVSolutions"));
 const StructuredCabling   = lazy(() => import("@/pages/StructuredCabling"));
 const ManagedIT           = lazy(() => import("@/pages/ManagedIT"));
 const NetworkInfrastructure = lazy(() => import("@/pages/NetworkInfrastructure"));
@@ -73,7 +72,6 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/legal/eula" component={EULA} />
         <Route path="/legal/privacy" component={PrivacyPolicy} />
-        <Route path="/cctv-solutions" component={CCTVSolutions} />
         <Route path="/structured-cabling" component={StructuredCabling} />
         <Route path="/managed-it-services" component={ManagedIT} />
         <Route path="/network-infrastructure" component={NetworkInfrastructure} />

@@ -7,8 +7,8 @@ import { useCookieBanner } from "@/hooks/useCookieBanner";
 const QUICK_MESSAGES = [
   "I'd like a free IT audit for my business.",
   "I need enterprise WiFi for my hotel/office.",
-  "I'm interested in CCTV installation.",
   "Tell me about your managed IT & AMC plans.",
+  "I need n8n automation for my business.",
 ];
 
 export default function WhatsAppButton() {

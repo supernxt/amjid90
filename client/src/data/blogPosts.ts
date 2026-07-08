@@ -76,49 +76,6 @@ A 300-room hotel in Dubai Marina can have 600–900 simultaneous connected devic
 Super Next Technologies has deployed enterprise WiFi for hotels across Dubai, Abu Dhabi, and Fujairah. We provide end-to-end design, installation, and managed support. Request a free site survey today.`,
   },
   {
-    slug: "cctv-solutions-uae-business-guide",
-    title: "CCTV & IP Camera Systems in UAE: What Every Business Needs to Know",
-    excerpt: "Modern CCTV is far more than cameras on walls. Explore IP camera systems, video analytics, remote monitoring, and UAE compliance requirements for 2025.",
-    category: "Security & CCTV",
-    readTime: "7 min read",
-    date: "May 15, 2025",
-    color: "bg-red-500",
-    body: `Security camera technology has advanced dramatically. In 2025, UAE businesses are deploying intelligent IP camera systems with AI-powered video analytics, remote monitoring, and cloud storage — far beyond the basic CCTV of a decade ago.
-
-**Analog vs IP CCTV: What's the Difference?**
-
-Traditional analog CCTV cameras record footage to a DVR (Digital Video Recorder) at relatively low resolution. Modern IP cameras are network-connected, record in 4K or higher, and can feed into NVR (Network Video Recorders) or cloud storage.
-
-IP cameras offer:
-- Higher resolution (4MP, 8MP, 4K)
-- Remote viewing from any device
-- AI analytics (motion detection, face recognition, number plate reading)
-- Integration with access control systems
-
-**UAE Compliance Requirements**
-
-The UAE has specific regulations around CCTV installations, particularly for retail, hospitality, and public-facing businesses. Key requirements include:
-- Signage notifying premises have CCTV
-- Data retention policies (typically 30 days minimum in commercial settings)
-- TRA regulations for networked surveillance systems
-
-**Video Analytics Use Cases**
-
-1. **Retail**: People counting, heatmaps, queue management
-2. **Warehouses**: Perimeter breach alerts, forklift safety zones
-3. **Hotels**: Lobby monitoring, unattended baggage alerts
-4. **Labor Camps**: Crowd control, access point monitoring
-
-**Choosing the Right System**
-
-For a 50-camera installation, you need:
-- Sufficient NVR storage (typically 2TB–16TB depending on retention period and camera count)
-- PoE (Power over Ethernet) switches to power cameras via network cable
-- UPS backup to ensure continuous recording during power fluctuations
-
-Super Next Technologies provides complete CCTV design, supply, installation, and maintenance across UAE. We work with Hikvision, Dahua, Axis, and Hanwha systems. Contact us for a free security assessment.`,
-  },
-  {
     slug: "structured-cabling-vs-wireless-uae-office",
     title: "Structured Cabling vs Wireless Networking: Which is Right for Your UAE Office?",
     excerpt: "Both have their place in a modern office. Understand the pros, cons, and hybrid strategies UAE enterprises use to build resilient, high-performance network infrastructure.",
@@ -260,51 +217,6 @@ At minimum, a credible IT AMC in Dubai should include:
 - No local presence in Dubai (overseas support teams can't provide on-site response)
 
 Super Next Technologies provides fully-documented IT AMC contracts across Dubai and UAE. Get a tailored quote for your business — response within 4 business hours.`,
-  },
-  {
-    slug: "cctv-installation-dubai-cost-guide",
-    title: "CCTV Installation Cost in Dubai 2025 — Complete Pricing Guide",
-    excerpt: "How much does CCTV installation cost in Dubai? From small shops to large warehouses, here's a transparent breakdown of IP camera system costs across UAE in 2025.",
-    category: "Security & CCTV",
-    readTime: "6 min read",
-    date: "May 22, 2025",
-    color: "bg-red-600",
-    body: `"How much does CCTV installation cost in Dubai?" is one of the most common questions we receive. Prices vary widely based on camera count, quality, and scope. Here's a transparent breakdown to help you budget accurately.
-
-**CCTV Installation Pricing in Dubai — 2025**
-
-| Installation Size | Cameras | Estimated Cost (AED) |
-|---|---|---|
-| Small shop/office | 4–8 cameras | 2,500–6,000 |
-| Medium office/retail | 9–20 cameras | 6,000–15,000 |
-| Large commercial | 21–50 cameras | 15,000–40,000 |
-| Warehouse/industrial | 51–128+ cameras | 40,000–120,000+ |
-
-Prices include supply, installation, cabling, NVR setup, and basic configuration. Remote viewing setup and ongoing maintenance are usually quoted separately.
-
-**What Affects CCTV Cost in Dubai**
-
-1. **Camera resolution**: 2MP (1080p) cameras are standard. 4MP and 8MP (4K) cameras cost 1.5–2x more but deliver significantly better detail for facial recognition and number plate capture.
-
-2. **Indoor vs outdoor**: Outdoor cameras require weatherproofing (IP66/IP67 rating) and sometimes heater/cooler units for UAE climate — adding 20–30% per camera.
-
-3. **Cable runs**: Long cable distances (over 90 metres) require fiber optic runs or signal boosters. Buildings with false ceilings and concrete walls add civil works costs.
-
-4. **NVR storage**: 30-day recording at 1080p for 16 cameras requires roughly 4TB of storage. 4K footage requires 3–4x more. NVR units range from AED 800 to AED 6,000+ depending on capacity.
-
-5. **Brand**: Hikvision and Dahua are excellent value (80% of Dubai installations). Axis and Hanwha command a premium (2–3x) and are preferred for high-security or government projects.
-
-**CCTV for Villas vs Commercial Properties**
-
-Dubai villa CCTV installations typically need 6–12 cameras (exterior perimeter, entrances, parking) and cost AED 3,500–10,000. Commercial properties have more complex requirements including access control integration, video analytics, and compliance documentation.
-
-**UAE CCTV Compliance Requirements**
-
-- CCTV warning signage is legally required at all camera-visible areas
-- Commercial premises must retain footage for at least 30 days
-- Healthcare, hotels, and government facilities may have additional requirements under Dubai Municipality and DHA guidelines
-
-Super Next Technologies provides transparent CCTV quotes across Dubai and UAE. We supply, install, configure, and maintain all major brands. Get a free security assessment and proposal for your premises.`,
   },
   {
     slug: "whatsapp-chatbot-uae-businesses",
@@ -472,4 +384,4 @@ Super Next Technologies has been providing IT support across Dubai and UAE since
   },
 ];
 
-export const blogCategories = ["All", "AI & Automation", "Wireless Networking", "Security & CCTV", "Infrastructure", "Managed IT"];
+export const blogCategories = ["All", "AI & Automation", "Wireless Networking", "Infrastructure", "Managed IT"];

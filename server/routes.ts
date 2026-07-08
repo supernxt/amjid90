@@ -21,8 +21,7 @@ const ALL_URLS = [
   `${SITE_URL}/support`,
   `${SITE_URL}/legal/privacy`,
   `${SITE_URL}/legal/eula`,
-  /* Service pages (previously missing from sitemap) */
-  `${SITE_URL}/cctv-solutions`,
+  /* Service pages */
   `${SITE_URL}/structured-cabling`,
   `${SITE_URL}/managed-it-services`,
   `${SITE_URL}/network-infrastructure`,
@@ -32,11 +31,9 @@ const ALL_URLS = [
   `${SITE_URL}/blog`,
   `${SITE_URL}/blog/ai-automation-uae-businesses-2025`,
   `${SITE_URL}/blog/enterprise-wifi-dubai-hotels-guide`,
-  `${SITE_URL}/blog/cctv-solutions-uae-business-guide`,
   `${SITE_URL}/blog/structured-cabling-vs-wireless-uae-office`,
   `${SITE_URL}/blog/managed-it-amc-dubai-guide`,
   `${SITE_URL}/blog/it-amc-cost-dubai-2025`,
-  `${SITE_URL}/blog/cctv-installation-dubai-cost-guide`,
   `${SITE_URL}/blog/whatsapp-chatbot-uae-businesses`,
   `${SITE_URL}/blog/fiber-optic-vs-cat6a-uae-offices`,
   `${SITE_URL}/blog/it-support-company-dubai-how-to-choose`,

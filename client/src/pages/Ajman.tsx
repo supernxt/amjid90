@@ -3,12 +3,11 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
 import FAQSection from "@/components/FAQSection";
-import { MapPin, Bot, Wifi, Camera, Cable, Headphones, Server, CheckCircle, ArrowRight, Phone, MessageSquare } from "lucide-react";
+import { MapPin, Bot, Wifi, Cable, Headphones, Server, CheckCircle, ArrowRight, Phone, MessageSquare } from "lucide-react";
 
 const services = [
   { icon: Bot, title: "AI Automation", desc: "Custom AI agents, WhatsApp bots, and workflow automation for Ajman businesses.", color: "bg-violet-50 text-violet-600" },
   { icon: Wifi, title: "Enterprise WiFi", desc: "Professional wireless hotspot deployments for hotels, factories, and offices across Ajman.", color: "bg-blue-50 text-blue-600" },
-  { icon: Camera, title: "CCTV & Security", desc: "Full HD IP camera systems with remote monitoring and UAE TRA compliance in Ajman.", color: "bg-red-50 text-red-600" },
   { icon: Cable, title: "Structured Cabling", desc: "TIA/ISO-certified Cat6A and fiber optic installations for Ajman commercial and industrial projects.", color: "bg-amber-50 text-amber-600" },
   { icon: Headphones, title: "Managed IT & AMC", desc: "Annual maintenance contracts with 24/7 NOC monitoring and fast on-site response in Ajman.", color: "bg-emerald-50 text-emerald-600" },
   { icon: Server, title: "Cloud Infrastructure", desc: "Cloud migration, hosted servers, and IT infrastructure for Ajman businesses and free zone companies.", color: "bg-cyan-50 text-cyan-600" },
@@ -25,7 +24,7 @@ const faqs = [
   },
   {
     q: "Do you work with Ajman Free Zone companies?",
-    a: "Yes. We have experience with Ajman Free Zone (AFZ) businesses, providing structured cabling, enterprise WiFi, CCTV, and managed IT services that meet free zone compliance requirements.",
+    a: "Yes. We have experience with Ajman Free Zone (AFZ) businesses, providing structured cabling, enterprise WiFi, and managed IT services that meet free zone compliance requirements.",
   },
   {
     q: "Can you handle large industrial projects in Ajman?",
@@ -33,7 +32,7 @@ const faqs = [
   },
   {
     q: "Do you offer free site surveys in Ajman?",
-    a: "Yes. We offer complimentary on-site surveys for IT infrastructure, CCTV, WiFi, and cabling projects across Ajman. Our engineer will visit, assess, and provide a full proposal within 24 hours.",
+    a: "Yes. We offer complimentary on-site surveys for IT infrastructure, WiFi, and cabling projects across Ajman. Our engineer will visit, assess, and provide a full proposal within 24 hours.",
   },
 ];
 
@@ -41,7 +40,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Super Next Technologies - Ajman",
-  description: "Enterprise IT solutions in Ajman — AI automation, enterprise WiFi, CCTV, structured cabling, and managed IT services.",
+  description: "Enterprise IT solutions in Ajman — AI automation, enterprise WiFi, structured cabling, and managed IT services.",
   url: "https://supernxt.com/ajman",
   areaServed: { "@type": "City", name: "Ajman" },
   telephone: "+97148864215",
@@ -52,8 +51,8 @@ export default function Ajman() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="IT Solutions Ajman | AI, WiFi, CCTV & Managed IT | Super Next Technologies"
-        description="Enterprise IT services in Ajman — AI automation, enterprise WiFi, CCTV systems, structured cabling, and 24/7 managed IT support. Free site survey across Ajman and Ajman Free Zone."
+        title="IT Solutions Ajman | AI, WiFi & Managed IT | Super Next Technologies"
+        description="Enterprise IT services in Ajman — AI automation, enterprise WiFi, structured cabling, and 24/7 managed IT support. Free site survey across Ajman and Ajman Free Zone."
         canonical="https://supernxt.com/ajman"
         schema={schema}
       />
@@ -72,7 +71,7 @@ export default function Ajman() {
                 <span className="bg-gradient-to-r from-primary to-rose-500 bg-clip-text text-transparent">Ajman</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Super Next Technologies delivers AI automation, enterprise networking, CCTV, structured cabling, and managed IT services to businesses across Ajman — with a free site survey and same-day proposals.
+                Super Next Technologies delivers AI automation, enterprise networking, structured cabling, and managed IT services to businesses across Ajman — with a free site survey and same-day proposals.
               </p>
               <ul className="grid grid-cols-2 gap-3 mb-8">
                 {["Free site survey", "Fast on-site response", "Certified engineers", "24/7 NOC monitoring", "Free Zone compliant", "ISO-certified cabling"].map(item => (

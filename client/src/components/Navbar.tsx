@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Sparkles, ChevronDown, Camera, Cable, Headphones, Network, Wifi, Bot, Radio, Server, Globe, BookOpen } from "lucide-react";
+import { Menu, X, Sparkles, ChevronDown, Cable, Headphones, Network, Wifi, Bot, Radio, Server, Globe, BookOpen } from "lucide-react";
 import smallLogo from "@assets/icononly_transparent_nobuffer_1760207932143.png";
 import { useLang } from "@/contexts/LanguageContext";
 
@@ -23,9 +23,8 @@ const serviceCategories = [
     ],
   },
   {
-    category: "IT & Security",
+    category: "IT Services",
     items: [
-      { label: "CCTV Solutions", path: "/cctv-solutions", icon: Camera, desc: "Surveillance systems" },
       { label: "Structured Cabling", path: "/structured-cabling", icon: Cable, desc: "Fiber optic & cabling" },
       { label: "Managed IT & AMC", path: "/managed-it-services", icon: Headphones, desc: "24/7 IT support" },
     ],

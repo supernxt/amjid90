@@ -188,7 +188,6 @@ export default function ManagedIT() {
           <RelatedServices services={[
             { title: "IT AMC (Annual Maintenance)", desc: "Detailed IT AMC plans, pricing and SLA options for UAE businesses", path: "/it-amc", color: "bg-emerald-600" },
             { title: "Network Infrastructure", desc: "Cisco, Juniper & MikroTik networking under your AMC coverage", path: "/network-infrastructure", color: "bg-blue-600" },
-            { title: "CCTV Solutions", desc: "Add CCTV maintenance to your IT AMC contract", path: "/cctv-solutions", color: "bg-red-500" },
             { title: "Structured Cabling", desc: "Cabling infrastructure covered under your AMC agreement", path: "/structured-cabling", color: "bg-amber-500" },
           ]} />
 

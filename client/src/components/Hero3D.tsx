@@ -7,7 +7,7 @@ import { useLang } from "@/contexts/LanguageContext";
 const highlights = [
   { en: "AI Agents & Automation", ar: "وكلاء الذكاء الاصطناعي والأتمتة" },
   { en: "Enterprise Networking", ar: "الشبكات المؤسسية" },
-  { en: "CCTV & Security", ar: "كاميرات المراقبة والأمن" },
+  { en: "Structured Cabling & Fiber", ar: "الكابلات المنظمة والألياف الضوئية" },
   { en: "Managed IT & AMC", ar: "خدمات تقنية المعلومات المُدارة" },
 ];
 

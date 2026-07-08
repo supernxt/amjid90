@@ -8,7 +8,7 @@ import OfferStrip from "@/components/OfferStrip";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight, Bot, Radio, Server, Globe, Camera, Cable,
+  ArrowRight, Bot, Radio, Server, Globe, Cable,
   Headphones, Network, Wifi, CheckCircle, Sparkles,
   Building2, Hotel, Stethoscope, GraduationCap, ShoppingBag,
   Factory, Landmark, Tent, PhoneCall, MessageSquare, Mail,
@@ -22,7 +22,6 @@ const allServices = [
   { icon: Radio,     title: "Enterprise Wireless Hotspot",   desc: "Managed enterprise Wi-Fi for offices, hotels, malls, and venues across UAE.",          path: "/wireless-hotspot",      color: "bg-blue-500",   tag: "Networking" },
   { icon: Server,    title: "Cloud Infrastructure",          desc: "Cloud servers, VPS hosting, network security, and 24/7 infrastructure management.",     path: "/infrastructure",        color: "bg-sky-500",    tag: "Cloud" },
   { icon: Globe,     title: "Website Development",           desc: "Custom websites, e-commerce, and SEO-optimised web apps for UAE businesses.",          path: "/website-development",   color: "bg-emerald-500",tag: "Digital" },
-  { icon: Camera,    title: "CCTV Solutions",                desc: "IP cameras, NVR/DVR, video analytics, and full CCTV installation across UAE.",          path: "/cctv-solutions",        color: "bg-red-500",    tag: "Security" },
   { icon: Cable,     title: "Structured Cabling",            desc: "TIA/ISO-certified Cat6, Cat6A, and fiber optic cabling for data centres & offices.",   path: "/structured-cabling",    color: "bg-amber-500",  tag: "Infrastructure" },
   { icon: Headphones,title: "Managed IT & AMC",              desc: "24/7 IT support, AMC contracts, helpdesk, server management, and NOC monitoring.",      path: "/managed-it-services",   color: "bg-blue-600",   tag: "IT Services" },
   { icon: Network,   title: "Network Infrastructure",        desc: "Cisco, Juniper & MikroTik — LAN/WAN design, firewalls, VPN, and NOC services.",        path: "/network-infrastructure",color: "bg-indigo-600", tag: "Networking" },
@@ -34,7 +33,7 @@ const whyUs = [
   { icon: Clock,   title: "24/7 Proactive Monitoring",        desc: "Round-the-clock NOC and helpdesk ensures zero downtime for your critical systems." },
   { icon: Award,   title: "Certified Engineers",              desc: "Cisco, Juniper, Microsoft, and vendor-certified engineers for every project." },
   { icon: Users,   title: "500+ Enterprise Clients",          desc: "Trusted by leading enterprises, hotels, hospitals, and government entities across UAE." },
-  { icon: Zap,     title: "Single-Vendor Convenience",        desc: "AI, networking, CCTV, cabling, and IT — all from one accountable partner." },
+  { icon: Zap,     title: "Single-Vendor Convenience",        desc: "AI, networking, structured cabling, and IT — all from one accountable partner." },
   { icon: Star,    title: "UAE-Wide Coverage",                desc: "Field teams operating across all seven UAE emirates — Dubai, Abu Dhabi, Sharjah, and beyond." },
 ];
 
@@ -71,8 +70,8 @@ export default function Home() {
     <VideoBackground variant="default">
       <SEO
         title="Super Next Technologies | AI Solutions & Enterprise IT Services UAE"
-        description="AI agents, enterprise WiFi, CCTV, managed IT & structured cabling for UAE businesses. 500+ clients. Free site survey. 24/7 support. Super Next Technologies, Dubai."
-        keywords="AI solutions Dubai, AI agents UAE, enterprise IT services UAE, CCTV Dubai, structured cabling UAE, managed IT services Dubai, wireless hotspot UAE, cloud infrastructure UAE, website development UAE, network infrastructure UAE, Super Next Technologies"
+        description="AI agents, enterprise WiFi, managed IT & structured cabling for UAE businesses. 500+ clients. Free site survey. 24/7 support. Super Next Technologies, Dubai."
+        keywords="AI solutions Dubai, AI agents UAE, enterprise IT services UAE, structured cabling UAE, managed IT services Dubai, wireless hotspot UAE, cloud infrastructure UAE, website development UAE, network infrastructure UAE, Super Next Technologies"
         canonical="https://supernxt.com/"
         schema={homeSchema}
       />
@@ -282,7 +281,7 @@ export default function Home() {
                 color: "bg-violet-500",
               },
               {
-                quote: "We needed CCTV, structured cabling, and managed IT — all from one vendor. SNT delivered on time, on budget, across all our UAE branches.",
+                quote: "We needed structured cabling, networking, and managed IT — all from one vendor. SNT delivered on time, on budget, across all our UAE branches.",
                 name: "Ahmed Hassan",
                 role: "CEO",
                 company: "Real Estate Developer, Sharjah",
@@ -371,7 +370,7 @@ export default function Home() {
             {[
               { name: "Khalid Al Mansoori", role: "Hotel GM, Dubai", time: "2 weeks ago", text: "SNT installed enterprise WiFi across all 180 rooms. The team was professional, fast, and the signal quality is outstanding. Zero complaints from guests since go-live.", rating: 5 },
               { name: "Sarah Thompson", role: "Operations Director, Sharjah", time: "1 month ago", text: "Their AI WhatsApp bot has transformed our customer service. It handles 300+ queries per day automatically. The ROI was visible within the first month.", rating: 5 },
-              { name: "Ravi Menon", role: "IT Manager, Abu Dhabi", time: "3 weeks ago", text: "Structured cabling and CCTV done across 3 floors. Very neat work, properly labelled, documented. Their AMC team is responsive — issues get fixed same day.", rating: 5 },
+              { name: "Ravi Menon", role: "IT Manager, Abu Dhabi", time: "3 weeks ago", text: "Structured cabling and network infrastructure done across 3 floors. Very neat work, properly labelled, documented. Their AMC team is responsive — issues get fixed same day.", rating: 5 },
             ].map((review, i) => (
               <motion.div
                 key={i}

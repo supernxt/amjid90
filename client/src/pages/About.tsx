@@ -16,7 +16,7 @@ const aboutSchema = [
     "@id": "https://supernxt.com/about#webpage",
     "url": "https://supernxt.com/about",
     "name": "About Super Next Technologies | Enterprise AI & IT Company Dubai, UAE",
-    "description": "Super Next Technologies (SNT) is a Dubai-based enterprise technology company. 500+ clients, AI, wireless, CCTV, cloud, and web services across UAE.",
+    "description": "Super Next Technologies (SNT) is a Dubai-based enterprise technology company. 500+ clients, AI, wireless, cloud, and web services across UAE.",
     "isPartOf": { "@id": "https://supernxt.com/#website" },
     "about": { "@id": "https://supernxt.com/#organization" },
     "breadcrumb": {
@@ -122,7 +122,7 @@ export default function About() {
     <VideoBackground variant="default">
       <SEO
         title="About Super Next Technologies | Enterprise AI & IT Company Dubai, UAE"
-        description="Super Next Technologies (SNT) is a Dubai-based enterprise technology company. 500+ clients, 100+ specialists, serving UAE and worldwide. AI, wireless, CCTV, cloud, web."
+        description="Super Next Technologies (SNT) is a Dubai-based enterprise technology company. 500+ clients, 100+ specialists, serving UAE and worldwide. AI, wireless, cloud, web."
         keywords="about Super Next Technologies, SNT company Dubai, enterprise technology UAE, AI company Dubai, IT company Production City Dubai, technology company UAE"
         canonical="https://supernxt.com/about"
         schema={aboutSchema}

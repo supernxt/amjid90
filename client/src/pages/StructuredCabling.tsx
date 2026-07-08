@@ -38,7 +38,7 @@ const services = [
   { title: "Data Center Cabling", desc: "Structured cabling design and installation inside data centers including fiber patch panels, copper trunks, and labeling." },
   { title: "Trunking & Conduit", desc: "Cable management with surface trunking, metal conduit, cable trays, ladder racks, and flush floor boxes." },
   { title: "Patch Panel & Cabinet", desc: "Network cabinet installation, patch panel termination, and cable management for tidy, scalable network rooms." },
-  { title: "CCTV & AV Cabling", desc: "Coaxial, HDMI, and AV cabling for surveillance systems, digital signage, and audio-visual installations." },
+  { title: "AV & Signage Cabling", desc: "HDMI, DisplayPort, and AV cabling for digital signage, conference rooms, and audio-visual installations." },
   { title: "Cabling Audit & Certification", desc: "Full audit of existing cabling infrastructure with cable testing, labeling, and certification reports." },
 ];
 
@@ -176,8 +176,8 @@ export default function StructuredCabling() {
           </motion.div>
 
           <RelatedServices services={[
-            { title: "CCTV Solutions", desc: "IP camera systems installed on your new cabling infrastructure", path: "/cctv-solutions", color: "bg-red-500" },
-            { title: "Network Infrastructure", desc: "Cisco, Juniper & MikroTik networking over your cabled backbone", path: "/network-infrastructure", color: "bg-blue-600" },
+            { title: "Network Infrastructure", desc: "Cisco, Juniper & MikroTik networking on your new cabling infrastructure", path: "/network-infrastructure", color: "bg-indigo-600" },
+            { title: "Enterprise Wireless Hotspot", desc: "Access points and controllers installed over your cabling backbone", path: "/wireless-hotspot", color: "bg-sky-500" },
             { title: "Labor Camp WiFi", desc: "Wireless access points connected via your structured cabling", path: "/labor-camp-wifi", color: "bg-emerald-600" },
           ]} />
 

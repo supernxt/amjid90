@@ -3,12 +3,11 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
 import FAQSection from "@/components/FAQSection";
-import { MapPin, Bot, Wifi, Camera, Cable, Headphones, Server, CheckCircle, ArrowRight, Phone, MessageSquare } from "lucide-react";
+import { MapPin, Bot, Wifi, Cable, Headphones, Server, CheckCircle, ArrowRight, Phone, MessageSquare } from "lucide-react";
 
 const services = [
   { icon: Bot, title: "AI Automation", desc: "Custom AI agents and automation workflows for Fujairah businesses and port operators.", color: "bg-violet-50 text-violet-600" },
   { icon: Wifi, title: "Enterprise WiFi", desc: "High-density wireless for Fujairah's hotels, resorts, port facilities, and offices.", color: "bg-blue-50 text-blue-600" },
-  { icon: Camera, title: "CCTV & Security", desc: "Advanced IP camera systems and video surveillance for Fujairah industrial and commercial sites.", color: "bg-red-50 text-red-600" },
   { icon: Cable, title: "Structured Cabling", desc: "TIA/ISO-certified Cat6A and fiber optic cabling for Fujairah commercial and port projects.", color: "bg-amber-50 text-amber-600" },
   { icon: Headphones, title: "Managed IT & AMC", desc: "Annual maintenance contracts with remote and on-site IT support across Fujairah emirate.", color: "bg-emerald-50 text-emerald-600" },
   { icon: Server, title: "Cloud Infrastructure", desc: "Cloud migration and hosted IT infrastructure for Fujairah businesses and free zone entities.", color: "bg-cyan-50 text-cyan-600" },
@@ -21,7 +20,7 @@ const faqs = [
   },
   {
     q: "Do you work with Fujairah port and maritime businesses?",
-    a: "Yes. We provide structured cabling, CCTV surveillance, enterprise WiFi, and managed IT for port facilities, oil & gas support companies, and maritime businesses operating from Fujairah.",
+    a: "Yes. We provide structured cabling, enterprise WiFi, and managed IT for port facilities, oil & gas support companies, and maritime businesses operating from Fujairah.",
   },
   {
     q: "What is your response time for on-site support in Fujairah?",
@@ -33,7 +32,7 @@ const faqs = [
   },
   {
     q: "Do you offer free site surveys in Fujairah?",
-    a: "Yes. We offer complimentary on-site surveys for all IT, CCTV, WiFi, and cabling projects across Fujairah. Our engineer will assess your site and provide a detailed written proposal at no cost.",
+    a: "Yes. We offer complimentary on-site surveys for all IT, WiFi, and cabling projects across Fujairah. Our engineer will assess your site and provide a detailed written proposal at no cost.",
   },
 ];
 
@@ -41,7 +40,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Super Next Technologies - Fujairah",
-  description: "Enterprise IT solutions in Fujairah — AI automation, enterprise WiFi, CCTV, structured cabling, and managed IT services.",
+  description: "Enterprise IT solutions in Fujairah — AI automation, enterprise WiFi, structured cabling, and managed IT services.",
   url: "https://supernxt.com/fujairah",
   areaServed: { "@type": "City", name: "Fujairah" },
   telephone: "+97148864215",
@@ -52,8 +51,8 @@ export default function Fujairah() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="IT Solutions Fujairah | AI, WiFi, CCTV & Managed IT | Super Next Technologies"
-        description="Enterprise IT services in Fujairah — AI automation, enterprise WiFi, CCTV systems, structured cabling, and 24/7 managed IT support. Free site survey across Fujairah, Khor Fakkan, and Dibba."
+        title="IT Solutions Fujairah | AI, WiFi & Managed IT | Super Next Technologies"
+        description="Enterprise IT services in Fujairah — AI automation, enterprise WiFi, structured cabling, and 24/7 managed IT support. Free site survey across Fujairah, Khor Fakkan, and Dibba."
         canonical="https://supernxt.com/fujairah"
         schema={schema}
       />
@@ -71,7 +70,7 @@ export default function Fujairah() {
                 <span className="bg-gradient-to-r from-primary to-rose-500 bg-clip-text text-transparent">Fujairah</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Super Next Technologies delivers AI automation, enterprise networking, CCTV, structured cabling, and managed IT services to businesses across Fujairah and the UAE east coast — with a free site survey and 24-hour proposals.
+                Super Next Technologies delivers AI automation, enterprise networking, structured cabling, and managed IT services to businesses across Fujairah and the UAE east coast — with a free site survey and 24-hour proposals.
               </p>
               <ul className="grid grid-cols-2 gap-3 mb-8">
                 {["Free site survey", "East coast coverage", "Certified engineers", "24/7 NOC monitoring", "Port & maritime ready", "ISO-certified cabling"].map(item => (

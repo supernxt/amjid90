@@ -30,7 +30,7 @@ export default function Blog() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Blog | Enterprise IT Insights for UAE Businesses | SNT"
-        description="Expert guides on AI automation, enterprise WiFi, CCTV, structured cabling, IT AMC costs, and managed IT services for UAE businesses. Written by the team at Super Next Technologies."
+        description="Expert guides on AI automation, enterprise WiFi, structured cabling, IT AMC costs, and managed IT services for UAE businesses. Written by the team at Super Next Technologies."
         canonical="https://supernxt.com/blog"
         schema={blogSchema}
       />
@@ -41,7 +41,7 @@ export default function Blog() {
             <span className="text-primary text-sm font-semibold tracking-wider uppercase">Knowledge Base</span>
             <h1 className="text-4xl md:text-5xl font-bold mt-3 mb-4 text-gray-900">SNT Blog</h1>
             <p className="text-lg text-gray-600 max-w-2xl">
-              Expert guides on AI automation, enterprise networking, CCTV, structured cabling, and managed IT — written for UAE business owners and IT managers.
+              Expert guides on AI automation, enterprise networking, structured cabling, and managed IT — written for UAE business owners and IT managers.
             </p>
           </motion.div>
         </div>

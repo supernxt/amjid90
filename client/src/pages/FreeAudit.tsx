@@ -2,11 +2,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
-import { CheckCircle, Wifi, Camera, Cable, Shield, Bot, Headphones, Download, ArrowRight, Phone, MessageSquare, Clock, Star } from "lucide-react";
+import { CheckCircle, Wifi, Cable, Shield, Bot, Headphones, Download, ArrowRight, Phone, MessageSquare, Clock, Star } from "lucide-react";
 
 const included = [
   { icon: Wifi,       title: "WiFi & Connectivity Audit",     desc: "Speed tests, dead zone mapping, access point placement review, and bandwidth bottleneck analysis." },
-  { icon: Camera,     title: "CCTV & Physical Security Review", desc: "Camera coverage gaps, recording gaps, remote access check, and UAE TRA compliance assessment." },
   { icon: Cable,      title: "Cabling & Infrastructure Check", desc: "Patch panel inspection, cable labelling, fiber condition, and future capacity planning." },
   { icon: Shield,     title: "Cyber Security Snapshot",       desc: "Firewall config review, open ports scan, weak password policies, and network segmentation gaps." },
   { icon: Bot,        title: "AI Readiness Assessment",       desc: "Which of your processes can be automated — with an estimated ROI for each opportunity." },
@@ -25,7 +24,7 @@ const schema = {
   "@type": "Service",
   name: "Free IT Infrastructure Audit UAE",
   provider: { "@type": "Organization", name: "Super Next Technologies", url: "https://supernxt.com" },
-  description: "Free IT infrastructure audit for UAE businesses — WiFi, CCTV, cabling, security, and AI readiness assessment worth AED 2,500.",
+  description: "Free IT infrastructure audit for UAE businesses — WiFi, network, cabling, security, and AI readiness assessment worth AED 2,500.",
   areaServed: { "@type": "Country", name: "United Arab Emirates" },
   offers: { "@type": "Offer", price: "0", priceCurrency: "AED" },
 };
@@ -63,7 +62,7 @@ export default function FreeAudit() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Free IT Infrastructure Audit UAE | Worth AED 2,500 | Super Next Technologies"
-        description="Claim your free IT infrastructure audit — WiFi, CCTV, cabling, security, and AI readiness assessment for UAE businesses. Worth AED 2,500. No commitment required."
+        description="Claim your free IT infrastructure audit — WiFi, network, cabling, security, and AI readiness assessment for UAE businesses. Worth AED 2,500. No commitment required."
         canonical="https://supernxt.com/free-audit"
         schema={schema}
       />
@@ -82,7 +81,7 @@ export default function FreeAudit() {
                 <span className="bg-gradient-to-r from-primary to-rose-500 bg-clip-text text-transparent">Audit for Your Business</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Our certified engineers visit your site, assess your entire IT setup — WiFi, CCTV, cabling, security, and AI readiness — and deliver a written report within 48 hours. Zero cost. Zero commitment.
+                Our certified engineers visit your site, assess your entire IT setup — WiFi, networking, cabling, security, and AI readiness — and deliver a written report within 48 hours. Zero cost. Zero commitment.
               </p>
 
               {/* Social proof */}

@@ -180,8 +180,8 @@ export default function LaborCampWifi() {
 
           <RelatedServices services={[
             { title: "Structured Cabling", desc: "Fiber optic and Cat6 backbone for your camp WiFi network", path: "/structured-cabling", color: "bg-amber-500" },
-            { title: "CCTV Solutions", desc: "Add surveillance cameras to your camp or hotel network", path: "/cctv-solutions", color: "bg-red-500" },
             { title: "Enterprise Wireless Hotspot", desc: "Enterprise-grade WiFi for offices, malls and corporate venues", path: "/wireless-hotspot", color: "bg-sky-500" },
+            { title: "Managed IT & AMC", desc: "24/7 monitoring and maintenance for your camp IT systems", path: "/managed-it-services", color: "bg-blue-600" },
           ]} />
 
           {/* CTA */}

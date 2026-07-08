@@ -57,8 +57,8 @@ const faqs = [
     a: "Yes. Hardware fault diagnosis and repair labour is included. Replacement parts are charged at cost, or can be included under an enhanced AMC with a spare parts budget. We maintain a stock of common spares in Dubai for fast replacement.",
   },
   {
-    q: "Can I add network infrastructure or CCTV to my IT AMC?",
-    a: "Yes. We offer combined AMC packages covering IT, networking, CCTV, and structured cabling under one contract and one point of contact. This simplifies vendor management and often reduces the overall annual cost compared to separate contracts.",
+    q: "Can I add network infrastructure or structured cabling to my IT AMC?",
+    a: "Yes. We offer combined AMC packages covering IT, networking, and structured cabling under one contract and one point of contact. This simplifies vendor management and often reduces the overall annual cost compared to separate contracts.",
   },
   {
     q: "What is your response time for IT emergencies in Dubai?",
@@ -238,7 +238,6 @@ export default function ItAmc() {
               { label: "Managed IT Services", path: "/managed-it-services" },
               { label: "Network Infrastructure", path: "/network-infrastructure" },
               { label: "Structured Cabling", path: "/structured-cabling" },
-              { label: "CCTV Solutions", path: "/cctv-solutions" },
               { label: "IT Solutions Dubai", path: "/dubai" },
               { label: "Free IT Audit", path: "/free-audit" },
             ].map(({ label, path }) => (

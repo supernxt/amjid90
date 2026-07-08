@@ -1,12 +1,12 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Bot, Wifi, Shield, Server, Cable, Headphones } from "lucide-react";
+import { ArrowRight, Bot, Wifi, Network, Server, Cable, Headphones } from "lucide-react";
 
 const services = [
   { icon: Wifi,       label: "Managed Enterprise Wi-Fi",      desc: "Hotels, camps, offices across UAE" },
   { icon: Server,     label: "Cloud & Network Infrastructure", desc: "Cisco, Juniper, SD-WAN, MPLS" },
   { icon: Bot,        label: "AI Automation & Agents",         desc: "n8n, WhatsApp bots, AI workflows" },
-  { icon: Shield,     label: "CCTV & Security Systems",        desc: "IP cameras, NVR, video analytics" },
+  { icon: Network,    label: "Network Infrastructure",         desc: "Core switching, routing, SD-WAN, VPN" },
   { icon: Cable,      label: "Structured Cabling & Fiber",     desc: "TIA/ISO-certified, Cat6A, OM4" },
   { icon: Headphones, label: "Managed IT & AMC",               desc: "24/7 NOC, helpdesk, server management" },
 ];
