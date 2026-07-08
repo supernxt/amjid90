@@ -1,0 +1,117 @@
+root@srv1064472:/var/www/amjid90# cd /var/www/supernxt   # or wherever your site folder is
+git pull origin main
+npm install
+npm run build
+pm2 restart all        # or however you restart your server
+-bash: cd: /var/www/supernxt: No such file or directory
+From https://github.com/supernxt/amjid90
+ * branch            main       -> FETCH_HEAD
+Updating 35989f2..ae2ae08
+error: Your local changes to the following files would be overwritten by merge:
+        dist/public/analyzer/index.html
+Please commit your changes or stash them before you merge.
+Aborting
+⠸
+⠋
+⠸
+⠴
+⠧
+⠏
+⠙
+npm error code EAI_AGAIN
+npm error syscall getaddrinfo
+npm error errno EAI_AGAIN
+npm error request to http://package-firewall.replit.local/npm/@types/nodemailer/-/nodemailer-8.0.1.tgz failed, reason: getaddrinfo EAI_AGAIN package-firewall.replit.local
+npm error A complete log of this run can be found in: /root/.npm/_logs/2026-07-08T19_34_08_124Z-debug-0.log
+
+> rest-express@1.0.0 build
+> vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+
+vite v5.4.20 building for production...
+transforming (2) ../vite/modulepreload-polyfill.jsBrowserslist: browsers data (caniuse-lite) is 21 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+transforming (4) src/App.tsx
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 2066 modules transformed.
+../dist/public/index.html                                                        24.51 kB │ gzip:   5.65 kB
+../dist/public/assets/icononly_transparent_nobuffer_1760207932143-DuY2fWzj.png   80.75 kB
+../dist/public/assets/icononly_nobuffer_1760202128142-ClxSnXFr.png               90.15 kB
+../dist/public/assets/index-9c_AoGqW.css                                        128.77 kB │ gzip:  18.73 kB
+../dist/public/assets/chevron-right-BaMUeqDg.js                                   0.30 kB │ gzip:   0.25 kB
+../dist/public/assets/arrow-left-PIQgmmYd.js                                      0.33 kB │ gzip:   0.26 kB
+../dist/public/assets/arrow-right-CNxKYcZg.js                                     0.33 kB │ gzip:   0.27 kB
+../dist/public/assets/clock-CPZzySlg.js                                           0.35 kB │ gzip:   0.27 kB
+../dist/public/assets/circle-check-big-CibyzanH.js                                0.36 kB │ gzip:   0.28 kB
+../dist/public/assets/trending-up-D7xCvx2w.js                                     0.37 kB │ gzip:   0.28 kB
+../dist/public/assets/lock-CotR5AQ8.js                                            0.38 kB │ gzip:   0.29 kB
+../dist/public/assets/star-BvfHjdvy.js                                            0.38 kB │ gzip:   0.29 kB
+../dist/public/assets/dollar-sign-BJ4302dB.js                                     0.39 kB │ gzip:   0.30 kB
+../dist/public/assets/briefcase-BpqCeX6H.js                                       0.39 kB │ gzip:   0.30 kB
+../dist/public/assets/target-D_KMvtS7.js                                          0.39 kB │ gzip:   0.26 kB
+../dist/public/assets/database-D1jaaQ_X.js                                        0.41 kB │ gzip:   0.30 kB
+../dist/public/assets/circle-alert-BYQ8P_gv.js                                    0.42 kB │ gzip:   0.29 kB
+../dist/public/assets/wrench-BxNsPPap.js                                          0.43 kB │ gzip:   0.31 kB
+../dist/public/assets/zap-B1ZXdV4a.js                                             0.43 kB │ gzip:   0.31 kB
+../dist/public/assets/shield-B4fei5F6.js                                          0.44 kB │ gzip:   0.33 kB
+../dist/public/assets/award-Dz2806W8.js                                           0.44 kB │ gzip:   0.33 kB
+../dist/public/assets/house-CB4OyDWT.js                                           0.46 kB │ gzip:   0.32 kB
+../dist/public/assets/users-DDsEgXYt.js                                           0.47 kB │ gzip:   0.32 kB
+../dist/public/assets/file-text-Cmr90uXP.js                                       0.50 kB │ gzip:   0.32 kB
+../dist/public/assets/NotFoundPage-B-szODvK.js                                    0.55 kB │ gzip:   0.33 kB
+../dist/public/assets/building-2-C8zrXAhV.js                                      0.61 kB │ gzip:   0.35 kB
+../dist/public/assets/stethoscope-6TWwbcBR.js                                     0.96 kB │ gzip:   0.47 kB
+../dist/public/assets/card-BqE-Gpde.js                                            1.00 kB │ gzip:   0.36 kB
+../dist/public/assets/ai-assistant-DgbUP1HQ.js                                    1.00 kB │ gzip:   0.54 kB
+../dist/public/assets/shopping-bag-CN74mI16.js                                    1.05 kB │ gzip:   0.47 kB
+../dist/public/assets/RelatedServices-PkpdCioW.js                                 1.16 kB │ gzip:   0.56 kB
+../dist/public/assets/SEO-BM1cApDz.js                                             1.38 kB │ gzip:   0.68 kB
+../dist/public/assets/VideoBackground-RI0wgI2-.js                                 1.81 kB │ gzip:   0.79 kB
+../dist/public/assets/smartphone-BWaxskR_.js                                      1.98 kB │ gzip:   0.77 kB
+../dist/public/assets/FAQSection-B-I6Rbg-.js                                      2.08 kB │ gzip:   0.97 kB
+../dist/public/assets/ToolsHub-ByKHNwSf.js                                        3.88 kB │ gzip:   1.56 kB
+../dist/public/assets/Blog-BYKS_DJe.js                                            4.54 kB │ gzip:   1.73 kB
+../dist/public/assets/WebsiteDevelopment-DBQyJ7li.js                              4.85 kB │ gzip:   1.84 kB
+../dist/public/assets/Infrastructure-CtL9YbKv.js                                  5.12 kB │ gzip:   1.97 kB
+../dist/public/assets/EULA-C3ojmMww.js                                            5.84 kB │ gzip:   1.87 kB
+../dist/public/assets/BlogPost-tkYeV0sJ.js                                        6.68 kB │ gzip:   2.28 kB
+../dist/public/assets/WirelessHotspot-D_FGv5eb.js                                 6.69 kB │ gzip:   2.80 kB
+../dist/public/assets/ToolPage-By6typzd.js                                        6.97 kB │ gzip:   2.30 kB
+../dist/public/assets/PrivacyPolicy-BbI2xJQG.js                                   7.01 kB │ gzip:   2.11 kB
+../dist/public/assets/CaseStudies-Rl-q7qKI.js                                     8.34 kB │ gzip:   3.05 kB
+../dist/public/assets/Support-C0YQcQkA.js                                         8.83 kB │ gzip:   2.90 kB
+../dist/public/assets/Ajman-DuFqtOwc.js                                           9.03 kB │ gzip:   3.16 kB
+../dist/public/assets/RasAlKhaimah-DeKRsMKd.js                                    9.10 kB │ gzip:   3.19 kB
+../dist/public/assets/Fujairah-C-QJqpSw.js                                        9.14 kB │ gzip:   3.17 kB
+../dist/public/assets/AbuDhabi-B6tGARVQ.js                                        9.17 kB │ gzip:   3.22 kB
+../dist/public/assets/Contact-CTCzqQ43.js                                         9.23 kB │ gzip:   2.84 kB
+../dist/public/assets/Sharjah-DChkJ7WA.js                                         9.39 kB │ gzip:   3.31 kB
+../dist/public/assets/Hospitals-DeGh41l7.js                                       9.53 kB │ gzip:   3.64 kB
+../dist/public/assets/Warehouses-EgNEpUeV.js                                      9.68 kB │ gzip:   3.69 kB
+../dist/public/assets/StructuredCabling-yTB2qyKn.js                              10.86 kB │ gzip:   3.52 kB
+../dist/public/assets/NetworkInfrastructure-D78-vYUI.js                          10.88 kB │ gzip:   3.50 kB
+../dist/public/assets/Templates-BK__HJCn.js                                      10.95 kB │ gzip:   3.91 kB
+../dist/public/assets/Hotels-BlQgXPK1.js                                         11.12 kB │ gzip:   4.15 kB
+../dist/public/assets/LaborCampWifi-BKq94Zz5.js                                  11.44 kB │ gzip:   3.94 kB
+../dist/public/assets/About-_1xIH-dN.js                                          11.82 kB │ gzip:   3.76 kB
+../dist/public/assets/FreeAudit-CifaY8cf.js                                      12.03 kB │ gzip:   3.91 kB
+../dist/public/assets/ManagedIT-CfgtPONF.js                                      12.83 kB │ gzip:   4.44 kB
+../dist/public/assets/CCTVSolutions-vdSmJakd.js                                  13.13 kB │ gzip:   4.68 kB
+../dist/public/assets/AISolutions-DyfXrI8O.js                                    14.65 kB │ gzip:   5.21 kB
+../dist/public/assets/Pricing-v7FbeqdN.js                                        16.54 kB │ gzip:   6.00 kB
+../dist/public/assets/blogPosts-jFFLsELP.js                                      27.33 kB │ gzip:  10.75 kB
+../dist/public/assets/Home-CDHBR5hY.js                                           40.73 kB │ gzip:  10.81 kB
+../dist/public/assets/toolsConfig-DX5YXRMu.js                                    42.44 kB │ gzip:  14.70 kB
+../dist/public/assets/index-CHFe63gx.js                                         425.83 kB │ gzip: 138.49 kB
+✓ built in 15.98s
+
+  dist/index.js  15.0kb
+
+⚡ Done in 76ms
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [all](ids: [ 0 ])
+[PM2] [supernxt](0) ✓
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ supernxt    │ default     │ 1.0.0   │ cluster │ 314359   │ 0s     │ 45   │ online    │ 0%       │ 44.7mb   │ root     │ disabled │
